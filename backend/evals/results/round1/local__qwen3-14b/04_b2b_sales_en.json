@@ -1,0 +1,556 @@
+{
+  "sample_id": "04_b2b_sales_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T20:19:50+00:00",
+  "outcome": "ok",
+  "wall_ms": 466382,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Research and identify 50 new Vietnamese SMEs in Hanoi and Ho Chi Minh City that could benefit from HR software",
+      "description": "Conduct online research to identify potential Vietnamese SMEs in Hanoi and Ho Chi Minh City that may need HR software solutions. Use tools like LinkedIn, Google Maps, and industry directories to find companies in relevant sectors.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 50 Vietnamese SMEs in Hanoi and Ho Chi Minh City that could benefit from HR software is compiled and documented.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Create and send personalized outreach emails to 25 of the identified SMEs",
+      "description": "Draft and send personalized outreach emails to 25 of the identified SMEs, introducing the company's HR software and its benefits for SMEs. Ensure the emails are tailored to the recipient's company and industry.",
+      "estimate_hours": 4.0,
+      "done_criteria": "25 personalized outreach emails have been sent to Vietnamese SMEs in Hanoi and Ho Chi Minh City.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Schedule 10 initial discovery calls with potential leads",
+      "description": "Follow up with the recipients of the outreach emails to schedule initial discovery calls. Prepare a call script and ensure that the calls are focused on understanding the needs of the SMEs and how the company's HR software can help.",
+      "estimate_hours": 4.0,
+      "done_criteria": "10 initial discovery calls have been scheduled with potential leads from Vietnamese SMEs.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Conduct 10 initial discovery calls with potential leads",
+      "description": "Conduct the scheduled initial discovery calls with potential leads. Gather information about the SMEs' needs, pain points, and goals to determine if they are a good fit for the company's HR software.",
+      "estimate_hours": 4.0,
+      "done_criteria": "10 initial discovery calls have been completed with potential leads from Vietnamese SMEs.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Qualify and document 15 leads based on the discovery calls",
+      "description": "Review the notes from the discovery calls and qualify the leads based on their interest, fit, and readiness to engage with the company's HR software. Document the qualification criteria and results.",
+      "estimate_hours": 4.0,
+      "done_criteria": "15 leads have been qualified and documented based on the initial discovery calls.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Create and send follow-up emails to 10 unqualified leads",
+      "description": "Draft and send follow-up emails to 10 unqualified leads, providing additional information about the company's HR software and inviting them to reconsider or engage in the future.",
+      "estimate_hours": 2.0,
+      "done_criteria": "10 follow-up emails have been sent to unqualified leads.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Refine outreach strategy based on feedback from discovery calls",
+      "description": "Analyze feedback from the discovery calls and adjust the outreach strategy to improve the quality and relevance of future outreach efforts. Update email templates, call scripts, and lead qualification criteria as needed.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The outreach strategy has been refined based on feedback from discovery calls.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Prepare personalized outreach emails and LinkedIn messages for the identified SMEs",
+      "description": "Draft tailored outreach messages for each of the 20 SMEs, highlighting the benefits of the company's HR software and requesting a meeting or call.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Personalized outreach emails and LinkedIn messages are prepared and ready to be sent to the 20 SMEs.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Send outreach emails and messages to the 20 SMEs and track responses",
+      "description": "Send the prepared outreach emails and LinkedIn messages to the 20 SMEs and monitor for responses using CRM or email tracking tools.",
+      "estimate_hours": 2.0,
+      "done_criteria": "All outreach emails and messages have been sent, and a log of sent communications is maintained.",
+      "depends_on": [
+        "O1-KR2.t2",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Follow up with non-responding SMEs and schedule initial meetings or calls",
+      "description": "Follow up with SMEs who did not respond to the initial outreach, and schedule initial meetings or calls with those who showed interest.",
+      "estimate_hours": 4.0,
+      "done_criteria": "At least 10 initial meetings or calls are scheduled with SMEs who responded positively to the outreach.",
+      "depends_on": [
+        "O1-KR2.t3",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Conduct initial meetings or calls to present the HR software solution and gather requirements",
+      "description": "Hold initial meetings or calls with the SMEs to present the HR software solution, understand their specific needs, and gather requirements for a potential contract.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Initial meetings or calls are conducted with all scheduled SMEs, and a summary of their requirements and interest level is documented.",
+      "depends_on": [
+        "O1-KR2.t4",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Prepare and send customized proposals to interested SMEs",
+      "description": "Based on the information gathered during the initial meetings or calls, prepare and send customized proposals to interested SMEs outlining the HR software solution and contract terms.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Customized proposals are sent to all interested SMEs, and a log of sent proposals is maintained.",
+      "depends_on": [
+        "O1-KR2.t5",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Follow up on proposal responses and negotiate contract terms",
+      "description": "Follow up with SMEs who received the proposals to address any questions, clarify terms, and negotiate contract details.",
+      "estimate_hours": 4.0,
+      "done_criteria": "All proposal responses have been addressed, and contract negotiations are underway with at least 8 SMEs.",
+      "depends_on": [
+        "O1-KR2.t6",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Finalize and sign contracts with 8 SMEs",
+      "description": "Complete the contract negotiation process with 8 SMEs and finalize and sign the contracts.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Eight new annual contracts have been signed with Vietnamese SMEs, and the contracts are documented and stored.",
+      "depends_on": [
+        "O1-KR2.t7",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Analyze current deal size data and identify opportunities for upselling",
+      "description": "Review historical deal data to understand current deal sizes and identify patterns or opportunities for increasing deal size. This includes analyzing customer segments, product usage, and sales interactions.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report summarizing current deal size trends and potential upselling opportunities is completed.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Develop and implement a value-based selling approach for existing and new clients",
+      "description": "Create a strategy to highlight the value of additional features or services that can increase deal size. This includes training materials and scripts for the sales team.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A value-based selling strategy and training materials are developed and shared with the sales team.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Conduct targeted upselling outreach to existing clients",
+      "description": "Reach out to existing clients to discuss upselling opportunities based on the value-based selling strategy. This includes scheduling calls, sending personalized emails, and following up.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A log of all upselling outreach activities is completed, including notes from client interactions.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Review and refine sales proposals to reflect increased deal value",
+      "description": "Update sales proposals to include additional features, services, or value propositions that can increase deal size. This includes reviewing existing proposals and creating new ones.",
+      "estimate_hours": 4.0,
+      "done_criteria": "All sales proposals are updated to reflect increased deal value and are approved for use.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Track and analyze the impact of upselling efforts on deal size",
+      "description": "Monitor the results of upselling efforts and analyze the impact on average first-year deal size. This includes reviewing sales data and preparing a report on the effectiveness of the strategy.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report analyzing the impact of upselling efforts on deal size is completed.",
+      "depends_on": [
+        "O1-KR3.t3",
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Research and outline the sales process",
+      "description": "Conduct research on best practices for sales processes in the HR software industry, and outline a high-level structure for the sales playbook based on the company's current practices and goals.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A high-level outline of the sales process is documented and reviewed for completeness.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Draft the sales playbook content",
+      "description": "Write the initial content for the sales playbook, including sections such as lead qualification, discovery questions, objection handling, and closing strategies.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The initial draft of the sales playbook is completed and ready for review.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Review and refine the sales playbook",
+      "description": "Gather feedback from the sales team on the initial draft of the playbook and refine the content based on their input.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The sales playbook has been reviewed and revised based on team feedback.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Finalize and distribute the sales playbook",
+      "description": "Finalize the sales playbook and distribute it to the entire sales team, ensuring that it is accessible and easy to use.",
+      "estimate_hours": 2.0,
+      "done_criteria": "The finalized sales playbook is distributed to the sales team and confirmed as accessible.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Train the sales team on the sales playbook",
+      "description": "Conduct a training session for the sales team to ensure they understand and can apply the content of the sales playbook effectively.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The sales team has completed a training session on the sales playbook and confirmed understanding.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Monitor adoption and gather feedback",
+      "description": "Monitor the adoption of the sales playbook by the sales team and gather feedback to identify areas for improvement.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Feedback on the adoption of the sales playbook has been collected and documented.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Audit current CRM data completeness",
+      "description": "Review the CRM system to identify which required fields are missing and calculate the current completeness percentage.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report is generated showing the current completeness percentage and a list of missing required fields.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Identify root causes of incomplete CRM data",
+      "description": "Interview sales team members and review CRM usage patterns to understand why required fields are not being filled.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A summary of the root causes is documented, including any process gaps or training needs.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Design a CRM data entry checklist and training materials",
+      "description": "Create a checklist for required fields and develop training materials to ensure sales team members understand the importance of data completeness.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A checklist and training materials are finalized and ready for distribution.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Train sales team on CRM data completeness",
+      "description": "Conduct a training session with the sales team to explain the checklist and the importance of completing required fields in the CRM.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Training session is completed, and all sales team members have received the materials and instructions.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Implement CRM data completeness reminders",
+      "description": "Set up automated reminders within the CRM system to prompt sales team members to complete required fields when entering new leads or updating existing ones.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Automated reminders are configured and tested within the CRM system.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Monitor CRM data completeness and provide feedback",
+      "description": "Track CRM data completeness weekly and provide feedback to the sales team on progress and areas for improvement.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A weekly report on CRM data completeness is generated and shared with the sales team.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 466381,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 5147,
+      "decompose": 349834,
+      "dedup": 111398,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 8,
+    "first_attempt_valid": 8,
+    "valid_after_retry": 8,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 31,
+    "total_hours": 116.0,
+    "expected_total_hours": [
+      106,
+      188
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 7,
+      "O1-KR2": 7,
+      "O1-KR3": 5,
+      "O2-KR1": 6,
+      "O2-KR2": 6
+    },
+    "hours_per_kr": {
+      "O1-KR1": 26.0,
+      "O1-KR2": 28.0,
+      "O1-KR3": 20.0,
+      "O2-KR1": 22.0,
+      "O2-KR2": 20.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b",
+      "decompose": "qwen3:14b",
+      "dedup": "qwen3:14b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 5147,
+      "decompose": 349834,
+      "dedup": 111398,
+      "validate": 0
+    },
+    "duration_ms": 466381,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 1,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 5147,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 82963,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 171597,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 229008,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 290562,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 349801,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 101194,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 111370,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

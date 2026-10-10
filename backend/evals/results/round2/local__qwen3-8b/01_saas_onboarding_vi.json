@@ -1,0 +1,669 @@
+{
+  "sample_id": "01_saas_onboarding_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 66,
+    "total_hours": 264.0
+  },
+  "finished_at": "2026-09-30T23:52:35+00:00",
+  "outcome": "ok",
+  "wall_ms": 306926,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Xác định tiêu chí và phạm vi cho activation",
+      "description": "Xác định rõ tiêu chí nào được coi là activation (tạo sản phẩm đầu tiên), phạm vi người dùng được theo dõi, và công cụ đo lường sẽ sử dụng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Tiêu chí và phạm vi cho activation đã được xác định rõ ràng và ghi lại trong tài liệu.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Phân tích dữ liệu hiện tại về activation",
+      "description": "Xem xét dữ liệu hiện tại về tỉ lệ activation trong 7 ngày, xác định các điểm yếu và nguyên nhân có thể gây ra sự thất bại trong việc activation.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Dữ liệu hiện tại về activation đã được phân tích và ghi lại trong tài liệu.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thiết kế bản nháp cho quy trình onboarding",
+      "description": "Tạo bản nháp cho quy trình onboarding, bao gồm các bước chính, nội dung hướng dẫn, và các điểm tương tác quan trọng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Bản nháp quy trình onboarding đã được thiết kế và ghi lại trong tài liệu.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thử nghiệm quy trình onboarding với 5 người dùng",
+      "description": "Thử nghiệm quy trình onboarding với 5 người dùng mới, ghi lại phản hồi và hành vi của họ trong quá trình.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Phản hồi từ 5 người dùng đã được ghi lại và phân tích.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Chỉnh sửa quy trình onboarding dựa trên phản hồi",
+      "description": "Cập nhật quy trình onboarding dựa trên phản hồi từ người dùng thử nghiệm, điều chỉnh các bước và nội dung phù hợp hơn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Quy trình onboarding đã được chỉnh sửa và ghi lại trong tài liệu.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Triển khai quy trình onboarding mới",
+      "description": "Triển khai quy trình onboarding đã được chỉnh sửa vào sản phẩm, đảm bảo rằng nó được tích hợp đúng và hoạt động như mong đợi.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Quy trình onboarding mới đã được triển khai và kiểm tra trong môi trường sản phẩm.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Theo dõi tỉ lệ activation trong 7 ngày",
+      "description": "Theo dõi tỉ lệ activation trong 7 ngày sau khi triển khai quy trình mới, ghi lại dữ liệu và so sánh với baseline.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Dữ liệu tỉ lệ activation trong 7 ngày đã được theo dõi và ghi lại.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đánh giá kết quả và điều chỉnh nếu cần",
+      "description": "Đánh giá kết quả sau khi triển khai, xem xét liệu tỉ lệ activation có đạt mục tiêu 35% hay không, và điều chỉnh nếu cần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Kết quả đã được đánh giá và các điều chỉnh cần thiết đã được lên kế hoạch.",
+      "depends_on": [
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Xác định tiêu chí và phạm vi cho time-to-first-value",
+      "description": "Lập danh sách các bước trong quy trình onboarding và xác định các điểm mà người dùng mới chạm đến trước khi có giá trị đầu tiên.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Có danh sách các bước trong quy trình onboarding và tiêu chí xác định time-to-first-value rõ ràng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thu thập dữ liệu baseline về time-to-first-value",
+      "description": "Phân tích dữ liệu hiện tại để xác định baseline trung vị của time-to-first-value.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Có báo cáo phân tích dữ liệu baseline về time-to-first-value.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thiết kế các phiên onboarding thử nghiệm",
+      "description": "Tạo 3 phiên onboarding thử nghiệm với các bước rút gọn để giúp người dùng đạt được giá trị đầu tiên nhanh hơn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có 3 phiên onboarding thử nghiệm với các bước rút gọn được thiết kế.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thử nghiệm phiên onboarding 1",
+      "description": "Thực hiện phiên onboarding thử nghiệm 1 với 5 người dùng mới và ghi nhận thời gian họ đạt được giá trị đầu tiên.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Có dữ liệu thời gian đạt được giá trị đầu tiên từ phiên onboarding thử nghiệm 1.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thử nghiệm phiên onboarding 2",
+      "description": "Thực hiện phiên onboarding thử nghiệm 2 với 5 người dùng mới và ghi nhận thời gian họ đạt được giá trị đầu tiên.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Có dữ liệu thời gian đạt được giá trị đầu tiên từ phiên onboarding thử nghiệm 2.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thử nghiệm phiên onboarding 3",
+      "description": "Thực hiện phiên onboarding thử nghiệm 3 với 5 người dùng mới và ghi nhận thời gian họ đạt được giá trị đầu tiên.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Có dữ liệu thời gian đạt được giá trị đầu tiên từ phiên onboarding thử nghiệm 3.",
+      "depends_on": [
+        "O1-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Phân tích kết quả thử nghiệm và chọn phiên onboarding tối ưu",
+      "description": "So sánh dữ liệu từ 3 phiên onboarding thử nghiệm để chọn phiên có time-to-first-value trung vị thấp nhất.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Có phiên onboarding tối ưu với time-to-first-value trung vị thấp nhất.",
+      "depends_on": [
+        "O1-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Triển khai phiên onboarding tối ưu",
+      "description": "Áp dụng phiên onboarding tối ưu vào quy trình onboarding chính thức và theo dõi thời gian đạt được giá trị đầu tiên của người dùng mới.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Phiên onboarding tối ưu đã được triển khai và đang theo dõi.",
+      "depends_on": [
+        "O1-KR2.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t9",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Theo dõi và đo lường time-to-first-value sau triển khai",
+      "description": "Theo dõi time-to-first-value trung vị sau khi triển khai phiên onboarding tối ưu và so sánh với baseline.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Có báo cáo đo lường time-to-first-value trung vị sau triển khai.",
+      "depends_on": [
+        "O1-KR2.t8"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Xác định yêu cầu và phạm vi cho hướng dẫn in-app",
+      "description": "Lên kế hoạch cho 3 luồng chính: nhập hàng, xuất hàng, kiểm kê. Xác định mục tiêu, đối tượng người dùng, và các bước cần thực hiện trong hướng dẫn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã có tài liệu yêu cầu và phạm vi cho 3 luồng chính.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Lên kế hoạch nội dung cho từng luồng",
+      "description": "Viết nội dung cho từng luồng (nhập hàng, xuất hàng, kiểm kê) và xác định các bước cụ thể trong hướng dẫn in-app.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã có nội dung chi tiết cho 3 luồng chính.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thiết kế giao diện và trải nghiệm người dùng cho hướng dẫn",
+      "description": "Thiết kế giao diện, trình tự, và trải nghiệm người dùng cho hướng dẫn in-app, đảm bảo phù hợp với trải nghiệm tổng thể của ứng dụng.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã có bản thiết kế giao diện và trải nghiệm người dùng cho hướng dẫn in-app.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thử nghiệm và kiểm tra hướng dẫn in-app",
+      "description": "Thử nghiệm hướng dẫn in-app với một nhóm người dùng thử nghiệm, thu thập phản hồi và đánh giá hiệu quả.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã có báo cáo thử nghiệm và phản hồi từ người dùng thử nghiệm.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Sửa đổi và hoàn thiện hướng dẫn in-app",
+      "description": "Cập nhật và hoàn thiện hướng dẫn in-app dựa trên phản hồi từ thử nghiệm, đảm bảo tính chính xác và hiệu quả.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Hướng dẫn in-app đã được hoàn thiện và sẵn sàng triển khai.",
+      "depends_on": [
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Triển khai hướng dẫn in-app",
+      "description": "Triển khai hướng dẫn in-app cho người dùng mới, đảm bảo tích hợp đúng vào quy trình onboarding.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Hướng dẫn in-app đã được triển khai và tích hợp vào quy trình onboarding.",
+      "depends_on": [
+        "O1-KR3.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Đo lường hiệu quả của hướng dẫn in-app",
+      "description": "Đo lường tỷ lệ hoàn thành hướng dẫn, thời gian người dùng dành cho hướng dẫn, và tác động đến trải nghiệm onboarding.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã có dữ liệu đo lường hiệu quả của hướng dẫn in-app.",
+      "depends_on": [
+        "O1-KR3.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Xác định tiêu chí và phạm vi cho việc giảm churn tháng đầu",
+      "description": "Xác định rõ các yếu tố ảnh hưởng đến churn tháng đầu, bao gồm hành vi người dùng, phản hồi từ khách hàng, và các chỉ số liên quan.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã xác định rõ tiêu chí và phạm vi cho việc giảm churn tháng đầu.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Phân tích dữ liệu churn tháng đầu hiện tại",
+      "description": "Xem xét dữ liệu hiện tại về churn tháng đầu, bao gồm các mẫu dữ liệu, xu hướng, và các yếu tố gây ra churn.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Đã phân tích dữ liệu churn tháng đầu và xác định các yếu tố chính gây ra churn.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Thiết kế chiến lược giảm churn tháng đầu",
+      "description": "Lên kế hoạch các hoạt động cụ thể để giảm churn, bao gồm cải thiện trải nghiệm người dùng, hỗ trợ khách hàng, và tối ưu hóa sản phẩm.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thiết kế chiến lược chi tiết để giảm churn tháng đầu.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Thực hiện chiến lược giảm churn tháng đầu",
+      "description": "Triển khai các hoạt động đã lên kế hoạch, bao gồm gửi email nhắc nhở, hỗ trợ khách hàng, và cải thiện trải nghiệm người dùng.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã thực hiện chiến lược giảm churn tháng đầu và ghi lại các hoạt động đã thực hiện.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Kiểm tra hiệu quả chiến lược giảm churn",
+      "description": "Đánh giá hiệu quả của chiến lược bằng cách theo dõi các chỉ số liên quan và nhận phản hồi từ khách hàng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra hiệu quả chiến lược và xác định các điểm cần cải thiện.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Điều chỉnh chiến lược dựa trên phản hồi",
+      "description": "Cập nhật chiến lược dựa trên kết quả kiểm tra và phản hồi từ khách hàng để tối ưu hóa hiệu quả.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Đã điều chỉnh chiến lược và cập nhật các hoạt động cần thực hiện.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đo lường kết quả cuối cùng của key result",
+      "description": "Đo lường tỉ lệ churn tháng đầu sau khi triển khai chiến lược và xác định xem có đạt mục tiêu 6% hay không.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã đo lường kết quả và xác nhận tỉ lệ churn tháng đầu đạt mục tiêu 6%.",
+      "depends_on": [
+        "O2-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Lên kế hoạch và xác định tiêu chí phỏng vấn",
+      "description": "Xác định danh sách 15 khách hàng rời bỏ, chuẩn bị câu hỏi phỏng vấn, và xác định công cụ ghi chú.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Danh sách 15 khách hàng và câu hỏi phỏng vấn đã được xác định rõ ràng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Phỏng vấn khách hàng rời bỏ (1-5)",
+      "description": "Thực hiện 5 cuộc phỏng vấn với khách hàng rời bỏ, ghi chú và tổng hợp insight ban đầu.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Đã hoàn thành 5 cuộc phỏng vấn và có bản ghi chú sơ bộ.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Phỏng vấn khách hàng rời bỏ (6-10)",
+      "description": "Tiếp tục phỏng vấn 5 khách hàng rời bỏ, ghi chú và tổng hợp insight.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Đã hoàn thành 10 cuộc phỏng vấn và có bản ghi chú tổng hợp.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Phỏng vấn khách hàng rời bỏ (11-15)",
+      "description": "Hoàn tất 5 cuộc phỏng vấn cuối cùng, ghi chú và tổng hợp insight.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Đã hoàn thành 15 cuộc phỏng vấn và có bản ghi chú đầy đủ.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tổng hợp insight và báo cáo",
+      "description": "Tổng hợp tất cả insight từ 15 cuộc phỏng vấn thành báo cáo chi tiết.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo tổng hợp insight từ 15 cuộc phỏng vấn đã được hoàn thành.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Đánh giá kết quả và đo lường",
+      "description": "Kiểm tra lại số lượng cuộc phỏng vấn và đảm bảo đạt mục tiêu 15 cuộc.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Số lượng cuộc phỏng vấn đạt 15 và báo cáo đã được xác nhận.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 306911,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 6254,
+      "decompose": 167169,
+      "dedup": 133487,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 12,
+    "first_attempt_valid": 12,
+    "valid_after_retry": 12,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 37,
+    "total_hours": 139.0,
+    "expected_total_hours": [
+      108,
+      194
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 8,
+      "O1-KR2": 9,
+      "O1-KR3": 7,
+      "O2-KR1": 7,
+      "O2-KR2": 6
+    },
+    "hours_per_kr": {
+      "O1-KR1": 29.0,
+      "O1-KR2": 27.0,
+      "O1-KR3": 36.0,
+      "O2-KR1": 24.0,
+      "O2-KR2": 23.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:8b",
+      "decompose": "qwen3:8b",
+      "dedup": "qwen3:8b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 6254,
+      "decompose": 167169,
+      "dedup": 133487,
+      "validate": 0
+    },
+    "duration_ms": 306911,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1433,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 2398,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 3123,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 4490,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 6198,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 30563,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 64142,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 94197,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 129812,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 167136,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 131239,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 2245,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

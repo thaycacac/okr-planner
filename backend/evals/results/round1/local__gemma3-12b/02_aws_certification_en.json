@@ -1,0 +1,77 @@
+{
+  "sample_id": "02_aws_certification_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "gemma3:12b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T19:09:42+00:00",
+  "outcome": "needs_clarification",
+  "wall_ms": 16258,
+  "failure": null,
+  "questions": [
+    {
+      "id": "q1",
+      "kr_id": "O1-KR3",
+      "question": "What is the passing score for the AWS Certified Solutions Architect – Associate exam?",
+      "reason": "The key result states 'with a passing score', but doesn't specify what that score is. Knowing the passing score is essential to determine if the key result is achieved.",
+      "source": "llm"
+    }
+  ],
+  "issues": [],
+  "tasks": [],
+  "timing": {
+    "duration_ms": 16258,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 16255
+    }
+  },
+  "json": {
+    "llm_calls": 1,
+    "first_attempt_valid": 1,
+    "valid_after_retry": 1,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": true
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "gemma3:12b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 16255
+    },
+    "duration_ms": 16258,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 1,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "gemma3:12b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 16254,
+        "errors": []
+      }
+    ]
+  }
+}

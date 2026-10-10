@@ -1,0 +1,558 @@
+{
+  "sample_id": "04_b2b_sales_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "gemma3:12b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T19:26:50+00:00",
+  "outcome": "ok",
+  "wall_ms": 408458,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Research Vietnamese SME Lead Generation Channels",
+      "description": "Identify and document potential lead generation channels suitable for reaching Vietnamese SMEs in Hanoi and Ho Chi Minh City. This includes online platforms (LinkedIn, Facebook, industry forums), offline events, partnerships, and content marketing opportunities. Prioritize channels based on potential reach and cost-effectiveness.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Document outlining at least 5 potential lead generation channels with estimated reach and cost.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Refine Ideal Customer Profile (ICP) for Vietnamese SMEs",
+      "description": "Review and refine the existing ICP to ensure it accurately reflects the characteristics of Vietnamese SMEs most likely to benefit from the HR software. Consider industry, size, location, and pain points. Document any changes to the ICP.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Updated ICP document reflecting key characteristics of target Vietnamese SMEs.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Develop Lead Magnet Content for Vietnamese SMEs",
+      "description": "Create a valuable lead magnet (e.g., ebook, checklist, webinar) tailored to the needs and pain points of the refined ICP. Ensure the content is relevant, engaging, and provides actionable insights. Translate into Vietnamese if necessary.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Completed lead magnet content ready for distribution.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Implement Lead Generation Campaign on Chosen Channel(s)",
+      "description": "Execute a lead generation campaign on at least one of the prioritized channels identified in task t1, utilizing the lead magnet created in task t3. This includes setting up tracking, creating ad copy, and managing campaign budget. Focus on a single channel initially for testing and optimization.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Lead generation campaign live on chosen channel with tracking implemented.",
+      "depends_on": [
+        "O1-KR1.t1",
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Monitor and Optimize Lead Generation Campaign",
+      "description": "Continuously monitor the performance of the lead generation campaign, tracking key metrics such as impressions, clicks, conversion rates, and cost per lead. Make adjustments to ad copy, targeting, and bidding strategies to improve performance. Document changes and results.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Documented analysis of campaign performance with at least 3 optimization adjustments made.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Evaluate and Expand Lead Generation Channels",
+      "description": "Based on the results of the initial campaign, evaluate the effectiveness of the chosen channel and identify opportunities to expand to other channels. Prioritize channels based on potential ROI and alignment with the ICP.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Document outlining recommendations for expanding to additional lead generation channels.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Identify and Prioritize Target Vietnamese SME Segments",
+      "description": "Research and segment Vietnamese SMEs in Hanoi and Ho Chi Minh City based on industry, size, and HR software needs. Prioritize segments with the highest potential for annual contract sign-ups. Document findings and rationale.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Document outlining prioritized SME segments with justification.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Refine Ideal Customer Profile (ICP) for Annual Contracts",
+      "description": "Based on the segment prioritization, refine the Ideal Customer Profile (ICP) specifically for SMEs likely to commit to annual contracts.  Detail key characteristics, pain points, and decision-making processes.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Updated ICP document focused on annual contract prospects.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Develop Targeted Outreach Messaging for Annual Contracts",
+      "description": "Craft compelling messaging tailored to the refined ICP, highlighting the value proposition of annual contracts (e.g., cost savings, dedicated support, strategic partnership). Create multiple message variations for different channels.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Document containing multiple outreach message variations targeting the defined ICP.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Review and Adjust Sales Team Strategy for Annual Contracts",
+      "description": "Collaborate with the sales team to review current strategies and adapt them to focus on securing annual contracts. Provide training and support on the new messaging and ICP.  Document adjustments.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Document outlining sales team strategy adjustments and training plan.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Execute Targeted Outreach and Track Results (First 4 Weeks)",
+      "description": "Implement the targeted outreach campaign to prioritized segments. Diligently track engagement metrics (opens, clicks, replies, meetings booked) and identify areas for optimization.  Document findings.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Report documenting outreach campaign results and initial optimization adjustments.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Analyze Outreach Performance and Refine Approach (Weeks 5-8)",
+      "description": "Analyze the data from the initial outreach phase. Refine messaging, targeting, and channel selection based on performance. Document changes and rationale.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Document outlining performance analysis and refined outreach approach.",
+      "depends_on": [
+        "O1-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Continue Outreach and Contract Negotiation (Weeks 9-16)",
+      "description": "Continue outreach efforts using the refined approach. Focus on nurturing leads and guiding them through the contract negotiation process. Track progress towards the 8 annual contract target.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Record of outreach activities and contract negotiation progress.",
+      "depends_on": [
+        "O1-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Final Push and Contract Closure (Weeks 17-20)",
+      "description": "Focus on closing remaining deals and securing the final annual contracts needed to reach the target. Address any roadblocks and provide necessary support to the sales team.",
+      "estimate_hours": 4.0,
+      "done_criteria": "8 annual contracts signed.",
+      "depends_on": [
+        "O1-KR2.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Analyze Existing Deals & Customer Profiles",
+      "description": "Review the last 6-12 months of closed deals (both successful and unsuccessful) with Vietnamese SMEs. Identify common characteristics of deals that exceeded $2,000 first-year value versus those below. Segment customer profiles to understand what factors correlate with higher deal sizes. Document findings and initial hypotheses.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Documented analysis of at least 20 closed deals, including key characteristics and potential correlation factors with deal size.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Refine Ideal Customer Profile (ICP) for Higher Value Deals",
+      "description": "Based on the deal analysis, refine the ICP to specifically target Vietnamese SMEs with a higher propensity for larger first-year deals. This includes firmographic, technographic, and behavioral criteria. Document the revised ICP.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Revised ICP document outlining key characteristics of SMEs likely to have higher first-year deal sizes.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Develop Value Proposition Adjustments for Higher Value Segments",
+      "description": "Based on the refined ICP, develop adjustments to the value proposition to better resonate with these higher-value segments. Focus on highlighting features and benefits that justify a larger investment. Document these adjustments.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Documented value proposition adjustments tailored to the refined ICP, including specific messaging and feature prioritization.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Sales Playbook Update & Team Training",
+      "description": "Update the sales playbook with the revised ICP and value proposition adjustments. Conduct a brief training session with the sales team (3 people) to ensure they understand and can apply the new approach. Document the training session.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Updated sales playbook incorporating the revised ICP and value proposition. Documented training session with the sales team.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Monitor Deal Sizes & Adjust Strategy",
+      "description": "For the next month, closely monitor the average first-year deal size. Track deals closed using the updated playbook.  Identify any unexpected results or areas for further refinement. Document observations and potential adjustments to the strategy.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Documented observations on deal sizes and effectiveness of the updated playbook after one month, including proposed adjustments.",
+      "depends_on": [
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Define Sales Playbook Structure & Sections",
+      "description": "Outline the key sections of the sales playbook (e.g., prospecting, qualification, demo, negotiation, closing, onboarding). Define the level of detail required in each section. Consider existing sales documentation and team input.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Document outlining the playbook structure and section headings approved by the sales team lead.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Gather Existing Sales Materials & Best Practices",
+      "description": "Collect all existing sales documentation (email templates, call scripts, presentations, case studies, proposal templates). Interview sales team members to capture their best practices and successful approaches.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Centralized repository of existing sales materials and a summary document of best practices gathered from team interviews.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Draft Initial Playbook Content (Prospecting & Qualification)",
+      "description": "Based on the structure and gathered materials, draft the initial content for the prospecting and qualification sections of the playbook. Focus on clear, actionable steps and examples.",
+      "estimate_hours": 4.0,
+      "done_criteria": "First draft of the prospecting and qualification sections of the sales playbook completed.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Draft Initial Playbook Content (Demo, Negotiation, Closing)",
+      "description": "Draft the initial content for the demo, negotiation, and closing sections of the playbook. Focus on clear, actionable steps and examples.",
+      "estimate_hours": 4.0,
+      "done_criteria": "First draft of the demo, negotiation, and closing sections of the sales playbook completed.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Sales Team Review & Feedback (Playbook Draft)",
+      "description": "Share the draft playbook with the sales team and solicit feedback. Schedule a meeting to discuss and gather input.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Feedback collected from all sales team members and documented.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Revise Playbook Based on Feedback",
+      "description": "Incorporate the feedback received from the sales team into the playbook. Refine the content and ensure clarity and accuracy.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Revised sales playbook incorporating all feedback.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Finalize Playbook & Create Distribution Method",
+      "description": "Perform a final review of the playbook. Determine the best method for distributing and accessing the playbook (e.g., shared drive, internal wiki).",
+      "estimate_hours": 2.0,
+      "done_criteria": "Finalized sales playbook and documented distribution method.",
+      "depends_on": [
+        "O2-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Sales Team Training on Playbook",
+      "description": "Conduct a training session for the sales team on how to use the sales playbook. Ensure everyone understands the content and can apply it to their sales process.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Sales team training completed and documented attendance.",
+      "depends_on": [
+        "O2-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Analyze Current CRM Data & Identify Missing Fields",
+      "description": "Examine the current CRM data to pinpoint which fields are frequently missing. Categorize missing fields by importance and potential impact on sales effectiveness. Document findings.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A documented list of missing CRM fields, categorized by importance and impact.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Design CRM Data Validation Rules",
+      "description": "Based on the analysis, design rules and validations within the CRM to enforce completion of critical fields. Consider user experience and avoid overly restrictive rules that hinder adoption. Document the proposed rules.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Documented CRM data validation rules, including rationale and potential user impact.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Implement CRM Data Validation Rules",
+      "description": "Implement the designed data validation rules within the CRM system. Test the rules thoroughly to ensure they function as expected and don't negatively impact data entry.",
+      "estimate_hours": 4.0,
+      "done_criteria": "CRM data validation rules are implemented and tested within the CRM system.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Train Sales Team on New CRM Validation Rules",
+      "description": "Conduct a brief training session for the sales team explaining the new CRM data validation rules and their importance. Address any questions or concerns.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Sales team has been trained on the new CRM data validation rules, and understanding confirmed.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Monitor CRM Data Completeness & Adjust Rules",
+      "description": "Monitor the CRM data completeness metric over the next two weeks. If the target of 90% is not being met, analyze the reasons and adjust the validation rules or training as needed. Document adjustments.",
+      "estimate_hours": 4.0,
+      "done_criteria": "CRM data completeness is monitored, and any necessary adjustments to validation rules or training are documented.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 408457,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 12316,
+      "decompose": 355256,
+      "dedup": 40883,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 8,
+    "first_attempt_valid": 8,
+    "valid_after_retry": 8,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 32,
+    "total_hours": 120.0,
+    "expected_total_hours": [
+      106,
+      188
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 6,
+      "O1-KR2": 8,
+      "O1-KR3": 5,
+      "O2-KR1": 8,
+      "O2-KR2": 5
+    },
+    "hours_per_kr": {
+      "O1-KR1": 24.0,
+      "O1-KR2": 29.0,
+      "O1-KR3": 18.0,
+      "O2-KR1": 31.0,
+      "O2-KR2": 18.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "gemma3:12b",
+      "decompose": "gemma3:12b",
+      "dedup": "gemma3:12b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 12316,
+      "decompose": 355256,
+      "dedup": 40883,
+      "validate": 0
+    },
+    "duration_ms": 408457,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "gemma3:12b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 12315,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 70927,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 154893,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 216064,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 298972,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 355218,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 22850,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "gemma3:12b",
+        "objective_id": "O2",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 40806,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

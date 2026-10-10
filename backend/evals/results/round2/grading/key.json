@@ -1,0 +1,10 @@
+{
+  "Me9da": {
+    "provider": "local",
+    "model": "qwen3:14b"
+  },
+  "Me443": {
+    "provider": "local",
+    "model": "qwen3:8b"
+  }
+}

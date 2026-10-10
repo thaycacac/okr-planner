@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "sample_id": "07_self_improvement_vague_vi",
+  "domain": "personal_development",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "qualitative",
+    "O1-KR2": "numeric"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Phát triển bản thân trong công việc",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Học thêm nhiều kỹ năng mới",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Cải thiện hiệu suất làm việc",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Muốn quý này làm việc tốt hơn.",
+    "clarifications": [],
+    "language": "vi"
+  },
+  "expected": {
+    "clarify_status": "needs_clarification",
+    "clarification_topics": [
+      "Kỹ năng cụ thể nào cần học và bằng chứng hoàn thành (chứng chỉ, dự án, sản phẩm)",
+      "Hiệu suất đo bằng chỉ số nào, giá trị hiện tại (baseline) và mục tiêu (target)",
+      "Vai trò hoặc công việc hiện tại và số giờ có thể dành mỗi ngày"
+    ],
+    "total_hours_range": null,
+    "key_results": {},
+    "grader_notes": "Mẫu cố ý mơ hồ: không có kỹ năng cụ thể, KR số đo thiếu đơn vị, baseline và target. Kết quả đúng là needs_clarification, tối đa 5 câu hỏi, không sinh task và không tự bịa số liệu (ví dụ tự đặt 'tăng hiệu suất 20%'). Câu hỏi phải chạm ít nhất hai chủ đề đầu trong danh sách; câu hỏi về thời gian có thể dành là điểm cộng. Precheck deterministic chỉ bắt O1-KR2 (có từ 'cải thiện'); câu hỏi về kỹ năng cụ thể của O1-KR1 phải do bước clarify của LLM đặt ra."
+  }
+}

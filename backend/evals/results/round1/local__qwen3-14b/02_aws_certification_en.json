@@ -1,0 +1,360 @@
+{
+  "sample_id": "02_aws_certification_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T20:06:24+00:00",
+  "outcome": "ok",
+  "wall_ms": 257635,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Review AWS Solutions Architect – Associate exam blueprint and identify knowledge gaps",
+      "description": "Study the official AWS exam blueprint to understand the domains and weighting of topics. Identify areas where the candidate has limited knowledge or experience, particularly in cloud architecture, security, and cost optimization.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of identified knowledge gaps and a prioritized study plan is created based on the exam blueprint.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete a full-length practice exam and analyze results",
+      "description": "Take a full-length practice exam under exam-like conditions. Review the results to understand the current score and identify specific areas of weakness.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A detailed analysis of the practice exam results is completed, including a breakdown of scores by domain and a list of topics requiring improvement.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Develop a focused study plan based on practice exam results",
+      "description": "Create a study plan that allocates time to each identified knowledge gap, with a focus on improving the lowest-scoring domains. Ensure the plan aligns with the candidate's available study time of 2 hours per day.",
+      "estimate_hours": 2.0,
+      "done_criteria": "A detailed, personalized study plan is created and reviewed for feasibility and alignment with the candidate's schedule.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Study and complete targeted learning modules for identified knowledge gaps",
+      "description": "Follow the study plan to complete learning modules, tutorials, and documentation focused on improving the lowest-scoring domains from the practice exam.",
+      "estimate_hours": 6.0,
+      "done_criteria": "All targeted learning modules for identified knowledge gaps are completed, and the candidate feels confident in the topics covered.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Retake a full-length practice exam to assess progress",
+      "description": "Take a second full-length practice exam under exam-like conditions to measure improvement in score and identify any remaining knowledge gaps.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The second full-length practice exam is completed, and a comparison of scores with the first exam is made to assess progress.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Review practice exam results and refine study plan",
+      "description": "Analyze the results of the second practice exam to identify any remaining knowledge gaps or areas requiring further improvement. Refine the study plan accordingly.",
+      "estimate_hours": 2.0,
+      "done_criteria": "A revised study plan is created based on the results of the second practice exam, with a focus on closing any remaining knowledge gaps.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete additional learning modules and review materials",
+      "description": "Follow the revised study plan to complete additional learning modules, review materials, and practice questions to further improve understanding and retention of key topics.",
+      "estimate_hours": 6.0,
+      "done_criteria": "All additional learning modules and review materials from the revised study plan are completed, and the candidate feels confident in the topics covered.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Retake a full-length practice exam to confirm score improvement",
+      "description": "Take a third full-length practice exam under exam-like conditions to confirm that the score has improved to at least 80%.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The third full-length practice exam is completed, and the score is verified to be at least 80%.",
+      "depends_on": [
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Research and select 4 relevant AWS hands-on labs",
+      "description": "Identify 4 hands-on AWS labs that align with the AWS Certified Solutions Architect – Associate certification objectives and are suitable for someone with on-premise experience. Ensure the labs are available on platforms like AWS Training and Certification or other reputable sources.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 4 relevant AWS hands-on labs is compiled and documented.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete the first AWS hands-on lab and commit to Git repository",
+      "description": "Complete the first selected AWS hands-on lab, document the process, and commit the work to a public Git repository. Ensure the repository is set up and accessible.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The first lab is completed and committed to a public Git repository.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete the second AWS hands-on lab and commit to Git repository",
+      "description": "Complete the second selected AWS hands-on lab, document the process, and commit the work to the same public Git repository.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The second lab is completed and committed to the public Git repository.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete the third AWS hands-on lab and commit to Git repository",
+      "description": "Complete the third selected AWS hands-on lab, document the process, and commit the work to the same public Git repository.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The third lab is completed and committed to the public Git repository.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete the fourth AWS hands-on lab and commit to Git repository",
+      "description": "Complete the fourth selected AWS hands-on lab, document the process, and commit the work to the same public Git repository. Ensure all labs are properly documented and the repository is complete.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The fourth lab is completed and committed to the public Git repository, and all labs are documented.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Research and select an official AWS certification exam date",
+      "description": "Identify available exam dates for the AWS Certified Solutions Architect – Associate certification that are no later than 2026-12-15. Consider factors such as location, availability, and cost (which is covered by the employer).",
+      "estimate_hours": 2.0,
+      "done_criteria": "A specific exam date has been selected and confirmed through the AWS certification portal.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Book the selected AWS certification exam",
+      "description": "Complete the booking process for the selected exam date through the AWS certification portal. Confirm receipt of the confirmation email and ensure that the exam fee has been processed by the employer.",
+      "estimate_hours": 2.0,
+      "done_criteria": "The exam is successfully booked and confirmed with a confirmation email received.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Review AWS certification exam requirements and format",
+      "description": "Study the official AWS Certified Solutions Architect – Associate exam guide to understand the exam format, question types, and topics covered. Identify any gaps in knowledge based on prior experience.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A summary of the exam format and topics has been created, and any knowledge gaps have been identified.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Prepare for the AWS certification exam through focused study",
+      "description": "Dedicate time to study the key topics of the AWS Certified Solutions Architect – Associate certification, using official AWS resources and practice exams. Focus on areas identified as knowledge gaps.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A study plan has been completed, and sufficient preparation has been made to be ready for the exam.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Take the AWS Certified Solutions Architect – Associate certification exam",
+      "description": "Attend the booked exam session and complete the AWS Certified Solutions Architect – Associate certification exam with a passing score.",
+      "estimate_hours": 2.0,
+      "done_criteria": "The exam has been taken and a passing score has been achieved.",
+      "depends_on": [
+        "O1-KR3.t2",
+        "O1-KR3.t4"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 257631,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 40058,
+      "decompose": 200166,
+      "dedup": 17406,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 5,
+    "first_attempt_valid": 5,
+    "valid_after_retry": 5,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 18,
+    "total_hours": 68.0,
+    "expected_total_hours": [
+      56,
+      106
+    ],
+    "usable_hours": 118.8,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 8,
+      "O1-KR2": 5,
+      "O1-KR3": 5
+    },
+    "hours_per_kr": {
+      "O1-KR1": 32.0,
+      "O1-KR2": 20.0,
+      "O1-KR3": 16.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b",
+      "decompose": "qwen3:14b",
+      "dedup": "qwen3:14b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 40058,
+      "decompose": 200166,
+      "dedup": 17406,
+      "validate": 0
+    },
+    "duration_ms": 257631,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 1,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 40058,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 90619,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 144033,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 200132,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 17404,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

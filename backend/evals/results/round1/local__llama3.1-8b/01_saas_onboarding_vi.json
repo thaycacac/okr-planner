@@ -1,0 +1,156 @@
+{
+  "sample_id": "01_saas_onboarding_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "llama3.1:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T17:49:13+00:00",
+  "outcome": "error",
+  "wall_ms": 750458,
+  "failure": {
+    "code": "provider_unavailable",
+    "step": "dedup",
+    "message": "local LLM timed out after 600s",
+    "provider": "local",
+    "model": "llama3.1:8b",
+    "objective_id": "O1",
+    "kr_id": null,
+    "attempts": 1,
+    "errors": [
+      "local LLM timed out after 600s"
+    ],
+    "suggestions": [
+      "check_connection",
+      "switch_provider"
+    ]
+  },
+  "questions": [],
+  "issues": [],
+  "tasks": [],
+  "timing": {
+    "duration_ms": 750416,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 4454,
+      "decompose": 145892
+    }
+  },
+  "json": {
+    "llm_calls": 7,
+    "first_attempt_valid": 5,
+    "valid_after_retry": 7,
+    "retries": 2,
+    "rejected_attempts": 3,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 3
+  },
+  "auto_checks": {
+    "false_clarification": false
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "llama3.1:8b",
+      "decompose": "llama3.1:8b",
+      "dedup": "llama3.1:8b"
+    },
+    "total_retries": 2,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 4454,
+      "decompose": 145892
+    },
+    "duration_ms": 750416,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "llama3.1:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 4453,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 107061,
+        "errors": [
+          "attempt 1: task t3: estimate_hours 8 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 21399,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 34278,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 59184,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 145871,
+        "errors": [
+          "attempt 1: task t2: estimate_hours 20 is above 6; split it into smaller tasks of 2-6 hours",
+          "attempt 1: task t3: estimate_hours 8 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "dedup",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 600060,
+        "errors": [
+          "local LLM timed out after 600s"
+        ]
+      }
+    ]
+  }
+}

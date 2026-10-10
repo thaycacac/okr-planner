@@ -1,0 +1,557 @@
+{
+  "sample_id": "06_mobile_app_launch_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T20:32:08+00:00",
+  "outcome": "ok",
+  "wall_ms": 379161,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Design and implement streak tracking feature",
+      "description": "Create the logic and UI for streak tracking, including how streaks are calculated, displayed, and updated based on user activity. Ensure the feature is fully functional and integrated with the existing app codebase.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Streak tracking feature is fully implemented and passes initial testing.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Design and implement smart reminders feature",
+      "description": "Develop the smart reminders feature, including user customization options, scheduling logic, and integration with Firebase for push notifications. Ensure the feature is fully functional and integrated with the existing app codebase.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Smart reminders feature is fully implemented and passes initial testing.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Test and debug streaks and smart reminders features",
+      "description": "Perform thorough testing of the streaks and smart reminders features, including edge cases, user flows, and integration with Firebase. Fix any bugs or issues discovered during testing.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Streaks and smart reminders features are fully tested and free of critical bugs.",
+      "depends_on": [
+        "O1-KR1.t1",
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Prepare app for release on App Store and Google Play",
+      "description": "Update app metadata, screenshots, and descriptions for both App Store and Google Play. Ensure the app meets all guidelines and requirements for submission. Prepare necessary documentation and assets.",
+      "estimate_hours": 4.0,
+      "done_criteria": "App is fully prepared for submission to App Store and Google Play, including all required metadata and assets.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Submit app to App Store and Google Play",
+      "description": "Submit the updated app to both App Store and Google Play. Monitor the submission process and address any feedback or issues raised by the app stores.",
+      "estimate_hours": 2.0,
+      "done_criteria": "App has been successfully submitted to App Store and Google Play and is awaiting approval.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Analyze crash logs and identify root causes",
+      "description": "Review crash logs from Firebase Crashlytics to identify the most frequent crash points and their root causes. Focus on understanding the context, frequency, and impact of each crash.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of identified crash points with their root causes is documented and ready for prioritization.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Prioritize crash fixes based on impact and complexity",
+      "description": "Evaluate the identified crash points based on their impact on user experience, frequency, and complexity of resolution. Prioritize them for fixing in the next development cycle.",
+      "estimate_hours": 2.0,
+      "done_criteria": "A prioritized list of crash fixes is created, with clear order of implementation.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Implement high-priority crash fixes",
+      "description": "Develop and implement fixes for the highest-priority crash points identified in the previous task. Ensure that the fixes are thoroughly tested and integrated into the codebase.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The highest-priority crash fixes are implemented, tested, and merged into the main codebase.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Conduct regression testing after crash fixes",
+      "description": "Perform comprehensive regression testing to ensure that the implemented crash fixes have not introduced new issues or broken existing functionality.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Regression testing is completed, and no new issues are found that are related to the crash fixes.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Monitor crash-free sessions post-release",
+      "description": "After releasing the updated version of the app, monitor crash-free sessions using Firebase Crashlytics to track progress toward the target of 99.5%.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Crash-free session metrics are being monitored and logged for analysis.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Research and identify growth strategies for increasing monthly active users",
+      "description": "Conduct research on effective growth strategies for habit-tracking apps, including user acquisition, retention tactics, and referral programs. Analyze competitors and industry trends to identify opportunities for growth.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 5-7 potential growth strategies is compiled and documented.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Design and implement a referral program for Habitly",
+      "description": "Create a referral program that incentivizes existing users to invite new users. Develop the necessary backend and frontend features using Flutter and Firebase to support the program.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The referral program is fully implemented and tested within the app.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Optimize onboarding experience for new users",
+      "description": "Revise the onboarding process to improve user engagement and reduce early drop-offs. Implement changes in Flutter and Firebase to ensure a smoother and more effective onboarding flow.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The onboarding process is updated and tested with a small group of users.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Implement in-app engagement features to increase daily usage",
+      "description": "Add features such as daily reminders, progress tracking, and motivational messages to encourage users to engage with the app more frequently.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The new in-app engagement features are implemented and tested.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Launch and monitor the referral program and onboarding improvements",
+      "description": "Deploy the referral program and onboarding improvements to all users. Monitor user engagement and track the impact on monthly active users using Firebase analytics.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The referral program and onboarding improvements are live and being monitored for impact.",
+      "depends_on": [
+        "O2-KR1.t2",
+        "O2-KR1.t3",
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Analyze user data and refine growth strategies",
+      "description": "Analyze user data from Firebase to assess the effectiveness of the referral program, onboarding improvements, and in-app engagement features. Use insights to refine and optimize growth strategies.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report summarizing the analysis and recommendations for refining growth strategies is completed.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Analyze current store ratings and user feedback",
+      "description": "Review existing store ratings and user feedback to identify common issues or areas for improvement. This includes analyzing app store reviews, user comments, and any other relevant feedback sources.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A comprehensive summary of current store ratings and user feedback is documented, highlighting key areas for improvement.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Develop and implement a user feedback collection system",
+      "description": "Create an in-app feedback collection system to gather more detailed and structured user feedback. This includes designing prompts, integrating feedback forms, and ensuring the system is user-friendly.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The in-app feedback collection system is fully implemented and tested, with users able to provide feedback seamlessly.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Address common issues identified in user feedback",
+      "description": "Based on the analysis from task t1, prioritize and address the most common issues reported by users. This may involve fixing bugs, improving app performance, or enhancing user experience features.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The most critical issues identified in user feedback have been resolved and verified to improve user satisfaction.",
+      "depends_on": [
+        "O2-KR2.t1",
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Implement a feature to encourage users to leave store ratings",
+      "description": "Design and implement a feature that prompts users to leave store ratings after specific in-app actions, such as completing a habit streak or upgrading to a premium subscription. This includes designing the prompt and integrating it into the app.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The feature to encourage users to leave store ratings is fully implemented and integrated into the app.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Monitor and analyze the impact of implemented changes on store ratings",
+      "description": "Track and analyze the effect of the implemented changes on the average store rating. This includes reviewing new user feedback, monitoring app store ratings, and comparing the results to the baseline.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A detailed analysis of the impact of implemented changes on store ratings is completed, showing progress toward the target rating of 4.4.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t1",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Analyze current free-to-paid conversion funnel",
+      "description": "Review user behavior data from Firebase to identify where users are dropping off in the free-to-paid conversion funnel. This includes analyzing the flow from onboarding to the first paid conversion.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A detailed analysis report of the current free-to-paid conversion funnel is completed, highlighting key drop-off points and opportunities for improvement.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O3-KR1.t2",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Design and implement a conversion optimization strategy",
+      "description": "Based on the analysis from the previous task, create a strategy to improve the free-to-paid conversion rate. This includes identifying specific features, messaging, or onboarding changes that could increase conversions.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A conversion optimization strategy document is completed, outlining specific actions to be taken to improve the free-to-paid conversion rate.",
+      "depends_on": [
+        "O3-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t3",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Implement and test conversion improvements",
+      "description": "Implement the proposed conversion improvements in the Habitly app, such as updating onboarding flows, adding in-app prompts, or refining pricing messaging. Ensure all changes are tested in a controlled environment.",
+      "estimate_hours": 4.0,
+      "done_criteria": "All proposed conversion improvements are implemented and tested in a controlled environment, with no critical bugs or issues identified.",
+      "depends_on": [
+        "O3-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t4",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Monitor and evaluate the impact of conversion improvements",
+      "description": "Track the performance of the implemented changes over a defined period, comparing the free-to-paid conversion rate before and after the changes. Use Firebase analytics to measure the impact.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report is generated showing the impact of the implemented conversion improvements on the free-to-paid conversion rate, including any measurable increase in the rate.",
+      "depends_on": [
+        "O3-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t5",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Refine and iterate based on performance data",
+      "description": "Based on the results from the previous task, refine the conversion strategy and make any necessary adjustments to further improve the free-to-paid conversion rate. This may involve A/B testing additional variations or optimizing existing features.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A refined conversion strategy is completed, incorporating insights from performance data and outlining next steps for further optimization.",
+      "depends_on": [
+        "O3-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t1",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Define pricing variants and hypothesis",
+      "description": "Create two distinct pricing variants for the Habitly app, including pricing tiers, features, and a clear hypothesis about how each variant will influence user behavior and conversion rates.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Two pricing variants are clearly defined with a hypothesis and feature set documented.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O3-KR2.t2",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Implement pricing experiment in app",
+      "description": "Update the Habitly app with the two pricing variants, ensuring that users are randomly assigned to one of the variants and that the experiment is fully functional within the app.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The app is updated with the two pricing variants, and users are being randomly assigned to one of the variants.",
+      "depends_on": [
+        "O3-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t3",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Collect and analyze data from experiment",
+      "description": "Run the pricing experiment for a sufficient period to collect meaningful data, then analyze the results to determine which pricing variant performs better in terms of conversion rates and user engagement.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Data from the pricing experiment is collected and analyzed, with clear insights on which variant performed better.",
+      "depends_on": [
+        "O3-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t4",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Write decision memo based on experiment results",
+      "description": "Draft a written decision memo summarizing the experiment's setup, results, and recommendations for the future pricing strategy of Habitly.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A written decision memo is completed, summarizing the experiment and its implications for Habitly's monetization strategy.",
+      "depends_on": [
+        "O3-KR2.t3"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 379160,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 6354,
+      "decompose": 339990,
+      "dedup": 32814,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 10,
+    "first_attempt_valid": 10,
+    "valid_after_retry": 10,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 30,
+    "total_hours": 122.0,
+    "expected_total_hours": [
+      110,
+      200
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 5,
+      "O1-KR2": 5,
+      "O2-KR1": 6,
+      "O2-KR2": 5,
+      "O3-KR1": 5,
+      "O3-KR2": 4
+    },
+    "hours_per_kr": {
+      "O1-KR1": 18.0,
+      "O1-KR2": 18.0,
+      "O2-KR1": 26.0,
+      "O2-KR2": 22.0,
+      "O3-KR1": 20.0,
+      "O3-KR2": 18.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b",
+      "decompose": "qwen3:14b",
+      "dedup": "qwen3:14b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 6354,
+      "decompose": 339990,
+      "dedup": 32814,
+      "validate": 0
+    },
+    "duration_ms": 379160,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 6348,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 56033,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 107624,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 171404,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 232323,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O3",
+        "kr_id": "O3-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 294841,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O3",
+        "kr_id": "O3-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 339961,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 12004,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 23592,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O3",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 32765,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,672 @@
+{
+  "sample_id": "05_payment_reliability_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 66,
+    "total_hours": 264.0
+  },
+  "finished_at": "2026-10-01T00:21:01+00:00",
+  "outcome": "ok",
+  "wall_ms": 382219,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Xác định tiêu chí và phạm vi cho uptime hằng tháng",
+      "description": "Định nghĩa rõ uptime là gì, cách đo lường, và các yếu tố ảnh hưởng đến uptime. Xác định các hệ thống, dịch vụ, và điểm kiểm tra cần theo dõi.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Có tài liệu xác định rõ tiêu chí, phạm vi, và phương pháp đo lường uptime hằng tháng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Lập kế hoạch cải thiện uptime",
+      "description": "Phân tích nguyên nhân gây downtime hiện tại, xác định các điểm yếu trong hệ thống, và lên kế hoạch cải thiện từng bước. Bao gồm việc kiểm tra các thành phần như cơ sở dữ liệu, mạng, và các dịch vụ phụ trợ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có kế hoạch cải thiện uptime với các bước cụ thể và phân bổ nguồn lực.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thực hiện cải thiện uptime: phần 1",
+      "description": "Triển khai các cải tiến đã lên kế hoạch, bao gồm tối ưu hóa cơ sở dữ liệu và kiểm tra các điểm yếu tiềm ẩn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Các cải tiến đã được triển khai và hệ thống đang hoạt động ổn định hơn.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thực hiện cải thiện uptime: phần 2",
+      "description": "Tiếp tục triển khai các cải tiến đã lên kế hoạch, bao gồm tăng cường khả năng mở rộng và kiểm tra các điểm yếu tiềm ẩn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Các cải tiến đã được triển khai và hệ thống đang hoạt động ổn định hơn.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Kiểm tra và đánh giá hiệu quả cải thiện uptime",
+      "description": "Thực hiện kiểm tra uptime sau khi triển khai các cải tiến, so sánh với baseline và xác định các điểm cần điều chỉnh.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có báo cáo đánh giá hiệu quả cải thiện uptime và các đề xuất điều chỉnh.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đo lường uptime hằng tháng và báo cáo kết quả",
+      "description": "Theo dõi uptime hằng tháng, ghi nhận dữ liệu, và báo cáo kết quả cuối kỳ để xác nhận đạt mục tiêu 99.9%.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có báo cáo uptime hằng tháng với dữ liệu và kết luận đạt mục tiêu 99.9%.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Xác định tiêu chí và phạm vi cho việc giảm độ trễ p95",
+      "description": "Xác định rõ các chỉ số cần theo dõi, công cụ đo lường, và phạm vi của việc tối ưu API tạo giao dịch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã xác định rõ tiêu chí, phạm vi và công cụ đo lường cho việc giảm độ trễ p95.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Phân tích hiện trạng độ trễ API tạo giao dịch",
+      "description": "Xem xét dữ liệu hiện tại về độ trễ p95, xác định các điểm nghẽn và nguyên nhân gây ra độ trễ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã phân tích dữ liệu hiện tại và xác định các nguyên nhân chính gây độ trễ p95.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thiết kế giải pháp tối ưu hóa API tạo giao dịch",
+      "description": "Thiết kế các giải pháp tối ưu hóa như cải thiện cơ sở dữ liệu, tối ưu hóa mã, hoặc sử dụng cache.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thiết kế các giải pháp tối ưu hóa và xác nhận tính khả thi.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Triển khai giải pháp tối ưu hóa API tạo giao dịch",
+      "description": "Triển khai các giải pháp tối ưu hóa đã thiết kế và kiểm tra hiệu quả ban đầu.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã triển khai các giải pháp tối ưu hóa và kiểm tra hiệu quả ban đầu.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá hiệu quả sau tối ưu hóa",
+      "description": "Kiểm tra độ trễ p95 sau khi triển khai các giải pháp, so sánh với baseline và xác định cần điều chỉnh gì.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra độ trễ p95 sau tối ưu hóa và xác định các điều chỉnh cần thiết.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Điều chỉnh và tối ưu hóa thêm dựa trên kết quả kiểm tra",
+      "description": "Thực hiện các điều chỉnh dựa trên kết quả kiểm tra, đảm bảo độ trễ p95 đạt mục tiêu 300 ms.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Độ trễ p95 đạt mục tiêu 300 ms và đã được xác nhận.",
+      "depends_on": [
+        "O1-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đo lường và báo cáo kết quả cuối kỳ",
+      "description": "Đo lường lại độ trễ p95 tại cuối kỳ, so sánh với baseline và báo cáo kết quả.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã đo lường độ trễ p95 tại cuối kỳ và báo cáo kết quả.",
+      "depends_on": [
+        "O1-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Xác định các nguyên nhân gây ra MTTR cao",
+      "description": "Phân tích dữ liệu lịch sử về các sự cố, thời gian khắc phục và nguyên nhân gây ra để xác định các điểm yếu chính trong quy trình xử lý sự cố.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có báo cáo phân tích nguyên nhân gây ra MTTR cao với ít nhất 3 nguyên nhân chính được xác định.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Xây dựng quy trình khắc phục sự cố nhanh (runbook)",
+      "description": "Tạo tài liệu hướng dẫn chi tiết cho từng loại sự cố phổ biến, bao gồm các bước khắc phục, công cụ cần thiết và người chịu trách nhiệm.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Có tài liệu runbook cho 5 lỗi phổ biến nhất, được team review và phê duyệt.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thực hiện kiểm thử quy trình khắc phục sự cố",
+      "description": "Mô phỏng các tình huống sự cố và kiểm tra thời gian khắc phục thực tế theo quy trình mới.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có báo cáo kết quả kiểm thử với thời gian khắc phục trung bình trong các tình huống mô phỏng.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Đánh giá và cải tiến quy trình dựa trên kết quả kiểm thử",
+      "description": "Phân tích kết quả kiểm thử để xác định điểm cần cải thiện và thực hiện các điều chỉnh phù hợp.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có bản cập nhật quy trình khắc phục sự cố với các cải tiến dựa trên kết quả kiểm thử.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Triển khai quy trình khắc phục sự cố mới",
+      "description": "Áp dụng quy trình mới vào môi trường sản xuất và đào tạo đội ngũ kỹ thuật.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Quy trình khắc phục sự cố mới đã được triển khai và đội ngũ kỹ thuật đã được đào tạo.",
+      "depends_on": [
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Theo dõi và đo lường MTTR sau triển khai",
+      "description": "Theo dõi MTTR trong 2 tuần đầu tiên sau triển khai để đánh giá hiệu quả của quy trình mới.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có báo cáo theo dõi MTTR sau triển khai với dữ liệu đo lường trong 2 tuần đầu tiên.",
+      "depends_on": [
+        "O1-KR3.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Xác định các module chưa được test",
+      "description": "Phân tích codebase để xác định các module, lớp, hoặc hàm chưa được test hoặc có test coverage thấp.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Danh sách các module chưa được test hoặc có test coverage dưới 75% được xác định rõ ràng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Lập kế hoạch test cho các module",
+      "description": "Lập kế hoạch chi tiết cho việc test các module, bao gồm các test case cần thực hiện, công cụ sẽ sử dụng, và thời gian dự kiến.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Kế hoạch test chi tiết cho từng module được lập và phân bổ thời gian hợp lý.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết test case cho module 1-5",
+      "description": "Viết test case cho 5 module đầu tiên trong danh sách, đảm bảo test case bao phủ các trường hợp chính và edge case.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Test case cho 5 module đầu tiên được viết và kiểm tra đạt yêu cầu.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chạy test và kiểm tra coverage",
+      "description": "Chạy test cho các module đã viết test case, kiểm tra test coverage và ghi lại kết quả.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Test coverage cho 5 module đầu tiên được xác định và đạt tối thiểu 75%.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết test case cho module 6-10",
+      "description": "Tiếp tục viết test case cho 5 module tiếp theo, đảm bảo test case bao phủ đầy đủ các trường hợp.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Test case cho 5 module tiếp theo được viết và kiểm tra đạt yêu cầu.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chạy test và kiểm tra coverage cho module 6-10",
+      "description": "Chạy test cho các module đã viết test case, kiểm tra test coverage và ghi lại kết quả.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Test coverage cho 5 module tiếp theo được xác định và đạt tối thiểu 75%.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết test case cho module 11-15",
+      "description": "Tiếp tục viết test case cho 5 module cuối cùng, đảm bảo test case bao phủ đầy đủ các trường hợp.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Test case cho 5 module cuối cùng được viết và kiểm tra đạt yêu cầu.",
+      "depends_on": [
+        "O2-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chạy test và kiểm tra coverage cho module 11-15",
+      "description": "Chạy test cho các module đã viết test case, kiểm tra test coverage và ghi lại kết quả.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Test coverage cho 5 module cuối cùng được xác định và đạt tối thiểu 75%.",
+      "depends_on": [
+        "O2-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t9",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Tổng hợp kết quả test coverage",
+      "description": "Tổng hợp kết quả test coverage cho toàn bộ codebase, xác định tổng tỷ lệ và so sánh với mục tiêu 75%.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo tổng hợp test coverage đạt 75% hoặc hơn được tạo ra.",
+      "depends_on": [
+        "O2-KR1.t8"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t10",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đánh giá và cải thiện test coverage",
+      "description": "Đánh giá kết quả test coverage, xác định các module còn thiếu và tiến hành cải thiện.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Test coverage đạt 75% hoặc hơn, và các module còn thiếu được cải thiện.",
+      "depends_on": [
+        "O2-KR1.t9"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Xác định 5 lỗi vận hành phổ biến nhất",
+      "description": "Phân tích dữ liệu lỗi từ hệ thống để xác định 5 lỗi phổ biến nhất ảnh hưởng đến hoạt động của dịch vụ.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Danh sách 5 lỗi vận hành phổ biến nhất được xác định và lưu trữ trong tài liệu.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Lập runbook cho 2 lỗi đầu tiên",
+      "description": "Viết runbook chi tiết cho 2 lỗi đầu tiên, bao gồm các bước xử lý, công cụ cần dùng, và người chịu trách nhiệm.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho 2 lỗi đầu tiên được hoàn thành và lưu trữ trong tài liệu.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Kiểm tra runbook cho 2 lỗi đầu tiên",
+      "description": "Kiểm tra lại runbook để đảm bảo tính chính xác và phù hợp với quy trình hiện tại của team.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Runbook cho 2 lỗi đầu tiên được kiểm tra và xác nhận tính chính xác.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Đưa runbook vào sử dụng cho 2 lỗi đầu tiên",
+      "description": "Triển khai runbook vào quy trình vận hành và đảm bảo team hiểu rõ cách sử dụng.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Runbook cho 2 lỗi đầu tiên được triển khai và team đã được hướng dẫn sử dụng.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Lập runbook cho 3 lỗi tiếp theo",
+      "description": "Viết runbook chi tiết cho 3 lỗi tiếp theo, bao gồm các bước xử lý, công cụ cần dùng, và người chịu trách nhiệm.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho 3 lỗi tiếp theo được hoàn thành và lưu trữ trong tài liệu.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Kiểm tra runbook cho 3 lỗi tiếp theo",
+      "description": "Kiểm tra lại runbook để đảm bảo tính chính xác và phù hợp với quy trình hiện tại của team.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Runbook cho 3 lỗi tiếp theo được kiểm tra và xác nhận tính chính xác.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Đưa runbook vào sử dụng cho 3 lỗi tiếp theo",
+      "description": "Triển khai runbook vào quy trình vận hành và đảm bảo team hiểu rõ cách sử dụng.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Runbook cho 3 lỗi tiếp theo được triển khai và team đã được hướng dẫn sử dụng.",
+      "depends_on": [
+        "O2-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Đánh giá hiệu quả của runbook",
+      "description": "Theo dõi và đánh giá hiệu quả của runbook trong việc xử lý lỗi, đảm bảo rằng nó đang hoạt động như mong đợi.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Hiệu quả của runbook được đánh giá và ghi nhận trong báo cáo.",
+      "depends_on": [
+        "O2-KR2.t7"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 382218,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 10361,
+      "decompose": 344295,
+      "dedup": 27561,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 12,
+    "first_attempt_valid": 9,
+    "valid_after_retry": 12,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 3,
+    "rejected_attempts": 3,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 3
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 37,
+    "total_hours": 151.0,
+    "expected_total_hours": [
+      128,
+      220
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 6,
+      "O1-KR2": 7,
+      "O1-KR3": 6,
+      "O2-KR1": 10,
+      "O2-KR2": 8
+    },
+    "hours_per_kr": {
+      "O1-KR1": 22.0,
+      "O1-KR2": 26.0,
+      "O1-KR3": 26.0,
+      "O2-KR1": 52.0,
+      "O2-KR2": 25.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:8b",
+      "decompose": "qwen3:8b",
+      "dedup": "qwen3:8b"
+    },
+    "total_retries": 3,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 10361,
+      "decompose": 344295,
+      "dedup": 27561,
+      "validate": 0
+    },
+    "duration_ms": 382218,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1704,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 4178,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 6718,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 8431,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 10331,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 247209,
+        "errors": [
+          "attempt 1: task t3: estimate_hours 12 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 294419,
+        "errors": [
+          "attempt 1: task t3: estimate_hours 12 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 115133,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 175230,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 344149,
+        "errors": [
+          "attempt 1: task t2: estimate_hours 12 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 25831,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1727,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

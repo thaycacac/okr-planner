@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-10-01T01:31:29+00:00",
+  "models": [
+    {
+      "provider": "local",
+      "model": "qwen3:14b",
+      "samples": 10,
+      "outcomes": {
+        "ok": 6,
+        "needs_clarification": 4,
+        "invalid_input": 0,
+        "error": 0
+      },
+      "errors": [],
+      "clarify_correct": 1.0,
+      "no_false_clarification": 0.857,
+      "llm_calls": 84,
+      "json_first_attempt_valid": 1.0,
+      "json_valid_after_retry": 1.0,
+      "retries": 0,
+      "invalid_json_attempts": 0,
+      "schema_or_rule_rejections": 0,
+      "duration_s": {
+        "median": 419.5,
+        "max": 657.7,
+        "total": 3291.9
+      },
+      "stage_mean_s": {
+        "precheck": 0.0,
+        "clarify": 14.0,
+        "decompose": 409.5,
+        "dedup": 115.9,
+        "validate": 0.0
+      },
+      "auto_c1a_all_krs_covered": 1.0,
+      "auto_c3a_estimates_in_range": 1.0,
+      "auto_c3b_total_in_expected_range": 0.333,
+      "auto_c4a_dependencies_resolve": 1.0,
+      "auto_c6a_within_usable_hours": 0.667,
+      "graded": 10,
+      "pass_rate": 0.3,
+      "criteria": {
+        "Q1": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "C1": 0.0,
+        "C2": 0.167,
+        "C3": 0.333,
+        "C4": 0.333,
+        "C5": 0.167,
+        "C6": 0.667
+      },
+      "pass_rate_by_language": {
+        "vi": 0.2,
+        "en": 0.4
+      },
+      "meets_adr_0004": false
+    },
+    {
+      "provider": "local",
+      "model": "qwen3:8b",
+      "samples": 10,
+      "outcomes": {
+        "ok": 7,
+        "needs_clarification": 3,
+        "invalid_input": 0,
+        "error": 0
+      },
+      "errors": [],
+      "clarify_correct": 1.0,
+      "no_false_clarification": 1.0,
+      "llm_calls": 92,
+      "json_first_attempt_valid": 0.837,
+      "json_valid_after_retry": 1.0,
+      "retries": 15,
+      "invalid_json_attempts": 2,
+      "schema_or_rule_rejections": 22,
+      "duration_s": {
+        "median": 363.8,
+        "max": 475.6,
+        "total": 2758.5
+      },
+      "stage_mean_s": {
+        "precheck": 0.0,
+        "clarify": 7.8,
+        "decompose": 282.0,
+        "dedup": 100.9,
+        "validate": 0.0
+      },
+      "auto_c1a_all_krs_covered": 1.0,
+      "auto_c3a_estimates_in_range": 1.0,
+      "auto_c3b_total_in_expected_range": 0.857,
+      "auto_c4a_dependencies_resolve": 1.0,
+      "auto_c6a_within_usable_hours": 1.0,
+      "graded": 10,
+      "pass_rate": 0.3,
+      "criteria": {
+        "Q1": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "C1": 0.143,
+        "C2": 0.143,
+        "C3": 0.143,
+        "C4": 0.429,
+        "C5": 0.286,
+        "C6": 1.0
+      },
+      "pass_rate_by_language": {
+        "vi": 0.2,
+        "en": 0.4
+      },
+      "meets_adr_0004": false
+    }
+  ],
+  "grader_agreement": {
+    "rows": 20,
+    "cells": 96,
+    "cell_agreement": 0.917,
+    "disagreeing_cells": 8,
+    "verdict_agreement": 1.0
+  }
+}

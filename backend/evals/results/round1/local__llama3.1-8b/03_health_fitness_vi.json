@@ -1,0 +1,141 @@
+{
+  "sample_id": "03_health_fitness_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "llama3.1:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T18:15:46+00:00",
+  "outcome": "error",
+  "wall_ms": 780200,
+  "failure": {
+    "code": "provider_unavailable",
+    "step": "dedup",
+    "message": "local LLM timed out after 600s",
+    "provider": "local",
+    "model": "llama3.1:8b",
+    "objective_id": "O1",
+    "kr_id": null,
+    "attempts": 1,
+    "errors": [
+      "local LLM timed out after 600s"
+    ],
+    "suggestions": [
+      "check_connection",
+      "switch_provider"
+    ]
+  },
+  "questions": [],
+  "issues": [],
+  "tasks": [],
+  "timing": {
+    "duration_ms": 780154,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 29039,
+      "decompose": 151077
+    }
+  },
+  "json": {
+    "llm_calls": 6,
+    "first_attempt_valid": 6,
+    "valid_after_retry": 6,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "llama3.1:8b",
+      "decompose": "llama3.1:8b",
+      "dedup": "llama3.1:8b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 29039,
+      "decompose": 151077
+    },
+    "duration_ms": 780154,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 1,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "llama3.1:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 29039,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 49165,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 107923,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 130601,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "llama3.1:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 151054,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "llama3.1:8b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 600035,
+        "errors": [
+          "local LLM timed out after 600s"
+        ]
+      }
+    ]
+  }
+}

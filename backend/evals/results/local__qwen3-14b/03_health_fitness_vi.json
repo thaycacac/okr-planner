@@ -1,0 +1,679 @@
+{
+  "sample_id": "03_health_fitness_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 65,
+    "total_hours": 130.0
+  },
+  "finished_at": "2026-10-01T04:27:47+00:00",
+  "outcome": "ok",
+  "wall_ms": 424919,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đo thời gian chạy 5 km hiện tại",
+      "description": "Ghi lại thời gian chạy 5 km để xác định điểm xuất phát.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thời gian chạy 5 km được ghi lại và lưu trữ trong nhật ký thể thao.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Xây dựng kế hoạch tập luyện 5 km",
+      "description": "Lên kế hoạch cụ thể để cải thiện thời gian chạy 5 km trong 3 tháng.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Kế hoạch tập luyện 5 km được hoàn thành và lưu trữ trong nhật ký thể thao.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Tập luyện theo kế hoạch 5 km (Tuần 1-2)",
+      "description": "Thực hiện các bài tập theo kế hoạch đã xây dựng cho 2 tuần đầu tiên.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Hoàn thành 2 tuần tập luyện theo kế hoạch 5 km và ghi lại tiến độ.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đo thời gian chạy 5 km sau 2 tuần",
+      "description": "Ghi lại thời gian chạy 5 km sau 2 tuần tập luyện.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thời gian chạy 5 km sau 2 tuần được ghi lại và lưu trữ trong nhật ký thể thao.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đánh giá tiến độ và điều chỉnh kế hoạch (Tuần 3-4)",
+      "description": "Đánh giá tiến độ sau 2 tuần và điều chỉnh kế hoạch tập luyện cho 2 tuần tiếp theo.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Kế hoạch tập luyện được điều chỉnh và lưu trữ trong nhật ký thể thao.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Tập luyện theo kế hoạch 5 km (Tuần 3-4)",
+      "description": "Thực hiện các bài tập theo kế hoạch đã điều chỉnh cho 2 tuần tiếp theo.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Hoàn thành 2 tuần tập luyện theo kế hoạch 5 km và ghi lại tiến độ.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đo thời gian chạy 5 km sau 4 tuần",
+      "description": "Ghi lại thời gian chạy 5 km sau 4 tuần tập luyện.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thời gian chạy 5 km sau 4 tuần được ghi lại và lưu trữ trong nhật ký thể thao.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đánh giá kết quả và tổng kết",
+      "description": "Đánh giá kết quả đạt được sau 4 tuần và tổng kết quá trình tập luyện.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Báo cáo tổng kết quá trình tập luyện 5 km được hoàn thành và lưu trữ.",
+      "depends_on": [
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Xác định lịch tập sức mạnh cho 12 tuần",
+      "description": "Xây dựng lịch tập sức mạnh cho 12 tuần, đảm bảo có ít nhất 2 buổi mỗi tuần.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Lịch tập sức mạnh cho 12 tuần được lưu trữ trong ứng dụng theo dõi thể lực.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Chuẩn bị không gian và dụng cụ tập sức mạnh",
+      "description": "Chuẩn bị không gian tập luyện tại nhà và mua sắm dụng cụ cần thiết.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Không gian tập luyện đã được dọn dẹp và dụng cụ cần thiết đã được mua sắm.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 1",
+      "description": "Thực hiện buổi tập sức mạnh đầu tiên theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh đầu tiên được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 2",
+      "description": "Thực hiện buổi tập sức mạnh thứ hai theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ hai được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 3",
+      "description": "Thực hiện buổi tập sức mạnh thứ ba theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ ba được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 4",
+      "description": "Thực hiện buổi tập sức mạnh thứ tư theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ tư được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 5",
+      "description": "Thực hiện buổi tập sức mạnh thứ năm theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ năm được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 6",
+      "description": "Thực hiện buổi tập sức mạnh thứ sáu theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ sáu được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t9",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 7",
+      "description": "Thực hiện buổi tập sức mạnh thứ bảy theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ bảy được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t10",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 8",
+      "description": "Thực hiện buổi tập sức mạnh thứ tám theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ tám được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t11",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 9",
+      "description": "Thực hiện buổi tập sức mạnh thứ chín theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ chín được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t12",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 10",
+      "description": "Thực hiện buổi tập sức mạnh thứ mười theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ mười được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t13",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 11",
+      "description": "Thực hiện buổi tập sức mạnh thứ mười một theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ mười một được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t14",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 12",
+      "description": "Thực hiện buổi tập sức mạnh thứ mười hai theo lịch đã xây dựng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Buổi tập sức mạnh thứ mười hai được hoàn thành và ghi lại trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t15",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đánh giá tiến độ tập sức mạnh",
+      "description": "Đánh giá số buổi tập sức mạnh đã thực hiện trong nửa đầu quý.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Báo cáo tiến độ tập sức mạnh cho nửa đầu quý được lưu trữ trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t3",
+        "O1-KR2.t4",
+        "O1-KR2.t5",
+        "O1-KR2.t6",
+        "O1-KR2.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t16",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đánh giá kết quả tập sức mạnh cuối quý",
+      "description": "Đánh giá số buổi tập sức mạnh đã thực hiện trong toàn bộ quý.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Báo cáo kết quả tập sức mạnh cho toàn bộ quý được lưu trữ trong ứng dụng theo dõi thể lực.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t3",
+        "O1-KR2.t4",
+        "O1-KR2.t5",
+        "O1-KR2.t6",
+        "O1-KR2.t7",
+        "O1-KR2.t8",
+        "O1-KR2.t9",
+        "O1-KR2.t10",
+        "O1-KR2.t11",
+        "O1-KR2.t12",
+        "O1-KR2.t13",
+        "O1-KR2.t14"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đo cân nặng ban đầu",
+      "description": "Ghi lại cân nặng hiện tại để làm cơ sở so sánh.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Cân nặng ban đầu được ghi lại trong nhật ký theo dõi.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Lên kế hoạch ăn uống lành mạnh",
+      "description": "Xác định thực đơn hàng ngày và phân bổ lượng calo phù hợp để giảm cân.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Thực đơn 3 ngày đầu tiên được lập và được ghi lại.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chuẩn bị bữa ăn lành mạnh",
+      "description": "Chuẩn bị bữa sáng, trưa và tối theo thực đơn đã lên kế hoạch.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Bữa ăn trong 3 ngày đầu tiên được thực hiện theo thực đơn.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Theo dõi lượng calo tiêu thụ và nạp vào",
+      "description": "Ghi lại lượng calo nạp vào và tiêu hao mỗi ngày.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Bảng theo dõi lượng calo trong 3 ngày đầu tiên được hoàn thành.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đo cân nặng giữa kỳ",
+      "description": "Ghi lại cân nặng sau khoảng 6 tuần để đánh giá tiến độ.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Cân nặng giữa kỳ được ghi lại trong nhật ký theo dõi.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Điều chỉnh thực đơn nếu cần",
+      "description": "Dựa trên kết quả giữa kỳ, điều chỉnh thực đơn để tiếp tục giảm cân.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Thực đơn mới sau 6 tuần được lập và được ghi lại.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chuẩn bị bữa ăn theo thực đơn mới",
+      "description": "Chuẩn bị bữa ăn theo thực đơn đã điều chỉnh sau 6 tuần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Bữa ăn trong 3 ngày theo thực đơn mới được thực hiện.",
+      "depends_on": [
+        "O2-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Theo dõi lượng calo tiêu thụ và nạp vào (giai đoạn 2)",
+      "description": "Ghi lại lượng calo nạp vào và tiêu hao trong giai đoạn 2.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Bảng theo dõi lượng calo trong 3 ngày theo thực đơn mới được hoàn thành.",
+      "depends_on": [
+        "O2-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t9",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đo cân nặng cuối kỳ",
+      "description": "Ghi lại cân nặng cuối kỳ để đánh giá kết quả đạt được.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Cân nặng cuối kỳ được ghi lại trong nhật ký theo dõi.",
+      "depends_on": [
+        "O2-KR1.t8"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tìm kiếm chuyên gia dinh dưỡng",
+      "description": "Tìm và liên hệ với ít nhất một chuyên gia dinh dưỡng để hỗ trợ xây dựng thực đơn.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã có thông tin liên hệ và đồng ý hỗ trợ từ chuyên gia dinh dưỡng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tham vấn chuyên gia về mục tiêu dinh dưỡng",
+      "description": "Thảo luận với chuyên gia dinh dưỡng về mục tiêu ăn uống lành mạnh và giảm cân.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã có phản hồi từ chuyên gia về mục tiêu dinh dưỡng và giảm cân.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Xây dựng khung thực đơn 4 tuần",
+      "description": "Tạo khung cơ bản cho thực đơn 4 tuần dựa trên mục tiêu và sở thích cá nhân.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã có bản nháp khung thực đơn 4 tuần.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tham vấn chuyên gia về khung thực đơn",
+      "description": "Gửi khung thực đơn cho chuyên gia dinh dưỡng để nhận góp ý.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã nhận được góp ý từ chuyên gia về khung thực đơn.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tinh chỉnh thực đơn dựa trên góp ý",
+      "description": "Sửa đổi thực đơn theo góp ý từ chuyên gia dinh dưỡng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành bản thực đơn 4 tuần sau khi được chuyên gia góp ý.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Kiểm tra tính khả thi của thực đơn",
+      "description": "Thử thực đơn trong 1 tuần và đánh giá tính khả thi.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã có báo cáo đánh giá tính khả thi của thực đơn.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tinh chỉnh thực đơn dựa trên thử nghiệm",
+      "description": "Sửa đổi thực đơn dựa trên kết quả thử nghiệm và đánh giá.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành bản thực đơn 4 tuần cuối cùng sau khi thử nghiệm.",
+      "depends_on": [
+        "O2-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Hoàn thiện và nộp thực đơn",
+      "description": "Hoàn thiện bản thực đơn 4 tuần và gửi cho chuyên gia dinh dưỡng để xác nhận.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã nhận được sự xác nhận từ chuyên gia dinh dưỡng về thực đơn.",
+      "depends_on": [
+        "O2-KR2.t7"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 424878,
+    "stage_duration_ms": {
+      "precheck": 11,
+      "clarify": 5156,
+      "decompose": 392137,
+      "dedup": 27553,
+      "validate": 3
+    }
+  },
+  "json": {
+    "llm_calls": 7,
+    "first_attempt_valid": 7,
+    "valid_after_retry": 7,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 41,
+    "total_hours": 106.0,
+    "expected_total_hours": [
+      66,
+      110
+    ],
+    "usable_hours": 117.0,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 8,
+      "O1-KR2": 16,
+      "O2-KR1": 9,
+      "O2-KR2": 8
+    },
+    "hours_per_kr": {
+      "O1-KR1": 23.0,
+      "O1-KR2": 33.0,
+      "O2-KR1": 28.0,
+      "O2-KR2": 22.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b",
+      "decompose": "qwen3:14b",
+      "dedup": "qwen3:14b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 11,
+      "clarify": 5156,
+      "decompose": 392137,
+      "dedup": 27553,
+      "validate": 3
+    },
+    "duration_ms": 424878,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 11,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 5128,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 89063,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 239690,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 319981,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 391547,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 24429,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 3095,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 3,
+        "errors": []
+      }
+    ]
+  }
+}

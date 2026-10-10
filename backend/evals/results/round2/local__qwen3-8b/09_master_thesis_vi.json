@@ -1,0 +1,743 @@
+{
+  "sample_id": "09_master_thesis_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 66,
+    "total_hours": 264.0
+  },
+  "finished_at": "2026-10-01T00:33:25+00:00",
+  "outcome": "ok",
+  "wall_ms": 362171,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Chuẩn bị tài liệu và yêu cầu từ giảng viên",
+      "description": "Liên hệ giảng viên hướng dẫn để xác định tiêu chí duyệt chương 2, yêu cầu cụ thể về nội dung, định dạng và thời hạn.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Giảng viên gửi lại yêu cầu duyệt chương 2 và tiêu chí đánh giá.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Làm rõ yêu cầu và chuẩn bị tài liệu",
+      "description": "Đọc lại chương 2, so sánh với yêu cầu từ giảng viên, bổ sung tài liệu tham khảo, chỉnh sửa phần tổng quan tài liệu theo hướng dẫn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Chương 2 được hoàn thiện theo yêu cầu của giảng viên.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Gửi chương 2 để giảng viên xem trước",
+      "description": "Gửi chương 2 cho giảng viên để xem trước và nhận phản hồi.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Giảng viên gửi lại phản hồi về chương 2.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Chỉnh sửa chương 2 theo phản hồi",
+      "description": "Sửa chương 2 dựa trên phản hồi từ giảng viên, đảm bảo đáp ứng đầy đủ yêu cầu.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Chương 2 được chỉnh sửa hoàn tất theo phản hồi của giảng viên.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Nộp chương 2 để giảng viên duyệt",
+      "description": "Nộp chương 2 cho giảng viên để hoàn tất quá trình duyệt.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Chương 2 được giảng viên duyệt và xác nhận hoàn thành.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Lên kế hoạch và chuẩn bị dữ liệu",
+      "description": "Xác định bộ intent đã thống nhất, phân loại các câu hội thoại, và chuẩn bị công cụ gán nhãn như Excel hoặc phần mềm hỗ trợ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã có danh sách 2.000 câu hội thoại được phân loại theo bộ intent và công cụ gán nhãn đã sẵn sàng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 1",
+      "description": "Gán nhãn 300 câu hội thoại đầu tiên theo bộ intent đã thống nhất.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 300 câu hội thoại đầu tiên theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 2",
+      "description": "Gán nhãn 300 câu hội thoại tiếp theo theo bộ intent đã thống nhất.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 600 câu hội thoại theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 3",
+      "description": "Gán nhãn 300 câu hội thoại tiếp theo theo bộ intent đã thống nhất.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 900 câu hội thoại theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 4",
+      "description": "Gán nhãn 300 câu hội thoại tiếp theo theo bộ intent đã thống nhất.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 1.200 câu hội thoại theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 5",
+      "description": "Gán nhãn 300 câu hội thoại cuối cùng theo bộ intent đã thống nhất.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 1.500 câu hội thoại theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 6",
+      "description": "Gán nhãn 300 câu hội thoại cuối cùng theo bộ intent đã thống nhất.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 1.800 câu hội thoại theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Gán nhãn 2.000 câu hội thoại: phần 7",
+      "description": "Gán nhãn 200 câu hội thoại cuối cùng theo bộ intent đã thống nhất.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã gán nhãn hoàn tất 2.000 câu hội thoại theo bộ intent.",
+      "depends_on": [
+        "O1-KR2.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t9",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá lại kết quả gán nhãn: phần 1",
+      "description": "Kiểm tra ngẫu nhiên 100 câu hội thoại đã gán nhãn để đảm bảo độ chính xác, và điều chỉnh nếu cần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra và xác nhận 100 câu gán nhãn, đảm bảo độ chính xác đạt yêu cầu.",
+      "depends_on": [
+        "O1-KR2.t8"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t10",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá lại kết quả gán nhãn: phần 2",
+      "description": "Kiểm tra ngẫu nhiên 100 câu hội thoại đã gán nhãn để đảm bảo độ chính xác, và điều chỉnh nếu cần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra và xác nhận 200 câu gán nhãn, đảm bảo độ chính xác đạt yêu cầu.",
+      "depends_on": [
+        "O1-KR2.t9"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t11",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá lại kết quả gán nhãn: phần 3",
+      "description": "Kiểm tra ngẫu nhiên 100 câu hội thoại đã gán nhãn để đảm bảo độ chính xác, và điều chỉnh nếu cần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra và xác nhận 300 câu gán nhãn, đảm bảo độ chính xác đạt yêu cầu.",
+      "depends_on": [
+        "O1-KR2.t10"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t12",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá lại kết quả gán nhãn: phần 4",
+      "description": "Kiểm tra ngẫu nhiên 100 câu hội thoại đã gán nhãn để đảm bảo độ chính xác, và điều chỉnh nếu cần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra và xác nhận 400 câu gán nhãn, đảm bảo độ chính xác đạt yêu cầu.",
+      "depends_on": [
+        "O1-KR2.t11"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t13",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá lại kết quả gán nhãn: phần 5",
+      "description": "Kiểm tra ngẫu nhiên 100 câu hội thoại đã gán nhãn để đảm bảo độ chính xác, và điều chỉnh nếu cần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã kiểm tra và xác nhận 500 câu gán nhãn, đảm bảo độ chính xác đạt yêu cầu.",
+      "depends_on": [
+        "O1-KR2.t12"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t14",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tính toán và báo cáo kết quả gán nhãn",
+      "description": "Tính toán số lượng câu đã gán nhãn, và báo cáo kết quả cho giảng viên hướng dẫn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành báo cáo số lượng câu gán nhãn và gửi cho giảng viên hướng dẫn.",
+      "depends_on": [
+        "O1-KR2.t13"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Chuẩn bị dữ liệu và xác định tiêu chí đánh giá",
+      "description": "Xác định tập test, tiêu chí tính macro-F1, và cách đánh giá mô hình. Chuẩn bị công cụ như Python, scikit-learn, và dữ liệu cần thiết.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã xác định rõ tập test, tiêu chí macro-F1, và công cụ cần thiết.",
+      "depends_on": [
+        "O1-KR2.t8"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Phân tích mô hình hiện tại và xác định điểm yếu",
+      "description": "Đánh giá mô hình TF-IDF + SVM hiện tại trên tập test, xác định các điểm yếu như độ chính xác, recall, và F1-score.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã phân tích mô hình hiện tại và xác định các điểm yếu cụ thể.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thử nghiệm với mô hình Random Forest",
+      "description": "Thử nghiệm mô hình Random Forest trên tập test, đánh giá macro-F1 và ghi nhận kết quả.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thử nghiệm mô hình Random Forest và ghi nhận kết quả macro-F1.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thử nghiệm với mô hình XGBoost",
+      "description": "Thử nghiệm mô hình XGBoost trên tập test, đánh giá macro-F1 và ghi nhận kết quả.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thử nghiệm mô hình XGBoost và ghi nhận kết quả macro-F1.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thử nghiệm với mô hình BERT",
+      "description": "Thử nghiệm mô hình BERT trên tập test, đánh giá macro-F1 và ghi nhận kết quả.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thử nghiệm mô hình BERT và ghi nhận kết quả macro-F1.",
+      "depends_on": [
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Đánh giá và chọn mô hình tối ưu",
+      "description": "So sánh kết quả từ các mô hình thử nghiệm, chọn mô hình có macro-F1 cao nhất và tối ưu hóa tham số.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã chọn mô hình tối ưu và hoàn tất quá trình tối ưu hóa tham số.",
+      "depends_on": [
+        "O1-KR3.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Kiểm tra lại mô hình trên tập test",
+      "description": "Kiểm tra lại mô hình đã chọn trên tập test để đảm bảo macro-F1 đạt mục tiêu 0.75.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Mô hình đã đạt macro-F1 trên tập test là 0.75.",
+      "depends_on": [
+        "O1-KR3.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Ghi nhận và báo cáo kết quả",
+      "description": "Ghi lại toàn bộ quá trình thử nghiệm, kết quả đạt được, và phân tích nguyên nhân cải thiện macro-F1.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã ghi nhận và báo cáo đầy đủ kết quả thử nghiệm.",
+      "depends_on": [
+        "O1-KR3.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Lập kế hoạch và xác định phạm vi bài báo hội thảo",
+      "description": "Xác định cấu trúc bài báo, tiêu chí chọn nội dung, và các phần cần trình bày. Chuẩn bị tài liệu tham khảo và công cụ hỗ trợ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Cấu trúc bài báo và danh sách tài liệu tham khảo đã được xác định rõ ràng.",
+      "depends_on": [
+        "O1-KR3.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết phần tóm tắt và mục lục bài báo",
+      "description": "Viết phần tóm tắt (abstract) và mục lục (table of contents) cho bài báo hội thảo.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Phần tóm tắt và mục lục đã hoàn thành và được kiểm tra.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết phần giới thiệu và mục tiêu nghiên cứu",
+      "description": "Viết phần giới thiệu và mục tiêu nghiên cứu của bài báo hội thảo.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Phần giới thiệu và mục tiêu nghiên cứu đã hoàn thành và được kiểm tra.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết phần phương pháp nghiên cứu",
+      "description": "Viết phần phương pháp nghiên cứu, bao gồm mô tả dữ liệu, mô hình, và cách phân tích.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Phần phương pháp nghiên cứu đã hoàn thành và được kiểm tra.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết phần kết quả và thảo luận",
+      "description": "Viết phần kết quả và thảo luận, bao gồm phân tích dữ liệu và ý nghĩa của nghiên cứu.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Phần kết quả và thảo luận đã hoàn thành và được kiểm tra.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết phần kết luận và tài liệu tham khảo",
+      "description": "Viết phần kết luận và tài liệu tham khảo cho bài báo hội thảo.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Phần kết luận và tài liệu tham khảo đã hoàn thành và được kiểm tra.",
+      "depends_on": [
+        "O2-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Kiểm tra và chỉnh sửa bài báo hội thảo",
+      "description": "Kiểm tra lỗi chính tả, ngữ pháp, và tính nhất quán của bài báo hội thảo.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Bài báo hội thảo đã được kiểm tra và chỉnh sửa hoàn tất.",
+      "depends_on": [
+        "O2-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Nộp bài báo hội thảo",
+      "description": "Nộp bài báo hội thảo theo yêu cầu của hội đồng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Bài báo hội thảo đã được nộp đúng hạn.",
+      "depends_on": [
+        "O2-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Chuẩn bị nội dung trình bày",
+      "description": "Làm rõ mục tiêu, cấu trúc và nội dung chính của bài trình bày tại seminar, bao gồm tóm tắt kết quả nghiên cứu, phương pháp, dữ liệu và kết quả đạt được.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Có bản tóm tắt nội dung trình bày và cấu trúc bài thuyết trình được xác định rõ ràng.",
+      "depends_on": [
+        "O2-KR1.t8"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Làm slide trình bày",
+      "description": "Tạo slide trình bày với nội dung chính, hình ảnh minh họa, biểu đồ và bảng số liệu để hỗ trợ bài thuyết trình.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Hoàn thành bộ slide trình bày với nội dung đầy đủ và trực quan.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Thực hiện bài trình bày tại seminar",
+      "description": "Trình bày kết quả nghiên cứu trước nhóm nghiên cứu và các chuyên gia trong seminar, đảm bảo thời gian và nội dung phù hợp.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Hoàn thành bài trình bày và nhận phản hồi từ người tham dự.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Thu thập phản hồi và cải thiện bài trình bày",
+      "description": "Tổng hợp phản hồi từ seminar, điều chỉnh nội dung và slide trình bày để cải thiện chất lượng bài thuyết trình.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Cải thiện bài trình bày dựa trên phản hồi và sẵn sàng cho phiên trình bày cuối cùng.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Đo lường hiệu quả của bài trình bày",
+      "description": "Đánh giá mức độ phản hồi, sự tham gia và hiệu quả truyền đạt của bài trình bày tại seminar.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Có báo cáo đánh giá hiệu quả bài trình bày và phản hồi từ người tham dự.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 362170,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 9181,
+      "decompose": 292967,
+      "dedup": 60020,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 15,
+    "first_attempt_valid": 13,
+    "valid_after_retry": 15,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 2,
+    "rejected_attempts": 3,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 3
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 40,
+    "total_hours": 165.0,
+    "expected_total_hours": [
+      120,
+      202
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 5,
+      "O1-KR2": 14,
+      "O1-KR3": 8,
+      "O2-KR1": 8,
+      "O2-KR2": 5
+    },
+    "hours_per_kr": {
+      "O1-KR1": 14.0,
+      "O1-KR2": 68.0,
+      "O1-KR3": 32.0,
+      "O2-KR1": 33.0,
+      "O2-KR2": 18.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:8b",
+      "decompose": "qwen3:8b",
+      "dedup": "qwen3:8b"
+    },
+    "total_retries": 2,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 9181,
+      "decompose": 292967,
+      "dedup": 60020,
+      "validate": 0
+    },
+    "duration_ms": 362170,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1716,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 3631,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 5980,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 7687,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 9146,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 28840,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 247079,
+        "errors": [
+          "attempt 1: task t2: estimate_hours 120 is above 6; split it into smaller tasks of 2-6 hours",
+          "attempt 1: task t3: estimate_hours 8 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 292930,
+        "errors": [
+          "attempt 1: task t3: estimate_hours 12 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 132828,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 162768,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 24319,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 9621,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 10123,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 8558,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 7394,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

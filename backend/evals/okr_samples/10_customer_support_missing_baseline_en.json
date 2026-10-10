@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "sample_id": "10_customer_support_missing_baseline_en",
+  "domain": "customer_support",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "numeric",
+    "O1-KR3": "qualitative"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Deliver faster, friendlier customer support",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Reduce first response time to under 2 hours",
+            "metric": "First response time",
+            "unit": "hours",
+            "baseline": null,
+            "target": 2
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Raise CSAT to 90%",
+            "metric": "CSAT",
+            "unit": "%",
+            "baseline": null,
+            "target": 90
+          },
+          {
+            "id": "O1-KR3",
+            "text": "Launch a self-service help center with the 30 most-asked articles",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Support lead for an e-commerce platform with a team of 4 agents, using Zendesk. About 4 hours per workday on this OKR.",
+    "clarifications": [],
+    "language": "en"
+  },
+  "expected": {
+    "clarify_status": "needs_clarification",
+    "clarification_topics": [
+      "Current first response time (baseline) for O1-KR1",
+      "Current CSAT (baseline) and how it is surveyed for O1-KR2"
+    ],
+    "total_hours_range": null,
+    "key_results": {},
+    "grader_notes": "Partially ambiguous sample: the objective and O1-KR3 are clear, but both numeric KRs have a target without a baseline. The correct result is needs_clarification asking for the two missing baselines; no tasks and no invented baselines. One extra question about O1-KR3 is acceptable; questions that ignore the missing baselines fail. The deterministic pre-check should already flag this sample, so an end-to-end run that produces a plan points to a pipeline bug rather than a model weakness; note that in the grader comments."
+  }
+}

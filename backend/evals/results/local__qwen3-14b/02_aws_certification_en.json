@@ -1,0 +1,533 @@
+{
+  "sample_id": "02_aws_certification_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 65,
+    "total_hours": 130.0
+  },
+  "finished_at": "2026-10-01T04:20:42+00:00",
+  "outcome": "ok",
+  "wall_ms": 1438413,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Research and gather study materials for AWS Solutions Architect certification",
+      "description": "Identify and collect relevant study resources such as official AWS documentation, practice exams, and training courses.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of study materials is compiled and organized in a shared document.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Create a study plan and schedule",
+      "description": "Develop a detailed study plan with daily and weekly goals based on the collected materials and available time.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A study plan document is created and shared with a mentor or team lead for review.",
+      "depends_on": [
+        "O1-KR1.t1",
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete first module of AWS Solutions Architect study plan",
+      "description": "Study and complete the first module of the AWS Solutions Architect certification curriculum.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A summary of the first module is written and reviewed for understanding.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete second module of AWS Solutions Architect study plan",
+      "description": "Study and complete the second module of the AWS Solutions Architect certification curriculum.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A summary of the second module is written and reviewed for understanding.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete third module of AWS Solutions Architect study plan",
+      "description": "Study and complete the third module of the AWS Solutions Architect certification curriculum.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A summary of the third module is written and reviewed for understanding.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete fourth module of AWS Solutions Architect study plan",
+      "description": "Study and complete the fourth module of the AWS Solutions Architect certification curriculum.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A summary of the fourth module is written and reviewed for understanding.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Take first full-length practice exam",
+      "description": "Complete a full-length practice exam to assess current knowledge and identify gaps.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A full-length practice exam is completed and the score is recorded.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Review and analyze first practice exam results",
+      "description": "Analyze the results of the first practice exam to identify weak areas and create a plan for improvement.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A report with identified weak areas and an improvement plan is created.",
+      "depends_on": [
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t9",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete targeted review of weak areas from first practice exam",
+      "description": "Focus on reviewing and improving the weak areas identified in the first practice exam.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A summary of the targeted review is written and reviewed for understanding.",
+      "depends_on": [
+        "O1-KR1.t8"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t10",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Take second full-length practice exam",
+      "description": "Complete a second full-length practice exam to assess progress and identify remaining gaps.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A full-length practice exam is completed and the score is recorded.",
+      "depends_on": [
+        "O1-KR1.t9"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t11",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Review and analyze second practice exam results",
+      "description": "Analyze the results of the second practice exam to identify remaining weak areas and create a final improvement plan.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A report with remaining weak areas and a final improvement plan is created.",
+      "depends_on": [
+        "O1-KR1.t10"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t12",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Complete targeted review of remaining weak areas",
+      "description": "Focus on reviewing and improving the remaining weak areas identified in the second practice exam.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A summary of the targeted review is written and reviewed for understanding.",
+      "depends_on": [
+        "O1-KR1.t11"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t13",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Take third full-length practice exam",
+      "description": "Complete a third full-length practice exam to assess progress and ensure readiness for the certification.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A full-length practice exam is completed and the score is recorded.",
+      "depends_on": [
+        "O1-KR1.t12"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t14",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Review and analyze third practice exam results",
+      "description": "Analyze the results of the third practice exam to confirm readiness for the certification.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A report confirming readiness for the certification is created.",
+      "depends_on": [
+        "O1-KR1.t13"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Set up Git repository and define lab structure",
+      "description": "Create a public Git repository and outline the structure for the 4 hands-on AWS labs, including README and folder organization.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Git repository is created and lab structure is defined with README and folder layout.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete and publish first AWS lab",
+      "description": "Complete the first hands-on AWS lab and publish it to the Git repository with documentation and code.",
+      "estimate_hours": 5.0,
+      "done_criteria": "First lab is completed and published to the Git repository with documentation and code.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete and publish second AWS lab",
+      "description": "Complete the second hands-on AWS lab and publish it to the Git repository with documentation and code.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Second lab is completed and published to the Git repository with documentation and code.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete and publish third AWS lab",
+      "description": "Complete the third hands-on AWS lab and publish it to the Git repository with documentation and code.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Third lab is completed and published to the Git repository with documentation and code.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Complete and publish fourth AWS lab",
+      "description": "Complete the fourth hands-on AWS lab and publish it to the Git repository with documentation and code.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Fourth lab is completed and published to the Git repository with documentation and code.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Review and revise all labs for consistency and quality",
+      "description": "Review all four labs for consistency, quality, and completeness, and make necessary revisions.",
+      "estimate_hours": 4.0,
+      "done_criteria": "All four labs have been reviewed and revised for consistency and quality.",
+      "depends_on": [
+        "O1-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Publish final version of all labs to the Git repository",
+      "description": "Publish the final version of all four labs to the Git repository with updated documentation and code.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Final version of all four labs is published to the Git repository with updated documentation and code.",
+      "depends_on": [
+        "O1-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Research exam format and content outline",
+      "description": "Review AWS certification website to understand the exam structure, domains, and question types.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A summary document of the exam format and content outline is created and reviewed.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Study core AWS services and architecture concepts",
+      "description": "Complete study sessions on core AWS services, architecture best practices, and design principles.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A study log with notes on core AWS services and architecture concepts is completed.",
+      "depends_on": [
+        "O1-KR1.t2",
+        "O1-KR2.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Study AWS security and compliance best practices",
+      "description": "Complete study sessions on AWS security, compliance, and identity and access management (IAM).",
+      "estimate_hours": 6.0,
+      "done_criteria": "A study log with notes on AWS security and compliance best practices is completed.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Study cost optimization and performance best practices",
+      "description": "Complete study sessions on AWS cost optimization, performance tuning, and scalability strategies.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A study log with notes on cost optimization and performance best practices is completed.",
+      "depends_on": [
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Review and practice with AWS practice exams",
+      "description": "Take and review AWS practice exams to identify knowledge gaps and improve understanding.",
+      "estimate_hours": 6.0,
+      "done_criteria": "At least two practice exams are completed and reviewed with a summary of results.",
+      "depends_on": [
+        "O1-KR3.t5",
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Book the official AWS certification exam",
+      "description": "Book the AWS Certified Solutions Architect – Associate exam through the official AWS website.",
+      "estimate_hours": 2.0,
+      "done_criteria": "The exam is successfully booked with a confirmation email received.",
+      "depends_on": [
+        "O1-KR3.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Prepare for the exam day",
+      "description": "Review key concepts, practice with sample questions, and ensure all logistical details are in place for the exam.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A final review document is created and all exam logistics are confirmed.",
+      "depends_on": [
+        "O1-KR3.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t9",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Take the official AWS certification exam",
+      "description": "Attend the AWS Certified Solutions Architect – Associate exam on or before 2026-12-15.",
+      "estimate_hours": 2.0,
+      "done_criteria": "A confirmation of exam completion and a passing score is received.",
+      "depends_on": [
+        "O1-KR3.t8",
+        "O1-KR1.t13"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 1438363,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 4798,
+      "decompose": 1394525,
+      "dedup": 38956,
+      "validate": 12
+    }
+  },
+  "json": {
+    "llm_calls": 7,
+    "first_attempt_valid": 5,
+    "valid_after_retry": 7,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 4,
+    "rejected_attempts": 7,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 7
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 29,
+    "total_hours": 129.0,
+    "expected_total_hours": [
+      56,
+      106
+    ],
+    "usable_hours": 117.0,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": false,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": false,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 14,
+      "O1-KR2": 7,
+      "O1-KR3": 8
+    },
+    "hours_per_kr": {
+      "O1-KR1": 64.0,
+      "O1-KR2": 30.0,
+      "O1-KR3": 35.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b",
+      "decompose": "qwen3:14b",
+      "dedup": "qwen3:14b"
+    },
+    "total_retries": 4,
+    "stage_duration_ms": {
+      "precheck": 1,
+      "clarify": 4798,
+      "decompose": 1394525,
+      "dedup": 38956,
+      "validate": 12
+    },
+    "duration_ms": 1438363,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 1,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 4795,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 3,
+        "retries": 2,
+        "duration_ms": 940181,
+        "errors": [
+          "attempt 1: 26 tasks is too many; keep at most 25 per key result",
+          "attempt 1: estimates add up to 118 hours, above the 58 hours this key result may use; cut at least 60 hours by dropping or merging the least important tasks, not by lowering estimates below the real effort",
+          "attempt 2: estimates add up to 109 hours, above the 58 hours this key result may use; cut at least 51 hours by dropping or merging the least important tasks, not by lowering estimates below the real effort",
+          "attempt 3: estimates add up to 75 hours, above the 58 hours this key result may use; cut at least 17 hours by dropping or merging the least important tasks, not by lowering estimates below the real effort"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 3,
+        "retries": 2,
+        "duration_ms": 454127,
+        "errors": [
+          "attempt 1: estimates add up to 70 hours, above the 50 hours this key result may use; cut at least 20 hours by dropping or merging the least important tasks, not by lowering estimates below the real effort",
+          "attempt 2: estimates add up to 64 hours, above the 50 hours this key result may use; cut at least 14 hours by dropping or merging the least important tasks, not by lowering estimates below the real effort",
+          "attempt 3: estimates add up to 64 hours, above the 50 hours this key result may use; cut at least 14 hours by dropping or merging the least important tasks, not by lowering estimates below the real effort"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 353968,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 460071,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 29307,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 9589,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 12,
+        "errors": []
+      }
+    ]
+  }
+}

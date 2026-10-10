@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OKR Planner — Wireframe đợt 2</title>
+<link rel="stylesheet" href="wf.css">
+<script src="wf.js"></script>
+</head>
+<body>
+<div class="doc-header">
+  <span class="title">OKR Planner · {Wireframe đợt 2 — hoàn thiện giai đoạn 1¦Wireframes wave 2 — phase 1 completion}</span>
+  <nav>
+    <a href="wave1.html">{← Đợt 1¦← Wave 1}</a><a href="#flow">Flow</a><a href="#s10">S10</a><a href="#s11">S11</a><a href="#s12">S12</a><a href="#s13">S13</a><a href="#s14">S14</a><a href="#s14b">S14b</a><a href="#s14c">S14c</a>
+  </nav>
+  <span class="lang"><button data-lang-btn="vi" onclick="setLang('vi')">VI</button><button data-lang-btn="en" onclick="setLang('en')">EN</button></span>
+</div>
+
+<!-- ============================ FLOW ============================ -->
+<section class="screen" id="flow">
+  <header><span class="sid">F1</span><h2>{Luồng đợt 2 & kiến trúc thông tin đầy đủ¦Wave 2 flow & full information architecture}</h2>
+    <p>{Đợt 2 không thêm wizard mới; mọi thứ nằm trong app shell. Nguyên tắc xuyên suốt: sửa không tốn AI, mọi thay đổi lịch đều xem trước được, hoàn tác được, và chỉ scheduler (không phải LLM) quyết định ngày.¦Wave 2 adds no new wizard; everything lives in the app shell. Throughout: edits never cost AI, every schedule change can be previewed and undone, and only the scheduler (not the LLM) decides dates.}</p>
+  </header>
+  <div class="card" style="width:1440px;padding:24px">
+    <p class="cap">{Vòng lặp chỉnh kế hoạch¦Plan-adjustment loop}</p>
+    <div class="flow">
+      <div class="node"><span class="id">S5/S6/S11</span><span class="nm">{Xem kế hoạch¦View plan}</span><span class="muted">{Danh sách · tuần · tháng¦List · week · month}</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="id">S10</span><span class="nm">{Sửa / thêm / xóa / dời / ghim¦Edit / add / delete / move / pin}</span><span class="muted">{Gom thay đổi, pill "Cần xếp lại"¦Batches changes, "Needs rescheduling" pill}</span></div>
+      <div class="arrow">→</div>
+      <div class="node dec"><span class="id">{Kiểm tra¦Check}</span><span class="nm">{Ghim xung đột?¦Pinned conflict?}</span><span class="muted">{Có → hộp thoại chọn giữ/bỏ ghim¦Yes → keep/unpin dialog}</span></div>
+      <div class="arrow">→</div>
+      <div class="node sys"><span class="id">{Hệ thống¦System}</span><span class="nm">{Scheduler chạy lại¦Scheduler reruns}</span><span class="muted">{Xem trước diff → Áp dụng¦Preview diff → Apply}</span></div>
+      <div class="arrow">→</div>
+      <div class="node dec"><span class="id">S7</span><span class="nm">{Còn quá tải?¦Still overloaded?}</span><span class="muted">{Đỏ → S13 phương án có số liệu¦Red → S13 quantified options}</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="id">S13</span><span class="nm">{Chọn & áp dụng phương án¦Pick & apply options}</span><span class="muted">{Kết hợp nhiều phương án, xem trước trước/sau¦Combine options, before/after preview}</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="id">S12</span><span class="nm">{Theo dõi workload¦Track workload}</span><span class="muted">{% capacity theo tuần, mốc KR¦% capacity per week, KR milestones}</span></div>
+    </div>
+    <div class="flow-branch">
+      <span class="badge outline">{S13 "Dời KR sang quý sau" → KR xuất hiện ở Q1/2027 (S14) dạng nháp¦S13 "Move KR to next quarter" → KR appears in Q1/2027 (S14) as a draft}</span>
+      <span class="badge outline">{S14 thêm nghỉ phép / sửa ngày lễ → capacity đổi → pill "Cần xếp lại"¦S14 leave / holiday edits → capacity changes → "Needs rescheduling" pill}</span>
+      <span class="badge outline">{Kéo-thả trên lịch (S6/S11) = dời + ghim, luôn có Hoàn tác¦Drag on calendar (S6/S11) = move + pin, always undoable}</span>
+    </div>
+    <div class="divider" style="margin:24px 0"></div>
+    <div class="row" style="gap:40px">
+      <div style="width:420px">
+        <p class="cap">{Sidebar đầy đủ (desktop)¦Full sidebar (desktop)}</p>
+        <div class="stack tight small">
+          <div><b>{Kế hoạch OKR¦OKR plan}</b> — S2</div>
+          <div><b>{Công việc¦Tasks}</b> — {S5 + thao tác S10¦S5 + S10 actions}</div>
+          <div><b>{Lịch¦Calendar}</b> — {S6 tuần · S11 tháng (seg control)¦S6 week · S11 month (segmented)}</div>
+          <div><b>Workload</b> — {S12 dashboard · nút "Xem phương án" → S13¦S12 dashboard · "See options" → S13}</div>
+          <div><b>{Quản lý quý¦Quarters}</b> — {S14 danh sách quý · nghỉ phép · ngày lễ · xuất file¦S14 quarter list · leave · holidays · export}</div>
+          <div><b>{Cài đặt¦Settings}</b> — S8</div>
+          <div class="muted">{Chân sidebar: Chính sách dữ liệu (S14c)¦Sidebar footer: Data policy (S14c)}</div>
+        </div>
+      </div>
+      <div style="width:420px">
+        <p class="cap">{Mobile¦Mobile}</p>
+        <div class="stack tight small">
+          <div>{Tab bar vẫn 4 mục; tab cuối đổi thành "Thêm": Workload · Quản lý quý · Cài đặt · Chính sách dữ liệu¦Tab bar stays at 4; the last tab becomes "More": Workload · Quarters · Settings · Data policy}</div>
+          <div>{Sửa task: nhấn giữ → action sheet; sửa chi tiết = sheet toàn màn¦Edit task: long-press → action sheet; details = full-screen sheet}</div>
+          <div>{Thanh "N thay đổi · Xếp lại lịch" dính trên tab bar¦"N changes · Reschedule" bar sticks above the tab bar}</div>
+        </div>
+      </div>
+      <div style="width:420px">
+        <p class="cap">{Dữ liệu mẫu đợt 2 (giả lập)¦Wave 2 sample data (synthetic)}</p>
+        <div class="stack tight small">
+          <div>{Hôm nay trong wireframe: T4 07/10/2026 (tuần 41).¦"Today" in wireframes: Wed Oct 7, 2026 (week 41).}</div>
+          <div>{S10–S12: kịch bản xanh (212h / 260h). S13: kịch bản đỏ lúc lập kế hoạch 30/09 (318h, thiếu 58h). S14: sau khi áp dụng "Làm Thứ 7 + Dời KR 3.2" ở S13 (288h / 312h, Vàng).¦S10–S12: green scenario (212h / 260h). S13: red scenario at planning time Sep 30 (318h, 58h short). S14: after applying "Saturdays + move KR 3.2" in S13 (288h / 312h, Amber).}</div>
+          <div class="muted">{Capacity theo tuần: T40 8h · T41–T47 20h · T48 16h (lễ 24/11) · T49–T52 20h · T53 16h = 260h.¦Weekly capacity: W40 8h · W41–W47 20h · W48 16h (Nov 24 holiday) · W49–W52 20h · W53 16h = 260h.}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ S10 EDIT / PIN / RESCHEDULE ============================ -->
+<section class="screen" id="s10">
+  <header><span class="sid">S10</span><h2>{Sửa, thêm, xóa, dời, ghim task & xếp lại lịch¦Edit, add, delete, move, pin tasks & reschedule}</h2>
+    <p>{Mọi thao tác chỉ đánh dấu kế hoạch "cần xếp lại", không tự dời ngày sau lưng người dùng. Người dùng bấm "Xếp lại lịch" khi sẵn sàng, xem trước thay đổi, và giải quyết xung đột ghim một cách rõ ràng.¦Every action only marks the plan "needs rescheduling"; nothing moves behind the user's back. The user clicks "Reschedule" when ready, previews the diff and resolves pinned conflicts explicitly.}</p>
+  </header>
+  <div class="row">
+    <div>
+      <p class="cap">Desktop 1440 · {danh sách có 2 thay đổi chưa xếp lại + menu hàng¦list with 2 pending changes + row menu}</p>
+      <div class="frame desktop" style="height:1000px">
+        <div data-browser="/q/2026-Q4/tasks"></div>
+        <div class="app">
+          <div data-topbar="stale"></div>
+          <div data-sidebar="tasks"></div>
+          <div class="main" style="position:relative">
+            <div class="pagehead"><div><h1>{Kế hoạch Q4/2026¦Q4/2026 plan}</h1><div class="sub">{2 Objective · 5 KR · 50 task · 214h · 4/50 task đã xong¦2 Objectives · 5 KRs · 50 tasks · 214h · 4/50 tasks done}</div></div>
+              <div class="actions"><span class="dirty">{2 thay đổi chưa xếp lại¦2 changes not rescheduled}</span><span class="btn ghost sm">{Hoàn tác tất cả¦Undo all}</span><span class="btn primary">⟳ {Xếp lại lịch¦Reschedule}</span></div></div>
+            <div class="tabs"><span class="on">{Danh sách¦List}</span><span>{Lịch tuần¦Week}</span></div>
+            <div class="hstack" style="margin-bottom:12px"><div class="input ph" style="width:260px">{Tìm task…¦Search tasks…}</div><span class="select" style="width:170px">{Tất cả Objective¦All Objectives}</span><span class="select" style="width:150px">{Mọi trạng thái¦Any status}</span><span class="grow"></span><span class="btn sm">+ {Thêm task¦Add task}</span></div>
+            <div class="tree">
+              <div class="tr th" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span></span><span>{Tên¦Name}</span><span>{Giờ¦Hrs}</span><span>{Bắt đầu¦Start}</span><span>{Kết thúc¦End}</span><span>{Phụ thuộc¦Depends}</span><span>{Trạng thái¦Status}</span><span></span></div>
+              <div class="tr o" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="caret">▼</span><span class="hstack"><span class="obj-tag c1">O1</span><span class="ellip">{Ra mắt v2.0 ứng dụng đọc sách¦Launch v2.0 of the reading app}</span></span><span>92h</span><span>01/10</span><span>02/11</span><span></span><span></span><span></span></div>
+              <div class="tr k" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="caret">▼</span><span class="hstack" style="padding-left:18px"><span class="mono">KR 1.1</span><span class="ellip">{Tăng WAU 800 → 2.000¦Grow WAU 800 → 2,000}</span></span><span>40h</span><span>01/10</span><span>14/10</span><span></span><span class="small muted">{4/9 xong¦4/9 done}</span><span></span></div>
+              <div class="tr done-row" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check on"></span><span class="ellip" style="padding-left:40px">{Phân tích funnel onboarding hiện tại¦Analyse the current onboarding funnel}</span><span>4h</span><span>01/10</span><span>01/10</span><span></span><span><span class="badge ok">✓ {Xong¦Done}</span></span><span class="muted">⋯</span></div>
+              <div class="tr done-row" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check on"></span><span class="ellip" style="padding-left:40px">{Thiết kế lại onboarding 3 bước¦Redesign the 3-step onboarding}</span><span>5h</span><span>02/10</span><span>05/10</span><span><span class="chip">T1.1.1</span></span><span><span class="badge ok">✓ {Xong¦Done}</span></span><span class="muted">⋯</span></div>
+              <div class="tr done-row" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check on"></span><span class="ellip" style="padding-left:40px">{A/B test màn chào¦A/B test welcome screen}</span><span>3h</span><span>05/10</span><span>05/10</span><span><span class="chip">T1.1.2</span></span><span><span class="badge ok">✓ {Xong¦Done}</span></span><span class="muted">⋯</span></div>
+              <div class="tr done-row" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check on"></span><span class="ellip" style="padding-left:40px">{Triển khai nhắc đọc hằng ngày¦Ship the daily reading reminder}</span><span>4h</span><span>06/10</span><span>06/10</span><span><span class="chip">T1.1.2</span></span><span><span class="badge ok">✓ {Xong¦Done}</span></span><span class="muted">⋯</span></div>
+              <div class="tr" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check"></span><span class="ellip" style="padding-left:40px">{Thiết lập dashboard WAU¦Set up WAU dashboard}</span><span>4h</span><span>07/10</span><span>07/10</span><span></span><span><span class="badge info">{Hôm nay¦Today}</span></span><span class="muted">⋯</span></div>
+              <div class="tr sel" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check"></span><span class="ellip" style="padding-left:40px">{Chiến dịch email kích hoạt lại¦Re-activation email campaign}</span><span><b>6h</b></span><span>08/10</span><span class="muted">?</span><span></span><span><span class="badge warn">{Đã sửa: 4h → 6h¦Edited: 4h → 6h}</span></span><span class="muted">⋯</span></div>
+              <div class="tr" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check"></span><span class="ellip" style="padding-left:40px">{Khảo sát người dùng rời bỏ¦Churned-user survey}</span><span>4h</span><span>09/10</span><span>09/10</span><span></span><span class="hstack" style="gap:4px"><span class="badge dark">{Ghim · 09/10¦Pinned · Oct 9}</span><span class="badge warn">{Mới¦New}</span></span><span class="muted">⋯</span></div>
+              <div class="tr" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="check"></span><span class="ellip" style="padding-left:40px">{Push thông báo cá nhân hóa¦Personalised push notifications}</span><span>4h</span><span>12/10</span><span>12/10</span><span></span><span></span><span style="background:var(--muted);border-radius:4px;text-align:center">⋯</span></div>
+              <div class="tr" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span></span><span class="ellip muted" style="padding-left:40px">{+ 1 task khác · + Thêm task vào KR 1.1¦+ 1 more task · + Add task to KR 1.1}</span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="tr k" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="caret">▶</span><span class="hstack" style="padding-left:18px"><span class="mono">KR 1.2</span><span class="ellip">{Phát hành v2.0 lên App Store¦Ship v2.0 to the App Store}</span></span><span>22h</span><span>14/10</span><span>21/10</span><span></span><span></span><span></span></div>
+              <div class="tr k" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="caret">▶</span><span class="hstack" style="padding-left:18px"><span class="mono">KR 1.3</span><span class="ellip">{Giảm crash 3,2% → 1%¦Reduce crashes 3.2% → 1%}</span></span><span>30h</span><span>22/10</span><span>02/11</span><span></span><span></span><span></span></div>
+              <div class="tr o" style="grid-template-columns:24px minmax(0,1fr) 44px 64px 64px 84px 150px 28px"><span class="caret">▶</span><span class="hstack"><span class="obj-tag c2">O2</span><span class="ellip">{Đạt JLPT N4¦Pass JLPT N4}</span></span><span>122h</span><span>02/11</span><span>15/12</span><span></span><span></span><span></span></div>
+            </div>
+            <div class="menu" style="position:absolute;right:28px;top:640px;z-index:6">
+              <div>{Sửa…¦Edit…}<span class="kbd">E</span></div>
+              <div class="on">{Dời sang ngày…¦Move to date…}</div>
+              <div>{Ghim vào ngày hiện tại¦Pin to current date}</div>
+              <div>{Đánh dấu hoàn thành¦Mark as done}<span class="kbd">X</span></div>
+              <div>{Nhân bản¦Duplicate}</div>
+              <div class="sepr"></div>
+              <div class="danger">{Xóa task¦Delete task}<span class="kbd">⌫</span></div>
+            </div>
+            <span class="pin abs" style="left:900px;top:30px">1</span>
+            <span class="pin abs" style="left:4px;top:334px">2</span>
+            <span class="pin abs" style="left:4px;top:536px">3</span>
+            <span class="pin abs" style="left:4px;top:575px">4</span>
+            <span class="pin abs" style="left:936px;top:642px">5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">{Sheet sửa task (shadcn Sheet, phải)¦Edit task sheet (shadcn Sheet, right)}</p>
+      <div class="frame" style="width:460px"><div class="drawer stack" style="box-shadow:none">
+        <div class="hstack between"><span class="chip">T1.1.6 · KR 1.1</span><span class="muted">✕</span></div>
+        <h3 style="font-size:18px">{Sửa task¦Edit task}</h3>
+        <div class="field"><label>{Tên task¦Task name}</label><div class="input">{Chiến dịch email kích hoạt lại¦Re-activation email campaign}</div></div>
+        <div class="grid2">
+          <div class="field"><label>{Ước lượng (giờ)¦Estimate (hours)}</label><div class="hstack"><span class="btn sm">−</span><div class="input" style="width:56px;justify-content:center"><b>6</b></div><span class="btn sm">+</span></div><span class="hint">{2–6h. Lớn hơn thì tách task.¦2–6h. Split anything larger.}</span></div>
+          <div class="field"><label>{Hoàn thành¦Done}</label><div class="hstack small"><span class="check"></span>{Đánh dấu đã xong¦Mark as done}</div></div>
+        </div>
+        <div class="field"><label>{Tiêu chí hoàn thành¦Done criteria}</label>
+          <div class="hstack small"><span class="check"></span><span class="grow">{Gửi 3 email cho nhóm không hoạt động 14 ngày¦Send 3 emails to users inactive for 14 days}</span><span class="muted">✕</span></div>
+          <div class="hstack small"><span class="check"></span><span class="grow">{Đo tỉ lệ quay lại sau 7 ngày¦Measure 7-day return rate}</span><span class="muted">✕</span></div>
+          <a class="small">+ {Thêm tiêu chí¦Add criterion}</a></div>
+        <div class="field"><label>{Phụ thuộc¦Depends on}</label><div class="input" style="gap:6px"><span class="chip">T1.1.5 {Dashboard WAU¦WAU dashboard} ✕</span><span class="muted small">{+ chọn task…¦+ pick a task…}</span></div></div>
+        <div class="field"><div class="hstack between"><label>{Ghim vào ngày¦Pin to date}</label><span class="toggle"></span></div><span class="hint">{Task ghim không bị scheduler dời. Nếu ngày ghim bị đầy, bạn sẽ được hỏi trước khi xếp lại.¦Pinned tasks are never moved by the scheduler. If the pinned day overflows you'll be asked before rescheduling.}</span></div>
+        <div class="banner neutral small"><span class="icon round"></span><div>{Lưu chỉ ghi nhận thay đổi. Ngày của các task khác cập nhật khi bạn bấm "Xếp lại lịch".¦Saving only records the change. Other tasks' dates update when you click "Reschedule".}</div></div>
+        <div class="hstack between" style="margin-top:6px"><span class="btn outline-danger sm">{Xóa task¦Delete task}</span><span class="hstack"><span class="btn">{Hủy¦Cancel}</span><span class="btn primary">{Lưu thay đổi¦Save changes}</span></span></div>
+      </div></div></div>
+    <div class="col">
+      <div><p class="cap">{Xung đột ghim khi bấm "Xếp lại lịch"¦Pinned conflict on "Reschedule"}</p>
+        <div class="frame mid" style="background:#0f172a66;padding:24px;width:620px"><div class="dialog" style="width:100%">
+          <h3>{1 task ghim bị xung đột¦1 pinned task has a conflict}</h3>
+          <p class="small muted" style="margin:0 0 12px">{Chọn cách xử lý cho từng task. Không có gì thay đổi cho tới khi bạn xác nhận.¦Choose how to handle each task. Nothing changes until you confirm.}</p>
+          <div class="card stack tight">
+            <div class="hstack between"><b class="small">{Khảo sát người dùng rời bỏ¦Churned-user survey}</b><span class="badge dark">{Ghim · T6 09/10¦Pinned · Fri Oct 9}</span></div>
+            <span class="small">{T6 09/10 cần 6h nhưng chỉ có 4h — vì "Chiến dịch email" tăng 4h → 6h và tràn sang ngày này.¦Fri Oct 9 needs 6h but has 4h — "Email campaign" grew 4h → 6h and spills into this day.}</span>
+            <div class="hstack small"><span class="radio on"></span><b>{Giữ ghim¦Keep pin}</b><span class="muted">— {phần còn lại của "Chiến dịch email" (2h) dời sang T2 12/10¦the remaining 2h of "Email campaign" moves to Mon Oct 12}</span></div>
+            <div class="hstack small"><span class="radio"></span><b>{Bỏ ghim & xếp tự động¦Unpin & auto-schedule}</b><span class="muted">— {khảo sát thành 09/10 (2h) + 12/10 (2h)¦survey becomes Oct 9 (2h) + Oct 12 (2h)}</span></div>
+          </div>
+          <div class="foot"><span class="btn">{Hủy¦Cancel}</span><span class="btn primary">{Tiếp tục xem trước¦Continue to preview}</span></div>
+        </div></div></div>
+      <div><p class="cap">{Xem trước thay đổi trước khi áp dụng¦Preview changes before applying}</p>
+        <div class="frame mid" style="background:#0f172a66;padding:24px;width:620px"><div class="dialog" style="width:100%">
+          <h3>{Xếp lại lịch: 44 task đổi ngày¦Reschedule: 44 tasks change dates}</h3>
+          <div class="hstack" style="margin:8px 0 4px"><span class="badge ok">✓ {Vẫn khả thi¦Still feasible}</span><span class="small">{Cần 212h → 214h · Dự kiến xong 15/12 → 16/12 · Task ghim giữ nguyên¦Needs 212h → 214h · Finish Dec 15 → Dec 16 · Pinned tasks unchanged}</span></div>
+          <div class="diff" style="border-top:none;font-size:11px;color:var(--muted-foreground);font-weight:700;text-transform:uppercase"><span>Task</span><span>{Trước¦Before}</span><span></span><span>{Sau¦After}</span></div>
+          <div class="diff"><span class="ellip">{Chiến dịch email kích hoạt lại (6h)¦Re-activation email campaign (6h)}</span><span class="old">08/10</span><span>→</span><span class="new">08/10 + 12/10</span></div>
+          <div class="diff"><span class="ellip">{Push thông báo cá nhân hóa¦Personalised push notifications}</span><span class="old">12/10</span><span>→</span><span class="new">12/10 – 13/10</span></div>
+          <div class="diff"><span class="ellip">KR 1.2 · 6 task</span><span class="old">14/10 – 21/10</span><span>→</span><span class="new">15/10 – 22/10</span></div>
+          <div class="diff"><span class="ellip muted">{+ 36 task khác, mỗi task dời tối đa 1 ngày¦+ 36 other tasks, each moves ≤ 1 day}</span><span></span><span></span><a class="small">{Xem tất cả¦Show all}</a></div>
+          <div class="foot"><span class="btn">{Quay lại¦Back}</span><span class="btn primary">{Áp dụng lịch mới¦Apply new schedule}</span></div>
+        </div></div></div>
+    </div>
+    <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+      <li>{Pill "Cần xếp lại" ở topbar + badge "N thay đổi" thay cho trạng thái khả thi cũ (không hiển thị số đã lỗi thời). "Hoàn tác tất cả" khôi phục bản đã xếp gần nhất.¦"Needs rescheduling" pill + "N changes" badge replace the stale feasibility status (never show outdated numbers). "Undo all" restores the last scheduled version.}</li>
+      <li>{Checkbox hoàn thành ngay trên hàng; task xong gạch ngang, không bị scheduler dời.¦Done checkbox inline; done tasks are struck through and never moved.}</li>
+      <li>{Hàng đã sửa hiện giá trị cũ → mới; ngày kết thúc "?" cho tới khi xếp lại.¦Edited rows show old → new; end date "?" until rescheduled.}</li>
+      <li>{Badge ghim dùng chữ + ngày, không chỉ icon.¦Pin badge uses text + date, not an icon alone.}</li>
+      <li>{Menu hàng (DropdownMenu) có phím tắt; "Dời sang ngày…" mở date picker và tự ghim.¦Row DropdownMenu with shortcuts; "Move to date…" opens a date picker and pins.}</li>
+      <li>{Sheet sửa: giờ 2–6h (theo spec task ~4h), phụ thuộc là combobox có kiểm tra vòng lặp.¦Edit sheet: 2–6h estimate (tasks ≈4h), dependencies via combobox with cycle check.}</li>
+      <li>{Xung đột ghim: từng task một lựa chọn rõ ràng, mặc định "Giữ ghim" (tôn trọng ý định người dùng).¦Pinned conflicts: one explicit choice per task, default "Keep pin" (respects user intent).}</li>
+      <li>{Xem trước diff: tóm tắt tác động (khả thi, ngày xong) trước, chi tiết sau (progressive disclosure).¦Diff preview: impact summary first (feasibility, finish date), details after (progressive disclosure).}</li>
+    </ol></div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">{Kéo-thả trên lịch tuần = dời + ghim¦Drag on week calendar = move + pin}</p>
+      <div class="frame mid" style="height:360px;width:560px"><div style="padding:16px;position:relative;height:100%">
+        <div class="cal" style="grid-template-columns:repeat(5,1fr)">
+          <div class="dh"><div class="d">{T2 05¦Mon 5}</div><div class="xs muted">4/4h</div></div>
+          <div class="dh"><div class="d">{T3 06¦Tue 6}</div><div class="xs muted">4/4h</div></div>
+          <div class="dh"><div class="d"><span class="today">{T4 07¦Wed 7}</span></div><div class="xs muted">4/4h</div></div>
+          <div class="dh" style="background:var(--warning-muted)"><div class="d">{T5 08¦Thu 8}</div><div class="xs" style="color:var(--warning);font-weight:700">! 8/4h</div></div>
+          <div class="dh"><div class="d">{T6 09¦Fri 9}</div><div class="xs muted">0/4h</div></div>
+          <div class="dc" style="min-height:200px"><div class="ev done-row" style="min-height:40px"><span class="n">✓ {A/B test màn chào¦A/B test welcome}</span><span class="h">3h</span></div></div>
+          <div class="dc" style="min-height:200px"><div class="ev done-row" style="min-height:80px"><span class="n">✓ {Nhắc đọc hằng ngày¦Daily reminder}</span><span class="h">4h</span></div></div>
+          <div class="dc" style="min-height:200px"><div class="ev" style="min-height:80px"><span class="n">{Dashboard WAU¦WAU dashboard}</span><span class="h">4h</span></div></div>
+          <div class="dc" style="min-height:200px"><div class="ev" style="min-height:80px"><span class="n">{Chiến dịch email¦Email campaign}</span><span class="h">4h</span></div><div class="ev drop pinned" style="min-height:80px"><span class="n">{Khảo sát người dùng rời bỏ¦Churned-user survey}</span><span class="h">{Ghim · 4h¦Pinned · 4h}</span></div></div>
+          <div class="dc" style="min-height:200px"><div class="ev ghost" style="min-height:80px"><span class="n">{Khảo sát người dùng rời bỏ¦Churned-user survey}</span><span class="h">4h</span></div></div>
+        </div>
+        <div class="toast" style="left:16px;right:16px;bottom:16px">{Đã dời "Khảo sát" sang T5 08/10 và ghim. Ngày này đang vượt 4h.¦Moved "Survey" to Thu Oct 8 and pinned it. That day is 4h over.}<span class="grow"></span><a>{Hoàn tác¦Undo}</a><a>{Xếp lại ngay¦Reschedule now}</a></div>
+      </div></div></div>
+    <div class="col">
+      <div><p class="cap">{Xóa task có phụ thuộc¦Delete a task with dependents}</p>
+        <div class="frame mini" style="background:#0f172a66;padding:20px"><div class="dialog" style="width:100%">
+          <h3>{Xóa "Thiết lập dashboard WAU"?¦Delete "Set up WAU dashboard"?}</h3>
+          <p class="small" style="margin:0 0 10px">{1 task đang phụ thuộc vào task này: "Báo cáo WAU 4 tuần" (4h).¦1 task depends on it: "4-week WAU report" (4h).}</p>
+          <div class="stack tight small"><div class="hstack"><span class="radio on"></span>{Chỉ xóa task này, bỏ liên kết phụ thuộc¦Delete only this task, remove the link}</div><div class="hstack"><span class="radio"></span>{Xóa cả task phụ thuộc (tổng 8h)¦Also delete the dependent task (8h total)}</div></div>
+          <div class="foot"><span class="btn">{Hủy¦Cancel}</span><span class="btn danger">{Xóa¦Delete}</span></div>
+        </div></div></div>
+      <div><p class="cap">{Xóa task không phụ thuộc → toast hoàn tác (không hỏi)¦Delete with no dependents → undo toast (no dialog)}</p>
+        <div class="frame mini" style="height:84px"><div class="toast" style="left:16px;right:16px;bottom:16px">{Đã xóa "Push thông báo cá nhân hóa" · 3 thay đổi chưa xếp lại¦Deleted "Personalised push notifications" · 3 changes pending}<span class="grow"></span><a>{Hoàn tác¦Undo}</a></div></div></div>
+      <div><p class="cap">{Lỗi nhập: vòng lặp phụ thuộc / giờ ngoài 2–6h¦Input errors: dependency cycle / hours outside 2–6h}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="field"><label>{Phụ thuộc¦Depends on}</label><div class="input invalid" style="gap:6px"><span class="chip">T1.1.8 ✕</span></div><span class="err-text">{Tạo vòng lặp: T1.1.6 → T1.1.8 → T1.1.6. Chọn task khác.¦Creates a cycle: T1.1.6 → T1.1.8 → T1.1.6. Pick another task.}</span></div>
+          <div class="field"><label>{Ước lượng (giờ)¦Estimate (hours)}</label><div class="input invalid" style="width:80px">9</div><span class="err-text">{Tối đa 6h.¦Max 6h.} <a>{Tách thành 2 task (5h + 4h)¦Split into 2 tasks (5h + 4h)}</a></span></div>
+        </div></div></div>
+    </div>
+    <div class="col">
+      <div><p class="cap">{Biến thể xung đột: ghim trước khi phụ thuộc xong¦Conflict variant: pinned before dependency ends}</p>
+        <div class="frame mini"><div style="padding:16px" class="card stack tight" >
+          <div class="hstack between"><b class="small">{Báo cáo WAU 4 tuần¦4-week WAU report}</b><span class="badge dark">{Ghim · T4 07/10¦Pinned · Wed Oct 7}</span></div>
+          <span class="small">{Phụ thuộc "Dashboard WAU" xong 07/10 → sớm nhất 08/10 (quy tắc D+1).¦Depends on "WAU dashboard" ending Oct 7 → earliest Oct 8 (D+1 rule).}</span>
+          <div class="hstack small"><span class="radio on"></span>{Dời ghim sang T5 08/10¦Move pin to Thu Oct 8}</div>
+          <div class="hstack small"><span class="radio"></span>{Bỏ ghim & xếp tự động¦Unpin & auto-schedule}</div>
+          <div class="hstack small"><span class="radio"></span>{Bỏ liên kết phụ thuộc, giữ 07/10¦Remove the dependency, keep Oct 7}</div>
+        </div></div></div>
+      <div><p class="cap">{Đang xếp lại / thất bại¦Rescheduling / failed}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="hstack"><span class="btn primary disabled"><span class="spin"></span> {Đang xếp lại…¦Rescheduling…}</span><span class="small muted">{Scheduler, không dùng AI · thường &lt; 2 giây¦Scheduler, no AI · usually &lt; 2 s}</span></div>
+          <div class="banner err"><span class="icon round"></span><div><div class="t">{Xếp lại thất bại¦Rescheduling failed}</div>{Máy chủ không phản hồi. Lịch cũ được giữ nguyên, 2 thay đổi của bạn vẫn còn.¦Server didn't respond. The old schedule is kept and your 2 changes are still there.} <a>{Thử lại¦Retry}</a></div></div>
+        </div></div></div>
+      <div><p class="cap">{Quá tải sau khi sửa¦Overloaded after edits}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="banner err"><span class="sym err">×</span><div><div class="t">{Sau khi xếp lại: thiếu 6h¦After rescheduling: 6h short}</div>{Bạn đã thêm 9 task (+54h) → Cần 266h / Có 260h. 2 task không kịp trước 31/12.¦You added 9 tasks (+54h) → Needs 266h / Has 260h. 2 tasks don't fit before Dec 31.} <a>{Xem phương án →¦See options →}</a></div></div>
+        </div></div></div>
+      <div><p class="cap">{Rỗng: KR chưa có task¦Empty: KR has no tasks}</p>
+        <div class="frame mini"><div style="padding:16px"><div class="empty" style="padding:18px"><h3>{KR 2.3 chưa có task¦KR 2.3 has no tasks}</h3><p>{Thêm thủ công hoặc để AI sinh task cho riêng KR này.¦Add tasks manually or let the AI generate tasks for this KR only.}</p><span class="hstack"><span class="btn sm">+ {Thêm task¦Add task}</span><span class="btn sm">{Sinh task bằng AI¦Generate with AI}</span></span></div></div></div></div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">Mobile 390 · {nhấn giữ task → action sheet¦long-press task → action sheet}</p>
+      <div class="frame mobile" style="height:844px">
+        <div data-mstatus></div>
+        <div class="m-top"><b class="grow">{Kế hoạch Q4/2026¦Q4/2026 plan}</b><span class="feas-pill" style="height:26px;color:#78350f;background:#fffbeb;border-color:#fcd34d;border-style:dashed">⟳</span></div>
+        <div class="m-body stack" style="filter:brightness(.6)">
+          <div class="card bl1 stack tight done-row" style="padding:12px"><b class="small ellip">✓ {Triển khai nhắc đọc hằng ngày¦Ship the daily reading reminder}</b></div>
+          <div class="card bl1 stack tight" style="padding:12px"><b class="small">{Thiết lập dashboard WAU¦Set up WAU dashboard}</b><div class="hstack small muted"><span>4h · 07/10</span></div></div>
+          <div class="card bl1 stack tight" style="padding:12px;box-shadow:0 0 0 2px #fff"><b class="small">{Chiến dịch email kích hoạt lại¦Re-activation email campaign}</b><div class="hstack small muted"><span>6h · 08/10</span><span class="badge warn">{Đã sửa¦Edited}</span></div></div>
+        </div>
+        <div class="overlay bottom" style="background:transparent"><div class="sheet stack tight" style="padding-bottom:28px">
+          <div class="grab"></div>
+          <b class="small">{Chiến dịch email kích hoạt lại¦Re-activation email campaign}</b>
+          <div class="btn block" style="justify-content:flex-start">{Sửa chi tiết¦Edit details}</div>
+          <div class="btn block" style="justify-content:flex-start">{Dời sang ngày…¦Move to date…}</div>
+          <div class="btn block" style="justify-content:flex-start">{Ghim ngày 08/10¦Pin to Oct 8}</div>
+          <div class="btn block" style="justify-content:flex-start">{Đánh dấu hoàn thành¦Mark as done}</div>
+          <div class="btn block outline-danger" style="justify-content:flex-start">{Xóa task¦Delete task}</div>
+          <div class="btn block ghost">{Đóng¦Close}</div>
+        </div></div>
+      </div>
+    </div>
+    <div><p class="cap">Mobile 390 · {thanh xếp lại dính trên tab bar¦reschedule bar above the tab bar}</p>
+      <div class="frame mobile" style="height:844px">
+        <div data-mstatus></div>
+        <div class="m-top"><b class="grow">{Kế hoạch Q4/2026¦Q4/2026 plan}</b></div>
+        <div class="m-body stack">
+          <div class="hstack between small"><span class="hstack"><span class="obj-tag c1">O1</span><b>KR 1.1</b></span><span class="muted">{4/9 xong¦4/9 done}</span></div>
+          <div class="card bl1 stack tight" style="padding:12px"><div class="hstack between"><b class="small">{Thiết lập dashboard WAU¦Set up WAU dashboard}</b><span class="check"></span></div><div class="hstack small muted"><span>4h · 07/10</span><span class="badge info">{Hôm nay¦Today}</span></div></div>
+          <div class="card bl1 stack tight" style="padding:12px"><div class="hstack between"><b class="small">{Chiến dịch email kích hoạt lại¦Re-activation email campaign}</b><span class="check"></span></div><div class="hstack small muted"><span>6h · 08/10 → ?</span><span class="badge warn">4h → 6h</span></div></div>
+          <div class="card bl1 stack tight" style="padding:12px"><div class="hstack between"><b class="small">{Khảo sát người dùng rời bỏ¦Churned-user survey}</b><span class="check"></span></div><div class="hstack small muted"><span>4h</span><span class="badge dark">{Ghim · 09/10¦Pinned · Oct 9}</span></div></div>
+          <div class="card bl1 stack tight" style="padding:12px"><div class="hstack between"><b class="small">{Push thông báo cá nhân hóa¦Personalised push notifications}</b><span class="check"></span></div><div class="hstack small muted"><span>4h · 12/10</span></div></div>
+        </div>
+        <div class="m-sticky"><span class="dirty">2</span><span class="small grow">{thay đổi chưa xếp lại¦changes pending}</span><span class="btn primary sm">⟳ {Xếp lại¦Reschedule}</span></div>
+        <div data-tabbar="tasks" data-w2></div>
+      </div>
+    </div>
+    <div class="notes"><h4>{Ghi chú (tiếp)¦Notes (cont.)}</h4><ol start="9">
+      <li>{Kéo-thả: bóng mờ ở vị trí cũ, header ngày đích báo vượt capacity ngay khi thả; toast có cả Hoàn tác và Xếp lại ngay.¦Drag: ghost at the old slot, target day header flags overflow on drop; toast offers Undo and Reschedule now.}</li>
+      <li>{Xóa: chỉ hỏi khi có task phụ thuộc; còn lại dùng toast hoàn tác 8 giây, dừng đếm khi rê chuột (tránh hộp thoại thừa).¦Delete: ask only when dependents exist; otherwise an 8-second undo toast that pauses on hover (no needless dialogs).}</li>
+      <li>{Lỗi nhập hiện cạnh trường, kèm cách sửa ("Tách thành 2 task").¦Input errors sit next to the field with a fix ("Split into 2 tasks").}</li>
+      <li>{Xếp lại thất bại không bao giờ làm mất thay đổi chưa lưu.¦A failed reschedule never loses pending changes.}</li>
+      <li>{Quá tải sau khi sửa dẫn thẳng tới S13.¦Overload after edits links straight to S13.}</li>
+      <li>{Mobile: nhấn giữ → action sheet trong vùng ngón cái; checkbox 44px vùng chạm.¦Mobile: long-press → action sheet in the thumb zone; 44px checkbox hit area.}</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ============================ S11 MONTH ============================ -->
+<section class="screen" id="s11">
+  <header><span class="sid">S11</span><h2>{Lịch tháng¦Month calendar}</h2>
+    <p>{FullCalendar dayGridMonth, cùng nguồn dữ liệu với lịch tuần. Mỗi ô ngày có thanh tải (giờ đã xếp / capacity) để nhìn ra tuần căng hay trống; chip task rút gọn, "+N" khi quá 3 task. Ngày nghỉ, ngày lễ, nghỉ phép và buffer có hoa văn khác nhau.¦FullCalendar dayGridMonth, same data source as the week view. Each day cell has a load bar (scheduled / capacity) so busy or empty weeks stand out; compact task chips, "+N" past 3 tasks. Days off, holidays, leave and buffer get distinct patterns.}</p>
+  </header>
+  <div class="row">
+    <div>
+      <p class="cap">Desktop 1440 · {tháng 10/2026, kịch bản xanh, popover ngày 21/10¦October 2026, green scenario, Oct 21 popover}</p>
+      <div class="frame desktop" style="height:780px">
+        <div data-browser="/q/2026-Q4/calendar?view=month&amp;m=2026-10"></div>
+        <div class="app">
+          <div data-topbar="ok"></div>
+          <div data-sidebar="calendar"></div>
+          <div class="main" style="position:relative">
+            <div class="pagehead"><div><h1>{Tháng 10/2026¦October 2026}</h1><div class="sub">{22 ngày làm việc · 88/88h đã xếp · 22 task¦22 workdays · 88/88h scheduled · 22 tasks}</div></div>
+              <div class="actions"><span class="seg"><span>{Tuần¦Week}</span><span class="on">{Tháng¦Month}</span></span><span class="btn sm">‹</span><span class="btn sm">{Tháng này¦This month}</span><span class="btn sm">›</span></div></div>
+            <div class="month">
+              <div class="mh">{T2¦Mon}</div><div class="mh">{T3¦Tue}</div><div class="mh">{T4¦Wed}</div><div class="mh">{T5¦Thu}</div><div class="mh">{T6¦Fri}</div><div class="mh">{T7¦Sat}</div><div class="mh">CN¦Sun</div>
+              <div class="md out">28</div><div class="md out">29</div><div class="md out">30</div>
+              <div class="md"><div class="hstack between"><b>1</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Phân tích funnel¦Funnel analysis}</span></div>
+              <div class="md"><div class="hstack between"><b>2</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Thiết kế onboarding (1/2)¦Redesign onboarding (1/2)}</span></div>
+              <div class="md off"><b class="muted">3</b></div><div class="md off"><b class="muted">4</b></div>
+              <div class="md"><div class="hstack between"><b>5</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Thiết kế onboarding (2/2)¦Redesign onboarding (2/2)}</span><span class="ch a">{A/B test màn chào¦A/B test welcome}</span></div>
+              <div class="md"><div class="hstack between"><b>6</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Nhắc đọc hằng ngày¦Daily reading reminder}</span></div>
+              <div class="md" style="box-shadow:inset 0 0 0 2px var(--primary)"><div class="hstack between"><b style="background:var(--primary);color:#fff;border-radius:999px;padding:0 6px">7</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Dashboard WAU¦WAU dashboard}</span></div>
+              <div class="md"><div class="hstack between"><b>8</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Chiến dịch email¦Email campaign}</span></div>
+              <div class="md"><div class="hstack between"><b>9</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Khảo sát rời bỏ¦Churn survey}</span></div>
+              <div class="md off"><b class="muted">10</b></div><div class="md off"><b class="muted">11</b></div>
+              <div class="md"><div class="hstack between"><b>12</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Push cá nhân hóa¦Personalised push}</span></div>
+              <div class="md"><div class="hstack between"><b>13</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Tối ưu tốc độ mở app (1/2)¦App start-up speed (1/2)}</span></div>
+              <div class="md"><div class="hstack between"><b>14</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Tối ưu tốc độ (2/2)¦Start-up speed (2/2)}</span><span class="ch a">{Chốt tính năng v2.0¦Feature freeze v2.0}</span></div>
+              <div class="md"><div class="hstack between"><b>15</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Kiểm thử hồi quy¦Regression testing}</span></div>
+              <div class="md"><div class="hstack between"><b>16</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Sửa lỗi beta¦Fix beta bugs}</span></div>
+              <div class="md off"><b class="muted">17</b></div><div class="md off"><b class="muted">18</b></div>
+              <div class="md"><div class="hstack between"><b>19</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Ảnh chụp App Store¦App Store screenshots}</span></div>
+              <div class="md"><div class="hstack between"><b>20</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Mô tả & từ khóa ASO¦ASO copy & keywords}</span></div>
+              <div class="md" style="background:var(--accent)"><div class="hstack between"><b>21</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Gửi duyệt App Store¦Submit to App Store}</span><span class="ch" style="background:#fff;border:1px solid #0f172a">◆ {Mốc KR 1.2¦KR 1.2 milestone}</span></div>
+              <div class="md"><div class="hstack between"><b>22</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Tích hợp Crashlytics¦Integrate Crashlytics}</span></div>
+              <div class="md"><div class="hstack between"><b>23</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Phân loại top 10 crash¦Triage top 10 crashes}</span></div>
+              <div class="md off"><b class="muted">24</b></div><div class="md off"><b class="muted">25</b></div>
+              <div class="md"><div class="hstack between"><b>26</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Sửa crash #1–3¦Fix crashes #1–3}</span></div>
+              <div class="md"><div class="hstack between"><b>27</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Sửa crash #4–6¦Fix crashes #4–6}</span></div>
+              <div class="md"><div class="hstack between"><b>28</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Sửa crash #7–10¦Fix crashes #7–10}</span></div>
+              <div class="md"><div class="hstack between"><b>29</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Kiểm thử máy đời cũ¦Test on older devices}</span></div>
+              <div class="md"><div class="hstack between"><b>30</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch a">{Theo dõi crash sau vá (1/2)¦Monitor crashes post-fix (1/2)}</span></div>
+              <div class="md off"><b class="muted">31</b></div><div class="md out">1</div>
+            </div>
+            <div class="legend" style="margin-top:12px"><span><span class="sw" style="background:#e0e7ff"></span>O1</span><span><span class="sw" style="background:#cffafe"></span>O2</span><span><span class="sw" style="background:#fae8ff"></span>O3</span><span><span class="sw" style="background:var(--off)"></span>{Ngày nghỉ¦Day off}</span><span><span class="sw" style="background:repeating-linear-gradient(135deg,#fdf2f8 0 6px,#fbcfe833 6px 12px)"></span>{Ngày lễ¦Holiday}</span><span><span class="sw" style="background:repeating-linear-gradient(135deg,#f0f9ff 0 6px,#bae6fd55 6px 12px)"></span>{Nghỉ phép¦Leave}</span><span><span class="sw" style="background:var(--buffer)"></span>Buffer</span><span>◆ {Mốc KR¦KR milestone}</span></div>
+            <div class="popover" style="position:absolute;left:505px;top:395px;z-index:6">
+              <div class="hstack between"><b>{Thứ 4, 21/10/2026¦Wednesday, Oct 21, 2026}</b><span class="muted">✕</span></div>
+              <div class="small muted" style="margin:2px 0 8px">{4/4h đã xếp¦4/4h scheduled}</div>
+              <div class="ev" style="margin-bottom:8px"><span class="n">{Gửi duyệt App Store¦Submit to App Store}</span><span class="h">O1 · KR 1.2 · 4h</span></div>
+              <div class="small">◆ {Hoàn thành task này = đạt KR 1.2 "Phát hành v2.0"¦Finishing this task = KR 1.2 "Ship v2.0" achieved}</div>
+              <div class="hstack" style="margin-top:10px"><span class="btn sm">{Mở chi tiết¦Open details}</span><span class="btn sm">{Xem tuần 43¦View week 43}</span></div>
+            </div>
+            <span class="pin abs" style="left:1000px;top:24px">1</span>
+            <span class="pin abs" style="left:4px;top:150px">2</span>
+            <span class="pin abs" style="left:640px;top:160px">3</span>
+            <span class="pin abs" style="left:790px;top:395px">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">Mobile 390 · {lưới tháng có chấm + agenda ngày chọn¦month grid with dots + selected-day agenda}</p>
+      <div class="frame mobile" style="height:844px">
+        <div data-mstatus></div>
+        <div class="m-top"><b class="grow">{Tháng 10/2026¦October 2026}</b><span class="btn ghost sm">‹</span><span class="btn ghost sm">›</span></div>
+        <div style="padding:8px 12px 0"><span class="seg" style="width:100%;display:flex"><span style="flex:1;text-align:center">{Tuần¦Week}</span><span class="on" style="flex:1;text-align:center">{Tháng¦Month}</span></span></div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:10px 12px;text-align:center;font-size:12px">
+          <span class="xs muted">{T2¦M}</span><span class="xs muted">{T3¦T}</span><span class="xs muted">{T4¦W}</span><span class="xs muted">{T5¦T}</span><span class="xs muted">{T6¦F}</span><span class="xs muted">{T7¦S}</span><span class="xs muted">CN¦S</span>
+          <span style="color:#cbd5e1">28</span><span style="color:#cbd5e1">29</span><span style="color:#cbd5e1">30</span><span>1<br><span class="dot" style="color:var(--chart-1)"></span></span><span>2<br><span class="dot" style="color:var(--chart-1)"></span></span><span style="color:#cbd5e1">3</span><span style="color:#cbd5e1">4</span>
+          <span>5<br><span class="dot" style="color:var(--chart-1)"></span></span><span>6<br><span class="dot" style="color:var(--chart-1)"></span></span><span><b style="background:var(--primary);color:#fff;border-radius:999px;padding:0 5px">7</b><br><span class="dot" style="color:var(--chart-1)"></span></span><span>8<br><span class="dot" style="color:var(--chart-1)"></span></span><span>9<br><span class="dot" style="color:var(--chart-1)"></span></span><span style="color:#cbd5e1">10</span><span style="color:#cbd5e1">11</span>
+          <span>12<br><span class="dot" style="color:var(--chart-1)"></span></span><span>13<br><span class="dot" style="color:var(--chart-1)"></span></span><span>14<br><span class="dot" style="color:var(--chart-1)"></span></span><span>15<br><span class="dot" style="color:var(--chart-1)"></span></span><span>16<br><span class="dot" style="color:var(--chart-1)"></span></span><span style="color:#cbd5e1">17</span><span style="color:#cbd5e1">18</span>
+          <span>19<br><span class="dot" style="color:var(--chart-1)"></span></span><span>20<br><span class="dot" style="color:var(--chart-1)"></span></span><span style="outline:2px solid var(--primary);border-radius:8px">21<br><span class="dot" style="color:var(--chart-1)"></span></span><span>22<br><span class="dot" style="color:var(--chart-1)"></span></span><span>23<br><span class="dot" style="color:var(--chart-1)"></span></span><span style="color:#cbd5e1">24</span><span style="color:#cbd5e1">25</span>
+          <span>26<br><span class="dot" style="color:var(--chart-1)"></span></span><span>27<br><span class="dot" style="color:var(--chart-1)"></span></span><span>28<br><span class="dot" style="color:var(--chart-1)"></span></span><span>29<br><span class="dot" style="color:var(--chart-1)"></span></span><span>30<br><span class="dot" style="color:var(--chart-1)"></span></span><span style="color:#cbd5e1">31</span><span style="color:#cbd5e1">1</span>
+        </div>
+        <div class="m-body stack" style="border-top:1px solid var(--border)">
+          <div class="hstack between"><b>{Thứ 4, 21/10¦Wednesday, Oct 21}</b><span class="small muted">4/4h</span></div>
+          <div class="ev" style="min-height:70px"><span class="n">{Gửi duyệt App Store¦Submit to App Store}</span><span class="h">O1 · KR 1.2 · 4h</span><span class="h">◆ {Mốc KR 1.2¦KR 1.2 milestone}</span></div>
+        </div>
+        <div data-tabbar="calendar" data-w2></div>
+      </div>
+    </div>
+    <div class="col">
+      <div><p class="cap">{Tuần có ngày lễ (T11) + nghỉ phép¦Week with a holiday (Nov) + leave}</p>
+        <div class="frame mid" style="width:620px"><div style="padding:16px">
+          <div class="month">
+            <div class="md"><div class="hstack between"><b>23</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch b">{Luyện nghe N4¦N4 listening}</span></div>
+            <div class="md" style="background:repeating-linear-gradient(135deg,#fdf2f8 0 6px,#fbcfe833 6px 12px)"><b>24</b><span style="font-weight:700;color:#9d174d">{Ngày Văn hóa Việt Nam¦Vietnamese Culture Day}</span><span class="muted">{Lễ · 0h¦Holiday · 0h}</span></div>
+            <div class="md"><div class="hstack between"><b>25</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch b">{Đề thi thử #3¦Mock exam #3}</span></div>
+            <div class="md leave"><b>26</b><span style="font-weight:700;color:#075985">{Nghỉ phép¦Leave}</span><span class="muted">{0h · ví dụ¦0h · example}</span></div>
+            <div class="md"><div class="hstack between"><b>27</b><span class="muted">4/4h</span></div><div class="load"><b style="width:100%"></b></div><span class="ch b">{Ôn Kanji bài 16–18¦Kanji lessons 16–18}</span></div>
+            <div class="md off"><b class="muted">28</b></div><div class="md off"><b class="muted">29</b></div>
+          </div>
+          <p class="small muted" style="margin:8px 0 0">{Ô lễ/nghỉ phép ghi rõ tên + "0h", không chỉ tô màu.¦Holiday/leave cells state the name + "0h", not colour alone.}</p>
+        </div></div></div>
+      <div><p class="cap">{Quá tải: tháng 12 (kịch bản đỏ) + khay "chưa xếp"¦Overloaded: December (red scenario) + "unscheduled" tray}</p>
+        <div class="frame mid" style="width:620px"><div style="padding:16px" class="stack">
+          <div class="banner err"><span class="sym err">×</span><div><b>{15 task (58h) không xếp được trong quý.¦15 tasks (58h) don't fit in the quarter.}</b> <a>{Xem phương án →¦See options →}</a></div></div>
+          <div class="hstack" style="align-items:flex-start;flex-wrap:nowrap">
+            <div class="month" style="flex:1">
+              <div class="md buf"><div class="hstack between"><b>28</b><span>4/4h</span></div><span class="ch c">{Blog #4 (2/2)¦Blog #4 (2/2)}</span></div>
+              <div class="md buf"><div class="hstack between"><b>29</b><span>4/4h</span></div><span class="ch c">{Biên tập blog #4¦Edit blog #4}</span></div>
+              <div class="md buf"><div class="hstack between"><b>30</b><span>4/4h</span></div><span class="ch c">{Dàn ý blog #5¦Outline blog #5}</span></div>
+              <div class="md buf"><div class="hstack between"><b>31</b><span>4/4h</span></div><span class="ch c">{Số liệu cho blog #5¦Data for blog #5}</span></div>
+            </div>
+            <div class="card stack tight" style="width:190px;padding:10px"><b class="small">{Chưa xếp (15)¦Unscheduled (15)}</b><span class="ch c" style="border-radius:4px;padding:2px 6px;background:#fae8ff;font-size:11px">{Blog #5: đo lường WAU¦Blog #5: measuring WAU}</span><span class="ch c" style="border-radius:4px;padding:2px 6px;background:#fae8ff;font-size:11px">{Soạn slide meetup¦Draft meetup slides}</span><span class="xs muted">{+ 13 task · kéo vào ngày để ghim¦+ 13 tasks · drag onto a day to pin}</span></div>
+          </div>
+        </div></div></div>
+    </div>
+    <div class="col">
+      <div><p class="cap">{Rỗng: tháng thuộc quý chưa lập kế hoạch¦Empty: month in an unplanned quarter}</p>
+        <div class="frame mini"><div style="padding:16px"><div class="empty" style="padding:20px"><h3>{Tháng 1/2027 chưa có task¦No tasks in January 2027}</h3><p>{Tháng này thuộc Q1/2027. 1 KR đã được dời sang đây từ Q4/2026.¦This month belongs to Q1/2027. 1 KR was moved here from Q4/2026.}</p><span class="btn primary sm">{Lập kế hoạch Q1/2027¦Plan Q1/2027}</span></div></div></div></div>
+      <div><p class="cap">{Đang tải / lỗi¦Loading / error}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="grid4" style="grid-template-columns:repeat(7,1fr);gap:4px"><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36" style="opacity:.4"></div><div class="skel h36" style="opacity:.4"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36"></div><div class="skel h36" style="opacity:.4"></div><div class="skel h36" style="opacity:.4"></div></div>
+          <div class="banner err"><span class="icon round"></span><div><div class="t">{Không tải được lịch tháng¦Couldn't load the month}</div><a>{Thử lại¦Retry}</a></div></div>
+        </div></div></div>
+      <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+        <li>{Seg Tuần/Tháng giữ nguyên ngày đang xem khi chuyển (không nhảy về hôm nay).¦Week/Month toggle keeps the viewed date when switching (no jump to today).}</li>
+        <li>{Thanh tải mỗi ô = giờ đã xếp / capacity; ô nghỉ không có thanh.¦Per-cell load bar = scheduled / capacity; days off have none.}</li>
+        <li>{Chip rút gọn tên task; tối đa 3 chip + "+N". Mốc KR là chip viền ◆.¦Chips truncate task names; max 3 + "+N". KR milestones get an outlined ◆ chip.}</li>
+        <li>{Click ô → popover (shadcn Popover) liệt kê task + nhảy sang tuần. Kéo chip sang ngày khác = dời + ghim (như S10).¦Click a cell → popover listing tasks + jump to week. Dragging a chip = move + pin (as S10).}</li>
+        <li>{Kịch bản đỏ: khay "Chưa xếp" cạnh lịch, không để task biến mất.¦Red scenario: "Unscheduled" tray beside the calendar so tasks never vanish.}</li>
+        <li>{Mobile: lưới tháng chỉ có chấm màu Objective; chạm ngày → agenda bên dưới.¦Mobile: month grid shows Objective-colour dots only; tap a day → agenda below.}</li>
+      </ol></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ S12 WORKLOAD ============================ -->
+<section class="screen" id="s12">
+  <header><span class="sid">S12</span><h2>{Dashboard workload & mốc KR¦Workload dashboard & KR milestones}</h2>
+    <p>{Trả lời 2 câu hỏi: "tuần nào đang căng?" (giờ đã xếp so với capacity từng tuần) và "tới cuối tháng KR dạng số nên đạt bao nhiêu?". Biểu đồ Recharts ComposedChart: cột chồng theo Objective, phần capacity còn trống và buffer vẽ mờ phía trên.¦Answers two questions: "which weeks are tight?" (scheduled vs capacity per week) and "where should numeric KRs be by month-end?". Recharts ComposedChart: bars stacked by Objective, free capacity and buffer drawn faintly on top.}</p>
+  </header>
+  <div class="row">
+    <div>
+      <p class="cap">Desktop 1440 · {kịch bản xanh, hôm nay 07/10¦green scenario, today Oct 7}</p>
+      <div class="frame desktop" style="height:1070px">
+        <div data-browser="/q/2026-Q4/workload"></div>
+        <div class="app">
+          <div data-topbar="ok"></div>
+          <div data-sidebar="workload"></div>
+          <div class="main" style="position:relative">
+            <div class="pagehead"><div><h1>Workload Q4/2026</h1><div class="sub">{Cập nhật sau lần xếp lịch gần nhất · 07/10 09:12¦Updated after the latest scheduling run · Oct 7 09:12}</div></div>
+              <div class="actions"><span class="btn sm">{Xuất dữ liệu¦Export}</span></div></div>
+            <div class="grid4" style="margin-bottom:20px">
+              <div class="card metric"><span class="k">{Cần / Có¦Needs / Has}</span><span class="v">212h / 260h</span><span class="small muted">{Sử dụng 82% · còn 48h¦82% used · 48h spare}</span></div>
+              <div class="card metric"><span class="k">{Dự kiến xong¦Expected finish}</span><span class="v">15/12/2026</span><span class="small muted">{Trước buffer (23/12) 1 tuần¦1 week before buffer (Dec 23)}</span></div>
+              <div class="card metric"><span class="k">{Tuần đầy 100%¦Weeks at 100%}</span><span class="v">{11 / 14 tuần¦11 / 14 weeks}</span><span class="small muted">{T40–T50; T51 40%; T52–T53 trống¦W40–W50; W51 40%; W52–W53 free}</span></div>
+              <div class="card metric"><span class="k">{Tiến độ thực tế¦Actual progress}</span><span class="v">4/50 task · 16h¦4/50 tasks · 16h</span><span class="small" style="color:var(--success);font-weight:700">✓ {Đúng kế hoạch¦On plan}</span></div>
+            </div>
+            <div class="card">
+              <div class="hstack between" style="margin-bottom:12px"><b>{Giờ theo tuần so với capacity¦Hours per week vs capacity}</b><span class="seg"><span class="on">{Theo tuần¦Weekly}</span><span>{Theo tháng¦Monthly}</span></span></div>
+              <div class="chart" style="height:220px;margin-bottom:28px;margin-top:18px">
+                <span class="ylab" style="bottom:-6px">0</span><span class="ylab" style="bottom:84px">10h</span><span class="ylab" style="bottom:174px">20h</span>
+                <div class="bar"><i style="height:72px;background:var(--chart-1)"></i><span class="pct" style="bottom:76px">100%</span><span class="lbl2">T40¦W40</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-1)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T41¦W41</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-1)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T42¦W42</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-1)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T43¦W43</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-1)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T44¦W44</span></div>
+                <div class="bar"><i style="height:18px;background:var(--chart-1)"></i><i style="height:162px;background:var(--chart-2)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T45¦W45</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-2)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T46¦W46</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-2)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T47¦W47</span></div>
+                <div class="bar"><i style="height:144px;background:var(--chart-2)"></i><span class="pct" style="bottom:148px">100%</span><span class="lbl2">{T48 · lễ¦W48 · hol.}</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-2)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T49¦W49</span></div>
+                <div class="bar"><i style="height:180px;background:var(--chart-2)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T50¦W50</span></div>
+                <div class="bar"><i style="height:72px;background:var(--chart-2)"></i><i style="height:108px;background:#eef2f6;border:1px dashed #cbd5e1"></i><span class="pct" style="bottom:184px">40%</span><span class="lbl2">T51¦W51</span></div>
+                <div class="bar"><i style="height:72px;background:#eef2f6;border:1px dashed #cbd5e1"></i><i style="height:108px;background:var(--buffer);border:1px dashed #fcd34d"></i><span class="pct" style="bottom:184px">0%</span><span class="lbl2">T52¦W52</span></div>
+                <div class="bar"><i style="height:144px;background:var(--buffer);border:1px dashed #fcd34d"></i><span class="pct" style="bottom:148px">0%</span><span class="lbl2">T53¦W53</span></div>
+              </div>
+              <div class="legend"><span><span class="sw" style="background:var(--chart-1)"></span>{O1 Ra mắt v2.0¦O1 Launch v2.0}</span><span><span class="sw" style="background:var(--chart-2)"></span>{O2 JLPT N4¦O2 JLPT N4}</span><span><span class="sw" style="background:#eef2f6;border-style:dashed"></span>{Capacity còn trống¦Free capacity}</span><span><span class="sw" style="background:var(--buffer)"></span>{Buffer 10% (từ 23/12)¦10% buffer (from Dec 23)}</span><span>{% = giờ đã xếp / capacity tuần (T40: 2 ngày, T48: lễ 24/11, T53: 4 ngày)¦% = scheduled / weekly capacity (W40: 2 days, W48: Nov 24 holiday, W53: 4 days)}</span></div>
+            </div>
+            <div class="card" style="margin-top:20px">
+              <div class="hstack between" style="margin-bottom:10px"><b>{Mốc KR dạng số theo tháng¦Numeric KR milestones by month}</b><span class="hstack"><span class="small muted">{Cách tính mốc:¦Milestone method:}</span><span class="select" style="width:230px;height:30px">{Theo tiến độ task (mặc định)¦By task progress (default)}</span><span class="seg"><span class="on">{Tháng¦Month}</span><span>{Tuần¦Week}</span></span></span></div>
+              <table class="tbl">
+                <tr><th>KR</th><th class="num">Baseline</th><th class="num">{Cuối T10¦End Oct}</th><th class="num">{Cuối T11¦End Nov}</th><th class="num">{Cuối T12 (target)¦End Dec (target)}</th><th>{Thực tế gần nhất¦Latest actual}</th><th></th></tr>
+                <tr><td><span class="obj-tag c1">O1</span> <b>KR 1.1</b> {WAU¦WAU}</td><td class="num">800</td><td class="num">2.000¦2,000</td><td class="num">2.000¦2,000</td><td class="num">2.000¦2,000</td><td><div class="input" style="height:28px;width:120px">910 · 07/10</div></td><td><span class="badge warn">! {Chỉ số trễ¦Lagging metric}</span></td></tr>
+                <tr><td><span class="obj-tag c1">O1</span> <b>KR 1.3</b> {Tỉ lệ crash¦Crash rate}</td><td class="num">3,2%¦3.2%</td><td class="num">1,1%¦1.1%</td><td class="num">1,0%¦1.0%</td><td class="num">1,0%¦1.0%</td><td><div class="input ph" style="height:28px;width:120px">{Nhập…¦Enter…}</div></td><td></td></tr>
+                <tr><td><span class="obj-tag c2">O2</span> <b>KR 2.1</b> {Bài Minna đã học¦Minna lessons done}</td><td class="num">6</td><td class="num">6</td><td class="num">25</td><td class="num">25</td><td><div class="input ph" style="height:28px;width:120px">{Nhập…¦Enter…}</div></td><td></td></tr>
+                <tr><td><span class="obj-tag c2">O2</span> <b>KR 2.2</b> {Điểm thi thử N4¦N4 mock score}</td><td class="num">40%</td><td class="num">40%</td><td class="num">56%</td><td class="num">70%</td><td><div class="input ph" style="height:28px;width:120px">{Nhập…¦Enter…}</div></td><td></td></tr>
+                <tr><td><span class="obj-tag c1">O1</span> <b>KR 1.2</b> {Phát hành v2.0¦Ship v2.0}</td><td class="num muted">—</td><td class="num">◆ 21/10</td><td class="num muted">—</td><td class="num muted">—</td><td><span class="small muted">{Milestone, không phải số¦Milestone, not numeric}</span></td><td></td></tr>
+              </table>
+              <p class="small muted" style="margin:10px 0 0">{Mốc = mức kỳ vọng nếu task xong đúng lịch, nội suy tuyến tính theo giờ task đã hoàn thành của KR. Không phải dự báo kết quả.¦Milestone = expected level if tasks finish on schedule, linearly interpolated by the KR's completed task hours. Not a forecast of results.}</p>
+            </div>
+            <span class="pin abs" style="left:4px;top:100px">1</span>
+            <span class="pin abs" style="left:1060px;top:290px">2</span>
+            <span class="pin abs" style="left:880px;top:640px">3</span>
+            <span class="pin abs" style="left:1130px;top:640px">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">Mobile 390 · {KPI 2×2 + danh sách tuần¦2×2 KPIs + week list}</p>
+      <div class="frame mobile" style="height:844px">
+        <div data-mstatus></div>
+        <div class="m-top"><b class="grow">Workload Q4/2026</b><span class="feas-pill ok" style="height:26px"><span class="sym ok" style="width:14px;height:14px;font-size:9px">✓</span></span></div>
+        <div class="m-body stack">
+          <div class="grid2"><div class="card metric" style="padding:10px"><span class="k">{Cần/Có¦Needs/Has}</span><span class="v" style="font-size:16px">212/260h</span></div><div class="card metric" style="padding:10px"><span class="k">{Xong dự kiến¦Finish}</span><span class="v" style="font-size:16px">15/12</span></div><div class="card metric" style="padding:10px"><span class="k">{Sử dụng¦Used}</span><span class="v" style="font-size:16px">82%</span></div><div class="card metric" style="padding:10px"><span class="k">{Tiến độ¦Progress}</span><span class="v" style="font-size:16px">4/50</span></div></div>
+          <b class="small">{Theo tuần¦By week}</b>
+          <div class="stack tight small">
+            <div class="hstack between"><span style="width:44px">T41¦W41</span><span class="progress grow"><b style="width:100%"></b></span><span style="width:70px;text-align:right">20/20h</span></div>
+            <div class="hstack between"><span style="width:44px">T42¦W42</span><span class="progress grow"><b style="width:100%"></b></span><span style="width:70px;text-align:right">20/20h</span></div>
+            <div class="hstack between"><span style="width:44px">T48¦W48</span><span class="progress grow"><b style="width:100%"></b></span><span style="width:70px;text-align:right">16/16h</span></div>
+            <div class="hstack between"><span style="width:44px">T51¦W51</span><span class="progress grow"><b style="width:40%"></b></span><span style="width:70px;text-align:right">8/20h</span></div>
+            <div class="hstack between muted"><span style="width:44px">T52¦W52</span><span class="progress grow"><b style="width:0"></b></span><span style="width:70px;text-align:right">0/20h</span></div>
+          </div>
+          <b class="small">{Mốc KR (cuối T11)¦KR milestones (end Nov)}</b>
+          <div class="card stack tight small" style="padding:10px"><div class="hstack between"><span>KR 2.1 {Bài Minna¦Minna lessons}</span><b>25</b></div><div class="hstack between"><span>KR 2.2 {Thi thử N4¦N4 mock}</span><b>56%</b></div></div>
+        </div>
+        <div data-tabbar="more" data-w2></div>
+      </div>
+    </div>
+    <div class="col">
+      <div><p class="cap">{Quá tải (kịch bản đỏ): cột "chưa xếp" gạch đỏ¦Overloaded (red scenario): hatched "unscheduled" column}</p>
+        <div class="frame mid" style="width:660px"><div style="padding:16px 16px 36px">
+          <div class="chart" style="height:200px;margin-top:18px">
+            <span class="ylab" style="bottom:-6px">0</span><span class="ylab" style="bottom:84px">10h</span>
+            <div class="bar"><i style="height:180px;background:var(--chart-2)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T50¦W50</span></div>
+            <div class="bar"><i style="height:72px;background:var(--chart-2)"></i><i style="height:108px;background:var(--chart-3)"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">T51¦W51</span></div>
+            <div class="bar"><i style="height:72px;background:var(--chart-3)"></i><i style="height:108px;background:var(--chart-3);opacity:.6;outline:1px dashed #fcd34d"></i><span class="pct" style="bottom:184px">100%</span><span class="lbl2">{T52 · buffer¦W52 · buffer}</span></div>
+            <div class="bar"><i style="height:144px;background:var(--chart-3);opacity:.6;outline:1px dashed #fcd34d"></i><span class="pct" style="bottom:148px">100%</span><span class="lbl2">{T53 · buffer¦W53 · buffer}</span></div>
+            <div class="bar" style="flex:1.4"><i class="over" style="height:190px"></i><span class="pct" style="bottom:194px;color:var(--destructive)">× 58h</span><span class="lbl2" style="color:var(--destructive);font-weight:700">{Chưa xếp¦Unscheduled}</span></div>
+          </div>
+          <p class="small" style="margin:30px 0 0">{Buffer bị lấp kín (vẽ đậm hơn) và cột "Chưa xếp 58h" gạch chéo đỏ nằm ngoài trục thời gian. Nút cạnh tiêu đề: "Xem phương án" → S13.¦Buffer fully used (drawn darker) and a red hatched "Unscheduled 58h" column outside the timeline. Header button: "See options" → S13.}</p>
+        </div></div></div>
+      <div><p class="cap">{Rỗng / đang tải / lỗi¦Empty / loading / error}</p>
+        <div class="frame mid" style="width:660px"><div style="padding:16px" class="grid3">
+          <div class="empty" style="padding:14px"><h3 style="font-size:14px">{Chưa có dữ liệu¦No data yet}</h3><p class="small">{Tạo kế hoạch để xem workload.¦Create a plan to see workload.}</p></div>
+          <div class="stack tight"><div class="skel h60"></div><div class="skel h120"></div></div>
+          <div class="banner err small"><span class="icon round"></span><div>{Không tải được số liệu.¦Couldn't load data.} <a>{Thử lại¦Retry}</a></div></div>
+        </div></div></div>
+    </div>
+    <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+      <li>{4 KPI trả lời nhanh "có kịp không, còn dư bao nhiêu, đang đúng tiến độ không" trước khi xem biểu đồ (Miller: ≤ 4 chỉ số).¦4 KPIs answer "will it fit, how much slack, am I on track" before the chart (Miller: ≤ 4 figures).}</li>
+      <li>{Cột = giờ đã xếp, chồng theo Objective; phần trống và buffer vẽ mờ nên chiều cao cột luôn = capacity tuần. % in trên đầu cột, không chỉ dựa vào màu.¦Bars = scheduled hours stacked by Objective; free capacity and buffer drawn faintly so bar height always = weekly capacity. % printed on top, not colour alone.}</li>
+      <li>{Mốc KR mặc định nội suy theo tiến độ task; có thể đổi sang "tuyến tính theo thời gian" hoặc "tự nhập". Xem quyết định mở D8.¦KR milestones default to task-progress interpolation; switchable to "linear over time" or "manual". See open decision D8.}</li>
+      <li>{Chỉ số trễ (WAU) được gắn nhãn: task xong không có nghĩa là số đã đạt.¦Lagging metrics (WAU) are flagged: finished tasks don't mean the number is reached.}</li>
+      <li>{Ô "Thực tế" cho người dùng ghi số đo gần nhất; chỉ để so sánh, không làm scheduler chạy lại.¦"Actual" lets the user log the latest measurement; comparison only, doesn't rerun the scheduler.}</li>
+      <li>{Bảng có header thật (&lt;th&gt;) và giá trị số căn phải cho trình đọc màn hình.¦Real &lt;th&gt; headers and right-aligned numbers for screen readers.}</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ============================ S13 OVERLOAD OPTIONS ============================ -->
+<section class="screen" id="s13">
+  <header><span class="sid">S13</span><h2>{Panel phương án xử lý quá tải¦Overload options panel}</h2>
+    <p>{Mỗi phương án là một lần chạy lại scheduler với tham số khác (ADR-0003), nên số liệu là thật chứ không ước đoán. Người dùng có thể kết hợp nhiều phương án, xem trước trước/sau rồi mới "Áp dụng phương án". Chỉ phương án "AI thu gọn phạm vi" tốn một lần gọi LLM và phải bấm chạy rõ ràng.¦Each option is a scheduler rerun with different inputs (ADR-0003), so numbers are real, not guesses. Users can combine options, preview before/after, then "Apply options". Only "AI scope cut" costs an LLM call and must be run explicitly.}</p>
+  </header>
+  <div class="row">
+    <div>
+      <p class="cap">Desktop 1440 · {kịch bản đỏ lúc lập kế hoạch 30/09/2026; đã chọn "Làm Thứ 7" + "Dời KR 3.2 sang Q1/2027"¦red scenario at planning time Sep 30, 2026; "Work Saturdays" + "Move KR 3.2 to Q1/2027" selected}</p>
+      <div class="frame desktop" style="height:1010px">
+        <div data-browser="/q/2026-Q4/options"></div>
+        <div class="app" style="grid-template-columns:220px 1fr 400px">
+          <div data-topbar="err"></div>
+          <div data-sidebar="workload"></div>
+          <div class="main" style="position:relative">
+            <div class="pagehead"><div><h1>{Phương án xử lý quá tải¦Overload options}</h1><div class="sub">{Hiện tại: Cần 318h / Có 260h · thiếu 58h · 15 task không kịp (KR 3.1, KR 3.2)¦Now: Needs 318h / Has 260h · 58h short · 15 tasks don't fit (KR 3.1, KR 3.2)}</div></div></div>
+            <div class="stack">
+              <div class="cap" style="margin:0">{Tăng thời gian làm việc¦Add working time}</div>
+              <div class="opt"><span class="check"></span><div class="stack tight grow"><b>{Tăng giờ mỗi ngày (T2–T6)¦More hours per weekday (Mon–Fri)}</b><div class="hstack small"><span>4h →</span><span class="btn sm">−</span><b>5h</b><span class="btn sm">+</span><span class="muted">{+65h trên 65 ngày · +1,5h/ngày thì thành Xanh¦+65h over 65 days · +1.5h/day turns it Green}</span></div></div><div class="res"><span class="badge warn">! {Vàng¦Amber}</span><span class="xs muted">{dùng 28h / 35h buffer¦uses 28h / 35h buffer}</span></div></div>
+              <div class="opt on"><span class="check on"></span><div class="stack tight grow"><b>{Làm Thứ 7 (4h)¦Work Saturdays (4h)}</b><span class="small muted">{13 ngày Thứ 7 (03/10 → 26/12) · +52h¦13 Saturdays (Oct 3 → Dec 26) · +52h}</span></div><div class="res"><span class="badge err">× {Đỏ¦Red}</span><span class="xs muted">{một mình: còn thiếu 6h (2 task)¦alone: still 6h short (2 tasks)}</span></div></div>
+              <div class="opt"><span class="check"></span><div class="stack tight grow"><b>{Làm Chủ nhật (4h)¦Work Sundays (4h)}</b><span class="small muted">{13 ngày · +52h · kết hợp với Thứ 7 = +104h → Xanh¦13 days · +52h · with Saturdays = +104h → Green}</span></div><div class="res"><span class="badge err">× {Đỏ¦Red}</span><span class="xs muted">{một mình: còn thiếu 6h¦alone: still 6h short}</span></div></div>
+              <div class="opt"><span class="check"></span><div class="stack tight grow"><b>{Làm ngày lễ 24/11¦Work the Nov 24 holiday}</b><span class="small muted">+4h</span></div><div class="res"><span class="badge err">× {Đỏ¦Red}</span><span class="xs muted">{còn thiếu 54h¦still 54h short}</span></div></div>
+              <div class="cap" style="margin:8px 0 0">{Giảm phạm vi¦Reduce scope}</div>
+              <div class="opt dim"><span class="check"></span><div class="stack tight grow"><b>{Bỏ KR 3.2 "Trình bày tại 1 meetup"¦Drop KR 3.2 "Speak at 1 meetup"}</b><span class="small">{8 task · −30h · không dùng cùng "Dời KR 3.2"¦8 tasks · −30h · can't combine with "Move KR 3.2"}</span></div><div class="res"><span class="badge outline">× {Đỏ · thiếu 28h¦Red · 28h short}</span></div></div>
+              <div class="opt"><span class="check"></span><div class="stack tight grow"><b>{Bỏ cả O3 "Xây dựng thương hiệu cá nhân"¦Drop all of O3 "Build a personal brand"}</b><span class="small muted">{2 KR · 27 task · −106h¦2 KRs · 27 tasks · −106h}</span></div><div class="res"><span class="badge ok">✓ {Xanh¦Green}</span><span class="xs muted">{xong 15/12¦finish Dec 15}</span></div></div>
+              <div class="opt"><span class="check"></span><div class="stack tight grow"><b>{Nhờ AI thu gọn phạm vi O3¦Ask AI to trim O3 scope}</b><span class="small muted">{Gộp/bỏ task phụ, giữ nguyên Objective. Tốn 1 lần gọi Local · qwen2.5:7b (~40 giây).¦Merge/drop minor tasks, keep the Objective. Costs 1 call to Local · qwen2.5:7b (~40 s).}</span></div><div class="res"><span class="btn sm">{Chạy đề xuất¦Run suggestion}</span><span class="xs muted">{chưa chạy¦not run yet}</span></div></div>
+              <div class="cap" style="margin:8px 0 0">{Dời sang quý sau¦Move to next quarter}</div>
+              <div class="opt on"><span class="check on"></span><div class="stack tight grow"><b>{Dời KR 3.2 sang Q1/2027¦Move KR 3.2 to Q1/2027}</b><span class="small muted">{8 task · 30h · thành nháp trong Q1/2027¦8 tasks · 30h · becomes a draft in Q1/2027}</span></div><div class="res"><span class="badge err">× {Đỏ¦Red}</span><span class="xs muted">{một mình: còn thiếu 28h¦alone: still 28h short}</span></div></div>
+              <div class="opt"><span class="check"></span><div class="stack tight grow"><b>{Dời KR 3.1 sang Q1/2027¦Move KR 3.1 to Q1/2027}</b><span class="small muted">{19 task · 76h¦19 tasks · 76h}</span></div><div class="res"><span class="badge warn">! {Vàng¦Amber}</span><span class="xs muted">{dùng 10h buffer¦uses 10h buffer}</span></div></div>
+            </div>
+            <span class="pin abs" style="left:4px;top:140px">1</span>
+            <span class="pin abs" style="left:700px;top:140px">2</span>
+            <span class="pin abs" style="left:4px;top:500px">3</span>
+            <span class="pin abs" style="left:600px;top:690px">4</span>
+          </div>
+          <div class="rail stack" style="position:relative">
+            <b>{Xem trước: 2 phương án¦Preview: 2 options}</b>
+            <div class="hstack" style="gap:6px"><span class="chip">{Làm Thứ 7¦Saturdays} ✕</span><span class="chip">{Dời KR 3.2¦Move KR 3.2} ✕</span></div>
+            <table class="tbl" style="background:#fff;border:1px solid var(--border);border-radius:8px">
+              <tr><th></th><th class="num">{Trước¦Before}</th><th class="num">{Sau¦After}</th></tr>
+              <tr><td>{Cần¦Needs}</td><td class="num">318h</td><td class="num"><b>288h</b></td></tr>
+              <tr><td>{Có¦Has}</td><td class="num">260h</td><td class="num"><b>312h</b></td></tr>
+              <tr><td>{Chênh lệch¦Balance}</td><td class="num" style="color:var(--destructive)">−58h</td><td class="num"><b>+24h</b></td></tr>
+              <tr><td>{Trạng thái¦Status}</td><td class="num"><span class="badge err">× {Đỏ¦Red}</span></td><td class="num"><span class="badge warn">! {Vàng¦Amber}</span></td></tr>
+              <tr><td>{Dự kiến xong¦Finish}</td><td class="num muted">{không kịp¦won't fit}</td><td class="num"><b>24/12</b></td></tr>
+              <tr><td>{Task không kịp¦Late tasks}</td><td class="num">15</td><td class="num"><b>0</b></td></tr>
+            </table>
+            <div class="stack tight small"><span class="lbl">{Mức sử dụng¦Utilisation}</span>
+              <div class="hstack between xs muted"><span>{Trước¦Before}</span><span>122%</span></div><div class="progress err"><b style="width:100%"></b><span class="mark" style="left:90%"></span></div>
+              <div class="hstack between xs muted"><span>{Sau¦After}</span><span>{92% · dùng 8h / 32h buffer¦92% · uses 8h / 32h buffer}</span></div><div class="progress warn"><b style="width:92%"></b><span class="mark" style="left:90%"></span></div></div>
+            <div class="stack tight small"><span class="lbl">{Sẽ thay đổi¦What changes}</span>
+              <span>• {13 Thứ 7 thành ngày làm việc 4h trong Cài đặt¦13 Saturdays become 4h workdays in Settings}</span>
+              <span>• {KR 3.2 (8 task, 30h) chuyển sang Q1/2027 dạng nháp¦KR 3.2 (8 tasks, 30h) moves to Q1/2027 as a draft}</span>
+              <span>• {Task ghim giữ nguyên · không gọi AI¦Pinned tasks unchanged · no AI call}</span></div>
+            <span class="btn primary lg block">{Áp dụng phương án¦Apply options}</span>
+            <span class="btn ghost block">{Bỏ chọn tất cả¦Clear selection}</span>
+            <span class="pin abs" style="left:4px;top:60px">5</span>
+            <span class="pin abs" style="left:4px;top:560px">6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">{AI thu gọn phạm vi: duyệt từng đề xuất¦AI scope trim: review each suggestion}</p>
+      <div class="frame mid" style="background:#0f172a66;padding:24px;width:620px"><div class="dialog" style="width:100%">
+        <h3>{AI đề xuất thu gọn O3: −30h¦AI suggests trimming O3: −30h}</h3>
+        <p class="small muted" style="margin:0 0 10px">{Sinh bởi Local · qwen2.5:7b lúc 30/09 21:40. Bỏ chọn mục bạn không đồng ý.¦Generated by Local · qwen2.5:7b on Sep 30 21:40. Untick anything you disagree with.}</p>
+        <div class="stack tight small">
+          <div class="hstack between"><span class="hstack"><span class="check on"></span>{Giảm KR 3.1 từ 6 → 5 bài blog¦Reduce KR 3.1 from 6 → 5 blog posts}</span><span class="hstack"><span class="badge warn">{Đổi target KR¦Changes KR target}</span><b>−12h</b></span></div>
+          <div class="hstack between"><span class="hstack"><span class="check on"></span>{Dùng lại slide nội bộ cho meetup¦Reuse internal slides for the meetup}</span><b>−8h</b></div>
+          <div class="hstack between"><span class="hstack"><span class="check on"></span>{Bỏ buổi tập dượt lần 2¦Drop the second rehearsal}</span><b>−4h</b></div>
+          <div class="hstack between"><span class="hstack"><span class="check on"></span>{Rút biên tập blog #5, #6 từ 4h → 2h¦Cut editing for blog #5, #6 from 4h → 2h}</span><b>−4h</b></div>
+          <div class="hstack between"><span class="hstack"><span class="check on"></span>{Gộp "chọn chủ đề" và "dàn ý" meetup¦Merge meetup "pick topic" and "outline"}</span><b>−2h</b></div>
+        </div>
+        <div class="banner neutral small" style="margin-top:12px"><span class="icon round"></span><div>{Kết quả nếu áp dụng cả 5: Cần 288h / Có 260h → vẫn Đỏ, thiếu 28h. Có thể kết hợp với phương án khác.¦If all 5 applied: Needs 288h / Has 260h → still Red, 28h short. Can be combined with other options.}</div></div>
+        <div class="foot"><span class="btn">{Bỏ qua¦Discard}</span><span class="btn primary">{Thêm vào lựa chọn (5/5)¦Add to selection (5/5)}</span></div>
+      </div></div></div>
+    <div class="col">
+      <div><p class="cap">{Đang tính phương án¦Computing options}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack tight">
+          <div class="hstack small"><span class="spin"></span>{Đang tính 9 phương án (scheduler, không dùng AI)…¦Computing 9 options (scheduler, no AI)…}</div>
+          <div class="skel h60"></div><div class="skel h60"></div><div class="skel h60" style="opacity:.5"></div>
+        </div></div></div>
+      <div><p class="cap">{Lỗi một phương án / lỗi AI¦One option failed / AI error}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="opt"><span class="check"></span><div class="stack tight grow"><b class="small">{Dời KR 3.1 sang Q1/2027¦Move KR 3.1 to Q1/2027}</b><span class="err-text">{Không tính được (Q1/2027 chưa có lịch làm việc).¦Couldn't compute (Q1/2027 has no work calendar).} <a>{Thử lại¦Retry}</a></span></div></div>
+          <div class="banner err small"><span class="icon round"></span><div>{AI không phản hồi sau 2 lần thử. Các phương án khác vẫn dùng được.¦AI didn't respond after 2 retries. Other options still work.} <a>{Mở Cài đặt AI¦Open AI settings}</a></div></div>
+        </div></div></div>
+      <div><p class="cap">{Rỗng: kế hoạch đang khả thi¦Empty: plan is feasible}</p>
+        <div class="frame mini"><div style="padding:16px"><div class="empty" style="padding:18px"><span class="sym ok">✓</span><h3>{Không cần phương án¦No options needed}</h3><p>{Kế hoạch Q4/2026 đang khả thi, còn 48h dự phòng.¦The Q4/2026 plan fits with 48h to spare.}</p></div></div></div></div>
+      <div><p class="cap">{Sau khi áp dụng¦After applying}</p>
+        <div class="frame mini" style="height:84px"><div class="toast" style="left:16px;right:16px;bottom:16px">{Đã áp dụng 2 phương án · Kế hoạch: Sát – dùng buffer¦Applied 2 options · Plan: Tight – using buffer}<span class="grow"></span><a>{Hoàn tác¦Undo}</a></div></div></div>
+    </div>
+    <div><p class="cap">Mobile 390 · {thẻ phương án + thanh xem trước dính đáy¦option cards + sticky preview bar}</p>
+      <div class="frame mobile" style="height:844px">
+        <div data-mstatus></div>
+        <div class="m-top"><span class="muted">←</span><b class="grow">{Phương án¦Options}</b><span class="feas-pill err" style="height:26px">−58h</span></div>
+        <div class="m-body stack tight">
+          <div class="opt on" style="padding:12px"><span class="check on"></span><div class="stack tight grow"><b class="small">{Làm Thứ 7¦Work Saturdays}</b><span class="xs muted">+52h</span></div><span class="badge err">{thiếu 6h¦6h short}</span></div>
+          <div class="opt" style="padding:12px"><span class="check"></span><div class="stack tight grow"><b class="small">{Tăng lên 5h/ngày¦Raise to 5h/day}</b><span class="xs muted">+65h</span></div><span class="badge warn">{Vàng¦Amber}</span></div>
+          <div class="opt" style="padding:12px"><span class="check"></span><div class="stack tight grow"><b class="small">{Bỏ cả O3¦Drop all of O3}</b><span class="xs muted">−106h</span></div><span class="badge ok">{Xanh¦Green}</span></div>
+          <div class="opt on" style="padding:12px"><span class="check on"></span><div class="stack tight grow"><b class="small">{Dời KR 3.2 sang Q1/2027¦Move KR 3.2 to Q1/2027}</b><span class="xs muted">−30h</span></div><span class="badge err">{thiếu 28h¦28h short}</span></div>
+          <div class="opt" style="padding:12px"><span class="check"></span><div class="stack tight grow"><b class="small">{Dời KR 3.1 sang Q1/2027¦Move KR 3.1 to Q1/2027}</b><span class="xs muted">−76h</span></div><span class="badge warn">{Vàng¦Amber}</span></div>
+          <span class="small muted">{+ 4 phương án khác¦+ 4 more options}</span>
+        </div>
+        <div class="m-sticky flush" style="flex-direction:column;gap:6px"><div class="hstack between small"><span>{2 đã chọn · −58h → +24h¦2 selected · −58h → +24h}</span><span class="badge warn">! {Vàng¦Amber}</span></div><span class="btn primary block">{Xem trước & áp dụng¦Preview & apply}</span></div>
+      </div>
+    </div>
+    <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+      <li>{Header nhắc lại vấn đề bằng số (thiếu 58h, 15 task) để mọi phương án so với cùng một mốc.¦Header restates the problem in numbers (58h short, 15 tasks) so every option compares to the same baseline.}</li>
+      <li>{Mỗi thẻ có kết quả khi dùng một mình (chữ + ký hiệu, không chỉ màu). Nhóm theo loại: tăng thời gian / giảm phạm vi / dời quý.¦Each card shows its standalone result (text + symbol, not colour alone). Grouped: add time / reduce scope / move quarter.}</li>
+      <li>{Phương án loại trừ nhau bị làm mờ kèm lý do, không ẩn.¦Mutually exclusive options are dimmed with a reason, not hidden.}</li>
+      <li>{Phương án AI không chạy tự động (tốn thời gian/chi phí); kết quả phải được duyệt từng mục, mục đổi target KR được gắn nhãn.¦The AI option never auto-runs (time/cost); results are reviewed item by item, KR-target changes are flagged.}</li>
+      <li>{Xem trước bên phải cập nhật ngay khi tick (chạy lại scheduler với tổ hợp). Bảng trước/sau + mức sử dụng.¦Right preview updates on every tick (scheduler rerun for the combination). Before/after table + utilisation.}</li>
+      <li>{"Sẽ thay đổi" liệt kê hệ quả ngoài lịch (Cài đặt, quý sau) trước khi bấm Áp dụng; có Hoàn tác sau đó.¦"What changes" lists side effects beyond the schedule (Settings, next quarter) before Apply; Undo afterwards.}</li>
+      <li>{Không có phương án nào được chọn sẵn (tránh nudging).¦No option is pre-selected (avoids nudging).}</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ============================ S14 QUARTERS ============================ -->
+<section class="screen" id="s14">
+  <header><span class="sid">S14</span><h2>{Quản lý quý: danh sách, xem lại quý cũ, xóa¦Quarters: list, review past quarters, delete}</h2>
+    <p>{Một nơi cho mọi thứ "ngoài quý hiện tại": các quý đã qua (chỉ xem), quý sau (nháp nhận KR dời sang), nghỉ phép, ngày lễ và xuất dữ liệu. Tabs: Các quý · Nghỉ phép · Ngày lễ · Xuất dữ liệu.¦One place for everything "outside the current quarter": past quarters (read-only), the next quarter (draft receiving moved KRs), leave, holidays and export. Tabs: Quarters · Leave · Holidays · Export.}</p>
+  </header>
+  <div class="row">
+    <div>
+      <p class="cap">Desktop 1440 · {năm 2026–2027, sau khi áp dụng phương án ở S13¦2026–2027, after applying options in S13}</p>
+      <div class="frame desktop" style="height:760px">
+        <div data-browser="/quarters"></div>
+        <div class="app">
+          <div data-topbar="warn"></div>
+          <div data-sidebar="quarters"></div>
+          <div class="main" style="position:relative">
+            <div class="pagehead"><div><h1>{Quản lý quý¦Quarters}</h1><div class="sub">{5 quý · 1 đang diễn ra · 1 nháp¦5 quarters · 1 in progress · 1 draft}</div></div><div class="actions"><span class="btn primary">+ {Lập kế hoạch quý mới¦Plan a new quarter}</span></div></div>
+            <div class="tabs"><span class="on">{Các quý¦Quarters}</span><span>{Nghỉ phép¦Leave}</span><span>{Ngày lễ¦Holidays}</span><span>{Xuất dữ liệu¦Export}</span></div>
+            <div class="grid3" style="grid-template-columns:repeat(3,1fr)">
+              <div class="card stack tight" style="border-color:var(--foreground);box-shadow:0 0 0 1px var(--foreground)">
+                <div class="hstack between"><b style="font-size:16px">Q4/2026</b><span class="badge dark">{Đang diễn ra¦In progress}</span></div>
+                <span class="small muted">{01/10 – 31/12/2026 · 3 Objective · 69 task¦Oct 1 – Dec 31, 2026 · 3 Objectives · 69 tasks}</span>
+                <div class="hstack"><span class="feas-pill warn" style="height:26px"><span class="sym warn" style="width:14px;height:14px;font-size:9px">!</span>{Sát – dùng buffer¦Tight – using buffer}</span><span class="small">288h / 312h</span></div>
+                <div class="progress"><b style="width:6%"></b></div><span class="xs muted">{4/69 task xong¦4/69 tasks done}</span>
+                <div class="hstack"><span class="btn sm">{Mở kế hoạch¦Open plan}</span><span class="btn sm ghost">⋯</span></div>
+              </div>
+              <div class="card stack tight">
+                <div class="hstack between"><b style="font-size:16px">Q1/2027</b><span class="badge outline">{Nháp¦Draft}</span></div>
+                <span class="small muted">{01/01 – 31/03/2027 · 8 ngày lễ (Tết dự kiến)¦Jan 1 – Mar 31, 2027 · 8 holidays (Tết provisional)}</span>
+                <div class="banner info small" style="padding:8px 10px"><span class="icon round"></span><div>{1 KR được dời từ Q4/2026: KR 3.2 "Trình bày tại 1 meetup" (8 task · 30h)¦1 KR moved from Q4/2026: KR 3.2 "Speak at 1 meetup" (8 tasks · 30h)}</div></div>
+                <div class="hstack"><span class="btn sm primary">{Tiếp tục lập kế hoạch¦Continue planning}</span></div>
+              </div>
+              <div class="card stack tight">
+                <div class="hstack between"><b style="font-size:16px">Q3/2026</b><span class="badge warn">{Chưa xem lại¦Not reviewed}</span></div>
+                <span class="small muted">{Kết thúc 30/09/2026 · 2 Objective · 36 task¦Ended Sep 30, 2026 · 2 Objectives · 36 tasks}</span>
+                <div class="hstack small"><b>81%</b><span class="muted">{task xong (29/36) · 3/4 KR đạt¦tasks done (29/36) · 3/4 KRs met}</span></div>
+                <div class="progress ok"><b style="width:81%"></b></div>
+                <div class="hstack"><span class="btn sm">{Xem lại quý¦Review quarter}</span><span class="btn sm ghost">⋯</span></div>
+              </div>
+              <div class="card stack tight">
+                <div class="hstack between"><b style="font-size:16px">Q2/2026</b><span class="badge ok">✓ {Đã xem lại¦Reviewed}</span></div>
+                <span class="small muted">{Kết thúc 30/06/2026 · 3 Objective · 44 task¦Ended Jun 30, 2026 · 3 Objectives · 44 tasks}</span>
+                <div class="hstack small"><b>86%</b><span class="muted">{task xong (38/44) · 4/6 KR đạt¦tasks done (38/44) · 4/6 KRs met}</span></div>
+                <div class="progress ok"><b style="width:86%"></b></div>
+                <div class="hstack"><span class="btn sm">{Xem¦View}</span><span class="btn sm ghost">⋯</span></div>
+              </div>
+              <div class="card dashed stack tight">
+                <div class="hstack between"><b style="font-size:16px" class="muted">Q1/2026</b><span class="badge">{Không có kế hoạch¦No plan}</span></div>
+                <span class="small muted">{Quý đã qua, chưa từng lập kế hoạch.¦Past quarter, never planned.}</span>
+              </div>
+            </div>
+            <div class="menu" style="position:absolute;left:150px;top:470px;z-index:6">
+              <div>{Xem lại quý¦Review quarter}</div>
+              <div>{Sao chép OKR sang quý khác…¦Copy OKRs to another quarter…}</div>
+              <div>{Xuất dữ liệu…¦Export…}</div>
+              <div class="sepr"></div>
+              <div class="danger">{Xóa quý…¦Delete quarter…}</div>
+            </div>
+            <span class="pin abs" style="left:4px;top:150px">1</span>
+            <span class="pin abs" style="left:420px;top:210px">2</span>
+            <span class="pin abs" style="left:830px;top:150px">3</span>
+            <span class="pin abs" style="left:130px;top:470px">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">{Xem lại quý đã kết thúc (chỉ đọc)¦Review an ended quarter (read-only)}</p>
+      <div class="frame" style="width:860px"><div style="padding:20px" class="stack">
+        <div class="hstack between"><div><h3 style="font-size:20px">{Xem lại Q3/2026¦Q3/2026 review}</h3><span class="small muted">01/07 – 30/09/2026</span></div><span class="hstack"><span class="btn sm">{Xuất dữ liệu¦Export}</span><span class="btn sm primary">{Đánh dấu đã xem lại¦Mark as reviewed}</span></span></div>
+        <div class="banner neutral small"><span class="icon round"></span><div>{Chỉ xem — quý đã kết thúc. Ghi kết quả cuối cho từng KR; không thể sửa task hay xếp lại lịch.¦Read-only — this quarter has ended. Record the final result for each KR; tasks can't be edited or rescheduled.}</div></div>
+        <div class="grid4"><div class="card metric"><span class="k">{Task xong¦Tasks done}</span><span class="v">29/36</span></div><div class="card metric"><span class="k">{Giờ đã làm¦Hours done}</span><span class="v">116h / 144h</span></div><div class="card metric"><span class="k">{KR đạt¦KRs met}</span><span class="v">3/4</span></div><div class="card metric"><span class="k">{Task trễ hạn¦Late tasks}</span><span class="v">7</span></div></div>
+        <table class="tbl">
+          <tr><th>KR</th><th class="num">Baseline</th><th class="num">Target</th><th class="num">{Kết quả cuối¦Final result}</th><th>{Đánh giá¦Outcome}</th></tr>
+          <tr><td><span class="obj-tag c1">O1</span> {Đạt người dùng beta¦Beta users}</td><td class="num">0</td><td class="num">500</td><td class="num"><b>430</b></td><td><span class="badge warn">! {Đạt 86%¦86% met}</span></td></tr>
+          <tr><td><span class="obj-tag c1">O1</span> {Điểm đánh giá beta¦Beta rating}</td><td class="num">—</td><td class="num">≥ 4,5★¦≥ 4.5★</td><td class="num"><b>4,6★¦4.6★</b></td><td><span class="badge ok">✓ {Đạt¦Met}</span></td></tr>
+          <tr><td><span class="obj-tag c2">O2</span> {Điểm thi thử N5¦N5 mock score}</td><td class="num">55%</td><td class="num">≥ 80%</td><td class="num"><b>85%</b></td><td><span class="badge ok">✓ {Đạt¦Met}</span></td></tr>
+          <tr><td><span class="obj-tag c2">O2</span> {Học xong Minna bài 1–5¦Finish Minna lessons 1–5}</td><td class="num">0</td><td class="num">5</td><td class="num"><b>5</b></td><td><span class="badge ok">✓ {Đạt¦Met}</span></td></tr>
+        </table>
+        <div class="hstack"><span class="btn sm">{Sao chép KR chưa đạt sang Q4/2026…¦Copy unmet KRs to Q4/2026…}</span><span class="small muted">{Tạo KR mới ở quý đích; quý này không đổi.¦Creates new KRs in the target quarter; this quarter stays unchanged.}</span></div>
+      </div></div></div>
+    <div class="col">
+      <div><p class="cap">{Xóa quý: gõ tên để xác nhận¦Delete quarter: type the name to confirm}</p>
+        <div class="frame mini" style="background:#0f172a66;padding:20px"><div class="dialog" style="width:100%">
+          <h3>{Xóa Q2/2026?¦Delete Q2/2026?}</h3>
+          <p class="small" style="margin:0 0 10px">{Xóa vĩnh viễn 3 Objective, 44 task và kết quả review. Không thể hoàn tác. Nên xuất dữ liệu trước.¦Permanently deletes 3 Objectives, 44 tasks and the review. This can't be undone. Export first if you need it.}</p>
+          <div class="field"><label>{Gõ "Q2/2026" để xác nhận¦Type "Q2/2026" to confirm}</label><div class="input focus">Q2/202</div></div>
+          <div class="foot"><span class="btn">{Xuất trước¦Export first}</span><span class="btn">{Hủy¦Cancel}</span><span class="btn danger disabled">{Xóa vĩnh viễn¦Delete permanently}</span></div>
+        </div></div></div>
+      <div><p class="cap">{Không cho xóa quý đang diễn ra¦Can't delete the current quarter}</p>
+        <div class="frame mini"><div style="padding:16px"><div class="banner warn small"><span class="icon round"></span><div>{Q4/2026 đang diễn ra nên không xóa được. Bạn có thể xóa từng Objective trong Kế hoạch OKR.¦Q4/2026 is in progress and can't be deleted. You can delete individual Objectives in OKR plan.}</div></div></div></div></div>
+      <div><p class="cap">{Rỗng / đang tải / lỗi¦Empty / loading / error}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="empty" style="padding:16px"><h3>{Chưa có quý nào¦No quarters yet}</h3><p>{Lập kế hoạch quý đầu tiên để bắt đầu.¦Plan your first quarter to get started.}</p><span class="btn primary sm">{Lập kế hoạch¦Plan a quarter}</span></div>
+          <div class="grid3"><div class="skel h60"></div><div class="skel h60"></div><div class="skel h60"></div></div>
+          <div class="banner err small"><span class="icon round"></span><div>{Không tải được danh sách quý.¦Couldn't load quarters.} <a>{Thử lại¦Retry}</a></div></div>
+        </div></div></div>
+    </div>
+    <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+      <li>{Thẻ quý sắp theo mức liên quan: đang diễn ra → nháp → cần review → đã xong → trống.¦Quarter cards sorted by relevance: in progress → draft → needs review → done → empty.}</li>
+      <li>{Quý sau hiển thị rõ KR được dời sang từ S13 (không để KR "biến mất").¦The next quarter clearly shows KRs moved in from S13 (KRs never "vanish").}</li>
+      <li>{Quý cũ chưa review có badge nhắc; review = ghi kết quả cuối cho KR.¦Unreviewed past quarters get a reminder badge; review = record final KR results.}</li>
+      <li>{Menu ⋯ gom thao tác phụ; "Xóa" tách riêng, màu đỏ, cuối menu.¦⋯ menu holds secondary actions; "Delete" separated, red, last.}</li>
+      <li>{Xóa quý: gõ tên để xác nhận + gợi ý xuất trước; nút Xóa tắt cho tới khi gõ đúng.¦Delete: type-to-confirm + export-first hint; Delete stays disabled until the name matches.}</li>
+      <li>{Review chỉ đọc: vẫn cho ghi kết quả KR và sao chép KR chưa đạt sang quý khác.¦Read-only review still allows recording KR results and copying unmet KRs forward.}</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ============================ S14b LEAVE & HOLIDAYS ============================ -->
+<section class="screen" id="s14b">
+  <header><span class="sid">S14b</span><h2>{Nghỉ phép & chỉnh ngày lễ Việt Nam¦Leave & Vietnamese holiday editing}</h2>
+    <p>{Cả hai đều làm thay đổi capacity, nên luôn cho xem trước tác động (giờ mất, ngày xong mới) trước khi lưu, và sau khi lưu kế hoạch chuyển sang "Cần xếp lại". Danh sách lễ lấy từ dữ liệu mặc định của hệ thống (có nguồn văn bản), ngày dự kiến được đánh dấu.¦Both change capacity, so the impact (hours lost, new finish date) is always previewed before saving, and afterwards the plan becomes "Needs rescheduling". Holidays come from the system default dataset (with legal sources); provisional dates are flagged.}</p>
+  </header>
+  <div class="row">
+    <div><p class="cap">{Tab Nghỉ phép: thêm ngày nghỉ + xem trước tác động¦Leave tab: add leave + impact preview}</p>
+      <div class="frame" style="width:620px"><div style="padding:20px" class="stack">
+        <div class="tabs" style="margin:0"><span>{Các quý¦Quarters}</span><span class="on">{Nghỉ phép¦Leave}</span><span>{Ngày lễ¦Holidays}</span><span>{Xuất dữ liệu¦Export}</span></div>
+        <div class="card stack">
+          <b>{Thêm nghỉ phép¦Add leave}</b>
+          <div class="grid2"><div class="field"><label>{Từ ngày¦From}</label><div class="input">{T6 16/10/2026¦Fri Oct 16, 2026}</div></div><div class="field"><label>{Đến ngày¦To}</label><div class="input">{T6 16/10/2026¦Fri Oct 16, 2026}</div></div></div>
+          <div class="field"><label>{Thời lượng¦Duration}</label><span class="seg"><span class="on">{Cả ngày¦Full day}</span><span>{Nửa ngày¦Half day}</span></span></div>
+          <div class="field"><label>{Ghi chú (không bắt buộc)¦Note (optional)}</label><div class="input ph">{VD: Việc gia đình — không cần ghi lý do¦e.g. Family matter — no reason needed}</div></div>
+          <div class="banner warn small"><span class="sym warn" style="width:18px;height:18px;font-size:11px">!</span><div><div class="t">{Tác động nếu lưu¦Impact if saved}</div>{−4h capacity · Dự kiến xong 24/12 → 25/12 · Buffer dùng 8h → 12h (vẫn Vàng) · 1 task dời sang ngày sau¦−4h capacity · Finish Dec 24 → Dec 25 · Buffer used 8h → 12h (still Amber) · 1 task moves to a later day}</div></div>
+          <div class="hstack" style="justify-content:flex-end"><span class="btn">{Hủy¦Cancel}</span><span class="btn primary">{Lưu nghỉ phép¦Save leave}</span></div>
+        </div>
+        <b class="small">{Đã lưu¦Saved}</b>
+        <table class="tbl">
+          <tr><th>{Ngày¦Date}</th><th>{Thời lượng¦Duration}</th><th>{Quý¦Quarter}</th><th>{Ghi chú¦Note}</th><th></th></tr>
+          <tr><td>{T2 17/08/2026¦Mon Aug 17, 2026}</td><td>{Cả ngày · 4h¦Full day · 4h}</td><td class="muted">{Q3/2026 · đã qua¦Q3/2026 · past}</td><td class="muted">—</td><td class="muted">⋯</td></tr>
+        </table>
+        <div class="banner neutral small"><span class="icon round"></span><div>{Nghỉ phép rơi vào task đã ghim sẽ hỏi giữ/bỏ ghim như S10.¦Leave on a pinned task's day triggers the keep/unpin prompt from S10.}</div></div>
+      </div></div></div>
+    <div><p class="cap">{Tab Ngày lễ: năm 2026 (dữ liệu mặc định) + 1 ngày tự thêm chưa lưu¦Holidays tab: 2026 (default data) + 1 unsaved custom day}</p>
+      <div class="frame" style="width:800px"><div style="padding:20px" class="stack">
+        <div class="hstack between"><span class="seg"><span class="on">2026</span><span>2027</span></span><span class="hstack"><span class="btn sm ghost">{Khôi phục mặc định¦Restore defaults}</span><span class="btn sm">+ {Thêm ngày¦Add day}</span></span></div>
+        <div class="banner info small"><span class="icon round"></span><div>{Có đề xuất nghỉ dài hơn dịp 24/11/2026 nhưng chưa chính thức — ứng dụng chỉ dùng ngày đã có văn bản. Bạn có thể thêm thủ công.¦A longer break around Nov 24, 2026 has been proposed but isn't official — the app only uses dates with a published decision. You can add days manually.}</div></div>
+        <table class="tbl">
+          <tr><th>{Ngày¦Date}</th><th>{Tên¦Name}</th><th>{Loại¦Type}</th><th>{Trạng thái¦Status}</th><th>{Nguồn¦Source}</th><th></th></tr>
+          <tr><td>{T5 01/01¦Thu Jan 1}</td><td>{Tết Dương lịch¦New Year's Day}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>BLLĐ 2019</a></td><td class="muted">⋯</td></tr>
+          <tr><td>{T2 16/02 – T6 20/02¦Mon Feb 16 – Fri Feb 20}</td><td>{Tết Nguyên đán (5 ngày)¦Lunar New Year (5 days)}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>9441/TB-BNV</a></td><td class="muted">▾</td></tr>
+          <tr><td>{CN 26/04¦Sun Apr 26}</td><td>{Giỗ Tổ Hùng Vương¦Hung Kings' Day}</td><td>{Nghỉ lễ (CN)¦Holiday (Sun)}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>3383/BNV-CVL</a></td><td class="muted">⋯</td></tr>
+          <tr><td>{T2 27/04¦Mon Apr 27}</td><td>{Nghỉ bù Giỗ Tổ¦Hung Kings' Day (in lieu)}</td><td>{Nghỉ bù¦In lieu}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>3383/BNV-CVL</a></td><td class="muted">⋯</td></tr>
+          <tr><td>{T5 30/04 – T6 01/05¦Thu Apr 30 – Fri May 1}</td><td>{Chiến thắng · Quốc tế Lao động¦Reunification · Labour Day}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>3383/BNV-CVL</a></td><td class="muted">▾</td></tr>
+          <tr><td>{T7 22/08¦Sat Aug 22}</td><td>{Làm bù cho nghỉ 31/08¦Make-up day for Aug 31}</td><td>{Làm bù¦Make-up workday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>9441/TB-BNV</a></td><td class="muted">⋯</td></tr>
+          <tr><td>{T2 31/08¦Mon Aug 31}</td><td>{Nghỉ hoán đổi dịp Quốc khánh¦National Day (swapped day off)}</td><td>{Nghỉ hoán đổi¦Swapped day off}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>9441/TB-BNV</a></td><td class="muted">⋯</td></tr>
+          <tr><td>{T3 01/09 – T4 02/09¦Tue Sep 1 – Wed Sep 2}</td><td>{Quốc khánh¦National Day}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>9441/TB-BNV</a></td><td class="muted">▾</td></tr>
+          <tr style="background:#fdf2f8"><td><b>{T3 24/11¦Tue Nov 24}</b></td><td><b>{Ngày Văn hóa Việt Nam¦Vietnamese Culture Day}</b> <span class="badge outline">Q4/2026</span></td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td><td class="small"><a>28/2026/QH16</a></td><td class="muted">⋯</td></tr>
+          <tr class="edit"><td><div class="input" style="height:28px">{T5 31/12¦Thu Dec 31}</div></td><td><div class="input" style="height:28px">{Nghỉ cuối năm (tự thêm)¦Year-end day off (custom)}</div></td><td><span class="select" style="height:28px">{Nghỉ riêng¦Custom day off}</span></td><td><span class="badge warn">{Chưa lưu¦Unsaved}</span></td><td class="small muted">{Bạn¦You}</td><td><span class="btn sm primary">{Lưu¦Save}</span></td></tr>
+        </table>
+        <div class="banner warn small"><span class="sym warn" style="width:18px;height:18px;font-size:11px">!</span><div>{Thêm 31/12: Q4/2026 có 312h → 308h; buffer 32h bắt đầu sớm hơn (22/12), dùng 12h thay vì 8h. Vẫn Vàng, vẫn xong 24/12. Kế hoạch sẽ chuyển sang "Cần xếp lại".¦Adding Dec 31: Q4/2026 has 312h → 308h; the 32h buffer starts earlier (Dec 22), 12h used instead of 8h. Still Amber, still finishes Dec 24. The plan becomes "Needs rescheduling".}</div></div>
+      </div></div></div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">{Năm 2027: ngày dự kiến¦2027: provisional dates}</p>
+      <div class="frame" style="width:620px"><div style="padding:20px" class="stack">
+        <table class="tbl">
+          <tr><th>{Ngày¦Date}</th><th>{Tên¦Name}</th><th>{Loại¦Type}</th><th>{Trạng thái¦Status}</th></tr>
+          <tr><td>{T6 01/01¦Fri Jan 1}</td><td>{Tết Dương lịch¦New Year's Day}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td></tr>
+          <tr><td>{T5 04/02 – T2 08/02¦Thu Feb 4 – Mon Feb 8}</td><td>{Tết Nguyên đán¦Lunar New Year}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge warn">! {Dự kiến¦Provisional}</span></td></tr>
+          <tr><td>{T3 09/02 – T4 10/02¦Tue Feb 9 – Wed Feb 10}</td><td>{Nghỉ bù Tết (mùng 4, 5)¦Tết in lieu (days 4, 5)}</td><td>{Nghỉ bù¦In lieu}</td><td><span class="badge warn">! {Dự kiến¦Provisional}</span></td></tr>
+          <tr><td>{T6 16/04¦Fri Apr 16}</td><td>{Giỗ Tổ Hùng Vương¦Hung Kings' Day}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge ok">{Chính thức¦Official}</span></td></tr>
+          <tr><td>{T7 01/05 → T2 03/05¦Sat May 1 → Mon May 3}</td><td>{Quốc tế Lao động + nghỉ bù¦Labour Day + in lieu}</td><td>{Nghỉ bù¦In lieu}</td><td><span class="badge ok">{Chính thức¦Official}</span></td></tr>
+          <tr><td>{T6 03/09¦Fri Sep 3}</td><td>{Quốc khánh (ngày liền kề)¦National Day (adjacent day)}</td><td>{Nghỉ lễ¦Holiday}</td><td><span class="badge warn">! {Dự kiến¦Provisional}</span></td></tr>
+          <tr><td class="muted" colspan="4">{+ 30/04, 02/09, 24/11 (chính thức)¦+ Apr 30, Sep 2, Nov 24 (official)}</td></tr>
+        </table>
+        <div class="banner neutral small"><span class="icon round"></span><div>{Ngày dự kiến vẫn được dùng để xếp lịch. Khi dữ liệu mặc định cập nhật khác đi, quý bị ảnh hưởng sẽ hiện pill "Cần xếp lại" kèm lý do.¦Provisional dates are still used for scheduling. If the default data changes, affected quarters show a "Needs rescheduling" pill with the reason.}</div></div>
+      </div></div></div>
+    <div class="col">
+      <div><p class="cap">{Khôi phục mặc định¦Restore defaults}</p>
+        <div class="frame mini" style="background:#0f172a66;padding:20px"><div class="dialog" style="width:100%">
+          <h3>{Khôi phục ngày lễ 2026 mặc định?¦Restore default 2026 holidays?}</h3>
+          <p class="small" style="margin:0">{1 ngày tự thêm (31/12) sẽ bị xóa. Q4/2026 sẽ cần xếp lại.¦1 custom day (Dec 31) will be removed. Q4/2026 will need rescheduling.}</p>
+          <div class="foot"><span class="btn">{Hủy¦Cancel}</span><span class="btn primary">{Khôi phục¦Restore}</span></div>
+        </div></div></div>
+      <div><p class="cap">{Lỗi / trùng ngày¦Errors / duplicate day}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <div class="field"><label>{Ngày¦Date}</label><div class="input invalid">{T3 24/11/2026¦Tue Nov 24, 2026}</div><span class="err-text">{Ngày này đã là ngày lễ "Ngày Văn hóa Việt Nam".¦This date is already the holiday "Vietnamese Culture Day".}</span></div>
+          <div class="banner err small"><span class="icon round"></span><div>{Không lưu được. Thay đổi vẫn giữ trong form.¦Couldn't save. Your changes are kept in the form.} <a>{Thử lại¦Retry}</a></div></div>
+        </div></div></div>
+    </div>
+    <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+      <li>{Nghỉ phép: chọn khoảng ngày + cả/nửa ngày; ghi chú không bắt buộc (tối thiểu hóa dữ liệu, không hỏi lý do).¦Leave: date range + full/half day; note optional (data minimisation, no reason asked).}</li>
+      <li>{Luôn xem trước tác động bằng số trước khi lưu (giờ mất, ngày xong, buffer).¦Always preview the numeric impact before saving (hours lost, finish date, buffer).}</li>
+      <li>{Bảng ngày lễ gộp các ngày liền nhau (▾ mở rộng), có Loại: Nghỉ lễ / Nghỉ bù / Nghỉ hoán đổi / Làm bù / Nghỉ riêng.¦Holiday table groups consecutive days (▾ expands); Types: Holiday / In lieu / Swapped day off / Make-up workday / Custom day off.}</li>
+      <li>{Mỗi ngày mặc định có nguồn văn bản (link); ngày dự kiến có badge "! Dự kiến".¦Each default day links its legal source; provisional days get a "! Provisional" badge.}</li>
+      <li>{Hàng thuộc quý hiện tại được tô nhấn + badge quý.¦Rows in the current quarter are highlighted + quarter badge.}</li>
+      <li>{"Khôi phục mặc định" chỉ xóa ngày tự thêm/sửa, có xác nhận.¦"Restore defaults" only removes custom/edited days, with confirmation.}</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ============================ S14c EXPORT & DATA POLICY ============================ -->
+<section class="screen" id="s14c">
+  <header><span class="sid">S14c</span><h2>{Xuất CSV/Excel & trang Chính sách dữ liệu¦CSV/Excel export & Data policy page}</h2>
+    <p>{Xuất file để người dùng giữ quyền sở hữu dữ liệu. Trang chính sách viết bằng ngôn ngữ thường, nói rõ dữ liệu nằm ở đâu và gửi đi đâu — nội dung phần AI thay đổi theo provider đang chọn trong Cài đặt.¦Export keeps users in control of their data. The policy page uses plain language about where data lives and where it goes — the AI section changes with the provider selected in Settings.}</p>
+  </header>
+  <div class="row">
+    <div><p class="cap">{Hộp thoại xuất dữ liệu¦Export dialog}</p>
+      <div class="frame mid" style="background:#0f172a66;padding:24px;width:620px"><div class="dialog" style="width:100%">
+        <h3>{Xuất dữ liệu¦Export data}</h3>
+        <div class="stack">
+          <div class="field"><label>{Quý¦Quarter}</label><span class="select">Q4/2026</span></div>
+          <div class="field"><label>{Định dạng¦Format}</label>
+            <div class="card stack tight" style="padding:10px"><div class="hstack small"><span class="radio on"></span><b>Excel (.xlsx)</b><span class="muted">— {3 sheet: OKR · Task · Lịch theo ngày¦3 sheets: OKR · Tasks · Daily schedule}</span></div>
+              <div class="hstack small"><span class="radio"></span><b>CSV</b><span class="muted">— {1 file task, UTF-8 có BOM (Excel mở đúng tiếng Việt)¦1 task file, UTF-8 with BOM (Excel shows Vietnamese correctly)}</span></div></div></div>
+          <div class="field"><label>{Bao gồm¦Include}</label>
+            <div class="hstack small"><span class="check on"></span>{Tiêu chí hoàn thành¦Done criteria}</div>
+            <div class="hstack small"><span class="check on"></span>{Phụ thuộc giữa task¦Task dependencies}</div>
+            <div class="hstack small"><span class="check"></span>{Ghi chú nghỉ phép¦Leave notes}</div></div>
+          <div class="banner neutral small"><span class="icon round"></span><div>{File chứa nội dung OKR của bạn. Không bao giờ chứa mật khẩu hay API key.¦The file contains your OKR content. It never includes the password or API key.}</div></div>
+        </div>
+        <div class="foot"><span class="btn">{Hủy¦Cancel}</span><span class="btn primary">{Tải xuống okr-q4-2026.xlsx¦Download okr-q4-2026.xlsx}</span></div>
+      </div></div></div>
+    <div class="col">
+      <div><p class="cap">{Cấu trúc file Excel¦Excel file structure}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack tight small">
+          <div><b>OKR</b> — {Objective, ưu tiên, KR, loại, baseline, target, kết quả¦Objective, priority, KR, type, baseline, target, result}</div>
+          <div><b>{Task¦Tasks}</b> — {mã, tên, KR, giờ, bắt đầu, kết thúc, phụ thuộc, ghim, trạng thái¦code, name, KR, hours, start, end, depends on, pinned, status}</div>
+          <div><b>{Lịch theo ngày¦Daily schedule}</b> — {ngày, mã task, số giờ, capacity ngày, loại ngày (làm/nghỉ/lễ/buffer)¦date, task code, hours, day capacity, day type (work/off/holiday/buffer)}</div>
+          <div class="muted">{Ngày dạng ISO (2026-10-07) để máy đọc; tên cột theo ngôn ngữ đang chọn.¦ISO dates (2026-10-07) for machines; column names follow the current language.}</div>
+        </div></div></div>
+      <div><p class="cap">{Đang xuất / lỗi / quý trống¦Exporting / error / empty quarter}</p>
+        <div class="frame mini"><div style="padding:16px" class="stack">
+          <span class="btn primary disabled"><span class="spin"></span> {Đang tạo file…¦Creating file…}</span>
+          <div class="banner err small"><span class="icon round"></span><div>{Không tạo được file. Thử lại hoặc chọn CSV.¦Couldn't create the file. Retry or choose CSV.} <a>{Thử lại¦Retry}</a></div></div>
+          <div class="hstack small muted"><span class="btn sm disabled">{Tải xuống¦Download}</span>{Q1/2026 không có dữ liệu để xuất.¦Q1/2026 has no data to export.}</div>
+        </div></div></div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div>
+      <p class="cap">Desktop 1440 · {trang Chính sách dữ liệu (provider Local)¦Data policy page (Local provider)}</p>
+      <div class="frame desktop" style="height:640px">
+        <div data-browser="/policy"></div>
+        <div class="app">
+          <div data-topbar="warn"></div>
+          <div data-sidebar="policy"></div>
+          <div class="main" style="position:relative">
+            <div class="pagehead"><div><h1>{Chính sách dữ liệu¦Data policy}</h1><div class="sub">{Tóm tắt dễ đọc · cập nhật 30/09/2026¦Plain-language summary · updated Sep 30, 2026}</div></div></div>
+            <div class="stack loose" style="max-width:820px">
+              <div class="banner ok"><span class="sym ok">✓</span><div><div class="t">{Bạn đang dùng AI cục bộ (Local · qwen2.5:7b)¦You're using a local AI (Local · qwen2.5:7b)}</div>{Nội dung OKR được gửi tới¦OKR content is sent to} <span class="mono">http://localhost:11434</span> {— chạy trên máy chủ của bạn, không rời khỏi hệ thống.¦— it runs on your server and doesn't leave your system.} <a>{Đổi trong Cài đặt¦Change in Settings}</a></div></div>
+              <div class="grid2" style="gap:20px">
+                <div class="card stack tight"><b>{Dữ liệu được lưu¦What's stored}</b>
+                  <span class="small">• {OKR, câu trả lời làm rõ, task, lịch, nghỉ phép, ngày lễ tự thêm¦OKRs, clarifying answers, tasks, schedule, leave, custom holidays}</span>
+                  <span class="small">• {Cài đặt capacity và AI (API key được mã hóa, chỉ hiện 4 ký tự cuối)¦Capacity and AI settings (API key encrypted, only last 4 chars shown)}</span>
+                  <span class="small">• {Nhật ký sinh kế hoạch: provider, model, thời điểm — không lưu API key¦Generation log: provider, model, time — never the API key}</span></div>
+                <div class="card stack tight"><b>{Dữ liệu gửi tới AI¦What's sent to the AI}</b>
+                  <span class="small">• {Nội dung Objective, KR, câu trả lời làm rõ¦Objective and KR text, clarifying answers}</span>
+                  <span class="small">• {Không gửi: mật khẩu truy cập, nghỉ phép, ghi chú, lịch¦Never sent: access password, leave, notes, schedule}</span>
+                  <span class="small">• {Lịch và phương án quá tải do scheduler tính trên máy chủ, không cần AI¦Schedules and overload options are computed by the scheduler, no AI needed}</span></div>
+                <div class="card stack tight"><b>{Truy cập¦Access}</b>
+                  <span class="small">• {Một mật khẩu dùng chung; phiên đăng nhập bằng cookie httpOnly¦One shared password; session via httpOnly cookie}</span>
+                  <span class="small">• {Ai có mật khẩu đều xem/sửa được mọi quý¦Anyone with the password can view/edit all quarters}</span></div>
+                <div class="card stack tight"><b>{Quyền của bạn¦Your controls}</b>
+                  <span class="small">• {Xuất toàn bộ dữ liệu (CSV/Excel) bất cứ lúc nào¦Export all data (CSV/Excel) at any time}</span>
+                  <span class="small">• {Xóa từng quý trong Quản lý quý¦Delete individual quarters in Quarters}</span>
+                  <div class="hstack" style="margin-top:4px"><span class="btn sm">{Xuất tất cả¦Export all}</span><span class="btn sm outline-danger">{Xóa toàn bộ dữ liệu…¦Delete all data…}</span></div></div>
+              </div>
+            </div>
+            <span class="pin abs" style="left:4px;top:96px">1</span>
+            <span class="pin abs" style="left:420px;top:210px">2</span>
+            <span class="pin abs" style="left:830px;top:390px">3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:24px">
+    <div><p class="cap">{Biến thể khi provider = OpenAI¦Variant when provider = OpenAI}</p>
+      <div class="frame mid" style="width:620px"><div style="padding:20px"><div class="banner warn"><span class="sym warn">!</span><div><div class="t">{Bạn đang dùng OpenAI (gpt-4o-mini)¦You're using OpenAI (gpt-4o-mini)}</div>{Nội dung Objective, KR và câu trả lời làm rõ được gửi tới api.openai.com và chịu chính sách dữ liệu của OpenAI. Ứng dụng không bao giờ tự chuyển sang OpenAI — bạn đã chọn trong Cài đặt.¦Objective, KR and clarifying-answer text is sent to api.openai.com under OpenAI's data policy. The app never switches to OpenAI on its own — you chose it in Settings.} <a>{Chuyển về Local¦Switch back to Local}</a></div></div></div></div></div>
+    <div><p class="cap">{Xóa toàn bộ dữ liệu¦Delete all data}</p>
+      <div class="frame mini" style="background:#0f172a66;padding:20px"><div class="dialog" style="width:100%">
+        <h3>{Xóa toàn bộ dữ liệu?¦Delete all data?}</h3>
+        <p class="small" style="margin:0 0 10px">{Xóa 4 quý, mọi task, nghỉ phép và ngày lễ tự thêm. Cài đặt AI và mật khẩu giữ nguyên. Không thể hoàn tác.¦Deletes 4 quarters, all tasks, leave and custom holidays. AI settings and password stay. Can't be undone.}</p>
+        <div class="field"><label>{Nhập lại mật khẩu truy cập để xác nhận¦Re-enter the access password to confirm}</label><div class="input ph">••••••••</div><span class="hint">{Mật khẩu dùng chung, nên yêu cầu nhập lại thay vì chỉ gõ chữ.¦The password is shared, so re-entry is required instead of typing a word.}</span></div>
+        <div class="foot"><span class="btn">{Xuất trước¦Export first}</span><span class="btn">{Hủy¦Cancel}</span><span class="btn danger disabled">{Xóa tất cả¦Delete everything}</span></div>
+      </div></div></div>
+    <div class="notes"><h4>{Ghi chú¦Notes}</h4><ol>
+      <li>{Callout đầu trang đổi theo provider: Local = xanh (dữ liệu không rời máy); OpenAI = vàng + tên miền nhận dữ liệu. Nhắc lại cam kết không tự chuyển sang OpenAI.¦Top callout follows the provider: Local = green (data stays); OpenAI = amber + receiving domain. Restates the never-auto-switch promise.}</li>
+      <li>{4 khối ngắn: lưu gì, gửi AI gì, ai truy cập được, bạn kiểm soát gì — không văn phong pháp lý.¦4 short blocks: stored, sent to AI, who has access, your controls — no legalese.}</li>
+      <li>{Xóa toàn bộ: nhập lại mật khẩu + gợi ý xuất trước; nút nguy hiểm tách khỏi nút thường. Xem quyết định mở D13.¦Delete all: password re-entry + export-first hint; destructive button kept apart. See open decision D13.}</li>
+      <li>{Xuất: mặc định Excel 3 sheet; CSV có BOM để tiếng Việt không lỗi font trong Excel.¦Export: Excel 3-sheet default; CSV with BOM so Vietnamese renders correctly in Excel.}</li>
+    </ol></div>
+  </div>
+</section>
+
+
+</body>
+</html>

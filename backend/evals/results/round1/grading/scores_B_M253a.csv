@@ -1,0 +1,11 @@
+sample_id,provider,model,grader,clarify_status_actual,Q1,Q2,Q3,C1,C2,C3,C4,C5,C6,pass,failed_task_ids,notes
+01_saas_onboarding_vi,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+02_aws_certification_en,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+03_health_fitness_vi,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+04_b2b_sales_en,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+05_payment_reliability_vi,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+06_mobile_app_launch_en,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+07_self_improvement_vague_vi,,M253a,B,needs_clarification,1,0,1,,,,,,,0,,"precheck=1; llm=0. Q2=0: chỉ có 1 câu precheck về O1-KR2 (chạm chủ đề 2), thiếu câu về kỹ năng cụ thể của O1-KR1 (chủ đề 1) mà grader_notes yêu cầu phải do LLM đặt. Không sinh task, không bịa số."
+08_company_growth_vague_en,,M253a,B,needs_clarification,1,0,1,,,,,,,0,,"precheck=2; llm=0. Q2=0: có baseline/target của KR số đo (O2-KR2) và định nghĩa KR mơ hồ (O1-KR2), nhưng không có câu nào về O1-KR1 hoặc O2-KR1, là câu grader_notes yêu cầu phải do LLM đặt. Không sinh task, không bịa số."
+09_master_thesis_vi,,M253a,B,error,,,,,,,,,,0,,Lỗi pipeline: provider_unavailable tại bước dedup
+10_customer_support_missing_baseline_en,,M253a,B,needs_clarification,1,1,1,,,,,,,1,,"precheck=2; llm=0. Hỏi đủ baseline của O1-KR1 và O1-KR2; mẫu này precheck bắt hoàn toàn nên đạt. Số 2 giờ và 90% là target của người dùng, không phải số bịa. Không sinh task."

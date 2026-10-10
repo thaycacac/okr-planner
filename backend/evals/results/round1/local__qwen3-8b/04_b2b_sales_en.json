@@ -1,0 +1,463 @@
+{
+  "sample_id": "04_b2b_sales_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T17:19:09+00:00",
+  "outcome": "ok",
+  "wall_ms": 153672,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Identify and qualify 15 new high-potential Vietnamese SMEs in Hanoi and Ho Chi Minh City",
+      "description": "Research and reach out to 15 SMEs in the target regions that fit the ideal customer profile. Use LinkedIn, industry directories, and referrals to identify prospects. Qualify them based on company size, industry, and pain points.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 15 qualified leads with contact details and initial notes on their business needs and fit for the product is completed and shared with the team.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Schedule and conduct 15 discovery calls with qualified leads",
+      "description": "Follow up with the 15 qualified leads from the previous task to schedule discovery calls. Use the calls to understand their business challenges, evaluate their fit, and build rapport.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 15 scheduled and completed discovery calls with notes on each lead's interest level and next steps is shared with the team.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Develop and send 15 personalized proposals to high-intent leads",
+      "description": "Based on the discovery call insights, create 15 tailored proposals that address the specific needs of each lead. Ensure the proposals are clear, concise, and include a clear call to action.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 15 personalized proposals sent to leads with tracking of responses and next steps is shared with the team.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Follow up with 15 leads and track engagement",
+      "description": "Monitor the response to the proposals and follow up with each lead to address any questions, clarify the value proposition, and move them further down the sales funnel.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 15 follow-up interactions with notes on engagement levels and next steps is shared with the team.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Identify and qualify 20 high-potential Vietnamese SMEs in Hanoi and Ho Chi Minh City",
+      "description": "Research and compile a list of 20 SMEs in the target industries (e.g., manufacturing, retail, logistics) in Hanoi and Ho Chi Minh City that are likely to benefit from the HR software. Use LinkedIn, industry reports, and local business directories to identify potential leads.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of 20 qualified SMEs with contact details and industry alignment is ready for outreach.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Develop and send personalized outreach emails to 20 SMEs",
+      "description": "Craft and send personalized email campaigns to the 20 SMEs identified in t1. Focus on highlighting the value proposition of the HR software, including cost savings, efficiency, and scalability for SMEs.",
+      "estimate_hours": 4.0,
+      "done_criteria": "20 personalized emails have been sent to the identified SMEs.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Schedule and conduct 10 initial calls with SMEs",
+      "description": "Follow up on the emails sent in t2 and schedule 10 initial calls with SMEs. During the calls, understand their pain points, business needs, and how the HR software can help them.",
+      "estimate_hours": 4.0,
+      "done_criteria": "10 initial calls have been completed with SMEs, and notes are documented.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Convert 5 of the 10 initial calls into contract negotiations",
+      "description": "From the 10 initial calls, identify 5 SMEs that are interested in moving forward. Prepare tailored proposals and negotiate terms, including pricing, contract duration, and onboarding.",
+      "estimate_hours": 4.0,
+      "done_criteria": "5 SMEs have entered contract negotiation, and proposals are ready for review.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Finalize and sign 5 annual contracts",
+      "description": "Complete the contract signing process for the 5 SMEs in t4. Ensure all terms are clear, and the contracts are signed and recorded in the CRM.",
+      "estimate_hours": 4.0,
+      "done_criteria": "5 annual contracts have been signed and added to the CRM.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Analyze current deal size distribution",
+      "description": "Review past deals to understand the current distribution of deal sizes and identify patterns or opportunities to increase average deal size.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A summary report of current deal sizes and insights is completed and shared with the team.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Identify high-value account segments",
+      "description": "Research and define segments of Vietnamese SMEs that are more likely to commit to larger deals, based on industry, size, or needs.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A list of high-value account segments with rationale is completed and shared with the team.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Develop upsell and cross-sell strategies",
+      "description": "Create strategies to upsell or cross-sell additional products or services to existing clients to increase deal size.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A document outlining upsell and cross-sell strategies is completed and shared with the team.",
+      "depends_on": [
+        "O1-KR3.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Implement a deal size tracking system",
+      "description": "Set up a system to track deal sizes and monitor progress toward the target average deal size.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A tracking system is implemented and data is being collected consistently.",
+      "depends_on": [
+        "O1-KR3.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Conduct a sales training session on deal size",
+      "description": "Train the sales team on techniques to close larger deals and improve average deal size.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A training session is conducted and feedback is collected from the team.",
+      "depends_on": [
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Define the sales playbook structure",
+      "description": "Outline the core components of the sales playbook, including lead qualification, outreach strategies, objection handling, and closing techniques.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A draft structure of the sales playbook is completed and shared with the team for feedback.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Draft the sales playbook content",
+      "description": "Write detailed content for each section of the playbook, including templates, scripts, and best practices for the sales team.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A complete draft of the sales playbook is created and reviewed by the sales team.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Conduct a playbook review session",
+      "description": "Host a session with the sales team to review the playbook, gather feedback, and make necessary revisions.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The sales team provides feedback, and the playbook is updated based on their input.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Finalize and distribute the sales playbook",
+      "description": "Finalize the playbook, ensure all content is accurate and consistent, and distribute it to the entire sales team.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The finalized sales playbook is shared with the sales team and marked as adopted in the team's documentation.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Audit CRM data completeness",
+      "description": "Review current CRM data to identify which required fields are missing and calculate the current completeness percentage.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report showing the current CRM data completeness percentage is created and shared with the team.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Identify missing required fields",
+      "description": "List all required fields in the CRM and determine which ones are not being filled consistently by the sales team.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A list of missing required fields is created and shared with the team.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Create a data entry checklist",
+      "description": "Develop a checklist of required fields that must be filled for each sales lead and assign ownership to the sales team members.",
+      "estimate_hours": 3.0,
+      "done_criteria": "A checklist is created and shared with the team, with clear ownership for each field.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Train the sales team on data entry",
+      "description": "Conduct a training session to ensure the sales team understands the checklist and the importance of data completeness.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A training session is conducted, and a confirmation is received that the team understands the checklist.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Monitor and track CRM data completeness",
+      "description": "Set up a system to track CRM data completeness on a weekly basis and provide feedback to the team.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A tracking system is in place, and the first weekly report is shared with the team.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Review and adjust the process",
+      "description": "Review the data completeness metrics weekly and make adjustments to the checklist or training as needed.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A review of the data completeness metrics is conducted, and any necessary adjustments are made to the checklist or training.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 153671,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 2335,
+      "decompose": 138366,
+      "dedup": 12971,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 8,
+    "first_attempt_valid": 8,
+    "valid_after_retry": 8,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 24,
+    "total_hours": 96.0,
+    "expected_total_hours": [
+      106,
+      188
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": false,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 4,
+      "O1-KR2": 5,
+      "O1-KR3": 5,
+      "O2-KR1": 4,
+      "O2-KR2": 6
+    },
+    "hours_per_kr": {
+      "O1-KR1": 16.0,
+      "O1-KR2": 20.0,
+      "O1-KR3": 20.0,
+      "O2-KR1": 18.0,
+      "O2-KR2": 22.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:8b",
+      "decompose": "qwen3:8b",
+      "dedup": "qwen3:8b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 2335,
+      "decompose": 138366,
+      "dedup": 12971,
+      "validate": 0
+    },
+    "duration_ms": 153671,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 2335,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 28882,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 61475,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 87220,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 107732,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 138339,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 8517,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 12942,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

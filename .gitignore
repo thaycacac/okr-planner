@@ -1,0 +1,19 @@
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# backend
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+*.db
+
+# frontend
+frontend/node_modules/
+frontend/.next/
+frontend/coverage/

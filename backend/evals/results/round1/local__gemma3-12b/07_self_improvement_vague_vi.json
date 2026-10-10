@@ -1,0 +1,89 @@
+{
+  "sample_id": "07_self_improvement_vague_vi",
+  "language": "vi",
+  "expected_clarify_status": "needs_clarification",
+  "provider": "local",
+  "model": "gemma3:12b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T19:45:56+00:00",
+  "outcome": "needs_clarification",
+  "wall_ms": 16892,
+  "failure": null,
+  "questions": [
+    {
+      "id": "q1",
+      "kr_id": "O1-KR2",
+      "question": "KR “Cải thiện hiệu suất làm việc” đo bằng chỉ số nào, giá trị hiện tại (baseline) và mục tiêu là bao nhiêu?",
+      "reason": "Thiếu baseline và target.",
+      "source": "precheck"
+    },
+    {
+      "id": "q2",
+      "kr_id": "O1-KR1",
+      "question": "Cụ thể những kỹ năng mới nào cần học để đạt được kết quả này? (Cần biết rõ loại kỹ năng để có thể lên kế hoạch học tập phù hợp)",
+      "reason": "Để có thể lên kế hoạch và phân bổ thời gian cho việc học tập, cần biết rõ những kỹ năng cụ thể nào cần được phát triển.",
+      "source": "llm"
+    }
+  ],
+  "issues": [],
+  "tasks": [],
+  "timing": {
+    "duration_ms": 16890,
+    "stage_duration_ms": {
+      "precheck": 2,
+      "clarify": 16886
+    }
+  },
+  "json": {
+    "llm_calls": 1,
+    "first_attempt_valid": 1,
+    "valid_after_retry": 1,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "q1_status_and_no_tasks": true,
+    "question_count_1_to_5": true,
+    "questions_precheck": 1,
+    "questions_llm": 1,
+    "llm_questions_with_digits": 0,
+    "questions_wrong_language": 0
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "gemma3:12b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 2,
+      "clarify": 16886
+    },
+    "duration_ms": 16890,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 2,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "gemma3:12b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 16886,
+        "errors": []
+      }
+    ]
+  }
+}

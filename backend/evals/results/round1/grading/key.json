@@ -1,0 +1,18 @@
+{
+  "M6504": {
+    "provider": "local",
+    "model": "gemma3:12b"
+  },
+  "M253a": {
+    "provider": "local",
+    "model": "llama3.1:8b"
+  },
+  "Mbec4": {
+    "provider": "local",
+    "model": "qwen3:14b"
+  },
+  "Mf203": {
+    "provider": "local",
+    "model": "qwen3:8b"
+  }
+}

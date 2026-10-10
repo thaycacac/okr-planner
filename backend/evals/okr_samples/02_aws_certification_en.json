@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "sample_id": "02_aws_certification_en",
+  "domain": "learning",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "numeric",
+    "O1-KR3": "qualitative"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Earn the AWS Certified Solutions Architect – Associate certification this quarter",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Raise full-length practice exam score from 55% to 80%",
+            "metric": "Full-length practice exam score",
+            "unit": "%",
+            "baseline": 55,
+            "target": 80
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Complete 4 hands-on AWS labs and publish them in a public Git repository",
+            "metric": "Hands-on labs completed",
+            "unit": "labs",
+            "baseline": 0,
+            "target": 4
+          },
+          {
+            "id": "O1-KR3",
+            "text": "Book and sit the official exam no later than 2026-12-15 with a passing score",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Backend developer with 2 years of experience, mostly on on-premise systems, little hands-on AWS. Can study about 2 hours per workday. The employer pays the exam fee.",
+    "clarifications": [],
+    "language": "en"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 56,
+      "max": 106
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 36,
+          "max": 64
+        },
+        "must_cover": [
+          "Take a baseline full-length practice exam and log weak domains",
+          "Study the exam domains (secure, resilient, high-performing, cost-optimized architectures), weakest areas first",
+          "Take at least 2 more timed full-length practice exams and review every wrong answer"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 16,
+          "max": 32
+        },
+        "must_cover": [
+          "Build 4 distinct labs covering core services (e.g. VPC with public/private subnets, S3 + CloudFront, ALB + Auto Scaling, Lambda + DynamoDB API)",
+          "Set a billing alert and tear down resources after each lab"
+        ]
+      },
+      "O1-KR3": {
+        "hours_range": {
+          "min": 4,
+          "max": 10
+        },
+        "must_cover": [
+          "Book the exam slot early enough to leave a retake buffer before quarter end",
+          "Final review and sit the exam"
+        ]
+      }
+    },
+    "grader_notes": "The context limits study time to 2 hours per workday, so usable capacity is 66 × 2 × 0.9 = 118.8 hours; a plan above that fails the feasibility criterion even though it would fit the default 4 h/day. Sitting the exam must depend on the final practice exam; labs should come before the last practice exam. Booking the exam is a short task and may be merged with another small task as long as the estimate stays within 2–6 hours. The exam itself (130 minutes) plus travel/check-in counts as one task."
+  }
+}

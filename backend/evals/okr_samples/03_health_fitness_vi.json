@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "sample_id": "03_health_fitness_vi",
+  "domain": "health",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "numeric",
+    "O2-KR1": "numeric",
+    "O2-KR2": "qualitative"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Cải thiện thể lực tim mạch và sức mạnh",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Giảm thời gian chạy 5 km từ 38 phút xuống 30 phút",
+            "metric": "Thời gian chạy 5 km",
+            "unit": "phút",
+            "baseline": 38,
+            "target": 30
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Tập sức mạnh 2 buổi mỗi tuần, duy trì ít nhất 10 trên 12 tuần",
+            "metric": "Số buổi tập sức mạnh mỗi tuần",
+            "unit": "buổi/tuần",
+            "baseline": 0,
+            "target": 2
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Ăn uống lành mạnh hơn",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Giảm cân nặng từ 78 kg xuống 73 kg",
+            "metric": "Cân nặng",
+            "unit": "kg",
+            "baseline": 78,
+            "target": 73
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Có thực đơn 4 tuần xoay vòng đã được chuyên gia dinh dưỡng góp ý",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Nhân viên văn phòng 32 tuổi, không có bệnh nền, hiện chạy bộ khoảng 1 buổi mỗi tuần. Tập vào buổi sáng các ngày trong tuần, dành tối đa khoảng 2 giờ mỗi ngày làm việc cho OKR này (gồm cả tập, chuẩn bị bữa ăn và theo dõi).",
+    "clarifications": [],
+    "language": "vi"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 66,
+      "max": 110
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 28,
+          "max": 44
+        },
+        "must_cover": [
+          "Chạy thử đo thời gian 5 km ban đầu",
+          "Giáo án chạy tăng dần trong quý (có buổi interval hoặc tempo)",
+          "Chạy kiểm tra định kỳ, ít nhất giữa quý và cuối quý"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 24,
+          "max": 36
+        },
+        "must_cover": [
+          "Lập chương trình tập sức mạnh 2 buổi/tuần",
+          "Theo dõi số buổi đã tập mỗi tuần"
+        ]
+      },
+      "O2-KR1": {
+        "hours_range": {
+          "min": 8,
+          "max": 16
+        },
+        "must_cover": [
+          "Ghi nhận cân nặng và khẩu phần ăn ban đầu",
+          "Đặt mục tiêu khẩu phần và theo dõi cân nặng hằng tuần"
+        ]
+      },
+      "O2-KR2": {
+        "hours_range": {
+          "min": 6,
+          "max": 14
+        },
+        "must_cover": [
+          "Buổi tư vấn hoặc nhờ chuyên gia dinh dưỡng góp ý",
+          "Hoàn thiện thực đơn 4 tuần và danh sách đi chợ"
+        ]
+      }
+    },
+    "grader_notes": "Bối cảnh giới hạn 2 giờ/ngày nên quỹ giờ dùng được là 66 × 2 × 0,9 = 118,8 giờ. Các buổi tập lặp lại nên gộp theo khối (ví dụ 'Tuần 1–2: 4 buổi chạy nền + 4 buổi sức mạnh', 4–6 giờ); không yêu cầu mỗi buổi là một task, nhưng task tính từng buổi 1 giờ là sai quy tắc 2–6 giờ. Mục tiêu giảm 5 kg trong 12 tuần là an toàn; kế hoạch khuyến nghị nhịn ăn cực đoan hoặc giảm quá 1 kg/tuần thì tiêu chí 'cụ thể và kiểm chứng được' vẫn có thể đạt nhưng tiêu chí 'khả thi' tính 0. Đo baseline phải đứng trước giáo án."
+  }
+}

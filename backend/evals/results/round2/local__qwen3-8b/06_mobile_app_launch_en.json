@@ -1,0 +1,754 @@
+{
+  "sample_id": "06_mobile_app_launch_en",
+  "language": "en",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 66,
+    "total_hours": 264.0
+  },
+  "finished_at": "2026-10-01T00:27:06+00:00",
+  "outcome": "ok",
+  "wall_ms": 365472,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Define v2 release scope and requirements",
+      "description": "Outline the features for v2, including streak tracking and smart reminders, and align with the app's core functionality and user expectations.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A clear feature list and release plan for v2 is documented.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Design and implement streak tracking feature",
+      "description": "Develop the logic and UI for tracking streaks, including daily habit completion tracking and streak reset conditions.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Streak tracking is implemented and tested in the app.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Design and implement smart reminders",
+      "description": "Create the logic for smart reminders based on user habits, time of day, and user preferences.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Smart reminders are implemented and tested in the app.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Prepare for App Store and Google Play submission",
+      "description": "Gather all required assets, including app descriptions, screenshots, and metadata for both app stores.",
+      "estimate_hours": 4.0,
+      "done_criteria": "All required assets for app store submission are ready.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Test v2 release internally",
+      "description": "Conduct internal testing of the app to ensure all features work as expected and the app is stable.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Internal testing of v2 is complete and no major bugs are found.",
+      "depends_on": [
+        "O1-KR1.t2",
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Submit v2 to App Store and Google Play",
+      "description": "Complete the submission process for both app stores, including review and approval.",
+      "estimate_hours": 4.0,
+      "done_criteria": "v2 is live on both App Store and Google Play.",
+      "depends_on": [
+        "O1-KR1.t4",
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Monitor and measure v2 performance",
+      "description": "Track user engagement, crash-free sessions, and app store ratings after the release to measure the impact of v2.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Performance metrics for v2 are collected and analyzed.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Define crash-free session criteria and baseline",
+      "description": "Clarify what constitutes a crash-free session, review current crash logs, and confirm the baseline of 97.0%.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Criteria for crash-free sessions defined and baseline confirmed.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Analyze crash logs and identify common causes",
+      "description": "Review crash logs from the last quarter to identify patterns, common errors, and potential root causes of crashes.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Crash logs analyzed and common causes identified.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Implement crash fixes for identified issues",
+      "description": "Fix the most critical crash issues identified in the logs, focusing on the most frequent and impactful errors.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Critical crash issues fixed and tested.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Test crash fixes with a small user group",
+      "description": "Deploy the fixes to a small subset of users and monitor for any new crashes or regressions.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Crash fixes tested and validated with a small user group.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Monitor crash-free sessions and track progress",
+      "description": "Track crash-free session metrics over the next few weeks, including a mid-quarter check and final measurement.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Crash-free session metric tracked and progress measured.",
+      "depends_on": [
+        "O1-KR2.t4",
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Revise and finalize crash-free session strategy",
+      "description": "Based on the metrics and feedback, refine the approach to ensure the target of 99.5% is met.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Crash-free session strategy revised and finalized.",
+      "depends_on": [
+        "O1-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Define user growth strategy",
+      "description": "Outline the approach to grow MAU from 4,000 to 7,000, including tactics like onboarding improvements, referral programs, and marketing channels.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A written strategy document outlining tactics and expected outcomes is completed.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Prepare user onboarding improvements",
+      "description": "Design and prototype enhancements to the onboarding flow to increase user engagement and retention.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A prototype of the improved onboarding flow is ready for testing.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Implement onboarding improvements",
+      "description": "Develop and deploy the improved onboarding flow to the app.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The improved onboarding flow is live in the app and accessible to all users.",
+      "depends_on": [
+        "O2-KR1.t2",
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Design referral program",
+      "description": "Create a referral program that incentivizes users to invite friends to the app.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A referral program design document is completed and ready for implementation.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Implement referral program",
+      "description": "Develop and deploy the referral program functionality in the app.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The referral program is live in the app and accessible to all users.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Launch marketing campaign",
+      "description": "Plan and execute a marketing campaign to attract new users, including social media, email, and app store optimization.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A marketing campaign is launched and running across multiple channels.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Track and measure MAU growth",
+      "description": "Monitor the monthly active users metric throughout the quarter and report progress.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A report on MAU growth is generated and shared with stakeholders.",
+      "depends_on": [
+        "O2-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t8",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Review and refine strategy",
+      "description": "Analyze the effectiveness of the growth tactics and refine the strategy based on user feedback and data.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A refined growth strategy is documented and ready for the next quarter.",
+      "depends_on": [
+        "O2-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Define rating improvement criteria and tools",
+      "description": "Set clear criteria for what constitutes an improvement in store ratings, identify tools for tracking ratings (e.g., App Store Connect, Google Play Console), and outline the process for monitoring and analyzing rating changes.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Criteria and tools for tracking store ratings are defined and documented.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Collect and analyze current store ratings data",
+      "description": "Gather historical store rating data from both App Store and Google Play, and analyze trends to understand the current state and identify potential areas for improvement.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Historical store rating data is collected and analyzed for trends.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Implement rating improvement strategies: part 1",
+      "description": "Execute strategies to improve store ratings, such as optimizing app descriptions, improving app quality, and addressing user feedback. Focus on App Store.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Rating improvement strategies are implemented for App Store.",
+      "depends_on": [
+        "O2-KR2.t2",
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Implement rating improvement strategies: part 2",
+      "description": "Execute strategies to improve store ratings, such as optimizing app descriptions, improving app quality, and addressing user feedback. Focus on Google Play.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Rating improvement strategies are implemented for Google Play.",
+      "depends_on": [
+        "O2-KR2.t2",
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Monitor and adjust rating improvement efforts: part 1",
+      "description": "Track the impact of rating improvement strategies in real time, using the tools identified in step 1. Adjust strategies as needed based on performance data for App Store.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Rating improvement efforts are monitored and adjusted for App Store based on real-time data.",
+      "depends_on": [
+        "O2-KR2.t3",
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Monitor and adjust rating improvement efforts: part 2",
+      "description": "Track the impact of rating improvement strategies in real time, using the tools identified in step 1. Adjust strategies as needed based on performance data for Google Play.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Rating improvement efforts are monitored and adjusted for Google Play based on real-time data.",
+      "depends_on": [
+        "O2-KR2.t3",
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Measure final store rating and compare to baseline",
+      "description": "Evaluate the final store rating after the quarter and compare it to the baseline of 3.9 stars to determine if the target of 4.4 stars has been achieved.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Final store rating is measured and compared to the baseline.",
+      "depends_on": [
+        "O2-KR2.t6",
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t1",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Define conversion goals and user segments",
+      "description": "Set up conversion tracking in Firebase and identify user segments (e.g., active users, inactive users, new users) that are most likely to convert.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Conversion tracking is set up in Firebase, and user segments are defined.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O3-KR1.t2",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Design and implement a free-to-paid conversion funnel",
+      "description": "Create a funnel that guides users from the free version to the paid subscription, including onboarding, in-app prompts, and a clear call-to-action.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A free-to-paid conversion funnel is implemented and tested in the app.",
+      "depends_on": [
+        "O3-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t3",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Conduct A/B testing on pricing options",
+      "description": "Run A/B tests on different pricing options (e.g., $4.99 vs. $6.99) to determine which one drives higher conversion rates.",
+      "estimate_hours": 6.0,
+      "done_criteria": "A/B testing on pricing options is completed, and results are recorded.",
+      "depends_on": [
+        "O3-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t4",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Analyze conversion data and identify bottlenecks",
+      "description": "Review the conversion data from the A/B tests and identify where users are dropping off in the funnel.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Conversion data is analyzed, and bottlenecks in the funnel are identified.",
+      "depends_on": [
+        "O3-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t5",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Revise the conversion funnel based on data insights",
+      "description": "Make adjustments to the conversion funnel based on the analysis, such as improving onboarding, optimizing prompts, or adjusting pricing.",
+      "estimate_hours": 6.0,
+      "done_criteria": "The conversion funnel is revised and optimized based on data insights.",
+      "depends_on": [
+        "O3-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O3-KR1.t6",
+      "objective_id": "O3",
+      "kr_id": "O3-KR1",
+      "title": "Measure the final conversion rate and compare to baseline",
+      "description": "Track the free-to-paid conversion rate after implementing the revised funnel and compare it to the baseline of 1.5%.",
+      "estimate_hours": 4.0,
+      "done_criteria": "The final free-to-paid conversion rate is measured and compared to the baseline of 1.5%.",
+      "depends_on": [
+        "O3-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t1",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Define pricing experiment criteria and scope",
+      "description": "Outline the two pricing variants, including price points, features included, and target user segments. Define the metrics to measure success (e.g., conversion rates, user retention, revenue per user).",
+      "estimate_hours": 3.0,
+      "done_criteria": "A document with pricing variants, criteria, and success metrics is finalized.",
+      "depends_on": [
+        "O3-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t2",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Prepare tools and data for the experiment",
+      "description": "Set up the A/B testing framework (e.g., Firebase Remote Config or a third-party tool), ensure access to user data, and prepare the app for the experiment (e.g., version control, user segmentation).",
+      "estimate_hours": 3.0,
+      "done_criteria": "Tools and data are ready for the pricing experiment to begin.",
+      "depends_on": [
+        "O3-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t3",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Implement and launch the pricing experiment",
+      "description": "Deploy the two pricing variants to a subset of users, ensuring the experiment is properly segmented and monitored for performance.",
+      "estimate_hours": 5.0,
+      "done_criteria": "The pricing experiment is live and running with the defined variants.",
+      "depends_on": [
+        "O3-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t4",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Collect and analyze experiment data",
+      "description": "Track user behavior, conversion rates, and revenue metrics for both pricing variants. Use analytics tools to compare performance and identify trends.",
+      "estimate_hours": 5.0,
+      "done_criteria": "Data from the pricing experiment is collected and analyzed for comparison.",
+      "depends_on": [
+        "O3-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O3-KR2.t5",
+      "objective_id": "O3",
+      "kr_id": "O3-KR2",
+      "title": "Write the decision memo based on findings",
+      "description": "Summarize the results of the pricing experiment, including key insights, trade-offs, and a recommendation for the final pricing strategy.",
+      "estimate_hours": 4.0,
+      "done_criteria": "A written decision memo with findings and a recommendation is completed.",
+      "depends_on": [
+        "O3-KR2.t4"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 365470,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 11329,
+      "decompose": 247549,
+      "dedup": 106592,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 17,
+    "first_attempt_valid": 16,
+    "valid_after_retry": 17,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 1,
+    "rejected_attempts": 2,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 2
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 39,
+    "total_hours": 181.0,
+    "expected_total_hours": [
+      110,
+      200
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 7,
+      "O1-KR2": 6,
+      "O2-KR1": 8,
+      "O2-KR2": 7,
+      "O3-KR1": 6,
+      "O3-KR2": 5
+    },
+    "hours_per_kr": {
+      "O1-KR1": 32.0,
+      "O1-KR2": 24.0,
+      "O2-KR1": 40.0,
+      "O2-KR2": 35.0,
+      "O3-KR1": 30.0,
+      "O3-KR2": 20.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:8b",
+      "decompose": "qwen3:8b",
+      "dedup": "qwen3:8b"
+    },
+    "total_retries": 1,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 11329,
+      "decompose": 247549,
+      "dedup": 106592,
+      "validate": 0
+    },
+    "duration_ms": 365470,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1883,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 4108,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 6055,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 7781,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O3",
+        "kr_id": "O3-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 9534,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O3",
+        "kr_id": "O3-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 11293,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 39213,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 70373,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 110494,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 247521,
+        "errors": [
+          "attempt 1: task t3: estimate_hours 60 is above 6; split it into smaller tasks of 2-6 hours",
+          "attempt 1: task t4: estimate_hours 20 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O3",
+        "kr_id": "O3-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 175669,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O3",
+        "kr_id": "O3-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 204420,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 77428,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 7792,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 7559,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 7600,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 6206,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

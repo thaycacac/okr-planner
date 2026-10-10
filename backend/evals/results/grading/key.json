@@ -1,0 +1,10 @@
+{
+  "M3f57": {
+    "provider": "local",
+    "model": "qwen3:14b"
+  },
+  "Mc88b": {
+    "provider": "local",
+    "model": "qwen3:8b"
+  }
+}

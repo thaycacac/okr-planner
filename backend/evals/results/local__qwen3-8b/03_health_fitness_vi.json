@@ -1,0 +1,524 @@
+{
+  "sample_id": "03_health_fitness_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:8b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 65,
+    "total_hours": 130.0
+  },
+  "finished_at": "2026-10-01T03:09:28+00:00",
+  "outcome": "ok",
+  "wall_ms": 357861,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Xác định mục tiêu và kế hoạch chạy 5 km",
+      "description": "Lập kế hoạch chi tiết để giảm thời gian chạy 5 km từ 38 phút xuống 30 phút.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Kế hoạch chạy 5 km với các mục tiêu cụ thể và lịch tập được xác định rõ ràng.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Chuẩn bị dụng cụ và địa điểm chạy, đồng thời chạy thử để đánh giá khả năng hiện tại",
+      "description": "Lựa chọn địa điểm chạy phù hợp, chuẩn bị dụng cụ cần thiết và chạy thử 5 km để đánh giá thời gian hiện tại và xác định điểm yếu.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Địa điểm chạy và dụng cụ đã được xác định và chuẩn bị sẵn sàng, kết quả chạy thử 5 km được ghi lại và phân tích để xác định điểm cần cải thiện.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Lập lịch chạy tập trung vào tăng tốc và cải thiện sức bền",
+      "description": "Lập lịch chạy 3-4 lần mỗi tuần, tập trung vào tăng tốc và cải thiện sức bền.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Lịch chạy 5 km với các buổi tập tăng tốc được lập và phân bổ hợp lý.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Theo dõi tiến trình và điều chỉnh kế hoạch",
+      "description": "Theo dõi thời gian chạy 5 km mỗi tuần và điều chỉnh kế hoạch nếu cần.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thời gian chạy 5 km được theo dõi mỗi tuần và kế hoạch được điều chỉnh nếu cần.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Kiểm tra kết quả cuối kỳ và đánh giá hiệu quả",
+      "description": "Chạy 5 km cuối kỳ để kiểm tra xem đã đạt mục tiêu 30 phút chưa và đánh giá hiệu quả của kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Kết quả chạy 5 km cuối kỳ được ghi lại và xác nhận đạt mục tiêu 30 phút.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Lên kế hoạch tập sức mạnh",
+      "description": "Xác định lịch tập, bài tập và thời gian cho 2 buổi/tuần.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Kế hoạch tập sức mạnh được lập và gửi cho người quản lý.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Chuẩn bị dụng cụ và không gian tập",
+      "description": "Mua hoặc thuê dụng cụ cần thiết và chọn nơi tập phù hợp.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Dụng cụ và không gian tập đã được chuẩn bị sẵn sàng.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 1",
+      "description": "Thực hiện buổi tập sức mạnh đầu tiên theo kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Ghi chú tập sức mạnh buổi 1 được cập nhật trong lịch tập.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 2",
+      "description": "Thực hiện buổi tập sức mạnh thứ hai theo kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Ghi chú tập sức mạnh buổi 2 được cập nhật trong lịch tập.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đánh giá tiến độ sau 4 tuần",
+      "description": "Kiểm tra số buổi tập đã hoàn thành và điều chỉnh kế hoạch nếu cần.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Số buổi tập sức mạnh đạt 8 buổi trong 4 tuần.",
+      "depends_on": [
+        "O1-KR2.t3",
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 3",
+      "description": "Thực hiện buổi tập sức mạnh thứ ba theo kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Ghi chú tập sức mạnh buổi 3 được cập nhật trong lịch tập.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 4",
+      "description": "Thực hiện buổi tập sức mạnh thứ tư theo kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Ghi chú tập sức mạnh buổi 4 được cập nhật trong lịch tập.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đánh giá tiến độ sau 8 tuần",
+      "description": "Kiểm tra số buổi tập đã hoàn thành và điều chỉnh kế hoạch nếu cần.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Số buổi tập sức mạnh đạt 16 buổi trong 8 tuần.",
+      "depends_on": [
+        "O1-KR2.t6",
+        "O1-KR2.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t9",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 5",
+      "description": "Thực hiện buổi tập sức mạnh thứ năm theo kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Ghi chú tập sức mạnh buổi 5 được cập nhật trong lịch tập.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t10",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tập sức mạnh buổi 6",
+      "description": "Thực hiện buổi tập sức mạnh thứ sáu theo kế hoạch.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Ghi chú tập sức mạnh buổi 6 được cập nhật trong lịch tập.",
+      "depends_on": [
+        "O1-KR2.t1",
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t11",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đánh giá tiến độ sau 12 tuần",
+      "description": "Kiểm tra số buổi tập đã hoàn thành và xác nhận đạt mục tiêu.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Số buổi tập sức mạnh đạt 24 buổi trong 12 tuần.",
+      "depends_on": [
+        "O1-KR2.t9",
+        "O1-KR2.t10"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Lên kế hoạch ăn uống",
+      "description": "Xác định mục tiêu ăn uống, loại bỏ thực phẩm không lành mạnh và lên thực đơn 4 tuần.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Thực đơn 4 tuần được lập và gửi cho chuyên gia dinh dưỡng để góp ý.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chuẩn bị bữa ăn",
+      "description": "Chuẩn bị bữa ăn cho cả tuần theo thực đơn đã lên.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Bữa ăn cho cả tuần được chuẩn bị và lưu trữ trong tủ lạnh.",
+      "depends_on": [
+        "O2-KR1.t1",
+        "O2-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Theo dõi cân nặng",
+      "description": "Theo dõi cân nặng mỗi tuần và ghi lại vào sổ theo dõi.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Cân nặng được ghi lại mỗi tuần trong sổ theo dõi.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đánh giá thực đơn",
+      "description": "Đánh giá lại thực đơn sau 2 tuần và điều chỉnh nếu cần.",
+      "estimate_hours": 3.0,
+      "done_criteria": "Thực đơn được điều chỉnh dựa trên phản hồi và kết quả ăn uống.",
+      "depends_on": [
+        "O2-KR1.t2",
+        "O2-KR2.t6"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Đánh giá kết quả",
+      "description": "Đánh giá kết quả sau 12 tuần và xác định xem có đạt mục tiêu giảm 5 kg hay không.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Kết quả sau 12 tuần được ghi lại và đánh giá xem có đạt mục tiêu hay không.",
+      "depends_on": [
+        "O2-KR1.t3",
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Lên khung thực đơn 4 tuần",
+      "description": "Xác định các bữa ăn chính và phụ trong 4 tuần, đảm bảo cân bằng dinh dưỡng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Một bảng Excel chứa 4 tuần thực đơn với các bữa ăn và loại thực phẩm được ghi rõ.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tìm chuyên gia dinh dưỡng",
+      "description": "Liên hệ và chọn một chuyên gia dinh dưỡng để góp ý thực đơn.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thông tin liên lạc và lịch hẹn với chuyên gia dinh dưỡng được xác nhận.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Gửi thực đơn để góp ý",
+      "description": "Gửi bảng Excel thực đơn cho chuyên gia dinh dưỡng để nhận góp ý.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thực đơn được gửi qua email và có xác nhận nhận được.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Chỉnh sửa thực đơn theo góp ý",
+      "description": "Sửa đổi thực đơn dựa trên phản hồi từ chuyên gia dinh dưỡng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Thực đơn đã được chỉnh sửa và gửi lại cho chuyên gia để xác nhận.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Kiểm tra lại thực đơn",
+      "description": "Đảm bảo thực đơn đáp ứng đủ nhu cầu dinh dưỡng và phù hợp với chế độ ăn.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thực đơn được kiểm tra và xác nhận đạt yêu cầu.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Lưu trữ và chia sẻ thực đơn",
+      "description": "Lưu trữ thực đơn đã hoàn thiện và chia sẻ với người dùng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Thực đơn được lưu trữ trong Google Drive và chia sẻ với người dùng.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 357857,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 1308,
+      "decompose": 332990,
+      "dedup": 23558,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 7,
+    "first_attempt_valid": 5,
+    "valid_after_retry": 7,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 3,
+    "rejected_attempts": 16,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 16
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 27,
+    "total_hours": 63.0,
+    "expected_total_hours": [
+      66,
+      110
+    ],
+    "usable_hours": 117.0,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": false,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 5,
+      "O1-KR2": 11,
+      "O2-KR1": 5,
+      "O2-KR2": 6
+    },
+    "hours_per_kr": {
+      "O1-KR1": 11.0,
+      "O1-KR2": 22.0,
+      "O2-KR1": 14.0,
+      "O2-KR2": 16.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:8b",
+      "decompose": "qwen3:8b",
+      "dedup": "qwen3:8b"
+    },
+    "total_retries": 3,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 1308,
+      "decompose": 332990,
+      "dedup": 23558,
+      "validate": 0
+    },
+    "duration_ms": 357857,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1308,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 191595,
+        "errors": [
+          "attempt 1: task t2: estimate_hours 1 is below 2; merge it into a related task or widen its scope"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 3,
+        "retries": 2,
+        "duration_ms": 332932,
+        "errors": [
+          "attempt 1: task t2: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 1: task t3: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 1: task t4: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 1: task t6: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 1: task t7: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 1: task t9: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 1: task t10: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t2: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t3: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t4: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t6: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t7: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t9: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 2: task t10: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it",
+          "attempt 3: task t2: done_criteria only repeats the title or says done, finalized, improved or more stable; state one observable result: a number, a document, a release, a status or who approves it"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 121370,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:8b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 156303,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 21909,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:8b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 1645,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

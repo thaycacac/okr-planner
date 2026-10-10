@@ -1,0 +1,152 @@
+{
+  "country": "VN",
+  "year": 2027,
+  "audience": "Cán bộ, công chức, viên chức khu vực công. Doanh nghiệp nghỉ 2/9 và tự chọn 1/9 hoặc 3/9.",
+  "notes": [
+    "Chỉ liệt kê ngày nghỉ lễ, nghỉ bù, nghỉ hoán đổi; thứ Bảy/Chủ nhật thường do cấu hình T7/CN quyết định.",
+    "Ngày lễ trùng cuối tuần vẫn được liệt kê (ví dụ 1/5 là thứ Bảy) kèm ngày nghỉ bù.",
+    "Âm lịch đã quy đổi sẵn theo văn bản nguồn, không tính tự động: mùng 1 Tết Đinh Mùi = 6/2/2027, 10/3 Âm lịch = 16/4/2027.",
+    "Tết Nguyên đán và Quốc khánh 2027 là phương án Bộ Nội vụ trình Chính phủ (status provisional). Cập nhật lại khi có Thông báo chính thức.",
+    "Sửa file này khi có văn bản mới; trường status: official = đã có văn bản chính thức hoặc cố định theo luật, provisional = mới là dự kiến."
+  ],
+  "sources": [
+    {
+      "id": "blld-2019",
+      "title": "Bộ luật Lao động 2019, Điều 111 khoản 3 và Điều 112 (ngày nghỉ lễ, Tết; nghỉ bù khi trùng ngày nghỉ hằng tuần)",
+      "url": "https://thuvienphapluat.vn/van-ban/Lao-dong-Tien-luong/Bo-Luat-lao-dong-2019-333670.aspx"
+    },
+    {
+      "id": "tt-10033-bnv-2026",
+      "title": "Tờ trình 10033/TTr-BNV ngày 11/9/2026 (phương án 1): Tết Đinh Mùi nghỉ 4/2–10/2/2027; Quốc khánh nghỉ 2/9 và 3/9/2027. Bộ Nội vụ cho biết 1/1, Giỗ Tổ, 30/4, 1/5 năm 2027 không hoán đổi",
+      "url": "https://dangcongsan.vn/bonoivu/tin-tuc-hoat-dong/bo-noi-vu-de-xuat-nghi-04-ngay-dip-ngay-van-hoa-viet-nam-2026-va-07-ngay-lien-tuc-dip-tet-am-lich-2027.html"
+    },
+    {
+      "id": "nq-28-2026-qh16",
+      "title": "Nghị quyết 28/2026/QH16 (hiệu lực 1/7/2026): Ngày Văn hóa Việt Nam 24/11 nghỉ hưởng nguyên lương",
+      "url": "https://dangcongsan.vn/bonoivu/tin-tuc-hoat-dong/bo-noi-vu-de-xuat-nghi-04-ngay-dip-ngay-van-hoa-viet-nam-2026-va-07-ngay-lien-tuc-dip-tet-am-lich-2027.html"
+    }
+  ],
+  "holidays": [
+    {
+      "date": "2027-01-01",
+      "name_vi": "Tết Dương lịch",
+      "name_en": "New Year's Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2027-02-04",
+      "name_vi": "Tết Nguyên đán (28 tháng Chạp Bính Ngọ)",
+      "name_en": "Lunar New Year (Day -2)",
+      "kind": "public_holiday",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-02-05",
+      "name_vi": "Tết Nguyên đán (29 tháng Chạp Bính Ngọ)",
+      "name_en": "Lunar New Year (Eve)",
+      "kind": "public_holiday",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-02-06",
+      "name_vi": "Tết Nguyên đán (mùng 1 tháng Giêng Đinh Mùi, thứ Bảy)",
+      "name_en": "Lunar New Year (Day 1, Saturday)",
+      "kind": "public_holiday",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-02-07",
+      "name_vi": "Tết Nguyên đán (mùng 2, Chủ nhật)",
+      "name_en": "Lunar New Year (Day 2, Sunday)",
+      "kind": "public_holiday",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-02-08",
+      "name_vi": "Tết Nguyên đán (mùng 3)",
+      "name_en": "Lunar New Year (Day 3)",
+      "kind": "public_holiday",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-02-09",
+      "name_vi": "Nghỉ bù Tết Nguyên đán (mùng 4)",
+      "name_en": "Lunar New Year (compensatory, Day 4)",
+      "kind": "compensatory",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-02-10",
+      "name_vi": "Nghỉ bù Tết Nguyên đán (mùng 5)",
+      "name_en": "Lunar New Year (compensatory, Day 5)",
+      "kind": "compensatory",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-04-16",
+      "name_vi": "Giỗ Tổ Hùng Vương (10/3 Âm lịch)",
+      "name_en": "Hung Kings' Commemoration Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2027-04-30",
+      "name_vi": "Ngày Chiến thắng",
+      "name_en": "Reunification Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2027-05-01",
+      "name_vi": "Ngày Quốc tế Lao động (thứ Bảy)",
+      "name_en": "International Labour Day (Saturday)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2027-05-03",
+      "name_vi": "Nghỉ bù Ngày Quốc tế Lao động",
+      "name_en": "International Labour Day (compensatory)",
+      "kind": "compensatory",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2027-09-02",
+      "name_vi": "Quốc khánh",
+      "name_en": "National Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2027-09-03",
+      "name_vi": "Quốc khánh (ngày liền kề sau)",
+      "name_en": "National Day (adjacent day)",
+      "kind": "public_holiday",
+      "status": "provisional",
+      "source": "tt-10033-bnv-2026"
+    },
+    {
+      "date": "2027-11-24",
+      "name_vi": "Ngày Văn hóa Việt Nam",
+      "name_en": "Vietnamese Culture Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "nq-28-2026-qh16"
+    }
+  ],
+  "makeup_days": []
+}

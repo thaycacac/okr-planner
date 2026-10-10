@@ -1,0 +1,156 @@
+{
+  "country": "VN",
+  "year": 2026,
+  "audience": "Cán bộ, công chức, viên chức khu vực công. Doanh nghiệp nghỉ 2/9 và tự chọn 1/9 hoặc 3/9; không bắt buộc hoán đổi 31/8.",
+  "notes": [
+    "Chỉ liệt kê ngày nghỉ lễ, nghỉ bù, nghỉ hoán đổi; thứ Bảy/Chủ nhật thường do cấu hình T7/CN quyết định.",
+    "Ngày lễ trùng cuối tuần vẫn được liệt kê (ví dụ Giỗ Tổ 26/4 là Chủ nhật) kèm ngày nghỉ bù.",
+    "Âm lịch đã quy đổi sẵn theo văn bản nguồn, không tính tự động.",
+    "Sửa file này khi có văn bản mới; trường status: official = đã có văn bản chính thức, provisional = mới là dự kiến."
+  ],
+  "sources": [
+    {
+      "id": "blld-2019",
+      "title": "Bộ luật Lao động 2019, Điều 111 khoản 3 và Điều 112 (ngày nghỉ lễ, Tết; nghỉ bù khi trùng ngày nghỉ hằng tuần)",
+      "url": "https://thuvienphapluat.vn/van-ban/Lao-dong-Tien-luong/Bo-Luat-lao-dong-2019-333670.aspx"
+    },
+    {
+      "id": "tb-9441-bnv-2025",
+      "title": "Thông báo 9441/TB-BNV ngày 16/10/2025 về lịch nghỉ Tết Âm lịch và Quốc khánh năm 2026",
+      "url": "https://thuvienphapluat.vn/van-ban/Lao-dong-Tien-luong/Thong-bao-9441-TB-BNV-2025-nghi-tet-Am-lich-doi-voi-can-bo-cong-chuc-vien-chuc-2026-677183.aspx"
+    },
+    {
+      "id": "cv-3383-bnv-2026",
+      "title": "Công văn 3383/BNV-CVL ngày 10/4/2026 về lịch nghỉ Giỗ Tổ Hùng Vương, 30/4 và 1/5 năm 2026 (không hoán đổi)",
+      "url": "https://thuvienphapluat.vn/cong-van/Van-hoa-Xa-hoi/Cong-van-3383-BNV-CVL-2026-thong-tin-ve-lich-nghi-dip-Gio-To-Hung-Vuong-701146.aspx"
+    },
+    {
+      "id": "nq-28-2026-qh16",
+      "title": "Nghị quyết 28/2026/QH16 (hiệu lực 1/7/2026): Ngày Văn hóa Việt Nam 24/11 nghỉ hưởng nguyên lương; Tờ trình 10137/TTr-BNV đề xuất nghỉ đúng 1 ngày, không hoán đổi",
+      "url": "https://nhandan.vn/de-xuat-nghi-1-ngay-van-hoa-viet-nam-khong-hoan-doi-ngay-lam-viec-post989715.html"
+    }
+  ],
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "name_vi": "Tết Dương lịch",
+      "name_en": "New Year's Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "blld-2019"
+    },
+    {
+      "date": "2026-02-16",
+      "name_vi": "Tết Nguyên đán (29 tháng Chạp Ất Tỵ)",
+      "name_en": "Lunar New Year (Eve)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-02-17",
+      "name_vi": "Tết Nguyên đán (mùng 1 tháng Giêng Bính Ngọ)",
+      "name_en": "Lunar New Year (Day 1)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-02-18",
+      "name_vi": "Tết Nguyên đán (mùng 2)",
+      "name_en": "Lunar New Year (Day 2)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-02-19",
+      "name_vi": "Tết Nguyên đán (mùng 3)",
+      "name_en": "Lunar New Year (Day 3)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-02-20",
+      "name_vi": "Tết Nguyên đán (mùng 4)",
+      "name_en": "Lunar New Year (Day 4)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-04-26",
+      "name_vi": "Giỗ Tổ Hùng Vương (10/3 Âm lịch, Chủ nhật)",
+      "name_en": "Hung Kings' Commemoration Day (Sunday)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "cv-3383-bnv-2026"
+    },
+    {
+      "date": "2026-04-27",
+      "name_vi": "Nghỉ bù Giỗ Tổ Hùng Vương",
+      "name_en": "Hung Kings' Commemoration Day (compensatory)",
+      "kind": "compensatory",
+      "status": "official",
+      "source": "cv-3383-bnv-2026"
+    },
+    {
+      "date": "2026-04-30",
+      "name_vi": "Ngày Chiến thắng",
+      "name_en": "Reunification Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "cv-3383-bnv-2026"
+    },
+    {
+      "date": "2026-05-01",
+      "name_vi": "Ngày Quốc tế Lao động",
+      "name_en": "International Labour Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "cv-3383-bnv-2026"
+    },
+    {
+      "date": "2026-08-31",
+      "name_vi": "Nghỉ hoán đổi dịp Quốc khánh (làm bù thứ Bảy 22/8)",
+      "name_en": "National Day (swapped day off, made up on Saturday 22 Aug)",
+      "kind": "swapped_day_off",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-09-01",
+      "name_vi": "Quốc khánh (ngày liền kề trước)",
+      "name_en": "National Day (adjacent day)",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-09-02",
+      "name_vi": "Quốc khánh",
+      "name_en": "National Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    },
+    {
+      "date": "2026-11-24",
+      "name_vi": "Ngày Văn hóa Việt Nam",
+      "name_en": "Vietnamese Culture Day",
+      "kind": "public_holiday",
+      "status": "official",
+      "source": "nq-28-2026-qh16"
+    }
+  ],
+  "makeup_days": [
+    {
+      "date": "2026-08-22",
+      "reason_vi": "Làm bù cho ngày nghỉ hoán đổi thứ Hai 31/8/2026",
+      "reason_en": "Make-up working day for the swapped day off on Monday 31 Aug 2026",
+      "status": "official",
+      "source": "tb-9441-bnv-2025"
+    }
+  ]
+}

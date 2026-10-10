@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "sample_id": "06_mobile_app_launch_en",
+  "domain": "product",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "qualitative",
+    "O1-KR2": "numeric",
+    "O2-KR1": "numeric",
+    "O2-KR2": "numeric",
+    "O3-KR1": "numeric",
+    "O3-KR2": "qualitative"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Ship Habitly v2",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Release v2 with streaks and smart reminders on both App Store and Google Play",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Raise crash-free sessions from 97.0% to 99.5%",
+            "metric": "Crash-free sessions",
+            "unit": "%",
+            "baseline": 97.0,
+            "target": 99.5
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Grow active users",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Grow monthly active users from 4,000 to 7,000",
+            "metric": "Monthly active users",
+            "unit": "MAU",
+            "baseline": 4000,
+            "target": 7000
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Raise average store rating from 3.9 to 4.4",
+            "metric": "Average store rating",
+            "unit": "stars",
+            "baseline": 3.9,
+            "target": 4.4
+          }
+        ]
+      },
+      {
+        "id": "O3",
+        "title": "Validate monetization",
+        "key_results": [
+          {
+            "id": "O3-KR1",
+            "text": "Increase free-to-paid conversion from 1.5% to 3%",
+            "metric": "Free-to-paid conversion",
+            "unit": "%",
+            "baseline": 1.5,
+            "target": 3
+          },
+          {
+            "id": "O3-KR2",
+            "text": "Conclude a two-variant pricing experiment with a written decision memo",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Solo indie developer (Flutter + Firebase) running Habitly, a habit-tracking app with about 4,000 monthly active users and a freemium subscription. About 4 hours per workday on this OKR.",
+    "clarifications": [],
+    "language": "en"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 110,
+      "max": 200
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 40,
+          "max": 64
+        },
+        "must_cover": [
+          "Finalize v2 scope and specs for streaks and smart reminders",
+          "Implement streaks and smart reminders",
+          "Beta test (TestFlight / internal track) and fix blocking bugs",
+          "Submit the release to both stores"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 16,
+          "max": 30
+        },
+        "must_cover": [
+          "Triage top crash clusters from crash reporting",
+          "Fix the top crashes and verify the crash-free rate in beta or production"
+        ]
+      },
+      "O2-KR1": {
+        "hours_range": {
+          "min": 20,
+          "max": 40
+        },
+        "must_cover": [
+          "Launch campaign for v2 (social posts, communities, press kit or store listing refresh)",
+          "Referral or re-engagement push for dormant users"
+        ]
+      },
+      "O2-KR2": {
+        "hours_range": {
+          "min": 8,
+          "max": 16
+        },
+        "must_cover": [
+          "In-app rating prompt shown at positive moments",
+          "Reply to negative reviews and address the top complaints"
+        ]
+      },
+      "O3-KR1": {
+        "hours_range": {
+          "min": 16,
+          "max": 30
+        },
+        "must_cover": [
+          "Improve the paywall or trial offer",
+          "Track conversion per variant"
+        ]
+      },
+      "O3-KR2": {
+        "hours_range": {
+          "min": 10,
+          "max": 20
+        },
+        "must_cover": [
+          "Experiment design (hypothesis, variants, duration, success metric)",
+          "Run the experiment for a fixed period",
+          "Analyze results and write the decision memo"
+        ]
+      }
+    },
+    "grader_notes": "The v2 launch campaign should depend on the store release; the pricing experiment should depend on conversion tracking. O3-KR1 and O3-KR2 share paywall variant work: building the variants twice counts as duplication. Store review waiting time is calendar time, not work hours, so it must not appear as a multi-hour task. Three objectives with strict priority means lower-priority growth and monetization tasks come after the v2 release chain."
+  }
+}

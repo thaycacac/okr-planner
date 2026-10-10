@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "sample_id": "09_master_thesis_vi",
+  "domain": "learning",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "qualitative",
+    "O1-KR2": "numeric",
+    "O1-KR3": "numeric",
+    "O2-KR1": "qualitative",
+    "O2-KR2": "qualitative"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Hoàn thành phần thực nghiệm của luận văn thạc sĩ",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Chương 2 (tổng quan tài liệu) được giảng viên hướng dẫn duyệt",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Gán nhãn 2.000 câu hội thoại theo bộ intent đã thống nhất",
+            "metric": "Số câu đã gán nhãn",
+            "unit": "câu",
+            "baseline": 0,
+            "target": 2000
+          },
+          {
+            "id": "O1-KR3",
+            "text": "Nâng macro-F1 trên tập test từ 0,62 lên 0,75",
+            "metric": "Macro-F1 trên tập test",
+            "unit": "macro-F1",
+            "baseline": 0.62,
+            "target": 0.75
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Công bố kết quả nghiên cứu",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Nộp một bài báo hội thảo (tối thiểu 6 trang) trước hạn 15/12/2026",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Trình bày kết quả tại seminar của nhóm nghiên cứu",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Học viên cao học năm 2, vừa học vừa đi làm, dành khoảng 4 giờ mỗi ngày làm việc cho luận văn về phân loại ý định (intent) cho chatbot tiếng Việt. Đã có sẵn khoảng 3.000 câu hội thoại chưa gán nhãn từ chatbot chăm sóc khách hàng; baseline hiện tại là mô hình TF-IDF + SVM.",
+    "clarifications": [],
+    "language": "vi"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 120,
+      "max": 202
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 24,
+          "max": 40
+        },
+        "must_cover": [
+          "Tìm và đọc ít nhất 20 bài liên quan, ghi chú có hệ thống",
+          "Viết bản nháp chương 2",
+          "Gửi giảng viên hướng dẫn và chỉnh sửa theo góp ý"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 30,
+          "max": 50
+        },
+        "must_cover": [
+          "Soạn hướng dẫn gán nhãn và bộ nhãn intent",
+          "Gán nhãn theo đợt bằng công cụ (ví dụ Label Studio)",
+          "Kiểm tra chất lượng hoặc độ đồng thuận trên một phần mẫu"
+        ]
+      },
+      "O1-KR3": {
+        "hours_range": {
+          "min": 36,
+          "max": 60
+        },
+        "must_cover": [
+          "Tái lập baseline và pipeline đánh giá trên tập test cố định",
+          "Thử ít nhất hai hướng cải tiến (fine-tune PhoBERT, tăng cường dữ liệu, ...)",
+          "Phân tích lỗi và tổng hợp bảng kết quả"
+        ]
+      },
+      "O2-KR1": {
+        "hours_range": {
+          "min": 24,
+          "max": 40
+        },
+        "must_cover": [
+          "Chọn hội thảo và mẫu định dạng",
+          "Viết bản thảo bài báo",
+          "Nhờ giảng viên hướng dẫn đọc và chỉnh sửa trước khi nộp"
+        ]
+      },
+      "O2-KR2": {
+        "hours_range": {
+          "min": 6,
+          "max": 12
+        },
+        "must_cover": [
+          "Chuẩn bị slide trình bày",
+          "Trình bày và ghi nhận góp ý"
+        ]
+      }
+    },
+    "grader_notes": "Mẫu kiểm tra chuỗi phụ thuộc: thí nghiệm cải tiến (O1-KR3) phải phụ thuộc dữ liệu đã gán nhãn (O1-KR2); bài báo (O2-KR1) phụ thuộc kết quả O1-KR3; seminar đứng sau khi có kết quả. Tái lập baseline có thể chạy song song với gán nhãn. Thời gian chờ giảng viên phản hồi là thời gian lịch, không tính thành task nhiều giờ. Gán nhãn 2.000 câu khoảng 30–60 giây mỗi câu nên 17–33 giờ gán nhãn thuần là hợp lý."
+  }
+}

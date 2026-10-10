@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "sample_id": "04_b2b_sales_en",
+  "domain": "business",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "numeric",
+    "O1-KR3": "numeric",
+    "O2-KR1": "qualitative",
+    "O2-KR2": "numeric"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Grow the B2B pipeline with Vietnamese SMEs",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Increase qualified leads per month from 20 to 45",
+            "metric": "Qualified leads per month",
+            "unit": "leads/month",
+            "baseline": 20,
+            "target": 45
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Sign 8 new annual contracts",
+            "metric": "New annual contracts signed",
+            "unit": "contracts",
+            "baseline": 0,
+            "target": 8
+          },
+          {
+            "id": "O1-KR3",
+            "text": "Raise average first-year deal size from 1,500 USD to 2,000 USD",
+            "metric": "Average first-year deal size",
+            "unit": "USD",
+            "baseline": 1500,
+            "target": 2000
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Build a repeatable sales process",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Sales playbook documented and adopted by the whole sales team",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Raise CRM data completeness (required fields filled) from 50% to 90%",
+            "metric": "CRM data completeness",
+            "unit": "%",
+            "baseline": 50,
+            "target": 90
+          }
+        ]
+      }
+    ],
+    "context": "Sales lead at a 12-person company selling HR software to SMEs in Hanoi and Ho Chi Minh City, managing a 3-person sales team. Plans only their own time: about 4 hours per workday for OKR work; the rest is day-to-day selling.",
+    "clarifications": [],
+    "language": "en"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 106,
+      "max": 188
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 36,
+          "max": 60
+        },
+        "must_cover": [
+          "Define the ideal customer profile and lead qualification criteria",
+          "Run at least one lead-generation campaign (e.g. LinkedIn outreach, webinar, partner referral)",
+          "Track qualified leads weekly in the CRM"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 30,
+          "max": 50
+        },
+        "must_cover": [
+          "Structured follow-up and demo cadence for qualified leads",
+          "Standard proposal and pricing template",
+          "Closing activities tracked per deal (negotiation, contract review)"
+        ]
+      },
+      "O1-KR3": {
+        "hours_range": {
+          "min": 12,
+          "max": 24
+        },
+        "must_cover": [
+          "Design an upsell bundle or tiered pricing",
+          "Apply the bundle in proposals and train the team to pitch it"
+        ]
+      },
+      "O2-KR1": {
+        "hours_range": {
+          "min": 16,
+          "max": 30
+        },
+        "must_cover": [
+          "Draft the playbook (pipeline stages, scripts, objection handling)",
+          "Run a training workshop with the team",
+          "Collect feedback and publish version 1"
+        ]
+      },
+      "O2-KR2": {
+        "hours_range": {
+          "min": 12,
+          "max": 24
+        },
+        "must_cover": [
+          "Define required CRM fields and audit current data",
+          "Clean up or backfill existing records",
+          "Weekly completeness check"
+        ]
+      }
+    },
+    "grader_notes": "A single task such as 'Close 8 deals' is not concrete; closing must be broken into pipeline activities with verifiable outputs (demos held, proposals sent, contracts signed). The proposal template may reasonably appear under O1-KR2 or O1-KR3 but not both. The ideal customer profile should come before the lead-generation campaign; the playbook (O2-KR1) and the CRM field definition (O2-KR2) are natural prerequisites for team-wide follow-up, a plus but not required."
+  }
+}

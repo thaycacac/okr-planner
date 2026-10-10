@@ -1,0 +1,433 @@
+{
+  "sample_id": "03_health_fitness_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T20:12:04+00:00",
+  "outcome": "ok",
+  "wall_ms": 340031,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Lên kế hoạch tập luyện chạy bộ 5 km",
+      "description": "Xây dựng lịch trình tập luyện cụ thể cho việc cải thiện thời gian chạy 5 km, bao gồm tần suất, cường độ và các bài tập bổ trợ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Lịch trình tập luyện đã được xác định rõ ràng và phù hợp với thời gian biểu cá nhân.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thực hiện bài tập chạy bộ theo kế hoạch",
+      "description": "Thực hiện các buổi chạy bộ theo lịch trình đã lên, đảm bảo đủ thời gian và cường độ để cải thiện thể lực.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành ít nhất 3 buổi chạy bộ theo kế hoạch với thời gian và cường độ phù hợp.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Theo dõi và ghi lại tiến trình chạy bộ",
+      "description": "Ghi lại thời gian chạy 5 km sau mỗi buổi tập, đồng thời đánh giá cảm giác thể lực và hiệu suất.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã ghi lại ít nhất 3 lần chạy 5 km với thời gian và cảm giác thể lực cụ thể.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Điều chỉnh kế hoạch tập luyện dựa trên tiến trình",
+      "description": "Phân tích dữ liệu đã ghi lại và điều chỉnh lịch trình tập luyện để phù hợp với tiến độ và mục tiêu.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã điều chỉnh kế hoạch tập luyện dựa trên dữ liệu theo dõi và xác định được hướng cải thiện tiếp theo.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thực hiện bài tập chạy bộ theo kế hoạch điều chỉnh",
+      "description": "Thực hiện các buổi chạy bộ theo kế hoạch đã điều chỉnh, đảm bảo cải thiện thời gian chạy 5 km.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành ít nhất 3 buổi chạy bộ theo kế hoạch điều chỉnh với tiến độ rõ rệt.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đánh giá lại tiến trình và chuẩn bị cho buổi chạy thử nghiệm",
+      "description": "Đánh giá lại tiến trình cải thiện thời gian chạy 5 km và chuẩn bị cho buổi chạy thử nghiệm để kiểm tra mục tiêu.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã đánh giá tiến trình và xác định được thời điểm phù hợp để thực hiện buổi chạy thử nghiệm.",
+      "depends_on": [
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thực hiện buổi chạy thử nghiệm 5 km",
+      "description": "Thực hiện buổi chạy 5 km theo đúng điều kiện và thời gian biểu đã xác định để kiểm tra mục tiêu.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành buổi chạy thử nghiệm 5 km và ghi lại thời gian cụ thể.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Đánh giá kết quả và xác nhận mục tiêu",
+      "description": "Đánh giá kết quả buổi chạy thử nghiệm và xác nhận xem mục tiêu giảm thời gian chạy 5 km từ 38 phút xuống 30 phút đã đạt được hay chưa.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã xác nhận kết quả buổi chạy thử nghiệm và đánh giá tiến độ đạt được so với mục tiêu.",
+      "depends_on": [
+        "O1-KR1.t7"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Lên kế hoạch tập sức mạnh cho 2 buổi/tuần",
+      "description": "Xác định lịch trình cụ thể cho 2 buổi tập sức mạnh mỗi tuần, chọn bài tập phù hợp với mục tiêu tăng sức mạnh và thời gian có thể dành cho việc tập (buổi sáng, tối đa 2 giờ mỗi ngày).",
+      "estimate_hours": 4.0,
+      "done_criteria": "Lịch trình tập sức mạnh cho 2 buổi/tuần đã được xác định rõ ràng và phù hợp với thời gian biểu cá nhân.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Chuẩn bị dụng cụ và không gian tập sức mạnh",
+      "description": "Mua sắm hoặc chuẩn bị các dụng cụ cần thiết (như tạ, dây kháng lực, thảm tập, v.v.) và đảm bảo không gian tập luyện tại nhà hoặc nơi khác phù hợp.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Tất cả dụng cụ cần thiết đã được chuẩn bị đầy đủ và không gian tập luyện đã được sắp xếp sẵn.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Thực hiện buổi tập sức mạnh đầu tiên",
+      "description": "Thực hiện buổi tập sức mạnh đầu tiên theo kế hoạch đã lên, đảm bảo thực hiện đúng bài tập và thời gian quy định.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Buổi tập sức mạnh đầu tiên đã được thực hiện đầy đủ theo kế hoạch.",
+      "depends_on": [
+        "O1-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Đánh giá và điều chỉnh kế hoạch tập sức mạnh",
+      "description": "Đánh giá hiệu quả buổi tập đầu tiên, ghi nhận cảm nhận và điều chỉnh kế hoạch nếu cần để đảm bảo phù hợp với khả năng và mục tiêu.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Kế hoạch tập sức mạnh đã được điều chỉnh (nếu cần) và sẵn sàng cho các buổi tập tiếp theo.",
+      "depends_on": [
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tiến hành các buổi tập sức mạnh tiếp theo trong 10 tuần",
+      "description": "Tiến hành các buổi tập sức mạnh theo kế hoạch đã lên, duy trì đều đặn 2 buổi/tuần trong ít nhất 10 tuần.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thực hiện ít nhất 10 tuần tập sức mạnh đều đặn, 2 buổi/tuần.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Lên kế hoạch thực đơn 4 tuần cho mục tiêu giảm cân",
+      "description": "Tham khảo ý kiến chuyên gia dinh dưỡng để xây dựng thực đơn 4 tuần phù hợp với mục tiêu giảm cân, đảm bảo đủ dinh dưỡng và cân bằng giữa các bữa ăn.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Thực đơn 4 tuần đã được chuyên gia dinh dưỡng góp ý và lưu trữ dưới dạng tài liệu dễ truy cập.",
+      "depends_on": [
+        "O2-KR2.t5"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Chuẩn bị bữa ăn lành mạnh cho cả tuần",
+      "description": "Dựa trên thực đơn đã lên kế hoạch, mua sắm và chuẩn bị bữa ăn lành mạnh cho cả tuần, đảm bảo không bỏ bữa và tuân thủ nguyên tắc dinh dưỡng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Bữa ăn cho cả tuần đã được chuẩn bị đầy đủ và lưu trữ đúng nơi quy định.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Thực hiện bài tập chạy bộ 30 phút mỗi buổi sáng",
+      "description": "Thực hiện bài tập chạy bộ 30 phút mỗi buổi sáng trong tuần, đảm bảo duy trì đều đặn và theo dõi tiến độ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã thực hiện bài tập chạy bộ 30 phút mỗi buổi sáng trong tuần và ghi lại kết quả.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Theo dõi và ghi chép cân nặng và tiến độ giảm cân hàng tuần",
+      "description": "Đo cân và ghi chép lại cân nặng hàng tuần, đồng thời theo dõi các chỉ số liên quan đến tiến độ giảm cân như lượng calo nạp vào và tiêu hao.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã đo và ghi chép cân nặng hàng tuần, đồng thời theo dõi tiến độ giảm cân một cách liên tục.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tìm hiểu và lựa chọn chuyên gia dinh dưỡng phù hợp",
+      "description": "Tìm kiếm thông tin về các chuyên gia dinh dưỡng uy tín, có kinh nghiệm lập kế hoạch ăn uống lành mạnh. Liên hệ và trao đổi để tìm chuyên gia phù hợp với mục tiêu và ngân sách.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã xác định được ít nhất một chuyên gia dinh dưỡng sẵn sàng hỗ trợ lập thực đơn.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Trao đổi với chuyên gia dinh dưỡng để xác định nhu cầu dinh dưỡng cá nhân",
+      "description": "Tham gia buổi tư vấn với chuyên gia dinh dưỡng để cung cấp thông tin về tình trạng sức khỏe, mục tiêu ăn uống, lối sống và sở thích ăn uống. Từ đó, chuyên gia sẽ xác định nhu cầu dinh dưỡng phù hợp.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành buổi tư vấn và nhận được báo cáo nhu cầu dinh dưỡng cá nhân từ chuyên gia.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Lập thực đơn 4 tuần với sự hỗ trợ của chuyên gia dinh dưỡng",
+      "description": "Cùng chuyên gia dinh dưỡng xây dựng thực đơn 4 tuần, đảm bảo cân bằng dinh dưỡng, đa dạng món ăn và phù hợp với lối sống bận rộn của người dùng.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Đã hoàn thành bản thực đơn 4 tuần với sự góp ý của chuyên gia dinh dưỡng.",
+      "depends_on": [
+        "O2-KR2.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Tối ưu hóa thực đơn theo sở thích và khả năng thực hiện",
+      "description": "Đánh giá lại thực đơn 4 tuần để đảm bảo tính khả thi, phù hợp với sở thích cá nhân và điều kiện thực hiện trong môi trường văn phòng.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Đã hoàn thành việc tối ưu hóa thực đơn và xác nhận tính khả thi của nó.",
+      "depends_on": [
+        "O2-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Nhận góp ý từ chuyên gia dinh dưỡng và hoàn thiện thực đơn",
+      "description": "Gửi thực đơn đã tối ưu hóa cho chuyên gia dinh dưỡng để nhận góp ý và chỉnh sửa cuối cùng trước khi chính thức áp dụng.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Đã nhận được góp ý từ chuyên gia và hoàn thiện bản thực đơn cuối cùng.",
+      "depends_on": [
+        "O2-KR2.t4"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 340030,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 5287,
+      "decompose": 278517,
+      "dedup": 56225,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 7,
+    "first_attempt_valid": 6,
+    "valid_after_retry": 7,
+    "retries": 1,
+    "rejected_attempts": 1,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 1
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 22,
+    "total_hours": 76.0,
+    "expected_total_hours": [
+      66,
+      110
+    ],
+    "usable_hours": 118.8,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": true,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 8,
+      "O1-KR2": 5,
+      "O2-KR1": 4,
+      "O2-KR2": 5
+    },
+    "hours_per_kr": {
+      "O1-KR1": 26.0,
+      "O1-KR2": 16.0,
+      "O2-KR1": 14.0,
+      "O2-KR2": 20.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b",
+      "decompose": "qwen3:14b",
+      "dedup": "qwen3:14b"
+    },
+    "total_retries": 1,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 5287,
+      "decompose": 278517,
+      "dedup": 56225,
+      "validate": 0
+    },
+    "duration_ms": 340030,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 5287,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 95549,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 160018,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 212799,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 278486,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 15558,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": null,
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 56181,
+        "errors": [
+          "attempt 1: cross_dependencies create a cycle O2-KR1.t1 -> O2-KR2.t5 -> O2-KR2.t4 -> O2-KR1.t1; remove one of them"
+        ]
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

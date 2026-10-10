@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "sample_id": "08_company_growth_vague_en",
+  "domain": "business",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "qualitative",
+    "O2-KR1": "qualitative",
+    "O2-KR2": "numeric"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Make the company more successful",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Get more customers",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Improve marketing",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Better team culture",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Employees are happier",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Reduce turnover",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "",
+    "clarifications": [],
+    "language": "en"
+  },
+  "expected": {
+    "clarify_status": "needs_clarification",
+    "clarification_topics": [
+      "What the company sells and who the customers are",
+      "Current number of customers (or revenue) and the target for the quarter",
+      "What 'improve marketing' means: which channels and which metric",
+      "How employee happiness is measured (e.g. eNPS survey) and its current value",
+      "Current turnover rate and the target"
+    ],
+    "total_hours_range": null,
+    "key_results": {},
+    "grader_notes": "Deliberately vague sample with no context at all. The correct result is needs_clarification with at most 5 questions, no tasks, and no invented numbers. The questions must cover the baseline/target of at least one numeric KR (O1-KR1 or O2-KR2) and the definition of at least one vague qualitative KR (O1-KR2 or O2-KR1). In addition, at least one question must address O1-KR1 ('Get more customers') or O2-KR1 ('Employees are happier'): the deterministic pre-check does not flag these two because they contain no change keyword, so only the LLM clarify step can catch them. Merging several topics into one question is fine."
+  }
+}

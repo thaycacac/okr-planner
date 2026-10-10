@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-09-30T20:47:58+00:00",
+  "models": [
+    {
+      "provider": "local",
+      "model": "gemma3:12b",
+      "samples": 10,
+      "outcomes": {
+        "ok": 6,
+        "needs_clarification": 4,
+        "invalid_input": 0,
+        "error": 0
+      },
+      "errors": [],
+      "clarify_correct": 1.0,
+      "no_false_clarification": 0.857,
+      "llm_calls": 53,
+      "json_first_attempt_valid": 0.868,
+      "json_valid_after_retry": 1.0,
+      "retries": 7,
+      "invalid_json_attempts": 0,
+      "schema_or_rule_rejections": 10,
+      "duration_s": {
+        "median": 454.8,
+        "max": 663.9,
+        "total": 3392.5
+      },
+      "stage_mean_s": {
+        "precheck": 0.0,
+        "clarify": 13.2,
+        "decompose": 481.9,
+        "dedup": 61.4,
+        "validate": 0.0
+      },
+      "auto_c1a_all_krs_covered": 1.0,
+      "auto_c3a_estimates_in_range": 1.0,
+      "auto_c3b_total_in_expected_range": 0.667,
+      "auto_c4a_dependencies_resolve": 1.0,
+      "auto_c6a_within_usable_hours": 1.0,
+      "graded": 10,
+      "pass_rate": 0.3,
+      "criteria": {
+        "Q1": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "C1": 0.0,
+        "C2": 1.0,
+        "C3": 0.333,
+        "C4": 0.667,
+        "C5": 0.167,
+        "C6": 0.833
+      },
+      "pass_rate_by_language": {
+        "vi": 0.2,
+        "en": 0.4
+      },
+      "meets_adr_0004": false
+    },
+    {
+      "provider": "local",
+      "model": "llama3.1:8b",
+      "samples": 10,
+      "outcomes": {
+        "ok": 0,
+        "needs_clarification": 3,
+        "invalid_input": 0,
+        "error": 7
+      },
+      "errors": [
+        "01_saas_onboarding_vi: provider_unavailable@dedup",
+        "02_aws_certification_en: provider_unavailable@dedup",
+        "03_health_fitness_vi: provider_unavailable@dedup",
+        "04_b2b_sales_en: provider_unavailable@dedup",
+        "05_payment_reliability_vi: provider_unavailable@dedup",
+        "06_mobile_app_launch_en: provider_unavailable@dedup",
+        "09_master_thesis_vi: provider_unavailable@dedup"
+      ],
+      "clarify_correct": 1.0,
+      "no_false_clarification": 1.0,
+      "llm_calls": 51,
+      "json_first_attempt_valid": 0.784,
+      "json_valid_after_retry": 0.863,
+      "retries": 11,
+      "invalid_json_attempts": 0,
+      "schema_or_rule_rejections": 12,
+      "duration_s": {
+        "median": 541.2,
+        "max": 869.8,
+        "total": 4629.5
+      },
+      "stage_mean_s": {
+        "precheck": 0.0,
+        "clarify": 5.2,
+        "decompose": 168.7
+      },
+      "auto_c1a_all_krs_covered": null,
+      "auto_c3a_estimates_in_range": null,
+      "auto_c3b_total_in_expected_range": null,
+      "auto_c4a_dependencies_resolve": null,
+      "auto_c6a_within_usable_hours": null,
+      "graded": 10,
+      "pass_rate": 0.1,
+      "criteria": {
+        "Q1": 1.0,
+        "Q2": 0.333,
+        "Q3": 1.0,
+        "C1": null,
+        "C2": null,
+        "C3": null,
+        "C4": null,
+        "C5": null,
+        "C6": null
+      },
+      "pass_rate_by_language": {
+        "vi": 0.0,
+        "en": 0.2
+      },
+      "meets_adr_0004": false
+    },
+    {
+      "provider": "local",
+      "model": "qwen3:14b",
+      "samples": 10,
+      "outcomes": {
+        "ok": 7,
+        "needs_clarification": 3,
+        "invalid_input": 0,
+        "error": 0
+      },
+      "errors": [],
+      "clarify_correct": 1.0,
+      "no_false_clarification": 1.0,
+      "llm_calls": 57,
+      "json_first_attempt_valid": 0.965,
+      "json_valid_after_retry": 1.0,
+      "retries": 2,
+      "invalid_json_attempts": 0,
+      "schema_or_rule_rejections": 2,
+      "duration_s": {
+        "median": 302.5,
+        "max": 466.4,
+        "total": 2499.9
+      },
+      "stage_mean_s": {
+        "precheck": 0.0,
+        "clarify": 13.4,
+        "decompose": 291.6,
+        "dedup": 46.3,
+        "validate": 0.0
+      },
+      "auto_c1a_all_krs_covered": 1.0,
+      "auto_c3a_estimates_in_range": 1.0,
+      "auto_c3b_total_in_expected_range": 0.571,
+      "auto_c4a_dependencies_resolve": 1.0,
+      "auto_c6a_within_usable_hours": 1.0,
+      "graded": 10,
+      "pass_rate": 0.3,
+      "criteria": {
+        "Q1": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "C1": 0.0,
+        "C2": 0.857,
+        "C3": 0.143,
+        "C4": 0.0,
+        "C5": 0.286,
+        "C6": 1.0
+      },
+      "pass_rate_by_language": {
+        "vi": 0.2,
+        "en": 0.4
+      },
+      "meets_adr_0004": false
+    },
+    {
+      "provider": "local",
+      "model": "qwen3:8b",
+      "samples": 10,
+      "outcomes": {
+        "ok": 7,
+        "needs_clarification": 3,
+        "invalid_input": 0,
+        "error": 0
+      },
+      "errors": [],
+      "clarify_correct": 1.0,
+      "no_false_clarification": 1.0,
+      "llm_calls": 57,
+      "json_first_attempt_valid": 0.982,
+      "json_valid_after_retry": 1.0,
+      "retries": 1,
+      "invalid_json_attempts": 0,
+      "schema_or_rule_rejections": 4,
+      "duration_s": {
+        "median": 103.1,
+        "max": 240.5,
+        "total": 1075.4
+      },
+      "stage_mean_s": {
+        "precheck": 0.0,
+        "clarify": 4.7,
+        "decompose": 134.0,
+        "dedup": 12.9,
+        "validate": 0.0
+      },
+      "auto_c1a_all_krs_covered": 1.0,
+      "auto_c3a_estimates_in_range": 1.0,
+      "auto_c3b_total_in_expected_range": 0.143,
+      "auto_c4a_dependencies_resolve": 1.0,
+      "auto_c6a_within_usable_hours": 1.0,
+      "graded": 10,
+      "pass_rate": 0.1,
+      "criteria": {
+        "Q1": 1.0,
+        "Q2": 0.333,
+        "Q3": 1.0,
+        "C1": 0.0,
+        "C2": 0.429,
+        "C3": 0.0,
+        "C4": 0.143,
+        "C5": 0.0,
+        "C6": 1.0
+      },
+      "pass_rate_by_language": {
+        "vi": 0.0,
+        "en": 0.2
+      },
+      "meets_adr_0004": false
+    }
+  ],
+  "grader_agreement": {
+    "rows": 40,
+    "cells": 156,
+    "cell_agreement": 0.974,
+    "disagreeing_cells": 4,
+    "verdict_agreement": 1.0
+  }
+}

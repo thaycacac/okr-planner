@@ -1,0 +1,545 @@
+{
+  "sample_id": "05_payment_reliability_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "gemma3:12b",
+  "temperature": 0,
+  "max_retries": 2,
+  "finished_at": "2026-09-30T19:36:03+00:00",
+  "outcome": "ok",
+  "wall_ms": 553136,
+  "failure": null,
+  "questions": [],
+  "issues": [],
+  "tasks": [
+    {
+      "local_id": "O1-KR1.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Phân tích nguyên nhân gốc rễ của các sự cố downtime",
+      "description": "Phân tích chi tiết các sự cố downtime đã xảy ra trong 3 tháng gần nhất. Xác định các nguyên nhân gốc rễ phổ biến, các mẫu hình và các điểm yếu trong hệ thống hiện tại. Tập trung vào các log, metric và báo cáo sự cố đã có.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo phân tích nguyên nhân gốc rễ chi tiết, bao gồm các biểu đồ, bảng và đề xuất các lĩnh vực cần cải thiện.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR1.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Thiết kế và triển khai hệ thống giám sát và cảnh báo nâng cao (phần 1)",
+      "description": "Thiết kế hệ thống giám sát và cảnh báo mới, bao gồm các metric quan trọng liên quan đến uptime, hiệu suất và sức khỏe của dịch vụ thanh toán. Xác định các cảnh báo cần cấu hình.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Thiết kế hệ thống giám sát và cảnh báo được phê duyệt, bao gồm danh sách các metric và cảnh báo cần thiết.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Triển khai hệ thống giám sát và cảnh báo nâng cao (phần 2)",
+      "description": "Triển khai hệ thống giám sát và cảnh báo mới dựa trên thiết kế đã được phê duyệt. Đảm bảo hệ thống có thể phát hiện sớm các vấn đề tiềm ẩn và cảnh báo cho đội ngũ vận hành.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Hệ thống giám sát và cảnh báo mới được triển khai và hoạt động ổn định, bao gồm các cảnh báo được cấu hình chính xác và có khả năng tích hợp với các công cụ hiện có.",
+      "depends_on": [
+        "O1-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Cải thiện quy trình xử lý sự cố và khôi phục dịch vụ (phần 1)",
+      "description": "Xem xét quy trình xử lý sự cố hiện tại, xác định các điểm nghẽn và các bước có thể cải thiện để giảm thời gian khắc phục.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo đánh giá quy trình xử lý sự cố hiện tại, bao gồm các đề xuất cải tiến.",
+      "depends_on": [
+        "O1-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Cải thiện quy trình xử lý sự cố và khôi phục dịch vụ (phần 2)",
+      "description": "Xây dựng playbook chi tiết cho các sự cố phổ biến dựa trên các đề xuất cải tiến từ báo cáo đánh giá.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Playbook xử lý sự cố được cập nhật và được đội ngũ vận hành chấp nhận. Các bài tập mô phỏng sự cố được thực hiện và kết quả được đánh giá.",
+      "depends_on": [
+        "O1-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t6",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Triển khai các giải pháp dự phòng và khả năng phục hồi (phần 1)",
+      "description": "Nghiên cứu và thiết kế các giải pháp dự phòng và khả năng phục hồi để giảm thiểu tác động của các sự cố. Điều này có thể bao gồm việc triển khai các bản sao lưu dữ liệu, các hệ thống dự phòng và các cơ chế chuyển đổi tự động.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Thiết kế các giải pháp dự phòng và khả năng phục hồi được phê duyệt.",
+      "depends_on": [
+        "O1-KR1.t3",
+        "O1-KR1.t5"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t7",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Triển khai các giải pháp dự phòng và khả năng phục hồi (phần 2)",
+      "description": "Triển khai các giải pháp dự phòng và khả năng phục hồi đã được thiết kế. Kiểm tra và xác minh tính hiệu quả của các giải pháp này.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Các giải pháp dự phòng và khả năng phục hồi được triển khai và kiểm tra thành công. Tài liệu chi tiết về các giải pháp này được tạo ra.",
+      "depends_on": [
+        "O1-KR1.t6"
+      ]
+    },
+    {
+      "local_id": "O1-KR1.t8",
+      "objective_id": "O1",
+      "kr_id": "O1-KR1",
+      "title": "Tối ưu hóa cấu hình hệ thống và tài nguyên",
+      "description": "Tối ưu hóa cấu hình hệ thống và tài nguyên để cải thiện hiệu suất và độ tin cậy. Điều này có thể bao gồm việc điều chỉnh các tham số cấu hình, nâng cấp phần cứng và tối ưu hóa cơ sở dữ liệu.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Các thay đổi cấu hình và tài nguyên được triển khai và kiểm tra thành công. Các metric hiệu suất được theo dõi để đảm bảo cải thiện.",
+      "depends_on": [
+        "O1-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Phân tích nguyên nhân gây trễ API tạo giao dịch",
+      "description": "Sử dụng các công cụ giám sát và logging hiện có để xác định các điểm nghẽn và nguyên nhân chính gây ra độ trễ cao trong API tạo giao dịch. Tập trung vào các khu vực có khả năng gây ra độ trễ lớn nhất, bao gồm truy vấn cơ sở dữ liệu, xử lý logic nghiệp vụ và giao tiếp với các dịch vụ phụ thuộc.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo chi tiết liệt kê ít nhất 3 nguyên nhân chính gây ra độ trễ API, kèm theo bằng chứng từ dữ liệu giám sát và logging.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR2.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tối ưu hóa truy vấn cơ sở dữ liệu",
+      "description": "Dựa trên kết quả phân tích ở t1, thực hiện tối ưu hóa các truy vấn cơ sở dữ liệu liên quan đến API tạo giao dịch. Bao gồm việc phân tích và tối ưu hóa các index, viết lại các truy vấn chậm và xem xét việc sử dụng caching để giảm tải cho cơ sở dữ liệu.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Các truy vấn cơ sở dữ liệu được xác định là chậm trong phân tích (t1) đã được tối ưu hóa và giảm thời gian thực thi ít nhất 20%.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Tối ưu hóa logic nghiệp vụ",
+      "description": "Xem xét và tối ưu hóa các đoạn mã logic nghiệp vụ trong API tạo giao dịch. Tìm kiếm các đoạn mã không hiệu quả, các vòng lặp không cần thiết và các thuật toán có thể được cải thiện để giảm độ trễ.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Các đoạn mã logic nghiệp vụ được xác định là không hiệu quả đã được tối ưu hóa và giảm thời gian thực thi ít nhất 15%.",
+      "depends_on": [
+        "O1-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Kiểm tra và đánh giá hiệu quả tối ưu hóa",
+      "description": "Sau khi thực hiện các tối ưu hóa ở t2 và t3, tiến hành kiểm tra và đánh giá hiệu quả của các thay đổi. Sử dụng các công cụ giám sát để đo lường độ trễ p95 của API tạo giao dịch và so sánh với baseline ban đầu.",
+      "estimate_hours": 2.0,
+      "done_criteria": "Độ trễ p95 của API tạo giao dịch đã được đo lường và ghi lại. Báo cáo chứa các số liệu trước và sau tối ưu hóa.",
+      "depends_on": [
+        "O1-KR2.t2",
+        "O1-KR2.t3"
+      ]
+    },
+    {
+      "local_id": "O1-KR2.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR2",
+      "title": "Điều chỉnh và lặp lại tối ưu hóa (nếu cần)",
+      "description": "Dựa trên kết quả đánh giá ở t4, thực hiện các điều chỉnh và lặp lại quy trình tối ưu hóa nếu độ trễ p95 chưa đạt được mục tiêu. Điều này có thể bao gồm việc tinh chỉnh các truy vấn cơ sở dữ liệu, tối ưu hóa thêm logic nghiệp vụ hoặc xem xét các giải pháp khác.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Độ trễ p95 của API tạo giao dịch đạt hoặc dưới 300ms. Nếu không, các bước tối ưu hóa tiếp theo đã được xác định và lên kế hoạch.",
+      "depends_on": [
+        "O1-KR2.t4"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t1",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Phân tích nguyên nhân gốc rễ của các sự cố MTTR cao",
+      "description": "Phân tích lịch sử các sự cố thanh toán trong 3 tháng gần nhất, xác định các nguyên nhân gốc rễ phổ biến dẫn đến thời gian khắc phục kéo dài. Tập trung vào các điểm nghẽn trong quy trình giám sát, báo cáo và phản hồi sự cố. Đánh giá các công cụ và quy trình hiện tại để tìm ra các điểm cần cải thiện.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo phân tích chi tiết, xác định ít nhất 5 nguyên nhân gốc rễ chính và đề xuất các hướng giải quyết ban đầu. Báo cáo được trình bày và được sự đồng ý của quản lý.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O1-KR3.t2",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Thiết kế và triển khai hệ thống giám sát và cảnh báo cải tiến",
+      "description": "Dựa trên kết quả phân tích ở t1, thiết kế và triển khai hệ thống giám sát và cảnh báo mới hoặc cải tiến hệ thống hiện tại. Hệ thống mới phải cung cấp thông báo sớm về các vấn đề tiềm ẩn, giảm thời gian phát hiện sự cố. Tích hợp với các công cụ hiện có (ví dụ: Slack, PagerDuty).",
+      "estimate_hours": 6.0,
+      "done_criteria": "Hệ thống giám sát và cảnh báo mới được triển khai và hoạt động ổn định. Các cảnh báo được cấu hình chính xác và gửi đến đúng người. Tài liệu hướng dẫn sử dụng hệ thống được tạo.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t3",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Tự động hóa các tác vụ khắc phục sự cố lặp đi lặp lại",
+      "description": "Xác định các tác vụ khắc phục sự cố lặp đi lặp lại và tự động hóa chúng bằng script hoặc công cụ tự động hóa. Ví dụ: tự động khởi động lại dịch vụ, xoá cache, hoặc chạy các kiểm tra chẩn đoán. Đảm bảo các tác vụ tự động hóa được kiểm soát và có thể rollback khi cần thiết.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Ít nhất 3 tác vụ khắc phục sự cố lặp đi lặp lại đã được tự động hóa. Các script tự động hóa được kiểm tra kỹ lưỡng và có tài liệu hướng dẫn.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t4",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Cải thiện quy trình phản hồi và điều phối sự cố",
+      "description": "Đánh giá và cải thiện quy trình phản hồi và điều phối sự cố hiện tại. Xác định các điểm nghẽn và các khu vực có thể cải thiện. Xây dựng playbook cho các loại sự cố phổ biến. Đảm bảo tất cả các thành viên trong nhóm đều hiểu rõ quy trình mới.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Quy trình phản hồi và điều phối sự cố mới được xây dựng và được nhóm chấp nhận. Playbook cho các loại sự cố phổ biến được tạo và được phân phối đến tất cả các thành viên trong nhóm. Thực hiện ít nhất một buổi diễn tập quy trình mới.",
+      "depends_on": [
+        "O1-KR3.t1"
+      ]
+    },
+    {
+      "local_id": "O1-KR3.t5",
+      "objective_id": "O1",
+      "kr_id": "O1-KR3",
+      "title": "Đánh giá và tối ưu hóa các công cụ hỗ trợ khắc phục sự cố",
+      "description": "Đánh giá các công cụ hiện tại được sử dụng để khắc phục sự cố (ví dụ: log aggregation, debugging tools, performance profiling). Tìm kiếm các công cụ mới hoặc cải tiến các công cụ hiện có để tăng tốc độ và hiệu quả của quá trình khắc phục sự cố.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo đánh giá các công cụ hỗ trợ khắc phục sự cố được hoàn thành. Đề xuất các cải tiến hoặc công cụ mới. Thực hiện thử nghiệm và triển khai ít nhất một cải tiến hoặc công cụ mới.",
+      "depends_on": [
+        "O1-KR3.t2",
+        "O1-KR3.t3",
+        "O1-KR3.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Phân tích phạm vi test coverage hiện tại",
+      "description": "Phân tích kỹ lưỡng mã nguồn hiện tại để xác định các khu vực có test coverage thấp hoặc không có. Xác định các module, function, và edge case cần được ưu tiên viết test. Tạo danh sách chi tiết các khu vực cần cải thiện.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Báo cáo chi tiết về phạm vi test coverage hiện tại, bao gồm danh sách các module/function/edge case cần ưu tiên viết test, được phê duyệt bởi trưởng nhóm.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR1.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Thiết kế framework/cấu trúc test mới (nếu cần)",
+      "description": "Đánh giá framework test hiện tại. Nếu cần thiết, thiết kế và triển khai một framework/cấu trúc test mới để hỗ trợ việc viết test hiệu quả hơn, bao gồm các công cụ và thư viện cần thiết. Đảm bảo framework mới dễ sử dụng và bảo trì.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Framework/cấu trúc test mới được thiết kế và triển khai (nếu cần), được phê duyệt bởi trưởng nhóm và sẵn sàng để sử dụng.",
+      "depends_on": [
+        "O2-KR1.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết test cho các module/function ưu tiên (Lần 1)",
+      "description": "Viết test unit và integration test cho các module/function được ưu tiên từ báo cáo phân tích ở bước 1. Tập trung vào các khu vực có test coverage thấp nhất. Đảm bảo test cases bao phủ các trường hợp sử dụng chính và các edge case.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Ít nhất 30% số test cases ưu tiên đã được viết và chạy thành công, tăng test coverage lên ít nhất 55%.",
+      "depends_on": [
+        "O2-KR1.t2"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Viết test cho các module/function ưu tiên (Lần 2)",
+      "description": "Tiếp tục viết test unit và integration test cho các module/function còn lại trong danh sách ưu tiên. Đảm bảo test cases bao phủ các trường hợp sử dụng chính và các edge case.",
+      "estimate_hours": 6.0,
+      "done_criteria": "Tất cả các test cases ưu tiên đã được viết và chạy thành công, tăng test coverage lên ít nhất 70%.",
+      "depends_on": [
+        "O2-KR1.t3"
+      ]
+    },
+    {
+      "local_id": "O2-KR1.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR1",
+      "title": "Tối ưu hóa và hoàn thiện test suite",
+      "description": "Xem xét và tối ưu hóa các test cases hiện có để đảm bảo hiệu suất và độ tin cậy. Sửa lỗi và cải thiện test coverage. Đảm bảo test suite dễ đọc, dễ hiểu và dễ bảo trì.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Test coverage đạt 75% hoặc cao hơn. Test suite được tối ưu hóa và hoàn thiện, được phê duyệt bởi trưởng nhóm.",
+      "depends_on": [
+        "O2-KR1.t4"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t1",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Xác định 5 lỗi vận hành phổ biến nhất",
+      "description": "Phân tích log, báo cáo sự cố và dữ liệu giám sát để xác định 5 lỗi vận hành xảy ra thường xuyên nhất trong dịch vụ thanh toán. Ghi lại chi tiết về từng lỗi, bao gồm nguyên nhân tiềm ẩn và tác động.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Danh sách 5 lỗi vận hành phổ biến nhất, kèm theo mô tả chi tiết về nguyên nhân và tác động, được ghi lại và có thể trình bày cho team.",
+      "depends_on": []
+    },
+    {
+      "local_id": "O2-KR2.t2",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Soạn thảo runbook cho lỗi 1",
+      "description": "Dựa trên thông tin đã thu thập, soạn thảo runbook chi tiết cho lỗi vận hành phổ biến thứ nhất. Runbook cần bao gồm các bước để xác định, chẩn đoán và khắc phục lỗi. Đảm bảo runbook dễ hiểu và có thể thực hiện bởi các kỹ sư khác.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho lỗi 1 đã được viết, bao gồm các bước chi tiết để xác định, chẩn đoán và khắc phục lỗi, và có thể thực hiện bởi một kỹ sư khác.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t3",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Soạn thảo runbook cho lỗi 2",
+      "description": "Dựa trên thông tin đã thu thập, soạn thảo runbook chi tiết cho lỗi vận hành phổ biến thứ hai. Runbook cần bao gồm các bước để xác định, chẩn đoán và khắc phục lỗi. Đảm bảo runbook dễ hiểu và có thể thực hiện bởi các kỹ sư khác.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho lỗi 2 đã được viết, bao gồm các bước chi tiết để xác định, chẩn đoán và khắc phục lỗi, và có thể thực hiện bởi một kỹ sư khác.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t4",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Soạn thảo runbook cho lỗi 3",
+      "description": "Dựa trên thông tin đã thu thập, soạn thảo runbook chi tiết cho lỗi vận hành phổ biến thứ ba. Runbook cần bao gồm các bước để xác định, chẩn đoán và khắc phục lỗi. Đảm bảo runbook dễ hiểu và có thể thực hiện bởi các kỹ sư khác.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho lỗi 3 đã được viết, bao gồm các bước chi tiết để xác định, chẩn đoán và khắc phục lỗi, và có thể thực hiện bởi một kỹ sư khác.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t5",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Soạn thảo runbook cho lỗi 4",
+      "description": "Dựa trên thông tin đã thu thập, soạn thảo runbook chi tiết cho lỗi vận hành phổ biến thứ tư. Runbook cần bao gồm các bước để xác định, chẩn đoán và khắc phục lỗi. Đảm bảo runbook dễ hiểu và có thể thực hiện bởi các kỹ sư khác.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho lỗi 4 đã được viết, bao gồm các bước chi tiết để xác định, chẩn đoán và khắc phục lỗi, và có thể thực hiện bởi một kỹ sư khác.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t6",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Soạn thảo runbook cho lỗi 5",
+      "description": "Dựa trên thông tin đã thu thập, soạn thảo runbook chi tiết cho lỗi vận hành phổ biến thứ năm. Runbook cần bao gồm các bước để xác định, chẩn đoán và khắc phục lỗi. Đảm bảo runbook dễ hiểu và có thể thực hiện bởi các kỹ sư khác.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Runbook cho lỗi 5 đã được viết, bao gồm các bước chi tiết để xác định, chẩn đoán và khắc phục lỗi, và có thể thực hiện bởi một kỹ sư khác.",
+      "depends_on": [
+        "O2-KR2.t1"
+      ]
+    },
+    {
+      "local_id": "O2-KR2.t7",
+      "objective_id": "O2",
+      "kr_id": "O2-KR2",
+      "title": "Review runbook với team",
+      "description": "Trình bày các runbook đã soạn thảo cho team để nhận phản hồi và đảm bảo tính chính xác và khả thi. Điều chỉnh runbook dựa trên phản hồi của team.",
+      "estimate_hours": 4.0,
+      "done_criteria": "Các runbook đã được trình bày và thảo luận với team, và đã được điều chỉnh dựa trên phản hồi của team.",
+      "depends_on": [
+        "O2-KR2.t2",
+        "O2-KR2.t3",
+        "O2-KR2.t4",
+        "O2-KR2.t5",
+        "O2-KR2.t6"
+      ]
+    }
+  ],
+  "timing": {
+    "duration_ms": 553135,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 12404,
+      "decompose": 498048,
+      "dedup": 42679,
+      "validate": 0
+    }
+  },
+  "json": {
+    "llm_calls": 8,
+    "first_attempt_valid": 7,
+    "valid_after_retry": 8,
+    "retries": 1,
+    "rejected_attempts": 1,
+    "invalid_json_attempts": 0,
+    "schema_or_rule_rejections": 1
+  },
+  "auto_checks": {
+    "false_clarification": false,
+    "task_count": 30,
+    "total_hours": 126.0,
+    "expected_total_hours": [
+      128,
+      220
+    ],
+    "usable_hours": 237.6,
+    "c1a_all_krs_covered": true,
+    "c3a_estimates_in_range": true,
+    "c3b_total_in_expected_range": false,
+    "c4a_dependencies_resolve": true,
+    "c6a_within_usable_hours": true,
+    "tasks_wrong_language": [],
+    "tasks_per_kr": {
+      "O1-KR1": 8,
+      "O1-KR2": 5,
+      "O1-KR3": 5,
+      "O2-KR1": 5,
+      "O2-KR2": 7
+    },
+    "hours_per_kr": {
+      "O1-KR1": 32.0,
+      "O1-KR2": 20.0,
+      "O1-KR3": 22.0,
+      "O2-KR1": 24.0,
+      "O2-KR2": 28.0
+    }
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "gemma3:12b",
+      "decompose": "gemma3:12b",
+      "dedup": "gemma3:12b"
+    },
+    "total_retries": 1,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 12404,
+      "decompose": 498048,
+      "dedup": 42679,
+      "validate": 0
+    },
+    "duration_ms": 553135,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "gemma3:12b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 12404,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 2,
+        "retries": 1,
+        "duration_ms": 498044,
+        "errors": [
+          "attempt 1: task t4: estimate_hours 8 is above 6; split it into smaller tasks of 2-6 hours"
+        ]
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 147620,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR3",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 233192,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 300798,
+        "errors": []
+      },
+      {
+        "step": "decompose",
+        "model": "gemma3:12b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 400404,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "gemma3:12b",
+        "objective_id": "O1",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 23819,
+        "errors": []
+      },
+      {
+        "step": "dedup",
+        "model": "gemma3:12b",
+        "objective_id": "O2",
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 42658,
+        "errors": []
+      },
+      {
+        "step": "validate",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      }
+    ]
+  }
+}

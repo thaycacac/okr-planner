@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "sample_id": "01_saas_onboarding_vi",
+  "domain": "product",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "numeric",
+    "O1-KR3": "qualitative",
+    "O2-KR1": "numeric",
+    "O2-KR2": "numeric"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Cải thiện trải nghiệm onboarding cho người dùng mới",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Tăng tỉ lệ activation (tạo xong sản phẩm đầu tiên trong 7 ngày) từ 22% lên 35%",
+            "metric": "Tỉ lệ activation trong 7 ngày",
+            "unit": "%",
+            "baseline": 22,
+            "target": 35
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Giảm time-to-first-value trung vị từ 3 ngày xuống 1 ngày",
+            "metric": "Time-to-first-value trung vị",
+            "unit": "ngày",
+            "baseline": 3,
+            "target": 1
+          },
+          {
+            "id": "O1-KR3",
+            "text": "Ra mắt hướng dẫn in-app cho 3 luồng chính: nhập hàng, xuất hàng, kiểm kê",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Giảm churn trong tháng đầu sử dụng",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Giảm tỉ lệ churn tháng đầu từ 9% xuống 6%",
+            "metric": "Tỉ lệ churn tháng đầu",
+            "unit": "%",
+            "baseline": 9,
+            "target": 6
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Phỏng vấn 15 khách hàng đã rời bỏ và tổng hợp insight",
+            "metric": "Số cuộc phỏng vấn khách hàng rời bỏ",
+            "unit": "cuộc phỏng vấn",
+            "baseline": 0,
+            "target": 15
+          }
+        ]
+      }
+    ],
+    "context": "Người lập kế hoạch là founder kiêm product và dev của một sản phẩm SaaS quản lý kho cho cửa hàng nhỏ (khoảng 600 tài khoản đăng ký mới mỗi tháng). Dành khoảng 4 giờ mỗi ngày làm việc cho OKR này.",
+    "clarifications": [],
+    "language": "vi"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 108,
+      "max": 194
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 28,
+          "max": 48
+        },
+        "must_cover": [
+          "Định nghĩa sự kiện activation và dashboard theo dõi tỉ lệ activation",
+          "Phân tích funnel onboarding để tìm bước người dùng rơi nhiều nhất",
+          "Thiết kế và triển khai ít nhất một cải tiến luồng onboarding (release hoặc A/B test)"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 20,
+          "max": 36
+        },
+        "must_cover": [
+          "Đo time-to-first-value hiện tại theo cohort",
+          "Rút gọn bước thiết lập ban đầu (dữ liệu mẫu, template, bỏ bước thừa)"
+        ]
+      },
+      "O1-KR3": {
+        "hours_range": {
+          "min": 16,
+          "max": 30
+        },
+        "must_cover": [
+          "Viết nội dung hướng dẫn cho cả 3 luồng",
+          "Triển khai hướng dẫn in-app cho cả 3 luồng",
+          "Thử nghiệm hướng dẫn với người dùng thật hoặc nội bộ trước khi ra mắt"
+        ]
+      },
+      "O2-KR1": {
+        "hours_range": {
+          "min": 24,
+          "max": 44
+        },
+        "must_cover": [
+          "Phân tích lý do churn từ dữ liệu sử dụng",
+          "Triển khai ít nhất một biện pháp giữ chân (email lifecycle, cảnh báo tài khoản có rủi ro, ...)",
+          "Theo dõi churn tháng đầu theo cohort"
+        ]
+      },
+      "O2-KR2": {
+        "hours_range": {
+          "min": 20,
+          "max": 36
+        },
+        "must_cover": [
+          "Soạn kịch bản phỏng vấn và danh sách khách hàng cần liên hệ",
+          "Thực hiện đủ 15 cuộc phỏng vấn (gộp theo đợt)",
+          "Tổng hợp insight thành báo cáo có đề xuất hành động"
+        ]
+      }
+    },
+    "grader_notes": "Dashboard activation có thể dùng chung cho O1-KR1 và O1-KR2; nếu kế hoạch tạo hai task dựng dashboard gần như giống nhau thì tính là trùng lặp. 15 cuộc phỏng vấn mỗi cuộc 45–60 phút nên gộp 3–5 cuộc thành một task, không chấp nhận một task 15 giờ hay 15 task 1 giờ. Phụ thuộc hợp lý: tổng hợp insight phỏng vấn (O2-KR2) trước biện pháp giữ chân (O2-KR1) là điểm cộng nhưng không bắt buộc; đo baseline hoặc dựng tracking phải đứng trước cải tiến."
+  }
+}

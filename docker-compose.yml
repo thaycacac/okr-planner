@@ -1,0 +1,60 @@
+name: okr-planner
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: okr
+      POSTGRES_PASSWORD: okr
+      POSTGRES_DB: okr_planner
+    ports:
+      - "127.0.0.1:${POSTGRES_HOST_PORT:-5433}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U okr -d okr_planner"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://okr:okr@db:5432/okr_planner
+      CORS_ORIGINS: '["http://localhost:3000"]'
+      # Native Ollama on macOS uses the Apple GPU; the `local-llm` profile overrides this.
+      LOCAL_LLM_BASE_URL: ${LOCAL_LLM_BASE_URL:-http://host.docker.internal:11434}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # The browser calls /api on the frontend; Next.js forwards it to the backend.
+        BACKEND_INTERNAL_URL: http://backend:8000
+        NEXT_PUBLIC_API_BASE_URL: /api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-llm"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+
+volumes:
+  db-data:
+  ollama-models:

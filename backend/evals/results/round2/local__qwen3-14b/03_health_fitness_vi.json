@@ -1,0 +1,124 @@
+{
+  "sample_id": "03_health_fitness_vi",
+  "language": "vi",
+  "expected_clarify_status": "ok",
+  "provider": "local",
+  "model": "qwen3:14b",
+  "temperature": 0,
+  "max_retries": 2,
+  "time_budget": {
+    "working_days": 66,
+    "total_hours": 132.0
+  },
+  "finished_at": "2026-10-01T00:48:51+00:00",
+  "outcome": "needs_clarification",
+  "wall_ms": 23687,
+  "failure": null,
+  "questions": [
+    {
+      "id": "q1",
+      "kr_id": "O1-KR2",
+      "question": "Điều gì cụ thể sẽ được giao cho chuyên gia dinh dưỡng để họ góp ý cho thực đơn 4 tuần?",
+      "reason": "Key result này đề cập đến việc có một thực đơn 4 tuần đã được chuyên gia dinh dưỡng góp ý, nhưng không nêu rõ nội dung cụ thể của thực đơn hoặc tiêu chí nào được sử dụng để đánh giá sự phù hợp của thực đơn đó.",
+      "source": "llm"
+    }
+  ],
+  "issues": [],
+  "tasks": [],
+  "timing": {
+    "duration_ms": 23686,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 23685
+    }
+  },
+  "json": {
+    "llm_calls": 5,
+    "first_attempt_valid": 5,
+    "valid_after_retry": 5,
+    "failed_calls": 0,
+    "failure_code": null,
+    "retries": 0,
+    "rejected_attempts": 0,
+    "invalid_json_attempts": 0,
+    "timeout_attempts": 0,
+    "schema_or_rule_rejections": 0
+  },
+  "auto_checks": {
+    "false_clarification": true
+  },
+  "trace": {
+    "provider": "local",
+    "models": {
+      "clarify": "qwen3:14b"
+    },
+    "total_retries": 0,
+    "stage_duration_ms": {
+      "precheck": 0,
+      "clarify": 23685
+    },
+    "duration_ms": 23686,
+    "steps": [
+      {
+        "step": "precheck",
+        "model": null,
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 0,
+        "retries": 0,
+        "duration_ms": 0,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": null,
+        "kr_id": null,
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 13916,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 2999,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": "O1",
+        "kr_id": "O1-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 4904,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR1",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 6760,
+        "errors": []
+      },
+      {
+        "step": "clarify",
+        "model": "qwen3:14b",
+        "objective_id": "O2",
+        "kr_id": "O2-KR2",
+        "attempts": 1,
+        "retries": 0,
+        "duration_ms": 9745,
+        "errors": []
+      }
+    ]
+  }
+}

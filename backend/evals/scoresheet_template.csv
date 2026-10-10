@@ -1,0 +1,11 @@
+sample_id,provider,model,grader,clarify_status_actual,Q1,Q2,Q3,C1,C2,C3,C4,C5,C6,pass,failed_task_ids,notes
+01_saas_onboarding_vi,,,,,,,,,,,,,,,,
+02_aws_certification_en,,,,,,,,,,,,,,,,
+03_health_fitness_vi,,,,,,,,,,,,,,,,
+04_b2b_sales_en,,,,,,,,,,,,,,,,
+05_payment_reliability_vi,,,,,,,,,,,,,,,,
+06_mobile_app_launch_en,,,,,,,,,,,,,,,,
+07_self_improvement_vague_vi,,,,,,,,,,,,,,,,
+08_company_growth_vague_en,,,,,,,,,,,,,,,,
+09_master_thesis_vi,,,,,,,,,,,,,,,,
+10_customer_support_missing_baseline_en,,,,,,,,,,,,,,,,

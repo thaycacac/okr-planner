@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "sample_id": "05_payment_reliability_vi",
+  "domain": "engineering",
+  "quarter": {
+    "year": 2026,
+    "number": 4
+  },
+  "kr_kinds": {
+    "O1-KR1": "numeric",
+    "O1-KR2": "numeric",
+    "O1-KR3": "numeric",
+    "O2-KR1": "numeric",
+    "O2-KR2": "qualitative"
+  },
+  "input": {
+    "objectives": [
+      {
+        "id": "O1",
+        "title": "Nâng độ tin cậy của dịch vụ thanh toán",
+        "key_results": [
+          {
+            "id": "O1-KR1",
+            "text": "Tăng uptime hằng tháng từ 99,5% lên 99,9%",
+            "metric": "Uptime hằng tháng",
+            "unit": "%",
+            "baseline": 99.5,
+            "target": 99.9
+          },
+          {
+            "id": "O1-KR2",
+            "text": "Giảm độ trễ p95 của API tạo giao dịch từ 800 ms xuống 300 ms",
+            "metric": "Độ trễ p95 của API tạo giao dịch",
+            "unit": "ms",
+            "baseline": 800,
+            "target": 300
+          },
+          {
+            "id": "O1-KR3",
+            "text": "Giảm thời gian khắc phục sự cố trung bình (MTTR) từ 90 phút xuống 30 phút",
+            "metric": "MTTR",
+            "unit": "phút",
+            "baseline": 90,
+            "target": 30
+          }
+        ]
+      },
+      {
+        "id": "O2",
+        "title": "Nâng chất lượng mã nguồn",
+        "key_results": [
+          {
+            "id": "O2-KR1",
+            "text": "Tăng test coverage từ 45% lên 75%",
+            "metric": "Test coverage",
+            "unit": "%",
+            "baseline": 45,
+            "target": 75
+          },
+          {
+            "id": "O2-KR2",
+            "text": "Có runbook xử lý cho 5 lỗi vận hành phổ biến nhất, đã được team review",
+            "metric": null,
+            "unit": null,
+            "baseline": null,
+            "target": null
+          }
+        ]
+      }
+    ],
+    "context": "Kỹ sư backend chính của dịch vụ thanh toán (Python, PostgreSQL, khoảng 200 giao dịch/phút giờ cao điểm). Dành khoảng 4 giờ mỗi ngày làm việc cho OKR; phần còn lại là vận hành hằng ngày.",
+    "clarifications": [],
+    "language": "vi"
+  },
+  "expected": {
+    "clarify_status": "ok",
+    "clarification_topics": [],
+    "total_hours_range": {
+      "min": 128,
+      "max": 220
+    },
+    "key_results": {
+      "O1-KR1": {
+        "hours_range": {
+          "min": 30,
+          "max": 50
+        },
+        "must_cover": [
+          "Định nghĩa SLO/SLI và dashboard uptime",
+          "Khắc phục nguyên nhân gây downtime lớn nhất từ lịch sử sự cố",
+          "Health check kèm tự khởi động lại hoặc failover"
+        ]
+      },
+      "O1-KR2": {
+        "hours_range": {
+          "min": 30,
+          "max": 50
+        },
+        "must_cover": [
+          "Profiling hoặc tracing để tìm điểm nghẽn",
+          "Tối ưu truy vấn DB (index, query) hoặc thêm cache",
+          "Load test xác nhận p95 sau tối ưu"
+        ]
+      },
+      "O1-KR3": {
+        "hours_range": {
+          "min": 20,
+          "max": 36
+        },
+        "must_cover": [
+          "Alerting có ngưỡng rõ ràng và quy trình người trực",
+          "Diễn tập sự cố (game day) ít nhất một lần và đo MTTR"
+        ]
+      },
+      "O2-KR1": {
+        "hours_range": {
+          "min": 36,
+          "max": 60
+        },
+        "must_cover": [
+          "Đo coverage hiện tại theo module và chọn module rủi ro cao",
+          "Viết test cho luồng thanh toán và hoàn tiền",
+          "Đặt ngưỡng coverage tối thiểu trong CI"
+        ]
+      },
+      "O2-KR2": {
+        "hours_range": {
+          "min": 12,
+          "max": 24
+        },
+        "must_cover": [
+          "Chọn 5 lỗi phổ biến nhất từ lịch sử sự cố",
+          "Viết runbook cho từng lỗi và review với team"
+        ]
+      }
+    },
+    "grader_notes": "Tổng giờ sát quỹ 237,6 giờ; kế hoạch vượt con số này thì tiêu chí khả thi tính 0. Runbook (O2-KR2) liên quan trực tiếp tới MTTR (O1-KR3): runbook đứng trước game day là hợp lý; viết runbook ở cả hai KR là trùng lặp. Load test phải phụ thuộc vào task tối ưu. Task chung chung kiểu 'Cải thiện hiệu năng' không có tiêu chí xong đo được thì tính là task không cụ thể."
+  }
+}
