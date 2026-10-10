@@ -550,7 +550,16 @@
       "dropped": "Dropped from plan",
       "droppedHint": "Bring it back from the Tasks page.",
       "summaryObjectives": "Objectives",
-      "summaryKrs": "KRs"
+      "summaryKrs": "KRs",
+      "paste": {
+        "title": "Describe your OKRs",
+        "placeholder": "O1: Pass the B2 English exam\n\nKR1: Enrol in a course around 20/10\nKR2: Study every day from 20/10 to 8/12, no missed sessions\nKR3: Take at least 6 mock tests, the last 3 at B2 level or above\nKR4: Pass the B2 exam around 8/12",
+        "hint": "Write \"O1:\" for an Objective and \"KR1:\", \"KR2:\"… for its Key Results (one per line); add \"O2:\" for the next Objective. Imported items appear below, where you can still edit them.",
+        "import": "Import OKRs",
+        "empty": "No Objective or Key Result found. Start lines with \"O1:\" and \"KR1:\".",
+        "imported": "Imported {objectives, plural, one {# Objective} other {# Objectives}} and {krs, plural, one {# KR} other {# KRs}}.",
+        "truncated": "Some items were left out: the limit is 10 Objectives and 10 KRs each."
+      }
     },
     "clarify": {
       "title": "{count, plural, one {AI needs to clarify # point} other {AI needs to clarify # points}} for OKRs {quarter}",

@@ -550,7 +550,16 @@
       "dropped": "Đã bỏ khỏi kế hoạch",
       "droppedHint": "Đưa lại vào kế hoạch ở trang Task.",
       "summaryObjectives": "Objective",
-      "summaryKrs": "KR"
+      "summaryKrs": "KR",
+      "paste": {
+        "title": "Mô tả OKR của bạn",
+        "placeholder": "O1: Chinh phục chứng chỉ tiếng Anh B2\n\nKR1: Đăng ký khóa học vào khoảng 20/10\nKR2: Học mỗi ngày từ 20/10 đến 8/12, không bỏ buổi nào\nKR3: Làm ít nhất 6 đề thi thử, 3 đề cuối đạt mức B2 trở lên\nKR4: Thi đạt B2 vào khoảng 8/12",
+        "hint": "Viết \"O1:\" cho Objective và \"KR1:\", \"KR2:\"… cho các Key Result (mỗi dòng một KR); thêm \"O2:\" cho Objective tiếp theo. Các mục nhập vào sẽ hiện bên dưới để bạn chỉnh tiếp.",
+        "import": "Nhập OKR",
+        "empty": "Không tìm thấy Objective hay Key Result nào. Hãy bắt đầu các dòng bằng \"O1:\" và \"KR1:\".",
+        "imported": "Đã nhập {objectives} Objective và {krs} KR.",
+        "truncated": "Một số mục bị bỏ qua: tối đa 10 Objective và mỗi Objective 10 KR."
+      }
     },
     "clarify": {
       "title": "{count, plural, other {AI cần làm rõ # điểm}} cho OKR {quarter}",

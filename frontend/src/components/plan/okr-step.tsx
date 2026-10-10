@@ -12,6 +12,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Textarea } from "@/components/ui/textarea";
 import { Spinner } from "@/components/ui/spinner";
 import { useApiErrorMessage } from "@/hooks/use-api-error-message";
 import { useLoad } from "@/hooks/use-load";
@@ -35,6 +36,7 @@ import {
   warnings,
 } from "@/lib/plan/okr-draft";
 import { type QuarterRef, findQuarter, quarterLabel, quarterRange, quarterSlug } from "@/lib/plan/quarter";
+import { parseOkrText } from "@/lib/plan/okr-text";
 import { getQuarterDetail, listQuarters, syncDraft } from "@/lib/plan/sync";
 
 import { fieldId, type ObjectiveActions, ObjectiveCard, useIssueText } from "./objective-card";
@@ -94,6 +96,8 @@ function OkrForm({ quarter, initial, summary }: { quarter: QuarterRef; initial: 
   const [savedAt, setSavedAt] = useState<number | null>(initial.savedAt);
   const [saveFailed, setSaveFailed] = useState(false);
   const [submit, setSubmit] = useState<Submit>({ state: "idle" });
+  const [pasted, setPasted] = useState("");
+  const [pasteError, setPasteError] = useState(false);
 
   const context = useMemo(
     () => buildContext(draft, { domain: t("domain"), constraints: t("constraints") }) ?? "",
@@ -197,6 +201,22 @@ function OkrForm({ quarter, initial, summary }: { quarter: QuarterRef; initial: 
       },
       touch,
     };
+  }
+
+  function importText() {
+    const { objectives, truncated } = parseOkrText(pasted);
+    if (objectives.length === 0) {
+      setPasteError(true);
+      return;
+    }
+    setPasteError(false);
+    // A draft that is still blank is replaced; otherwise the pasted OKRs are added after it.
+    const blank = (list: ObjectiveDraft[]) =>
+      list.every((o) => !o.title.trim() && o.keyResults.every((kr) => !kr.text.trim()));
+    edit((list) => (blank(list) ? objectives : [...list, ...objectives]));
+    setPasted("");
+    toast.success(t("paste.imported", { objectives: objectives.length, krs: objectives.reduce((n, o) => n + o.keyResults.length, 0) }));
+    if (truncated) toast.warning(t("paste.truncated"));
   }
 
   function addObjective() {
@@ -326,6 +346,35 @@ function OkrForm({ quarter, initial, summary }: { quarter: QuarterRef; initial: 
               </AlertDescription>
             </Alert>
           )}
+
+          <Card size="sm">
+            <CardHeader>
+              <CardTitle className="text-sm">{t("paste.title")}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-3">
+              <Textarea
+                value={pasted}
+                onChange={(e) => {
+                  setPasted(e.target.value);
+                  setPasteError(false);
+                }}
+                rows={7}
+                spellCheck={false}
+                className="font-mono text-sm"
+                placeholder={t("paste.placeholder")}
+                aria-label={t("paste.title")}
+                aria-invalid={pasteError || undefined}
+              />
+              <p className="text-xs text-muted-foreground">{t("paste.hint")}</p>
+              {pasteError && <p className="text-sm text-destructive">{t("paste.empty")}</p>}
+              <div>
+                <Button type="button" onClick={importText} disabled={!pasted.trim()}>
+                  <SparklesIcon data-icon="inline-start" />
+                  {t("paste.import")}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
           {draft.objectives.map((objective, index) => (
             <ObjectiveCard
