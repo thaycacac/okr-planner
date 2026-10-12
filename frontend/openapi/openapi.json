@@ -172,6 +172,68 @@
         }
       }
     },
+    "/okr/parse": {
+      "post": {
+        "tags": [
+          "okr"
+        ],
+        "summary": "Structure free-text OKRs with the selected AI provider",
+        "description": "Splits the text into Objectives and Key Results and guesses each KR's kind, target, unit\nand due date. Nothing is stored; the client adds the result to its draft.",
+        "operationId": "parse_okr_text_okr_parse_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OkrParseRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OkrParseResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not signed in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The AI provider failed or returned unusable output",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/quarters": {
       "get": {
         "tags": [
@@ -5052,6 +5114,156 @@
         "additionalProperties": false,
         "type": "object",
         "title": "ObjectiveUpdate"
+      },
+      "OkrParseKr": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/KeyResultKind"
+          },
+          "baseline": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Baseline"
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "due_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Due Date"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "kind",
+          "baseline",
+          "target",
+          "unit",
+          "due_date",
+          "note"
+        ],
+        "title": "OkrParseKr"
+      },
+      "OkrParseObjective": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/ObjectivePriority"
+          },
+          "key_results": {
+            "items": {
+              "$ref": "#/components/schemas/OkrParseKr"
+            },
+            "type": "array",
+            "title": "Key Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "priority",
+          "key_results"
+        ],
+        "title": "OkrParseObjective"
+      },
+      "OkrParseRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 8000,
+            "minLength": 1,
+            "title": "Text"
+          },
+          "year": {
+            "type": "integer",
+            "maximum": 2100,
+            "minimum": 2000,
+            "title": "Year"
+          },
+          "number": {
+            "type": "integer",
+            "maximum": 4,
+            "minimum": 1,
+            "title": "Number"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "year",
+          "number"
+        ],
+        "title": "OkrParseRequest",
+        "description": "Free-text OKRs plus the quarter they are planned for (the quarter need not exist yet)."
+      },
+      "OkrParseResult": {
+        "properties": {
+          "objectives": {
+            "items": {
+              "$ref": "#/components/schemas/OkrParseObjective"
+            },
+            "type": "array",
+            "title": "Objectives"
+          }
+        },
+        "type": "object",
+        "required": [
+          "objectives"
+        ],
+        "title": "OkrParseResult"
       },
       "OptionApplication": {
         "properties": {

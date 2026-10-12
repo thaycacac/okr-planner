@@ -15,6 +15,8 @@ export type LlmTestRequest = Schemas["LlmTestRequest"];
 export type LlmTestResult = Schemas["LlmTestResult"];
 export type LlmTestErrorCode = Schemas["LlmTestErrorCode"];
 
+export type OkrParseResult = Schemas["OkrParseResult"];
+
 export type QuarterSummary = Schemas["QuarterSummary"];
 export type QuarterDetail = Schemas["QuarterDetail"];
 export type ObjectiveOut = Schemas["ObjectiveOut"];

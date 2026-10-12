@@ -92,6 +92,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/okr/parse": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Structure free-text OKRs with the selected AI provider
+         * @description Splits the text into Objectives and Key Results and guesses each KR's kind, target, unit
+         *     and due date. Nothing is stored; the client adds the result to its draft.
+         */
+        post: operations["parse_okr_text_okr_parse_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/quarters": {
         parameters: {
             query?: never;
@@ -1300,6 +1321,47 @@ export interface components {
              */
             active?: boolean | null;
         };
+        /** OkrParseKr */
+        OkrParseKr: {
+            /** Text */
+            text: string;
+            kind: components["schemas"]["KeyResultKind"];
+            /** Baseline */
+            baseline: number | null;
+            /** Target */
+            target: number | null;
+            /** Unit */
+            unit: string | null;
+            /** Due Date */
+            due_date: string | null;
+            /** Note */
+            note: string | null;
+        };
+        /** OkrParseObjective */
+        OkrParseObjective: {
+            /** Title */
+            title: string;
+            priority: components["schemas"]["ObjectivePriority"];
+            /** Key Results */
+            key_results: components["schemas"]["OkrParseKr"][];
+        };
+        /**
+         * OkrParseRequest
+         * @description Free-text OKRs plus the quarter they are planned for (the quarter need not exist yet).
+         */
+        OkrParseRequest: {
+            /** Text */
+            text: string;
+            /** Year */
+            year: number;
+            /** Number */
+            number: number;
+        };
+        /** OkrParseResult */
+        OkrParseResult: {
+            /** Objectives */
+            objectives: components["schemas"]["OkrParseObjective"][];
+        };
         /** OptionApplication */
         OptionApplication: {
             /** Id */
@@ -2331,6 +2393,57 @@ export interface operations {
             };
             /** @description Not signed in */
             401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    parse_okr_text_okr_parse_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OkrParseRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OkrParseResult"];
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description The AI provider failed or returned unusable output */
+            502: {
                 headers: {
                     [name: string]: unknown;
                 };

@@ -37,6 +37,7 @@ def error_responses(*status_codes: int) -> dict[int | str, dict[str, Any]]:
         409: "Conflict with the current state",
         422: "Validation error",
         429: "Too many attempts",
+        502: "The AI provider failed or returned unusable output",
     }
     return {
         code: {"model": ErrorResponse, "description": descriptions.get(code, "Error")}

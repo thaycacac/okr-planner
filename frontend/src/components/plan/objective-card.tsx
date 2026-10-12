@@ -100,11 +100,13 @@ export function ObjectiveCard({
       className="rounded-xl border border-border bg-card shadow-xs"
       style={{ borderLeft: `4px solid ${objectiveColor(index)}` }}
     >
-      <div className="flex flex-wrap items-center gap-2 p-3 md:flex-nowrap">
-        <ObjectiveCode index={index} />
-        <div className="min-w-0 flex-1 basis-full md:basis-auto">
-          <Label htmlFor={fieldId(objective.key, "title")} className="sr-only">
-            {t("objectiveTitle", { code: `O${index + 1}` })}
+      <div className="flex flex-wrap items-end gap-2 p-3 md:flex-nowrap">
+        <div className="pb-2">
+          <ObjectiveCode index={index} />
+        </div>
+        <div className="flex min-w-0 flex-1 basis-full flex-col gap-1.5 md:basis-auto">
+          <Label htmlFor={fieldId(objective.key, "title")} className="text-xs text-muted-foreground">
+            {t("fields.objective")}
           </Label>
           <Input
             id={fieldId(objective.key, "title")}
@@ -122,21 +124,35 @@ export function ObjectiveCard({
             {t("paused")}
           </Badge>
         )}
-        <ToggleGroup
-          type="single"
-          size="sm"
-          variant="outline"
-          spacing={0}
-          value={objective.priority}
-          onValueChange={(value) => value && actions.update({ priority: value as ObjectivePriority })}
-          aria-label={t("priority")}
+        <div className="flex flex-col gap-1.5">
+          <span id={`${objective.key}-priority`} className="text-xs text-muted-foreground">
+            {t("fields.priority")}
+          </span>
+          <ToggleGroup
+            type="single"
+            size="sm"
+            variant="outline"
+            spacing={0}
+            value={objective.priority}
+            onValueChange={(value) => value && actions.update({ priority: value as ObjectivePriority })}
+            aria-labelledby={`${objective.key}-priority`}
+          >
+            {PRIORITIES.map((p) => (
+              <ToggleGroupItem key={p} value={p} className="px-3">
+                {t(`priorityShort.${p}`)}
+              </ToggleGroupItem>
+            ))}
+          </ToggleGroup>
+        </div>
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          onClick={actions.remove}
+          aria-label={t("deleteObjective", { code: `O${index + 1}` })}
+          title={t("deleteObjective", { code: `O${index + 1}` })}
         >
-          {PRIORITIES.map((p) => (
-            <ToggleGroupItem key={p} value={p} className="px-3">
-              {t(`priorityShort.${p}`)}
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
+          <Trash2Icon />
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon-sm" aria-label={t("objectiveMenu", { code: `O${index + 1}` })}>
@@ -276,10 +292,10 @@ function KrRow({ kr, code, issues, quarterStart, quarterEnd, onChange, onRemove,
 
   return (
     <li className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-lg border border-border p-3 md:grid-cols-[4.5rem_minmax(0,1fr)_9rem_auto] md:items-start md:border-0 md:p-0">
-      <span className="col-start-1 row-start-1 font-mono text-xs font-semibold text-muted-foreground md:pt-2">{code}</span>
-      <div className="col-span-2 flex flex-col gap-2 md:col-span-1 md:col-start-2 md:row-start-1">
-        <Label htmlFor={fieldId(kr.key, "text")} className="sr-only">
-          {t("krText", { code })}
+      <span className="col-start-1 row-start-1 font-mono text-xs font-semibold text-muted-foreground md:pt-7">{code}</span>
+      <div className="col-span-2 flex flex-col gap-1.5 md:col-span-1 md:col-start-2 md:row-start-1">
+        <Label htmlFor={fieldId(kr.key, "text")} className="text-xs text-muted-foreground">
+          {t("fields.keyResult")}
         </Label>
         <Input
           id={fieldId(kr.key, "text")}
@@ -303,18 +319,23 @@ function KrRow({ kr, code, issues, quarterStart, quarterEnd, onChange, onRemove,
           </p>
         )}
       </div>
-      <Select value={kr.kind} onValueChange={(value) => onChange({ kind: value as KeyResultKind })}>
-        <SelectTrigger className="col-span-2 w-full md:col-span-1 md:col-start-3 md:row-start-1" aria-label={t("kindFor", { code })}>
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {KINDS.map((kind) => (
-            <SelectItem key={kind} value={kind}>
-              {t(`kinds.${kind}`)}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      <div className="col-span-2 flex flex-col gap-1.5 md:col-span-1 md:col-start-3 md:row-start-1">
+        <Label htmlFor={`${kr.key}-kind`} className="text-xs text-muted-foreground">
+          {t("fields.kind")}
+        </Label>
+        <Select value={kr.kind} onValueChange={(value) => onChange({ kind: value as KeyResultKind })}>
+          <SelectTrigger id={`${kr.key}-kind`} className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {KINDS.map((kind) => (
+              <SelectItem key={kind} value={kind}>
+                {t(`kinds.${kind}`)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
       <div className="col-span-2 flex flex-col gap-2 empty:hidden md:col-span-1 md:col-start-2 md:row-start-2">
         {kr.kind === "numeric" && (
           <div className="grid grid-cols-3 gap-2">
@@ -387,7 +408,7 @@ function KrRow({ kr, code, issues, quarterStart, quarterEnd, onChange, onRemove,
       <Button
         variant="ghost"
         size="icon-sm"
-        className="col-start-2 row-start-1 justify-self-end md:col-start-4 md:mt-0.5"
+        className="col-start-2 row-start-1 justify-self-end md:col-start-4 md:mt-6"
         onClick={onRemove}
         aria-label={t("removeKr", { code })}
       >

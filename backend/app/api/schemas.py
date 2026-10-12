@@ -81,6 +81,34 @@ class QuarterPlanStartUpdate(_Input):
     plan_start: date | None
 
 
+class OkrParseRequest(_Input):
+    """Free-text OKRs plus the quarter they are planned for (the quarter need not exist yet)."""
+
+    text: str = Field(min_length=1, max_length=8000)
+    year: int = Field(ge=2000, le=2100)
+    number: int = Field(ge=1, le=4)
+
+
+class OkrParseKr(BaseModel):
+    text: str
+    kind: KeyResultKind
+    baseline: float | None
+    target: float | None
+    unit: str | None
+    due_date: date | None
+    note: str | None
+
+
+class OkrParseObjective(BaseModel):
+    title: str
+    priority: ObjectivePriority
+    key_results: list[OkrParseKr]
+
+
+class OkrParseResult(BaseModel):
+    objectives: list[OkrParseObjective]
+
+
 class QuarterCreate(_Input):
     year: int = Field(ge=2000, le=2100)
     number: int = Field(ge=1, le=4)

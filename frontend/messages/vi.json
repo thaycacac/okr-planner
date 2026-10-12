@@ -554,12 +554,21 @@
       "paste": {
         "title": "Mô tả OKR của bạn",
         "placeholder": "O1: Chinh phục chứng chỉ tiếng Anh B2\n\nKR1: Đăng ký khóa học vào khoảng 20/10\nKR2: Học mỗi ngày từ 20/10 đến 8/12, không bỏ buổi nào\nKR3: Làm ít nhất 6 đề thi thử, 3 đề cuối đạt mức B2 trở lên\nKR4: Thi đạt B2 vào khoảng 8/12",
-        "hint": "Viết \"O1:\" cho Objective và \"KR1:\", \"KR2:\"… cho các Key Result (mỗi dòng một KR); thêm \"O2:\" cho Objective tiếp theo. Các mục nhập vào sẽ hiện bên dưới để bạn chỉnh tiếp.",
-        "import": "Nhập OKR",
-        "empty": "Không tìm thấy Objective hay Key Result nào. Hãy bắt đầu các dòng bằng \"O1:\" và \"KR1:\".",
-        "imported": "Đã nhập {objectives} Objective và {krs} KR.",
-        "truncated": "Một số mục bị bỏ qua: tối đa 10 Objective và mỗi Objective 10 KR."
-      }
+        "hint": "Gõ hoặc dán một hay nhiều OKR rồi bấm \"Điền xuống bên dưới\": AI sẽ tách thành Objective và Key Result (loại, chỉ tiêu, hạn) dưới dạng các thẻ. Ô nhập được xóa để bạn thêm OKR tiếp theo. Các thẻ vẫn chỉnh sửa được; bấm biểu tượng thùng rác trên thẻ để xóa OKR.",
+        "truncated": "Một số mục bị bỏ qua: tối đa 10 Objective và mỗi Objective 10 KR.",
+        "fill": "Điền xuống bên dưới",
+        "filling": "Đang đọc OKR…",
+        "filled": "Đã thêm {objectives} Objective và {krs} KR xuống bên dưới.",
+        "aiFailed": "Không gọi được AI nên đã dùng nhận diện cơ bản. Hãy kiểm tra lại loại KR bên dưới.",
+        "empty": "Chưa có gì để thêm: hãy viết Objective (\"O1: …\") và các Key Result (\"KR1: …\")."
+      },
+      "fields": {
+        "objective": "Mục tiêu (Objective)",
+        "priority": "Mức ưu tiên",
+        "keyResult": "Kết quả then chốt (KR)",
+        "kind": "Loại KR"
+      },
+      "deleteObjective": "Xóa {code}"
     },
     "clarify": {
       "title": "{count, plural, other {AI cần làm rõ # điểm}} cho OKR {quarter}",

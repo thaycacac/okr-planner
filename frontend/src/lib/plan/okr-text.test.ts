@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
-import { parseOkrText } from "./okr-text";
+import { fromParsed, parseOkrText } from "./okr-text";
+
+const Q4 = { year: 2026, start: "2026-10-01", end: "2026-12-31" };
 
 const SAMPLE = `O1: Chinh phục chứng chỉ tiếng Anh B2
 
@@ -45,5 +47,55 @@ describe("parseOkrText", () => {
     const result = parseOkrText(many);
     expect(result.objectives[0].keyResults).toHaveLength(10);
     expect(result.truncated).toBe(true);
+  });
+});
+
+describe("detectKr", () => {
+  it("fills kind, due date and targets from the wording", () => {
+    const krs = parseOkrText(SAMPLE, Q4).objectives[0].keyResults;
+    expect(krs[0]).toMatchObject({ kind: "milestone", dueDate: "2026-10-20" });
+    expect(krs[1].kind).toBe("other");
+    expect(krs[2]).toMatchObject({ kind: "numeric", baseline: "0", target: "6", unit: "đề thi thử" });
+    expect(krs[3]).toMatchObject({ kind: "milestone", dueDate: "2026-12-08" });
+  });
+
+  it("ignores dates outside the quarter", () => {
+    const kr = parseOkrText("O1: A\nKR1: Ship on 5/2", Q4).objectives[0].keyResults[0];
+    expect(kr.kind).toBe("other");
+  });
+});
+
+describe("detectKr amounts", () => {
+  it("reads 'đạt N <unit>' without swallowing the period", () => {
+    const kr = parseOkrText(
+      "O1: Web\nKR1: KungfuTech đạt 1.000 lượt nhấp từ Google trong 28 ngày (theo Google Search Console)",
+      Q4,
+    ).objectives[0].keyResults[0];
+    expect(kr).toMatchObject({ kind: "numeric", baseline: "0", target: "1000", unit: "lượt nhấp" });
+  });
+
+  it("does not treat a level or a date after 'đạt' as an amount", () => {
+    const krs = parseOkrText("O1: A\nKR1: Thi đạt B2\nKR2: Hoàn thành đạt 8/12", Q4).objectives[0].keyResults;
+    expect(krs.map((k) => k.kind)).toEqual(["other", "milestone"]);
+  });
+});
+
+describe("fromParsed", () => {
+  it("maps API objectives to draft cards", () => {
+    const [o] = fromParsed({
+      objectives: [
+        {
+          title: "Grow",
+          priority: "high",
+          key_results: [
+            { text: "1000 clicks", kind: "numeric", baseline: 0, target: 1000, unit: "clicks", due_date: null, note: null },
+            { text: "Ship", kind: "milestone", baseline: null, target: null, unit: null, due_date: "2026-10-20", note: null },
+          ],
+        },
+      ],
+    });
+    expect(o).toMatchObject({ title: "Grow", priority: "high" });
+    expect(o.keyResults[0]).toMatchObject({ kind: "numeric", baseline: "0", target: "1000", unit: "clicks" });
+    expect(o.keyResults[1]).toMatchObject({ kind: "milestone", dueDate: "2026-10-20" });
   });
 });

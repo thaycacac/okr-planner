@@ -3,11 +3,13 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Query, Response, status
+from fastapi.concurrency import run_in_threadpool
+from pydantic import ValidationError
 from sqlalchemy import ColumnElement, func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import InstrumentedAttribute, Session
 
-from app.api.deps import Ctx, Db
+from app.api.deps import AppContext, Ctx, Db
 from app.api.errors import ApiError, error_responses, not_found
 from app.api.plans import active_run_exists, plan_in_progress
 from app.api.schemas import (
@@ -17,6 +19,9 @@ from app.api.schemas import (
     ObjectiveCreate,
     ObjectiveOut,
     ObjectiveUpdate,
+    OkrParseObjective,
+    OkrParseRequest,
+    OkrParseResult,
     QuarterCreate,
     QuarterDetail,
     QuarterPlanStartUpdate,
@@ -25,7 +30,13 @@ from app.api.schemas import (
     TaskOut,
 )
 from app.api.views import quarter_detail, quarter_schedule, quarter_summary
+from app.config import Settings
+from app.domain.quarter import Quarter as QuarterSpan
 from app.persistence.models import KeyResult, Objective, Quarter
+from app.planner_llm.okr_parse import ParsedOkr, normalize, okr_parse_prompt
+from app.planner_llm.pipeline import provider_semaphore
+from app.planner_llm.providers import InvalidJSONError, Prompt, ProviderError
+from app.services import llm_settings
 from app.services.scheduling import latest_schedule, period, quarter_tasks
 
 router = APIRouter()
@@ -70,6 +81,49 @@ def _new_key_result(body: KeyResultCreate, position: int) -> KeyResult:
         due_date=body.due_date,
         note=body.note,
         position=body.position if body.position is not None else position,
+    )
+
+
+# --- free-text OKR input ----------------------------------------------------------------------
+
+
+def _effective_settings(ctx: AppContext) -> Settings:
+    with ctx.session_factory() as session:
+        return llm_settings.effective_settings(session, ctx.settings)
+
+
+@router.post(
+    "/okr/parse",
+    tags=["okr"],
+    summary="Structure free-text OKRs with the selected AI provider",
+    responses=error_responses(422, 502),
+)
+async def parse_okr_text(body: OkrParseRequest, ctx: Ctx) -> OkrParseResult:
+    """Splits the text into Objectives and Key Results and guesses each KR's kind, target, unit
+    and due date. Nothing is stored; the client adds the result to its draft."""
+    span = QuarterSpan(year=body.year, number=body.number)
+    system, user = okr_parse_prompt(body.text, span.start, span.end)
+    settings = await run_in_threadpool(_effective_settings, ctx)
+    provider = await ctx.jobs.provider_resolver(settings)
+    parsed: ParsedOkr | None = None
+    for attempt in range(2):
+        try:
+            async with provider_semaphore(provider):
+                raw = await provider.generate_json(
+                    Prompt(step="decompose", system=system, user=user, attempt=attempt),
+                    ParsedOkr,
+                )
+            parsed = ParsedOkr.model_validate(raw)
+            break
+        except (InvalidJSONError, ValidationError):
+            continue
+        except ProviderError as exc:
+            raise ApiError(502, "llm_unavailable", str(exc) or type(exc).__name__) from exc
+    if parsed is None:
+        raise ApiError(502, "llm_invalid_output", "The AI returned an unusable answer")
+    cleaned = normalize(parsed, span.start, span.end)
+    return OkrParseResult(
+        objectives=[OkrParseObjective.model_validate(o.model_dump()) for o in cleaned.objectives]
     )
 
 

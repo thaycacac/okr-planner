@@ -36,7 +36,7 @@ import {
   warnings,
 } from "@/lib/plan/okr-draft";
 import { type QuarterRef, findQuarter, quarterLabel, quarterRange, quarterSlug } from "@/lib/plan/quarter";
-import { parseOkrText } from "@/lib/plan/okr-text";
+import { fromParsed, parseOkrText } from "@/lib/plan/okr-text";
 import { getQuarterDetail, listQuarters, syncDraft } from "@/lib/plan/sync";
 
 import { fieldId, type ObjectiveActions, ObjectiveCard, useIssueText } from "./objective-card";
@@ -96,8 +96,8 @@ function OkrForm({ quarter, initial, summary }: { quarter: QuarterRef; initial: 
   const [savedAt, setSavedAt] = useState<number | null>(initial.savedAt);
   const [saveFailed, setSaveFailed] = useState(false);
   const [submit, setSubmit] = useState<Submit>({ state: "idle" });
-  const [pasted, setPasted] = useState("");
-  const [pasteError, setPasteError] = useState(false);
+  const [source, setSource] = useState("");
+  const [filling, setFilling] = useState(false);
 
   const context = useMemo(
     () => buildContext(draft, { domain: t("domain"), constraints: t("constraints") }) ?? "",
@@ -203,20 +203,35 @@ function OkrForm({ quarter, initial, summary }: { quarter: QuarterRef; initial: 
     };
   }
 
-  function importText() {
-    const { objectives, truncated } = parseOkrText(pasted);
-    if (objectives.length === 0) {
-      setPasteError(true);
+  // The text box is a staging area: describe one or more OKRs, press the button, and the
+  // structured cards are appended below. Then the box is free for the next batch.
+  async function fillFromText() {
+    const text = source.trim();
+    if (!text || filling) return;
+    setFilling(true);
+    let parsed: ObjectiveDraft[];
+    let usedFallback = false;
+    try {
+      const { data } = await api.POST("/okr/parse", { body: { text, year: quarter.year, number: quarter.number } });
+      if (!data || data.objectives.length === 0) throw new Error("no result");
+      parsed = fromParsed(data);
+    } catch {
+      parsed = parseOkrText(text, { year: quarter.year, ...range }).objectives;
+      usedFallback = true;
+    }
+    setFilling(false);
+    if (parsed.length === 0) {
+      toast.error(t("paste.empty"));
       return;
     }
-    setPasteError(false);
-    // A draft that is still blank is replaced; otherwise the pasted OKRs are added after it.
     const blank = (list: ObjectiveDraft[]) =>
       list.every((o) => !o.title.trim() && o.keyResults.every((kr) => !kr.text.trim()));
-    edit((list) => (blank(list) ? objectives : [...list, ...objectives]));
-    setPasted("");
-    toast.success(t("paste.imported", { objectives: objectives.length, krs: objectives.reduce((n, o) => n + o.keyResults.length, 0) }));
-    if (truncated) toast.warning(t("paste.truncated"));
+    edit((list) => (blank(list) ? parsed : [...list, ...parsed]));
+    setSource("");
+    toast.success(
+      t("paste.filled", { objectives: parsed.length, krs: parsed.reduce((n, o) => n + o.keyResults.length, 0) }),
+    );
+    if (usedFallback) toast.warning(t("paste.aiFailed"));
   }
 
   function addObjective() {
@@ -349,28 +364,29 @@ function OkrForm({ quarter, initial, summary }: { quarter: QuarterRef; initial: 
 
           <Card size="sm">
             <CardHeader>
-              <CardTitle className="text-sm">{t("paste.title")}</CardTitle>
+              <CardTitle className="text-sm">
+                <label htmlFor="okr-source">{t("paste.title")}</label>
+              </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col gap-3">
+            <CardContent className="flex flex-col gap-2">
               <Textarea
-                value={pasted}
-                onChange={(e) => {
-                  setPasted(e.target.value);
-                  setPasteError(false);
-                }}
-                rows={7}
+                id="okr-source"
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+                disabled={filling}
+                rows={8}
                 spellCheck={false}
                 className="font-mono text-sm"
                 placeholder={t("paste.placeholder")}
-                aria-label={t("paste.title")}
-                aria-invalid={pasteError || undefined}
+                aria-describedby="okr-source-hint"
               />
-              <p className="text-xs text-muted-foreground">{t("paste.hint")}</p>
-              {pasteError && <p className="text-sm text-destructive">{t("paste.empty")}</p>}
+              <p id="okr-source-hint" className="text-xs text-muted-foreground">
+                {t("paste.hint")}
+              </p>
               <div>
-                <Button type="button" onClick={importText} disabled={!pasted.trim()}>
-                  <SparklesIcon data-icon="inline-start" />
-                  {t("paste.import")}
+                <Button type="button" onClick={() => void fillFromText()} disabled={!source.trim() || filling}>
+                  {filling ? <Spinner aria-hidden role="presentation" /> : <SparklesIcon data-icon="inline-start" />}
+                  {filling ? t("paste.filling") : t("paste.fill")}
                 </Button>
               </div>
             </CardContent>
