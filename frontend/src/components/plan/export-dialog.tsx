@@ -8,16 +8,44 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Spinner } from "@/components/ui/spinner";
 import { api } from "@/lib/api/client";
-import type { ExportFormat, ExportSheet, QuarterSummary } from "@/lib/api/types";
-import { exportFileName, fileNameFromDisposition } from "@/lib/plan/export";
+import type { ExportSheet, QuarterSummary } from "@/lib/api/types";
+import {
+  browserUtcOffset,
+  defaultDondonTag,
+  dondonFileName,
+  type ExportMode,
+  exportFileName,
+  fileNameFromDisposition,
+  formatUtcOffset,
+  isDondonEmail,
+  utcOffsetOptions,
+} from "@/lib/plan/export";
 import { quarterLabel, toRef } from "@/lib/plan/quarter";
 
 const SHEETS: readonly ExportSheet[] = ["tasks", "days", "weeks"];
+const EMAIL_KEY = "okr.dondonEmail";
+
+function savedEmail(): string {
+  try {
+    return window.localStorage.getItem(EMAIL_KEY) ?? "";
+  } catch {
+    return "";
+  }
+}
+
+function rememberEmail(email: string) {
+  try {
+    window.localStorage.setItem(EMAIL_KEY, email);
+  } catch {
+    // Private mode or blocked storage: the field simply starts empty next time.
+  }
+}
 
 export function ExportButton({ quarter }: { quarter: QuarterSummary }) {
   const t = useTranslations("plan.export");
@@ -47,28 +75,53 @@ export function ExportDialog({
   const t = useTranslations("plan.export");
   const locale = useLocale();
   const [quarterId, setQuarterId] = useState<number | null>(initialQuarterId);
-  const [format, setFormat] = useState<ExportFormat>("xlsx");
+  const [format, setFormat] = useState<ExportMode>("xlsx");
+  const [email, setEmail] = useState(savedEmail);
+  const [tagEdit, setTagEdit] = useState<string | null>(null);
+  const [workStart, setWorkStart] = useState("09:00");
+  const [offset, setOffset] = useState(() => browserUtcOffset());
+  const [mapPriority, setMapPriority] = useState(true);
+  const [keepStatus, setKeepStatus] = useState(true);
   const [sheet, setSheet] = useState<ExportSheet>("tasks");
   const [details, setDetails] = useState(false);
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   const selected = quarters.find((q) => q.id === (quarterId ?? initialQuarterId)) ?? quarters[0];
   const empty = !selected || selected.task_count === 0;
-  const fileName = selected ? exportFileName(toRef(selected), format, format === "csv" ? sheet : null) : "";
+  const tag = tagEdit ?? (selected ? defaultDondonTag(toRef(selected), locale) : "");
+  const sql = format === "dondon";
+  const sqlInvalid = sql && (!isDondonEmail(email) || !tag.trim() || !/^([01]\d|2[0-3]):[0-5]\d$/.test(workStart));
+  const fileName = !selected
+    ? ""
+    : sql
+      ? dondonFileName(toRef(selected))
+      : exportFileName(toRef(selected), format, format === "csv" ? sheet : null);
 
   async function download() {
     if (!selected) return;
     setBusy(true);
     setFailed(false);
-    const { data, response } = await api
-      .GET("/quarters/{quarter_id}/export", {
-        params: {
-          path: { quarter_id: selected.id },
-          query: { format, sheet: format === "csv" ? sheet : undefined, lang: locale === "en" ? "en" : "vi", details },
-        },
-        parseAs: "blob",
-      })
-      .catch(() => ({ data: undefined, response: undefined }));
+    const request = sql
+      ? api.POST("/quarters/{quarter_id}/export/dondon-sql", {
+          params: { path: { quarter_id: selected.id } },
+          body: {
+            email: email.trim(),
+            tag_name: tag.trim(),
+            work_start: workStart,
+            utc_offset_minutes: offset,
+            map_priority: mapPriority,
+            keep_status: keepStatus,
+          },
+          parseAs: "blob",
+        })
+      : api.GET("/quarters/{quarter_id}/export", {
+          params: {
+            path: { quarter_id: selected.id },
+            query: { format, sheet: format === "csv" ? sheet : undefined, lang: locale === "en" ? "en" : "vi", details },
+          },
+          parseAs: "blob",
+        });
+    const { data, response } = await request.catch(() => ({ data: undefined, response: undefined }));
     setBusy(false);
     if (!data || !response?.ok) {
       setFailed(true);
@@ -82,6 +135,7 @@ export function ExportDialog({
     link.click();
     link.remove();
     URL.revokeObjectURL(url);
+    if (sql) rememberEmail(email.trim());
     onOpenChange(false);
   }
 
@@ -120,7 +174,7 @@ export function ExportDialog({
 
           <fieldset className="flex flex-col gap-2">
             <legend className="mb-1.5 text-sm font-medium">{t("format")}</legend>
-            <RadioGroup value={format} onValueChange={(v) => setFormat(v as ExportFormat)} className="gap-2">
+            <RadioGroup value={format} onValueChange={(v) => setFormat(v as ExportMode)} className="gap-2">
               <Label className="flex items-start gap-2 font-normal">
                 <RadioGroupItem value="xlsx" className="mt-0.5" />
                 <span>
@@ -135,8 +189,70 @@ export function ExportDialog({
                   <span className="block text-xs text-muted-foreground">{t("csvHint")}</span>
                 </span>
               </Label>
+              <Label className="flex items-start gap-2 font-normal">
+                <RadioGroupItem value="dondon" className="mt-0.5" />
+                <span>
+                  <span className="font-medium">{t("dondon.title")}</span>
+                  <span className="block text-xs text-muted-foreground">{t("dondon.hint")}</span>
+                </span>
+              </Label>
             </RadioGroup>
           </fieldset>
+
+          {sql && (
+            <div className="flex flex-col gap-3 rounded-lg border border-border p-3">
+              <div className="flex flex-col gap-1.5">
+                <Label htmlFor="dondon-email">{t("dondon.email")}</Label>
+                <Input
+                  id="dondon-email"
+                  type="email"
+                  autoComplete="email"
+                  spellCheck={false}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  aria-invalid={email !== "" && !isDondonEmail(email) ? true : undefined}
+                  aria-describedby="dondon-email-hint"
+                />
+                <p id="dondon-email-hint" className="text-xs text-muted-foreground">
+                  {email !== "" && !isDondonEmail(email) ? t("dondon.emailInvalid") : t("dondon.emailHint")}
+                </p>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <Label htmlFor="dondon-tag">{t("dondon.tag")}</Label>
+                <Input id="dondon-tag" maxLength={100} value={tag} onChange={(e) => setTagEdit(e.target.value)} />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex flex-col gap-1.5">
+                  <Label htmlFor="dondon-start">{t("dondon.workStart")}</Label>
+                  <Input id="dondon-start" type="time" value={workStart} onChange={(e) => setWorkStart(e.target.value)} />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <Label htmlFor="dondon-zone">{t("dondon.timezone")}</Label>
+                  <Select value={String(offset)} onValueChange={(v) => setOffset(Number(v))}>
+                    <SelectTrigger id="dondon-zone" className="w-full">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {utcOffsetOptions(offset).map((minutes) => (
+                        <SelectItem key={minutes} value={String(minutes)}>
+                          {formatUtcOffset(minutes)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <Label className="flex items-start gap-2 font-normal">
+                <Checkbox checked={mapPriority} onCheckedChange={(v) => setMapPriority(v === true)} className="mt-0.5" />
+                {t("dondon.mapPriority")}
+              </Label>
+              <Label className="flex items-start gap-2 font-normal">
+                <Checkbox checked={keepStatus} onCheckedChange={(v) => setKeepStatus(v === true)} className="mt-0.5" />
+                {t("dondon.keepStatus")}
+              </Label>
+              <p className="text-xs text-muted-foreground">{t("dondon.howToRun")}</p>
+            </div>
+          )}
 
           {format === "csv" && (
             <div className="flex flex-col gap-1.5">
@@ -156,10 +272,12 @@ export function ExportDialog({
             </div>
           )}
 
+          {!sql && (
           <Label className="flex items-start gap-2 font-normal">
             <Checkbox checked={details} onCheckedChange={(v) => setDetails(v === true)} className="mt-0.5" />
             {t("details")}
           </Label>
+          )}
 
           <p className="flex items-center gap-2 text-xs text-muted-foreground">
             <ShieldCheckIcon className="size-4 shrink-0" aria-hidden />
@@ -178,7 +296,7 @@ export function ExportDialog({
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={busy}>
             {t("cancel")}
           </Button>
-          <Button onClick={() => void download()} disabled={busy || empty}>
+          <Button onClick={() => void download()} disabled={busy || empty || sqlInvalid}>
             {busy ? <Spinner data-icon="inline-start" /> : <DownloadIcon data-icon="inline-start" />}
             {failed ? t("retry") : t("download", { file: fileName })}
           </Button>

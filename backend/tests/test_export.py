@@ -150,3 +150,91 @@ def test_export_errors(api: ApiHarness) -> None:
 def test_cells_that_look_like_formulas_are_quoted(prefix: str) -> None:
     assert text(f"{prefix}1+1") == f"'{prefix}1+1"
     assert text("Plain 1+1") == "Plain 1+1"
+
+
+# --- dondon SQL -----------------------------------------------------------------------------
+
+DONDON = {"email": "me@example.com", "tag_name": "OKR Quý 4"}
+
+
+def _dondon(api: ApiHarness, quarter_id: int, **body: Any) -> Any:
+    return api.client.post(f"/quarters/{quarter_id}/export/dondon-sql", json={**DONDON, **body})
+
+
+def test_dondon_sql_is_one_guarded_transaction_with_a_row_per_task(api: ApiHarness) -> None:
+    quarter_id, schedule = _setup(api)
+    response = _dondon(api, quarter_id)
+    assert response.status_code == 200, response.text
+    assert response.headers["content-type"].startswith("application/sql")
+    assert "okr-q4-2026-dondon.sql" in response.headers["content-disposition"]
+    sql = response.text
+    assert sql.index("START TRANSACTION;") < sql.index("COMMIT;")
+    assert "WHERE email = 'me@example.com'" in sql
+    assert sql.count("INSERT INTO tasks") == len(schedule["tasks"])
+    assert sql.count("INSERT INTO task_tags") == len(schedule["tasks"])
+    assert "'OKR Quý 4'" in sql
+    assert "list_type = 'task'" in sql
+
+
+def test_dondon_sql_converts_dates_to_utc_and_maps_priority(api: ApiHarness) -> None:
+    quarter_id, _ = _setup(api)
+    sql = _dondon(api, quarter_id, work_start="09:30", utc_offset_minutes=420).text
+    # The pinned low-priority task starts on 2026-10-12 09:30 local = 02:30 UTC.
+    assert "'2026-10-12 02:30:00'" in sql
+    # Date-only due dates are local midnight, i.e. 17:00 UTC the day before.
+    assert " 17:00:00'" in sql
+    assert ", 3, 0, 'todo'" in sql  # high priority objective, not done
+    assert ", 1, 0, 'todo'" in sql  # low priority objective
+    flat = _dondon(api, quarter_id, map_priority=False).text
+    assert ", 3, 0, 'todo'" not in flat
+
+
+def test_dondon_sql_keeps_or_resets_the_status(api: ApiHarness) -> None:
+    quarter_id, _ = _setup(api)
+    task = api.client.get(f"/quarters/{quarter_id}/tasks").json()[0]["id"]
+    assert api.client.patch(f"/tasks/{task}", json={"status": "done"}).status_code == 200
+    assert "'done'" in _dondon(api, quarter_id).text
+    assert "'done'" not in _dondon(api, quarter_id, keep_status=False).text
+
+
+def test_dondon_sql_escapes_hostile_text(api: ApiHarness) -> None:
+    quarter_id = _quarter(api)
+    _, kr = _objective(api, quarter_id)
+    task = _task(api, kr, 60)
+    nasty = "x'); DROP TABLE users; -- \\ \nline\x00"
+    assert api.client.patch(f"/tasks/{task}", json={"title": nasty[:60]}).status_code == 200
+    sql = _dondon(api, quarter_id, tag_name="it's \\").text
+    assert "DROP TABLE users; --" in sql  # present only as text inside a string literal
+    assert "'x''); DROP TABLE users;" in sql
+    assert "\x00" not in sql and "\0" not in sql
+    assert "'it''s \\\\'" in sql
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        {"email": "not-an-email"},
+        {"email": "a'b@example.com"},
+        {"email": "a@b.com; DROP TABLE users"},
+        {"tag_name": "   "},
+        {"work_start": "25:00"},
+        {"utc_offset_minutes": 900},
+        {"extra": 1},
+    ],
+)
+def test_dondon_sql_rejects_bad_input(api: ApiHarness, body: dict[str, Any]) -> None:
+    quarter_id, _ = _setup(api)
+    assert _dondon(api, quarter_id, **body).status_code == 422
+
+
+def test_dondon_sql_for_a_missing_quarter_is_404(api: ApiHarness) -> None:
+    assert _dondon(api, 999).status_code == 404
+
+
+def test_dondon_sql_writes_ids_as_32_hex_characters(api: ApiHarness) -> None:
+    """The dondon app binds ids without dashes; rows written with UUID() stay invisible to it."""
+    quarter_id, schedule = _setup(api)
+    sql = _dondon(api, quarter_id).text
+    new_id = "REPLACE(UUID(), '-', '')"
+    assert sql.count(new_id) == 1 + 2 * len(schedule["tasks"])  # tag, then task and link per task
+    assert sql.count("UUID()") == sql.count(new_id)

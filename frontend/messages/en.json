@@ -1044,7 +1044,20 @@
       "failed": "Could not download the file.",
       "cancel": "Cancel",
       "retry": "Retry",
-      "download": "Download {file}"
+      "download": "Download {file}",
+      "dondon": {
+        "title": "SQL for dondon",
+        "hint": "A MySQL script that adds the tasks to a dondon account's Inbox",
+        "email": "dondon account email",
+        "emailHint": "Used to find the account when the script runs. Nothing is sent to dondon.",
+        "emailInvalid": "Enter a plain email address.",
+        "tag": "Tag for the tasks",
+        "workStart": "Start time of day",
+        "timezone": "Time zone",
+        "mapPriority": "Map Objective priority to dondon priority",
+        "keepStatus": "Keep done / in-progress status",
+        "howToRun": "Run it in dondon's database, e.g. mysql -u USER -p DATABASE < file.sql. It runs in one transaction and stops with nothing saved if the email or Inbox is not found. Running it again does not duplicate tasks."
+      }
     },
     "workload": {
       "title": "Workload",

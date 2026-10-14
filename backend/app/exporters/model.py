@@ -33,6 +33,7 @@ class TaskRow:
     late_reason: str | None
     done_criteria: str
     depends_on: tuple[int, ...]
+    objective_priority: str = "medium"
 
 
 @dataclass(frozen=True)

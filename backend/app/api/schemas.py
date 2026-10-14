@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.domain.calendar_config import MAX_WORKDAY_MINUTES
+from app.exporters.dondon_sql import SAFE_EMAIL
 from app.scheduler.models import UnscheduledReason, WarningCode, WarningLevel
 
 MAX_DAY_MINUTES = MAX_WORKDAY_MINUTES
@@ -946,6 +947,33 @@ class OptionApplication(BaseModel):
 class ExportFormat(StrEnum):
     xlsx = "xlsx"
     csv = "csv"
+
+
+class DondonSqlExportRequest(_Input):
+    """Which dondon account receives the tasks and how dates and fields are written."""
+
+    email: str = Field(min_length=3, max_length=255, description="Email of the dondon account")
+    tag_name: str = Field(min_length=1, max_length=100)
+    work_start: str = Field(default="09:00", pattern=r"^([01]\d|2[0-3]):[0-5]\d$")
+    utc_offset_minutes: int = Field(default=420, ge=-840, le=840)
+    map_priority: bool = True
+    keep_status: bool = True
+
+    @field_validator("email")
+    @classmethod
+    def _email(cls, value: str) -> str:
+        value = value.strip()
+        if not SAFE_EMAIL.match(value):
+            raise ValueError("must be a valid email address")
+        return value
+
+    @field_validator("tag_name")
+    @classmethod
+    def _tag(cls, value: str) -> str:
+        value = " ".join(value.split())
+        if not value:
+            raise ValueError("must not be blank")
+        return value
 
 
 class ExportSheet(StrEnum):

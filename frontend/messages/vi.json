@@ -1044,7 +1044,20 @@
       "failed": "Không tải được tệp.",
       "cancel": "Hủy",
       "retry": "Thử lại",
-      "download": "Tải {file}"
+      "download": "Tải {file}",
+      "dondon": {
+        "title": "SQL cho dondon",
+        "hint": "Script MySQL thêm các task vào Inbox của một tài khoản dondon",
+        "email": "Email tài khoản dondon",
+        "emailHint": "Dùng để tìm tài khoản khi chạy script. Không có gì được gửi tới dondon.",
+        "emailInvalid": "Hãy nhập một địa chỉ email thông thường.",
+        "tag": "Tag gắn cho các task",
+        "workStart": "Giờ bắt đầu trong ngày",
+        "timezone": "Múi giờ",
+        "mapPriority": "Chuyển độ ưu tiên của Objective sang độ ưu tiên của dondon",
+        "keepStatus": "Giữ trạng thái đã xong / đang làm",
+        "howToRun": "Chạy trong database của dondon, ví dụ: mysql -u USER -p DATABASE < file.sql. Script chạy trong một transaction và dừng, không lưu gì, nếu không thấy email hoặc Inbox. Chạy lại không tạo task trùng."
+      }
     },
     "workload": {
       "title": "Khối lượng công việc",

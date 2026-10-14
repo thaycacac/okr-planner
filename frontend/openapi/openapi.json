@@ -93,16 +93,6 @@
               }
             }
           },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          },
           "429": {
             "description": "Too many attempts",
             "content": {
@@ -119,6 +109,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -2291,6 +2291,80 @@
         }
       }
     },
+    "/quarters/{quarter_id}/export/dondon-sql": {
+      "post": {
+        "tags": [
+          "export"
+        ],
+        "summary": "Export Dondon Sql",
+        "description": "A script that adds the quarter's tasks to the Inbox of one dondon account, tagged.\n\nPOST so the email stays out of URLs and logs. Nothing is sent to dondon: the file is meant\nto be run by hand in its database.",
+        "operationId": "export_dondon_sql_quarters__quarter_id__export_dondon_sql_post",
+        "parameters": [
+          {
+            "name": "quarter_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Quarter Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DondonSqlExportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "MySQL script, sent as an attachment",
+            "content": {
+              "application/sql; charset=utf-8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not signed in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/quarters/{quarter_id}/calendar": {
       "get": {
         "tags": [
@@ -3775,6 +3849,54 @@
         ],
         "title": "DayOffReason"
       },
+      "DondonSqlExportRequest": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 3,
+            "title": "Email",
+            "description": "Email of the dondon account"
+          },
+          "tag_name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Tag Name"
+          },
+          "work_start": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+            "title": "Work Start",
+            "default": "09:00"
+          },
+          "utc_offset_minutes": {
+            "type": "integer",
+            "maximum": 840.0,
+            "minimum": -840.0,
+            "title": "Utc Offset Minutes",
+            "default": 420
+          },
+          "map_priority": {
+            "type": "boolean",
+            "title": "Map Priority",
+            "default": true
+          },
+          "keep_status": {
+            "type": "boolean",
+            "title": "Keep Status",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "email",
+          "tag_name"
+        ],
+        "title": "DondonSqlExportRequest",
+        "description": "Which dondon account receives the tasks and how dates and fields are written."
+      },
       "ErrorDetail": {
         "properties": {
           "code": {
@@ -3790,7 +3912,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3802,7 +3924,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -4191,7 +4313,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -4510,7 +4632,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -4850,7 +4972,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -4936,8 +5058,8 @@
           },
           "progress": {
             "type": "number",
-            "maximum": 1,
-            "minimum": 0,
+            "maximum": 1.0,
+            "minimum": 0.0,
             "title": "Progress"
           },
           "expected_value": {
@@ -4978,7 +5100,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -5090,7 +5212,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -5228,14 +5350,14 @@
           },
           "year": {
             "type": "integer",
-            "maximum": 2100,
-            "minimum": 2000,
+            "maximum": 2100.0,
+            "minimum": 2000.0,
             "title": "Year"
           },
           "number": {
             "type": "integer",
-            "maximum": 4,
-            "minimum": 1,
+            "maximum": 4.0,
+            "minimum": 1.0,
             "title": "Number"
           }
         },
@@ -5811,8 +5933,8 @@
           },
           "minutes": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 1,
+            "maximum": 720.0,
+            "minimum": 1.0,
             "title": "Minutes"
           }
         },
@@ -6050,8 +6172,8 @@
           },
           "percent": {
             "type": "integer",
-            "maximum": 100,
-            "minimum": 0,
+            "maximum": 100.0,
+            "minimum": 0.0,
             "title": "Percent"
           }
         },
@@ -6624,14 +6746,14 @@
         "properties": {
           "year": {
             "type": "integer",
-            "maximum": 2100,
-            "minimum": 2000,
+            "maximum": 2100.0,
+            "minimum": 2000.0,
             "title": "Year"
           },
           "number": {
             "type": "integer",
-            "maximum": 4,
-            "minimum": 1,
+            "maximum": 4.0,
+            "minimum": 1.0,
             "title": "Number"
           }
         },
@@ -7270,8 +7392,8 @@
           },
           "estimate_minutes": {
             "type": "integer",
-            "maximum": 2400,
-            "minimum": 1,
+            "maximum": 2400.0,
+            "minimum": 1.0,
             "title": "Estimate Minutes"
           },
           "depends_on": {
@@ -7286,7 +7408,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -7562,8 +7684,8 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 2400,
-                "minimum": 1
+                "maximum": 2400.0,
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -7600,7 +7722,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -7701,44 +7823,44 @@
         "properties": {
           "mon": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Mon"
           },
           "tue": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Tue"
           },
           "wed": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Wed"
           },
           "thu": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Thu"
           },
           "fri": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Fri"
           },
           "sat": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Sat"
           },
           "sun": {
             "type": "integer",
-            "maximum": 720,
-            "minimum": 0,
+            "maximum": 720.0,
+            "minimum": 0.0,
             "title": "Sun"
           }
         },

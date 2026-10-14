@@ -55,6 +55,7 @@ def export_data(
                 late_reason=late.get(task.id),
                 done_criteria=task.done_criteria,
                 depends_on=tuple(task.depends_on),
+                objective_priority=task.key_result.objective.priority,
             )
         )
 

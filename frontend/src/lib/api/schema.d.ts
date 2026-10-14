@@ -531,6 +531,29 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/quarters/{quarter_id}/export/dondon-sql": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Export Dondon Sql
+         * @description A script that adds the quarter's tasks to the Inbox of one dondon account, tagged.
+         *
+         *     POST so the email stays out of URLs and logs. Nothing is sent to dondon: the file is meant
+         *     to be run by hand in its database.
+         */
+        post: operations["export_dondon_sql_quarters__quarter_id__export_dondon_sql_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/quarters/{quarter_id}/calendar": {
         parameters: {
             query?: never;
@@ -877,6 +900,39 @@ export interface components {
          * @enum {string}
          */
         DayOffReason: "weekend" | "holiday" | "leave" | "no_capacity";
+        /**
+         * DondonSqlExportRequest
+         * @description Which dondon account receives the tasks and how dates and fields are written.
+         */
+        DondonSqlExportRequest: {
+            /**
+             * Email
+             * @description Email of the dondon account
+             */
+            email: string;
+            /** Tag Name */
+            tag_name: string;
+            /**
+             * Work Start
+             * @default 09:00
+             */
+            work_start: string;
+            /**
+             * Utc Offset Minutes
+             * @default 420
+             */
+            utc_offset_minutes: number;
+            /**
+             * Map Priority
+             * @default true
+             */
+            map_priority: boolean;
+            /**
+             * Keep Status
+             * @default true
+             */
+            keep_status: boolean;
+        };
         /** ErrorDetail */
         ErrorDetail: {
             /**
@@ -3959,6 +4015,59 @@ export interface operations {
                 content: {
                     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": string;
                     "text/csv; charset=utf-8": string;
+                };
+            };
+            /** @description Not signed in */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    export_dondon_sql_quarters__quarter_id__export_dondon_sql_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                quarter_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DondonSqlExportRequest"];
+            };
+        };
+        responses: {
+            /** @description MySQL script, sent as an attachment */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/sql; charset=utf-8": string;
                 };
             };
             /** @description Not signed in */
